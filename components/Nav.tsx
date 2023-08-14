@@ -1,47 +1,30 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { LinkButton } from './Button';
-import { Image } from 'next/image';
+import Image from 'next/image'
+import Link from 'next/link';
 
 const Nav = (): JSX.Element => {
   const router = useRouter();
   return (
-    <div className="fixed flex py-4 px-4">
-      <LinkButton
-        label="Nav"
-        styles={'text-white font-inter font-medium text-md leading-6'}
-        onPress={() => router.push('/')}
-      />
-      <LinkButton
-        label="Home"
-        styles={'text-white font-inter font-medium text-md leading-6'}
-        onPress={() => router.push('/login')}
-      />
-      <LinkButton
-        label="Services"
-        styles={'text-white font-inter font-medium text-md leading-6'}
-        onPress={() => router.push('/register')}
-      />
-      <LinkButton
-        label="Teams"
-        styles={'text-white font-inter font-medium text-md leading-6'}
-        onPress={() => router.push('/courses')}
-      />
-      <LinkButton
-        label="Testimonials"
-        onPress={() => router.push('/courses/python')}
-      />
-      <div className="right-0">
-        <LinkButton
-          label="Login"
-          styles={'text-white font-inter font-medium text-md leading-6'}
-          onPress={() => router.push('/login')}
-        />
-        <LinkButton
-          label="Register"
-          styles={'text-white font-inter font-medium text-md leading-6'}
-          onPress={() => router.push('/register')}
-        />
+    <div className="flex pt-10" style={{backgroundColor: "#53389E"}}>
+      <div className='px-20'>
+        <Image
+          src="/brand_assets/Vector.png"
+          width={180}
+          height={28}
+          className='p-auto'
+          alt="Picture of the author"
+          />
+      </div>
+      <div className='font-inter font-normal text-base text-white space-x-16'>
+        <Link href="/">Home</Link>
+        <Link href="/">Services</Link>
+        <Link href="/">Team</Link>
+        <Link href="/">Testemonial</Link>
+      </div>
+      <div className='ml-auto mr-20 space-x-8'>
+        <Link href="/" className='font-inter font-normal text-base text-white'>Home</Link>
+        <button className='rounded-[8px] w-28 h-10 text-base font-medium' style={{color: "#FFF", backgroundColor: "#7F56D9"}}>Register</button>
       </div>
     </div>
   );
