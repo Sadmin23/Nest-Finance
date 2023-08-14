@@ -1,36 +1,46 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { LinkButton } from './Button';
+import { Image } from 'next/image';
 
 const Nav = (): JSX.Element => {
   const router = useRouter();
   return (
-    <div className="top-0 fixed flex items-center justify-between left-0 right-0 py-4 shadow-md px-10">
+    <div className="fixed flex py-4 px-4">
       <LinkButton
         label="Nav"
-        styles={'shadow-none text-gray-1 hover:text-green'}
+        styles={'text-white font-inter font-medium text-md leading-6'}
         onPress={() => router.push('/')}
       />
-      <div className="">
+      <LinkButton
+        label="Home"
+        styles={'text-white font-inter font-medium text-md leading-6'}
+        onPress={() => router.push('/login')}
+      />
+      <LinkButton
+        label="Services"
+        styles={'text-white font-inter font-medium text-md leading-6'}
+        onPress={() => router.push('/register')}
+      />
+      <LinkButton
+        label="Teams"
+        styles={'text-white font-inter font-medium text-md leading-6'}
+        onPress={() => router.push('/courses')}
+      />
+      <LinkButton
+        label="Testimonials"
+        onPress={() => router.push('/courses/python')}
+      />
+      <div className="right-0">
         <LinkButton
           label="Login"
-          styles={'shadow-none text-gray-1 hover:text-green'}
+          styles={'text-white font-inter font-medium text-md leading-6'}
           onPress={() => router.push('/login')}
         />
         <LinkButton
-          label="Signup"
-          styles={'shadow-none text-gray-1 hover:text-green'}
+          label="Register"
+          styles={'text-white font-inter font-medium text-md leading-6'}
           onPress={() => router.push('/register')}
-        />
-        <LinkButton
-          label="Courses"
-          styles={'shadow-none text-gray-1 hover:text-green'}
-          onPress={() => router.push('/courses')}
-        />
-        <LinkButton
-          label="Course"
-          styles={'shadow-none text-gray-1 hover:text-green'}
-          onPress={() => router.push('/courses/python')}
         />
       </div>
     </div>
