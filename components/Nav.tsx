@@ -7,11 +7,11 @@ const Nav = (): JSX.Element => {
   const router = useRouter();
   return (
     <div className="flex pt-10" style={{backgroundColor: "#53389E"}}>
-      <div className='px-20'>
+      <div className='pl-24 pr-16'>
         <Image
-          src="/brand_assets/Vector.png"
-          width={180}
-          height={28}
+          src="/brand_assets/Logo.png"
+          width={75}
+          height={40}
           className='p-auto'
           alt="Picture of the author"
           />
