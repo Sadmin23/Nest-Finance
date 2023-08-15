@@ -7,14 +7,13 @@ import { useRouter } from 'next/navigation';
 const Home = () => {
   const router = useRouter();
 
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-center" style={{backgroundColor: "#53389E"}}>
-      <div className='text-gray-25 text-center mb-56 mt-16' style={{height: "600px"}}>
+      <div className='text-gray-25 text-center mb-56 mt-16' style={{height: "590px"}}>
         <div className='font-inter font-normal text-base p-5'>
           <h3 style={{color: "#E9D7FE"}}>Fast. Simple. Banking</h3>
         </div>
-        <div className="font-inter tracking-wide font-medium text-7xl text-gray-50 w-96" style={{width: "790px"}}>
+        <div className="font-inter mx-auto tracking-wide font-medium text-7xl text-gray-50 w-96" style={{width: "790px"}}>
           <h1>Keep spending with the best cards.</h1>
         </div>
         <div className='text-center font-inter text-lg font-normal text-gray-800 leading-[150%] p-10'>
@@ -24,8 +23,16 @@ const Home = () => {
             <button className='rounded-[8px] w-36 h-14 text-lg font-medium' style={{backgroundColor: "#FFF"}}>Login</button>
             <button className='rounded-[8px] w-36 h-14 text-lg font-medium' style={{color: "#FFF", backgroundColor: "#7F56D9"}}>Register</button>
         </div>
+        <div className='mx-auto mt-28'>
+          <Image
+                src="/brand_assets/credit.png"
+                width={1104}
+                height={623}
+                alt="blob"
+                />
+          </div>
       </div>
-      <div className='w-full flex' style={{backgroundColor: "#FFF6ED", height: "700px"}}>
+      <div className='w-full flex' style={{backgroundColor: "#FFF6ED", height: "750px"}}>
           <div className='w-1/2'>
             <div className='font-medium text-2xl text-black pt-36 pl-40'>
               <h2>Get even more financial clarity with a NerdWallet account</h2>
@@ -56,19 +63,18 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className='py-10 ml-10 relative'>
+          <div className='py-16 ml-10 relative'>
             <Image
               src="/brand_assets/blob.png"
               width={600}
               height={610}
-              className='p-auto'
               alt="blob"
             />
             <Image
               src="/brand_assets/middle.png"
               width={520}
-              height={486}
-              className='absolute top-28 left-10'
+              height={470}
+              className='absolute top-36 left-14'
               alt="blob"
             />
           </div>
