@@ -150,35 +150,67 @@ const Home = () => {
             <div className="absolute bottom-0 left-0
                   border border-solid border-white border-opacity-50
                   bg-white bg-opacity-30 backdrop-blur-[24.5px]
-                  w-10/12 min-h-[158px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
-                  <div className="overflow-y-auto p-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="95" height="16" viewBox="0 0 95 16" fill="none">
-                    <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
-                    <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
-                    <path d="M47.7848 12.8925L52.7089 15.8645L51.4022 10.2631L55.7526 6.49426L50.0237 6.00822L47.7848 0.725525L45.5458 6.00822L39.8169 6.49426L44.1673 10.2631L42.8606 15.8645L47.7848 12.8925Z" fill="white"/>
-                    <path d="M67.201 12.8925L72.1252 15.8645L70.8184 10.2631L75.1689 6.49426L69.44 6.00822L67.201 0.725525L64.962 6.00822L59.2332 6.49426L63.5836 10.2631L62.2769 15.8645L67.201 12.8925Z" fill="white"/>
-                    <path d="M86.617 12.8925L91.5412 15.8645L90.2344 10.2631L94.5849 6.49426L88.856 6.00822L86.617 0.725525L84.3781 6.00822L78.6492 6.49426L82.9996 10.2631L81.6929 15.8645L86.617 12.8925Z" fill="white"/>
-                  </svg>
-                  <h2 className='font-lg text-2xl text-white py-3'>Anita R.</h2>
-                  <h2 className='font-normal text-base text-white'>Small Business Owner</h2>
+                  w-10/12 min-h-[120px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
+                  <div className="overflow-y-auto p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="13" viewBox="0 0 95 16" fill="none">
+                      <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
+                      <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
+                      <path d="M47.7848 12.8925L52.7089 15.8645L51.4022 10.2631L55.7526 6.49426L50.0237 6.00822L47.7848 0.725525L45.5458 6.00822L39.8169 6.49426L44.1673 10.2631L42.8606 15.8645L47.7848 12.8925Z" fill="white"/>
+                      <path d="M67.201 12.8925L72.1252 15.8645L70.8184 10.2631L75.1689 6.49426L69.44 6.00822L67.201 0.725525L64.962 6.00822L59.2332 6.49426L63.5836 10.2631L62.2769 15.8645L67.201 12.8925Z" fill="white"/>
+                      <path d="M86.617 12.8925L91.5412 15.8645L90.2344 10.2631L94.5849 6.49426L88.856 6.00822L86.617 0.725525L84.3781 6.00822L78.6492 6.49426L82.9996 10.2631L81.6929 15.8645L86.617 12.8925Z" fill="white"/>
+                    </svg>
+                    <h2 className='font-medium text-xl text-white py-2'>Anita R.</h2>
+                    <h2 className='font-normal text-base text-white'>Small Business Owner</h2>
                   </div>
             </div>
           </div>
-          <div>
+          <div className='relative border-2 border-black'>
             <Image
               src="/brand_assets/test2.png"
               width={346}
               height={446}
               alt="test2"
-              />
+            />
+            <div className="absolute bottom-0 left-0
+                  border border-solid border-white border-opacity-50
+                  bg-white bg-opacity-30 backdrop-blur-[24.5px]
+                  w-10/12 min-h-[120px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
+                  <div className="overflow-y-auto p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="13" viewBox="0 0 95 16" fill="none">
+                      <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
+                      <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
+                      <path d="M47.7848 12.8925L52.7089 15.8645L51.4022 10.2631L55.7526 6.49426L50.0237 6.00822L47.7848 0.725525L45.5458 6.00822L39.8169 6.49426L44.1673 10.2631L42.8606 15.8645L47.7848 12.8925Z" fill="white"/>
+                      <path d="M67.201 12.8925L72.1252 15.8645L70.8184 10.2631L75.1689 6.49426L69.44 6.00822L67.201 0.725525L64.962 6.00822L59.2332 6.49426L63.5836 10.2631L62.2769 15.8645L67.201 12.8925Z" fill="white"/>
+                      <path d="M86.617 12.8925L91.5412 15.8645L90.2344 10.2631L94.5849 6.49426L88.856 6.00822L86.617 0.725525L84.3781 6.00822L78.6492 6.49426L82.9996 10.2631L81.6929 15.8645L86.617 12.8925Z" fill="white"/>
+                    </svg>
+                    <h2 className='font-medium text-xl text-white py-2'>Anita R.</h2>
+                    <h2 className='font-normal text-base text-white'>Small Business Owner</h2>
+                  </div>
+            </div>
           </div>
-          <div>
+          <div className='relative border-2 border-black'>
             <Image
               src="/brand_assets/test3.png"
               width={346}
               height={446}
               alt="test3"
-              />
+            />
+            <div className="absolute bottom-0 left-0
+                  border border-solid border-white border-opacity-50
+                  bg-white bg-opacity-30 backdrop-blur-[24.5px]
+                  w-10/12 min-h-[120px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
+                  <div className="overflow-y-auto p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="13" viewBox="0 0 95 16" fill="none">
+                      <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
+                      <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
+                      <path d="M47.7848 12.8925L52.7089 15.8645L51.4022 10.2631L55.7526 6.49426L50.0237 6.00822L47.7848 0.725525L45.5458 6.00822L39.8169 6.49426L44.1673 10.2631L42.8606 15.8645L47.7848 12.8925Z" fill="white"/>
+                      <path d="M67.201 12.8925L72.1252 15.8645L70.8184 10.2631L75.1689 6.49426L69.44 6.00822L67.201 0.725525L64.962 6.00822L59.2332 6.49426L63.5836 10.2631L62.2769 15.8645L67.201 12.8925Z" fill="white"/>
+                      <path d="M86.617 12.8925L91.5412 15.8645L90.2344 10.2631L94.5849 6.49426L88.856 6.00822L86.617 0.725525L84.3781 6.00822L78.6492 6.49426L82.9996 10.2631L81.6929 15.8645L86.617 12.8925Z" fill="white"/>
+                    </svg>
+                    <h2 className='font-medium text-xl text-white py-2'>Anita R.</h2>
+                    <h2 className='font-normal text-base text-white'>Small Business Owner</h2>
+                  </div>
+            </div>            
           </div>
         </div>
       </div>
