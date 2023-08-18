@@ -32,13 +32,15 @@ const Home = () => {
                 />
           </div>
       </div>
-      <div className='w-full flex' style={{backgroundColor: "#FFF6ED", height: "750px"}}>
+      <div className='w-full flex' style={{backgroundColor: "#FFF6ED", height: "700px"}}>
           <div className='w-1/2'>
             <div className='font-medium text-2xl text-black pt-36 pl-40'>
               <h2>Get even more financial clarity with a NerdWallet account</h2>
             </div>
             <div className='font-normal tracking-wider text-black pl-40 pr-20 pt-7'>
-              <h2>See all your savings, credit cards, and investments together in one place. With everything connected, you'll get timely nerdy insights so you can be sure you're making the right financial decisions for you. Best of all, it's free.</h2>
+              <h2>See all your savings, credit cards, and investments together in one place.
+                 With everything connected, you'll get timely nerdy insights so you can be sure you're making the right financial decisions for you.
+                  Best of all, it's free.</h2>
             </div>
             <div className='flex flex-col'>
               <div className='pl-40 flex space-x-6 pt-20'>
@@ -79,6 +81,34 @@ const Home = () => {
             />
           </div>
       </div>
+      <div className='w-full flex flex-col' style={{ backgroundColor: "#FD853A", height: "750px" }}>
+        <div className='w-full' style={{ backgroundColor: "#F2F4F7", height: "50px" }}>
+        </div>
+        <div className='w-full flex'>
+          <div className='w-7/12'>
+            <Image
+              src="/brand_assets/bank.png"
+              width={50}
+              height={50}
+              className='mt-40 ml-40'
+              alt="bank"
+              />
+            <div className='font-medium text-2xl text-black pt-14 pl-40'>
+              <h2>Find a bank for the way you save</h2>
+            </div>
+            <div className='font-normal tracking-wider text-black pl-40 mt-5 mr-60'>
+                <h2>Keep your cash in a bank account that fits your needs. 
+                  Compare options and dig into the details with objective reviews that help you make smart decisions.</h2>
+            </div>
+            <div className='pl-40'>
+                <button className='flex items-center justify-center rounded-[6px] text-white h-10 w-56' style={{backgroundColor: "#53389E"}}>
+                  Compare Savings Card
+                </button>
+            </div>
+          </div>
+        </div>
+      
+</div>
     </main>
   );
 };
