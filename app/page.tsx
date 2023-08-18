@@ -119,8 +119,23 @@ const Home = () => {
             />
           </div>
         </div>
-      
-</div>
+      </div>
+      <div className='w-full flex' style={{ backgroundColor: "#F2F4F7", height: "1125px" }}>
+        <div className='w-1/2'>
+            <div className='font-medium text-2xl text-black pt-28 pl-40'>
+                <h2>Trusted Voices of Finance</h2>
+            </div>
+            <div className='font-normal tracking-wider text-black pl-40 mt-5'>
+                  <h2>
+                    Real Stories from Our Satisfied Users:
+                     Discover How Our Solutions Are Transforming Financial Experiences.
+                  </h2>
+            </div>
+        </div>
+        <div className='ml-auto mr-40 mt-36'>
+            <button className='flex items-center justify-center rounded-[6px] text-white w-40 h-10' style={{backgroundColor: "#53389E"}}>Create Account</button>
+        </div>
+      </div>
     </main>
   );
 };
