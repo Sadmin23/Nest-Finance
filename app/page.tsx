@@ -112,7 +112,7 @@ const Home = () => {
           <div className='h-full'>
             <Image
               src="/brand_assets/banking.png"
-              width={632}
+              width={752}
               height={590}
               className=''
               alt="banking"

@@ -39,7 +39,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>{metadata.title.default}</title>
+        <title>Nest Finance</title>
         <link
           rel="icon"
           href="\favicon.ico"
