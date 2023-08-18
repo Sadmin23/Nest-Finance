@@ -120,7 +120,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='w-full flex flex-col' style={{ backgroundColor: "#F2F4F7", height: "1125px" }}>
+      <div className='w-full flex flex-col' style={{ backgroundColor: "#F2F4F7", height: "1030px" }}>
         <div className='flex'>
           <div className='w-1/2'>
             <div className='font-medium text-2xl text-black pt-28 pl-40'>
@@ -140,7 +140,7 @@ const Home = () => {
           </div>
         </div>
         <div className='flex space-x-20 pt-24 mx-40'>
-          <div className='relative border-2 border-black'>
+          <div className='relative'>
             <Image
               src="/brand_assets/test1.png"
               width={347}
@@ -151,7 +151,7 @@ const Home = () => {
                   border border-solid border-white border-opacity-50
                   bg-white bg-opacity-30 backdrop-blur-[24.5px]
                   w-10/12 min-h-[120px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
-                  <div className="overflow-y-auto p-3">
+                  <div className="overflow-y-auto py-3 px-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="13" viewBox="0 0 95 16" fill="none">
                       <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
                       <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
@@ -164,7 +164,7 @@ const Home = () => {
                   </div>
             </div>
           </div>
-          <div className='relative border-2 border-black'>
+          <div className='relative'>
             <Image
               src="/brand_assets/test2.png"
               width={346}
@@ -175,7 +175,12 @@ const Home = () => {
                   border border-solid border-white border-opacity-50
                   bg-white bg-opacity-30 backdrop-blur-[24.5px]
                   w-10/12 min-h-[120px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
-                  <div className="overflow-y-auto p-3">
+                  <div className="overflow-y-auto py-3 px-5">
+                    <p className='pb-4 text-white'>
+                      The analytics and insights offered by Nest Finance are unparalleled. 
+                      I'm making more informed investment decisions and seeing real results. 
+                      Truly game-changing.
+                    </p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="13" viewBox="0 0 95 16" fill="none">
                       <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
                       <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
@@ -188,7 +193,7 @@ const Home = () => {
                   </div>
             </div>
           </div>
-          <div className='relative border-2 border-black'>
+          <div className='relative'>
             <Image
               src="/brand_assets/test3.png"
               width={346}
@@ -199,7 +204,7 @@ const Home = () => {
                   border border-solid border-white border-opacity-50
                   bg-white bg-opacity-30 backdrop-blur-[24.5px]
                   w-10/12 min-h-[120px] max-h-[340px] mx-7 mb-9 flex items-end overflow-auto">
-                  <div className="overflow-y-auto p-3">
+                  <div className="overflow-y-auto py-3 px-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="13" viewBox="0 0 95 16" fill="none">
                       <path d="M8.95273 12.8925L13.8769 15.8645L12.5701 10.2631L16.9206 6.49426L11.1917 6.00822L8.95273 0.725525L6.71376 6.00822L0.984863 6.49426L5.33532 10.2631L4.02859 15.8645L8.95273 12.8925Z" fill="white"/>
                       <path d="M28.3687 12.8925L33.2929 15.8645L31.9862 10.2631L36.3366 6.49426L30.6077 6.00822L28.3687 0.725525L26.1298 6.00822L20.4009 6.49426L24.7513 10.2631L23.4446 15.8645L28.3687 12.8925Z" fill="white"/>
