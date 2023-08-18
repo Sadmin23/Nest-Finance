@@ -81,7 +81,7 @@ const Home = () => {
             />
           </div>
       </div>
-      <div className='w-full flex flex-col' style={{ backgroundColor: "#FD853A", height: "750px" }}>
+      <div className='w-full flex flex-col' style={{ backgroundColor: "#FD853A", height: "740px" }}>
         <div className='w-full' style={{ backgroundColor: "#F2F4F7", height: "50px" }}>
         </div>
         <div className='w-full flex'>
@@ -100,11 +100,23 @@ const Home = () => {
                 <h2>Keep your cash in a bank account that fits your needs. 
                   Compare options and dig into the details with objective reviews that help you make smart decisions.</h2>
             </div>
-            <div className='pl-40'>
-                <button className='flex items-center justify-center rounded-[6px] text-white h-10 w-56' style={{backgroundColor: "#53389E"}}>
+            <div className='flex space-x-6 pt-24 pl-40'>
+                <button className='flex items-center justify-center rounded-[6px] text-white h-10 w-48' style={{backgroundColor: "#53389E"}}>
                   Compare Savings Card
                 </button>
+                <button className='flex items-center justify-center rounded-[6px] text-black h-10 w-48 border-black border-2'>
+                  Explore Guides & Tips
+                </button>
             </div>
+          </div>
+          <div className='h-full'>
+            <Image
+              src="/brand_assets/banking.png"
+              width={632}
+              height={590}
+              className=''
+              alt="banking"
+            />
           </div>
         </div>
       
