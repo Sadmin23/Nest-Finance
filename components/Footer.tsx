@@ -29,13 +29,16 @@ const Footer = (): JSX.Element => {
             <div className='flex-col mr-0 ml-auto'>
                 <h2 className='font-inter font-normal text-lg text-white'>Get the latest offers & deals</h2>
                 <div className='flex space-x-2 mt-6'>
-                    <input className='w-[300px] h-12 rounded-lg'></input>
+                <input
+                  className="w-[300px] h-12 rounded-lg font-inter font-medium text-base leading-[28px] flex items-center pl-[14.243px] placeholder-[#667085] placeholder-[180.243px] placeholder-[23.923px] placeholder-[column] placeholder-[justify-center] placeholder-[flex-shrink-0]"
+                  placeholder="example@gmail.com"
+                />
                     <button className='rounded-lg w-36 h-12 text-base font-medium text-white' style={{backgroundColor: "#7F56D9"}}>Register</button>
                 </div>
             </div>
         </div>
         <div className='flex mx-40 py-10 font-inter font-normal text-base text-[#D6BBFB]'>
-            <h2 className=''>@2023. All rights reserved.</h2>
+            <h2>@2023. All rights reserved.</h2>
             <div className='ml-auto mr-0 space-x-6'>
                 <Link href="/">Terms & Services</Link>
                 <Link href="/">Privacy Policy</Link>

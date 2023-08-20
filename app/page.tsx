@@ -81,6 +81,7 @@ const Home = () => {
             />
           </div>
       </div>
+      <div className='w-full h-12 bg-[#F2F4F7]'></div>
       <div className='w-full flex h-28 bg-white'>
         <div className='w-full flex h-12 mt-12 bg-[#F2F4F7]'>
           <div className='h-full flex mx-auto font-inter text-base font-normal text-[18px] leading-[28px]'>
@@ -148,7 +149,7 @@ const Home = () => {
             <div className='font-medium text-2xl text-black pt-14 pl-40'>
               <h2>Find a bank for the way you save</h2>
             </div>
-            <div className='font-normal tracking-wider text-black pl-40 mt-5 mr-60'>
+            <div className='font-normal tracking-wider text-black pl-40 mt-5 mr-44'>
                 <h2>Keep your cash in a bank account that fits your needs. 
                   Compare options and dig into the details with objective reviews that help you make smart decisions.</h2>
             </div>

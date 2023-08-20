@@ -16,11 +16,14 @@ const Nav = (): JSX.Element => {
           alt="Picture of the author"
           />
       </div>
-      <div className='font-inter font-normal text-base text-white space-x-16'>
+      <div className='font-inter font-normal text-base text-white space-x-12'>
         <Link href="/">Home</Link>
-        <Link href="/">Services</Link>
-        <Link href="/">Team</Link>
-        <Link href="/">Testemonial</Link>
+        <Link href="/">Banking</Link>
+        <Link href="/">Credit Cards</Link>
+        <Link href="/">Deposits</Link>
+        <Link href="/">Loans</Link>
+        <Link href="/">Mutual Funds</Link>
+        <Link href="/">Bonds</Link>
       </div>
       <div className='ml-auto mr-40 space-x-8'>
         <Link href="/" className='font-inter font-normal text-base text-white'>Home</Link>
