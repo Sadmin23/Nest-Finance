@@ -2,6 +2,7 @@ import { ReactNode, Suspense } from 'react';
 import './globals.css';
 import Nav from '../components/Nav';
 import { ReactQueryProvider } from '@/components/React-query-provider';
+import Footer from '../components/Footer'
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
@@ -68,6 +69,7 @@ export default async function RootLayout({
             <main>{children}</main>
           </ReactQueryProvider>
         </Suspense>
+        <Footer/>
       </body>
     </html>
   );
