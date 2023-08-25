@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Nav = (): JSX.Element => {
   const router = useRouter();
   return (
-    <div className="flex pt-10" style={{backgroundColor: "#53389E"}}>
+    <div className="flex py-10" style={{backgroundColor: "#53389E"}}>
       <div className='pl-40 pr-16'>
         <Image
           src="/brand_assets/Logo.png"
