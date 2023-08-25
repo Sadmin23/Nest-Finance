@@ -1,11 +1,8 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { PrimaryButton } from '../../components/Button';
-import { getCourses } from '@/query/course/course';
-import { useQuery } from 'react-query';
-import Progress from '@/components/Progress';
 import Image from 'next/image';
+import Tablerow from '../../components/tablerow'
 
 export default function CoursesPage() {
   const router = useRouter();
@@ -89,6 +86,7 @@ export default function CoursesPage() {
               <h1>Apply Now</h1>
             </div>
           </div>
+          <Tablerow/>
         </div>
       </div>
     </div>
