@@ -53,7 +53,7 @@ export default function CoursesPage() {
           <div className='pl-10 pt-6'>
             <h1 className='text-[30px]'>Compare the best credit cards</h1>
             <h2 className='text-normal mt-4'>Choose the credit card of your choice from our extensive comparison features.</h2>
-            <button className='rounded-[6px] w-[150px] h-9 mt-8 text-base font-normal text-white bg-[#53389E]'>Compare Now</button>
+            <button className='rounded-[6px] w-[150px] h-10 mt-8 text-base font-normal text-white bg-[#53389E]'>Compare Now</button>
           </div>
           <Image
             src="/brand_assets/texture.png"
