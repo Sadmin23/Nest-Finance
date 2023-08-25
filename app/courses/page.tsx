@@ -11,7 +11,7 @@ export default function CoursesPage() {
   const router = useRouter();
 
   return (
-    <div>
+    <div className='bg-[#F2F4F7] '>
       <div className="h-[800px] relative">
         <Image
           src="/brand_assets/cardimage.png"
@@ -36,7 +36,6 @@ export default function CoursesPage() {
           No single credit card is the best option for every family, purchase or budget. Forbes Advisor has chosen the best credit cards of 2023 to be the most helpful to the widest variety of readers. Rather than selecting the “best credit card” and ranking the next fifteen options, we highlighted the best credit card for multiple situations.
           <p className='pt-4'>This list contains only personal credit cards. If you’re looking for a credit card for your business, consider our list of the best business credit cards.</p>
         </div>
-
         <Image
           src="/brand_assets/background.png"
           width={1520}
@@ -44,6 +43,29 @@ export default function CoursesPage() {
           alt="bg"
           className='block'
         />
+      </div>
+      <div className='h-[2000px]'>
+        <div className='flex h-56 ml-40 mr-52 my-20 bg-white'>
+          <Image
+            src="/brand_assets/left.png"
+            width={227}
+            height={100}
+            alt="bg"
+            className='block'
+          />
+          <div className='pl-10 pt-6'>
+            <h1 className='text-[30px]'>Compare the best credit cards</h1>
+            <h2 className='text-normal mt-4'>Choose the credit card of your choice from our extensive comparison features.</h2>
+            <button className='rounded-[6px] w-[150px] h-9 mt-8 text-base font-normal text-white bg-[#53389E]'>Compare Now</button>
+          </div>
+          <Image
+            src="/brand_assets/texture.png"
+            width={280}
+            height={100}
+            alt="bg"
+            className='mr-0 ml-auto'
+          />
+        </div>
       </div>
     </div>
   );
