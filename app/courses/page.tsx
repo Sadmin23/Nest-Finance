@@ -45,7 +45,7 @@ export default function CoursesPage() {
         />
       </div>
       <div className='h-[2000px]'>
-        <div className='flex h-56 ml-40 mr-52 my-20 bg-white'>
+        <div className='flex h-56 ml-40 mr-48 my-20 bg-white'>
           <Image
             src="/brand_assets/left.png"
             width={227}
@@ -65,6 +65,30 @@ export default function CoursesPage() {
             alt="bg"
             className='mr-0 ml-auto'
           />
+        </div>
+        <div className='ml-40 mr-48 my-20 bg-white flex-col rounded-[8px]'>
+          <div className='flex'>
+            <h1 className='text-black font-inter font-medium text-2xl leading-10 tracking-tight w-96 px-10 py-12'>Best Credit Cards Of August 2023</h1>
+            <svg className='ml-40 py-0' xmlns="http://www.w3.org/2000/svg" width="600" height="170" viewBox="0 0 749 170" fill="none">
+              <path d="M0.919434 167.42C91.4783 167.42 -29.8038 175.367 255.849 146.164C541.501 116.96 343.89 1.09663 748.284 1.09656" stroke="url(#paint0_linear_159_47)" stroke-width="2" stroke-dasharray="12 12"/>
+              <defs>
+                <linearGradient id="paint0_linear_159_47" x1="474.794" y1="-371.263" x2="474.794" y2="161.323" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#B372C4"/>
+                  <stop offset="1" stop-color="#8EE3D1"/>
+                </linearGradient>
+              </defs>
+            </svg>          
+          </div>
+          <div className='h-16 bg-[#EAECF0] flex py-5 font-medium'>
+            <h1 className='ml-10'>Credit Card</h1>
+            <div className='flex mr-20 ml-auto space-x-20'>
+              <h1>Nerdwallet Rating</h1>
+              <h1>Annual Fee</h1>
+              <h1>Intro Offer</h1>
+              <h1>Rewards Rate</h1>
+              <h1>Apply Now</h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>
