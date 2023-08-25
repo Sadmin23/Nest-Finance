@@ -2,13 +2,16 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 
-const Tablerow = (): JSX.Element => {
+const Tablerow = ({ imageno }: { imageno: number }): JSX.Element => {
   const router = useRouter();
+
+    let source = "/brand_assets/card"+imageno+".png";
+
   return (
-    <div className='bg-white flex h-52 font-medium'>
-        <div className='flex-col ml-10 mt-6'>
+    <div className='bg-white flex h-52 font-medium border-b-2 border-[#EAECF0] ml-10 mr-16'>
+        <div className='flex-col mt-6'>
             <Image
-                src="/brand_assets/card1.png"
+                src={source}
                 width={189}
                 height={100}
                 alt="bg"

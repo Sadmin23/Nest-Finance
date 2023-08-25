@@ -41,7 +41,7 @@ export default function CoursesPage() {
           className='block'
         />
       </div>
-      <div className='h-[2000px]'>
+      <div className='h-[1700px]'>
         <div className='flex h-56 ml-40 mr-48 my-20 bg-white'>
           <Image
             src="/brand_assets/left.png"
@@ -86,7 +86,11 @@ export default function CoursesPage() {
               <h1>Apply Now</h1>
             </div>
           </div>
-          <Tablerow/>
+          <Tablerow imageno={1}/>
+          <Tablerow imageno={2}/>
+          <Tablerow imageno={3}/>
+          <Tablerow imageno={4}/>
+          <Tablerow imageno={5}/>
         </div>
       </div>
     </div>
