@@ -63,7 +63,7 @@ export default async function RootLayout({
       </head>
       {/* <body className="bg-white text-black selection:bg-teal-300 dark:bg-black dark:text-white dark:selection:bg-fuchsia-600 dark:selection:text-white"> */}
       <body className="bg-white text-black selection:bg-teal-300">
-        <Nav />
+        <Nav bgOption='purple'/>
         <Suspense>
           <ReactQueryProvider>
             <main>{children}</main>

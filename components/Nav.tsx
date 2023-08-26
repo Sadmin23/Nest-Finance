@@ -3,13 +3,24 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import Link from 'next/link';
 
-const Nav = (): JSX.Element => {
+const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
+
+  let image;
+
+  if (bgOption==='purple')
+  {
+    image="/brand_assets/Logo.png";
+  }
+  else{
+    image="/brand_assets/Logo2.png";    
+  }
+
   const router = useRouter();
   return (
     <div className="flex py-10" style={{backgroundColor: "#53389E"}}>
       <div className='pl-40 pr-16'>
         <Image
-          src="/brand_assets/Logo.png"
+          src={image}
           width={75}
           height={40}
           className='p-auto'

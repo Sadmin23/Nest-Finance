@@ -8,7 +8,7 @@ const Tablerow = ({ imageno }: { imageno: number }): JSX.Element => {
     let source = "/brand_assets/card"+imageno+".png";
 
   return (
-    <div className='bg-white flex h-52 font-medium border-b-2 border-[#EAECF0] ml-10 mr-16'>
+    <div className='bg-white flex h-52 font-medium border-b-2 border-[#EAECF0] ml-10 mr-14'>
         <div className='flex-col mt-6'>
             <Image
                 src={source}
