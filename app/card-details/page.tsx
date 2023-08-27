@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Tablerow from '../../components/tablerow'
+import Cardrow from '../../components/Cardrow'
 
 export default function CoursesPage() {
   const router = useRouter();
@@ -20,10 +20,10 @@ export default function CoursesPage() {
           </defs>
         </svg>
         <div className='w-3/5'>
-          <div className="pl-40 pt-44 font-inter mx-auto  font-medium text-7xl text-gray-50 absolute w-[800px]">
+          <div className="pl-40 pt-44 font-inter mx-auto  font-medium text-7xl text-gray-50 absolute w-[800px] leading-tight">
             <h1>Best Credit Cards Of August 2023</h1>
           </div>
-          <div className="pl-40 pt-[370px] w-[870px] text-white font-inter font-medium text-base absolute">
+          <div className="pl-40 pt-[380px] w-[870px] text-white font-inter font-medium text-base absolute">
             No single credit card is the best option for every family, purchase or budget. Forbes Advisor has chosen the best credit cards of 2023 to be the most helpful to the widest variety of readers. Rather than selecting the “best credit card” and ranking the next fifteen options, we highlighted the best credit card for multiple situations.
             <p className='pt-4'>This list contains only personal credit cards. If you’re looking for a credit card for your business, consider our list of the best business credit cards.</p>
           </div>
@@ -74,7 +74,7 @@ export default function CoursesPage() {
           </div>
           <div className='h-16 bg-[#EAECF0] flex py-5 font-medium'>
             <h1 className='ml-10'>Credit Card</h1>
-            <div className='flex mr-20 ml-auto space-x-20'>
+            <div className='flex mr-24 ml-auto space-x-20'>
               <h1>Nerdwallet Rating</h1>
               <h1>Annual Fee</h1>
               <h1>Intro Offer</h1>
@@ -82,11 +82,11 @@ export default function CoursesPage() {
               <h1>Apply Now</h1>
             </div>
           </div>
-          <Tablerow imageno={1}/>
-          <Tablerow imageno={2}/>
-          <Tablerow imageno={3}/>
-          <Tablerow imageno={4}/>
-          <Tablerow imageno={5}/>
+          <Cardrow imageno={1}/>
+          <Cardrow imageno={2}/>
+          <Cardrow imageno={3}/>
+          <Cardrow imageno={4}/>
+          <Cardrow imageno={5}/>
         </div>
       </div>
     </div>

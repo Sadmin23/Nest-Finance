@@ -2,10 +2,10 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 
-const Tablerow = ({ imageno }: { imageno: number }): JSX.Element => {
+const Cardrow = ({ imageno }: { imageno: number }): JSX.Element => {
   const router = useRouter();
 
-    let source = "/brand_assets/card"+imageno+".png";
+    let source = "/brand_assets/card"+imageno+".png";       
 
   return (
     <div className='bg-white flex h-52 font-medium border-b-2 border-[#EAECF0] ml-10 mr-14'>
@@ -21,7 +21,7 @@ const Tablerow = ({ imageno }: { imageno: number }): JSX.Element => {
                 <h1>Card</h1>
             </div>
         </div>
-        <div className='flex my-auto'>
+        <div className='flex my-auto mr-2 ml-auto'>
             <svg xmlns="http://www.w3.org/2000/svg" width="137" height="17" viewBox="0 0 113 17" fill="none" className='ml-[70px]'>
                 <path d="M8.81968 13.5185L14.0211 16.6579L12.6408 10.7411L17.2363 6.76L11.1847 6.24659L8.81968 0.666382L6.45462 6.24659L0.403076 6.76L4.99854 10.7411L3.61822 16.6579L8.81968 13.5185Z" fill="#FEC84B"/>
                 <path d="M32.5185 13.5185L37.72 16.6579L36.3397 10.7411L40.9351 6.76L34.8836 6.24659L32.5185 0.666382L30.1535 6.24659L24.1019 6.76L28.6974 10.7411L27.3171 16.6579L32.5185 13.5185Z" fill="#FEC84B"/>
@@ -29,16 +29,16 @@ const Tablerow = ({ imageno }: { imageno: number }): JSX.Element => {
                 <path d="M79.9161 13.5185L85.1176 16.6579L83.7373 10.7411L88.3327 6.76L82.2812 6.24659L79.9161 0.666382L77.5511 6.24659L71.4995 6.76L76.095 10.7411L74.7147 16.6579L79.9161 13.5185Z" fill="#FEC84B"/>
                 <path d="M103.615 13.5185L108.816 16.6579L107.436 10.7411L112.032 6.76L105.98 6.24659L103.615 0.666382L101.25 6.24659L95.1984 6.76L99.7938 10.7411L98.4135 16.6579L103.615 13.5185Z" fill="#FEC84B"/>
             </svg>
-            <h1 className='pl-[86px]'>$0</h1>
-            <h1 className='pl-36'>$200</h1>
-            <div className='pl-[112px] flex-col'>
+            <h1 className='ml-20'>$0</h1>
+            <h1 className='ml-36'>$200</h1>
+            <div className='flex-col ml-[117px]'>
                 <h1>2%</h1>
                 <h1>Cashback</h1>
             </div>
-            <button className='rounded-[6px] w-[110px] h-10 ml-[108px] text-base font-normal text-white bg-[#53389E]'>Apply Now</button>
+            <button className='rounded-[6px] ml-[106px] w-[110px] h-10 text-base font-normal text-white bg-[#53389E]'>Apply Now</button>
         </div>
     </div>
   );
 };
 
-export default Tablerow;
+export default Cardrow;
