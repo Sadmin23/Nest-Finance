@@ -43,7 +43,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
         <Link href="/">Bonds</Link>
       </div>
       <div className='ml-auto mr-40 space-x-8'>
-        <Link href="/" className={'font-inter font-normal text-base ${text}'}>Home</Link>
+        <Link href="/" className={`font-inter font-normal text-base ${text}`}>Login</Link>
         <button className='rounded-[8px] w-28 h-10 text-base font-medium text-white' style={{backgroundColor: "#7F56D9"}}>Register</button>
       </div>
     </div>
