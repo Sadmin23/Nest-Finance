@@ -2,8 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Bankrow from '../../components/Bankrow'
+import Bankcard from '../../components/Bankcard'
 import Nav from '@/components/Nav';
+import { Button } from 'antd';
 
 export default function CoursesPage() {
   const router = useRouter();
@@ -31,8 +32,28 @@ export default function CoursesPage() {
                 />
           </div>
         </div>
-
+        <div className='h-[960px] bg-white mx-40 rounded-xl'>
+        <div className="grid grid-cols-3 gap-5 mx-10">
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+          <Bankcard/>
+        </div>
+        </div>
       </div>
     </div>
   );
 }
+        {/* <div className="grid grid-cols-3 gap-4 mx-40">
+          <div className="bg-blue-300 p-4">Item 1</div>
+          <div className="bg-green-300 p-4">Item 2</div>
+          <div className="bg-red-300 p-4">Item 3</div>
+          <div className="bg-yellow-300 p-4">Item 4</div>
+          <div className="bg-pink-300 p-4">Item 5</div>
+          <div className="bg-purple-300 p-4">Item 6</div>
+        </div> */}
