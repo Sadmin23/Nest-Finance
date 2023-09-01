@@ -32,28 +32,34 @@ export default function CoursesPage() {
                 />
           </div>
         </div>
-        <div className='h-[960px] bg-white mx-40 rounded-xl'>
-        <div className="grid grid-cols-3 gap-5 mx-10">
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-          <Bankcard/>
-        </div>
+        <div className='h-[960px] bg-white mx-40 rounded-xl flex-col'>
+          <div className='py-10 border-b-2'>
+            <h1 className='mx-10 font-inter text-2xl font-medium leading-5 '>Search Banks</h1>
+          </div>
+          <div className='flex mx-10 my-8'>
+            <input
+                className="w-[630px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4"
+                placeholder="Search Banks"
+                style={{}}
+            />
+            <input
+                className="w-[194px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4 ml-auto"
+                placeholder="Filter by District"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-5 mx-10">
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+            <Bankcard/>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-        {/* <div className="grid grid-cols-3 gap-4 mx-40">
-          <div className="bg-blue-300 p-4">Item 1</div>
-          <div className="bg-green-300 p-4">Item 2</div>
-          <div className="bg-red-300 p-4">Item 3</div>
-          <div className="bg-yellow-300 p-4">Item 4</div>
-          <div className="bg-pink-300 p-4">Item 5</div>
-          <div className="bg-purple-300 p-4">Item 6</div>
-        </div> */}

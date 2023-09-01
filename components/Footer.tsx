@@ -30,7 +30,7 @@ const Footer = (): JSX.Element => {
                 <h2 className='font-inter font-normal text-lg text-white'>Get the latest offers & deals</h2>
                 <div className='flex space-x-2 mt-6'>
                 <input
-                  className="w-[300px] h-12 rounded-lg font-inter font-medium text-base leading-[28px] flex items-center pl-[14.243px] placeholder-[#667085] placeholder-[180.243px] placeholder-[23.923px] placeholder-[column] placeholder-[justify-center] placeholder-[flex-shrink-0]"
+                  className="w-[300px] h-12 rounded-lg font-inter font-medium text-base leading-[28px] flex items-center pl-[14.243px] placeholder-[#667085]"
                   placeholder="example@gmail.com"
                 />
                     <button className='rounded-lg w-36 h-12 text-base font-medium text-white' style={{backgroundColor: "#7F56D9"}}>Register</button>
