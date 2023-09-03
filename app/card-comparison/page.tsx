@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Bankcard from '../../components/Bankcard'
+import CreditCard from '../../components/CreditCard'
 import Nav from '@/components/Nav';
 import { Button } from 'antd';
 
@@ -42,7 +42,12 @@ export default function CoursesPage() {
               style={{}}
             />
           </div>
-          <div className="grid grid-cols-3 gap-5 mx-10"></div>
+          <div className="grid grid-cols-3 gap-5 mx-10">
+            <CreditCard imageno={1}/>
+            <CreditCard imageno={6}/>
+            <CreditCard imageno={7}/>
+            <CreditCard imageno={5}/>
+          </div>
         </div>
       </div>
     </div>
