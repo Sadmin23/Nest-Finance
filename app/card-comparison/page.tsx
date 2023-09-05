@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import CreditCard from '../../components/CreditCard'
 import ApplyCard from '../../components/ApplyCard'
+import CreditScore from '../../components/CreditScore'
 import Nav from '@/components/Nav';
 import { Button } from 'antd';
 
@@ -13,7 +14,7 @@ export default function CoursesPage() {
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
-      <div className="h-[1800px] relative">
+      <div className="h-[2600px] relative">
         <div className="flex h-[450px]">
           <div className="flex-col">
             <div className="pl-40 pt-32 font-inter mx-auto font-medium text-6xl absolute w-[600px] leading-tight">
@@ -29,7 +30,7 @@ export default function CoursesPage() {
             <Image src="/brand_assets/bg.png" width={800} height={600} alt="bg" />
           </div>
         </div>
-        <div className="h-[1360px] bg-white mx-40 rounded-xl mt-0 flex-col relative z-10">
+        <div className="h-[1860px] bg-white mx-40 rounded-xl mt-0 flex-col relative z-10">
           <div className="pt-10 border-b-2 ">
             <h1 className="font-inter mx-10 text-2xl font-medium leading-5">
               Select the credit cards you want to compare
@@ -49,14 +50,26 @@ export default function CoursesPage() {
             <CreditCard imageno={7}/>
             <CreditCard imageno={5}/>
           </div>
-          <div className="grid grid-cols-[13fr,29fr,29fr,29fr]">
-            <div className="col-span-1 border-l-2 border-y-2">
+          <div className="grid grid-cols-[13fr,29fr,29fr,29fr] mt-20">
+            <div className="col-span-1 border-l-2 border-t-2">
             </div>
             <ApplyCard/>
             <ApplyCard/>
             <ApplyCard/>
           </div>
-
+          <div className='bg-[#D0D5DD] h-14 py-4'>
+            <h2 className='font-medium text-[18px] leading-6 ml-10'>Recommended Credit Score</h2>
+          </div>
+          <div className="grid grid-cols-[13fr,29fr,29fr,29fr]">
+            <div className="col-span-1 border-l-2 border-t-2">
+            </div>
+            <CreditScore/>
+            <CreditScore/>
+            <CreditScore/>
+          </div>
+          <div className='bg-[#D0D5DD] h-14 py-4'>
+            <h2 className='font-medium text-[18px] leading-6 ml-10'>Great For</h2>
+          </div>
         </div>
       </div>
     </div>
