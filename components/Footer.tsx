@@ -20,8 +20,8 @@ const Footer = (): JSX.Element => {
                 </div>
                 <div className='flex space-x-14 font-inter font-normal text-base text-white mt-10 '>
                   <Link href="/">Home</Link>
-                  <Link href="/">Banking</Link>
-                  <Link href="/">Credit Cards</Link>
+                  <Link href="/all-banks">Banking</Link>
+                  <Link href="/card-details">Credit Cards</Link>
                   <Link href="/">Deposits</Link>
                   <Link href="/">Loans</Link>
                 </div>

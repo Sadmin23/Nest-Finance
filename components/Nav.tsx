@@ -35,8 +35,8 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
       </div>
       <div className={`font-inter font-normal text-base ${text} space-x-12 my-auto`}>
         <Link href="/">Home</Link>
-        <Link href="/">Banking</Link>
-        <Link href="/">Credit Cards</Link>
+        <Link href="/all-banks">Banking</Link>
+        <Link href="/card-details">Credit Cards</Link>
         <Link href="/">Deposits</Link>
         <Link href="/">Loans</Link>
         <Link href="/">Mutual Funds</Link>
