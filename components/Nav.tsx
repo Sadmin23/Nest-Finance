@@ -25,13 +25,15 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
   return (
     <div className="flex py-6" style={{backgroundColor: bg}}>
       <div className='pl-40 pr-16'>
-        <Image
-          src={image}
-          width={75}
-          height={40}
-          className='p-auto'
-          alt="Picture of the author"
-          />
+        <Link href="/">
+          <Image
+            src={image}
+            width={75}
+            height={40}
+            className='p-auto'
+            alt="Picture of the author"
+            />
+        </Link>
       </div>
       <div className={`font-inter font-normal text-base ${text} space-x-12 my-auto`}>
         <Link href="/">Home</Link>

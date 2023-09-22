@@ -10,13 +10,15 @@ const Footer = (): JSX.Element => {
         <div className='flex border-b-2 mx-40 pt-16 pb-20 border-white'>
             <div className='flex-col'>
                 <div className=''>
-                  <Image
-                    src="/brand_assets/Logo.png"
-                    width={75}
-                    height={40}
-                    className='p-auto'
-                    alt="Picture of the author"
-                    />
+                  <Link href="/">
+                    <Image
+                      src="/brand_assets/Logo.png"
+                      width={75}
+                      height={40}
+                      className='p-auto'
+                      alt="Picture of the author"
+                      />
+                  </Link>
                 </div>
                 <div className='flex space-x-14 font-inter font-normal text-base text-white mt-10 '>
                   <Link href="/">Home</Link>
