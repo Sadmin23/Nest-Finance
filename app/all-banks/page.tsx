@@ -5,14 +5,34 @@ import Image from 'next/image';
 import Bankcard from '../../components/Bankcard'
 import Nav from '@/components/Nav';
 import { Button } from 'antd';
+import { items } from "./data"
+import { useState } from 'react';
 
 export default function CoursesPage() {
   const router = useRouter();
 
+    const [searchValue, setSearchValue] = useState(''); // State to hold the search value
+    const [data, setData] = useState(items[0]); // Initial data, change this as needed
+  
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target;
+      setSearchValue(value);
+    
+      const foundItem = items.find((item) => item.bankName.includes(value));
+    
+      if (foundItem) {
+        setData(foundItem);
+      } else {
+        setData(items[0]);
+      }
+    };
+
+    const bigData = items
+  
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
-      <div className='h-[1480px] flex-col'>
+      <div className='h-[1400px] flex-col'>
         <div className='flex'>
           <div className='flex-col'>
             <div className="pl-40 pt-16 font-inter mx-auto font-medium text-6xl absolute w-[900px] leading-tight">
@@ -40,23 +60,23 @@ export default function CoursesPage() {
             <input
                 className="w-[630px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4"
                 placeholder="Search Banks"
-                style={{}}
-            />
+                onChange={handleInputChange}            
+              />
             <input
                 className="w-[194px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4 ml-auto"
                 placeholder="Filter by District"
             />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
-            <Bankcard/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
+            <Bankcard Name={data.bankName} image={data.image}/>
           </div>
         </div>
       </div>
