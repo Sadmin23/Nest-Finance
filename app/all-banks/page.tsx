@@ -11,29 +11,25 @@ import { useState } from 'react';
 export default function CoursesPage() {
   const router = useRouter();
 
-    const [searchValue, setSearchValue] = useState(''); // State to hold the search value
-    const [data, setData] = useState(items[0]); // Initial data, change this as needed
-  
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const { value } = event.target;
-      setSearchValue(value);
-    
-      const foundItem = items.find((item) => item.bankName.includes(value));
-    
-      if (foundItem) {
-        setData(foundItem);
-      } else {
-        setData(items[0]);
-      }
-    };
+  const [searchValue, setSearchValue] = useState('');
+  const [filteredItems, setFilteredItems] = useState(items);
 
-    const bigData = items
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSearchValue(value);
+
+    const filtered = items.filter((item) =>
+      item.bankName.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setFilteredItems(filtered);
+  };
   
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
-      <div className='h-[1400px] flex-col'>
-        <div className='flex'>
+      <div className='h-[1400px] flex-col relative'>
+        <div className='flex h-[370px]'>
           <div className='flex-col'>
             <div className="pl-40 pt-16 font-inter mx-auto font-medium text-6xl absolute w-[900px] leading-tight">
               <h1>All your banking information in one place</h1>
@@ -46,13 +42,13 @@ export default function CoursesPage() {
           <div className='mr-0 ml-auto'>
               <Image
                 src="/brand_assets/bg.png"
-                width={480}
+                width={800}
                 height={600}
                 alt="bg"
                 />
           </div>
         </div>
-        <div className='h-[960px] bg-white mx-40 rounded-xl flex-col'>
+        <div className='h-[960px] bg-white mx-40 rounded-xl flex-col relative z-10'>
           <div className='py-10 border-b-2'>
             <h1 className='mx-10 font-inter text-2xl font-medium leading-5 '>Search Banks</h1>
           </div>
@@ -68,15 +64,9 @@ export default function CoursesPage() {
             />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
-            <Bankcard Name={data.bankName} image={data.image}/>
+            {filteredItems.map((data, index) => (
+              <Bankcard key={index} Name={data.bankName} image={data.image} />
+            ))}
           </div>
         </div>
       </div>

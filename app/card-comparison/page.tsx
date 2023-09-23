@@ -42,7 +42,6 @@ export default function CoursesPage() {
             <input
               className="w-[630px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4"
               placeholder="Search Credit Card"
-              style={{}}
             />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
