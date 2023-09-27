@@ -9,24 +9,51 @@ import TableRow from '../../components/TableRow'
 import Nav from '@/components/Nav';
 import { items } from "./data"
 import { Button } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CoursesPage() {
   const router = useRouter();
 
+  const ITEMS_PER_PAGE = 3
+
+  const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState('');
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [filteredItems, setFilteredItems] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Logic to filter items based on searchValue
+    const filtered = items.filter((item) =>
+      item.bankName.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredItems(filtered);
+
+    // Reset current page to 1 whenever the search value changes
+    setCurrentPage(1);
+  }, [searchValue]);
+
+  // Determine which set of items to display (all or filtered)
+  const itemsToDisplay = searchValue ? filteredItems : items;
+
+  // Pagination logic
+  const lastIndex = currentPage * ITEMS_PER_PAGE;
+  const firstIndex = lastIndex - ITEMS_PER_PAGE;
+  const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
+
+  const handleNextPage = () => {
+    if (lastIndex < itemsToDisplay.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setSearchValue(value);
-
-    const filtered = items.filter((item) =>
-      item.bankName.toLowerCase().includes(value.toLowerCase())
-    );
-
-    setFilteredItems(filtered);
-  };  
+    setSearchValue(event.target.value);
+  };
 
   return (
     <div className='bg-[#F2F4F7] flex-col'>
@@ -62,10 +89,18 @@ export default function CoursesPage() {
           />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
-            {filteredItems.map((data, index) => (
+            {currentItems.map((data, index) => (
               <CreditCard key={index} Name={data.bankName} image={data.image} />
             ))}          
-            </div>
+          </div>
+          <div className='mt-20 mx-10'>
+          <Button onClick={handlePrevPage}>
+            Previous
+          </Button>
+          <Button onClick={handleNextPage}>
+            Next
+          </Button>
+          </div>
           <div className="grid grid-cols-[13fr,29fr,29fr,29fr] mt-20">
             <div className="col-span-1 border-t-2">
             </div>

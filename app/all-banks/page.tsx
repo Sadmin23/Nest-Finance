@@ -27,7 +27,7 @@ export default function CoursesPage() {
 
   useEffect(() => {
 
-    fetch('http://127.0.0.1:8000/bankapi/branch/')
+    fetch('http://127.0.0.1:8000/bankapi/bank/')
       .then((response) => response.json())
       .then((data) => {
         setApiData(data);
@@ -75,9 +75,17 @@ export default function CoursesPage() {
             />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
-            {filteredItems.map((data, index) => (
+            {/* {filteredItems.map((data, index) => (
               <Bankcard key={index} Name={data.name} image="/brand_assets/ctbank.png" />
-            ))}
+            ))} */}
+          </div>
+          <div className='mt-10 mx-10'>
+            <Button>
+              Previous
+            </Button>
+            <Button className='ml-auto mr-0'>
+              Next
+            </Button>
           </div>
         </div>
       </div>
