@@ -6,25 +6,36 @@ import Bankcard from '../../components/Bankcard'
 import Nav from '@/components/Nav';
 import { Button } from 'antd';
 import { items } from "./data"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CoursesPage() {
   const router = useRouter();
-
   const [searchValue, setSearchValue] = useState('');
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [filteredItems, setFilteredItems] = useState<any[]>([]);
+  const [apiData, setApiData] = useState<any[]>([])
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchValue(value);
 
-    const filtered = items.filter((item) =>
-      item.bankName.toLowerCase().includes(value.toLowerCase())
-    );
-
+    const filtered = apiData.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+      );
+    
     setFilteredItems(filtered);
   };
-  
+
+  useEffect(() => {
+
+    fetch('http://127.0.0.1:8000/bankapi/branch/')
+      .then((response) => response.json())
+      .then((data) => {
+        setApiData(data);
+        setFilteredItems(data);
+      })
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
@@ -65,7 +76,7 @@ export default function CoursesPage() {
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
             {filteredItems.map((data, index) => (
-              <Bankcard key={index} Name={data.bankName} image={data.image} />
+              <Bankcard key={index} Name={data.name} image="/brand_assets/ctbank.png" />
             ))}
           </div>
         </div>

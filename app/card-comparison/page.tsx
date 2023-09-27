@@ -7,15 +7,31 @@ import ApplyCard from '../../components/ApplyCard'
 import CreditScore from '../../components/CreditScore'
 import TableRow from '../../components/TableRow'
 import Nav from '@/components/Nav';
+import { items } from "./data"
 import { Button } from 'antd';
+import { useState } from 'react';
 
 export default function CoursesPage() {
   const router = useRouter();
 
+  const [searchValue, setSearchValue] = useState('');
+  const [filteredItems, setFilteredItems] = useState(items);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSearchValue(value);
+
+    const filtered = items.filter((item) =>
+      item.bankName.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setFilteredItems(filtered);
+  };  
+
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
-      <div className="h-[2700px] relative">
+      <div className="h-[24533930px] relative">
         <div className="flex h-[450px]">
           <div className="flex-col">
             <div className="pl-40 pt-32 font-inter mx-auto font-medium text-6xl absolute w-[600px] leading-tight">
@@ -42,14 +58,14 @@ export default function CoursesPage() {
             <input
               className="w-[630px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4"
               placeholder="Search Credit Card"
-            />
+              onChange={handleInputChange}
+          />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
-            <CreditCard imageno={1}/>
-            <CreditCard imageno={6}/>
-            <CreditCard imageno={7}/>
-            <CreditCard imageno={5}/>
-          </div>
+            {filteredItems.map((data, index) => (
+              <CreditCard key={index} Name={data.bankName} image={data.image} />
+            ))}          
+            </div>
           <div className="grid grid-cols-[13fr,29fr,29fr,29fr] mt-20">
             <div className="col-span-1 border-t-2">
             </div>

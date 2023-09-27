@@ -157,12 +157,14 @@ const Home = () => {
                     Compare options and dig into the details with objective reviews that help you make smart decisions.</h2>
               </div>
               <div className='flex space-x-6 pt-24 pl-40'>
+                <Link href="/bank-details">
                   <button className='flex items-center justify-center rounded-[6px] text-white h-10 w-48' style={{backgroundColor: "#53389E"}}>
                     Compare Savings Card
                   </button>
-                  <button className='flex items-center justify-center rounded-[6px] text-black h-10 w-48 border-black border-2'>
-                    Explore Guides & Tips
-                  </button>
+                </Link>
+                <button className='flex items-center justify-center rounded-[6px] text-black h-10 w-48 border-black border-2'>
+                  Explore Guides & Tips
+                </button>
               </div>
             </div>
             <div className='h-full'>

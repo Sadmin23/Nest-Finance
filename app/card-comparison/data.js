@@ -16,7 +16,7 @@ export const items = [
     {
         bankName: "MTB Visa Signature",
         image:
-          "/brand_assets/card1.png",
+          "/brand_assets/card2.png",
           rating: 5,
           creditScore: "Excelent",
           greatFor: {
@@ -30,7 +30,7 @@ export const items = [
       {
         bankName: "Eastern Bank Visa Signature Credit Card",
         image:
-          "/brand_assets/card1.png",
+          "/brand_assets/card3.png",
           rating: 5,
           creditScore: "Excelent",
           greatFor: {
