@@ -21,20 +21,16 @@ export default function CoursesPage() {
   const [filteredItems, setFilteredItems] = useState<any[]>([]);
 
   useEffect(() => {
-    // Logic to filter items based on searchValue
     const filtered = items.filter((item) =>
       item.bankName.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredItems(filtered);
 
-    // Reset current page to 1 whenever the search value changes
     setCurrentPage(1);
   }, [searchValue]);
 
-  // Determine which set of items to display (all or filtered)
   const itemsToDisplay = searchValue ? filteredItems : items;
 
-  // Pagination logic
   const lastIndex = currentPage * ITEMS_PER_PAGE;
   const firstIndex = lastIndex - ITEMS_PER_PAGE;
   const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);

@@ -5,36 +5,60 @@ import Image from 'next/image';
 import Bankcard from '../../components/Bankcard'
 import Nav from '@/components/Nav';
 import { Button } from 'antd';
-import { items } from "./data"
 import { useEffect, useState } from 'react';
 
 export default function CoursesPage() {
+
+  const ITEMS_PER_PAGE = 9
+
   const router = useRouter();
   const [searchValue, setSearchValue] = useState('');
   const [filteredItems, setFilteredItems] = useState<any[]>([]);
   const [apiData, setApiData] = useState<any[]>([])
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setSearchValue(value);
-
-    const filtered = apiData.filter((item) =>
-      item.name.toLowerCase().includes(value.toLowerCase())
-      );
-    
-    setFilteredItems(filtered);
-  };
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-
     fetch('http://127.0.0.1:8000/bankapi/bank/')
       .then((response) => response.json())
       .then((data) => {
         setApiData(data);
-        setFilteredItems(data);
       })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  useEffect(() => {
+    const filtered = apiData.filter((item) =>
+      item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredItems(filtered);
+
+    setCurrentPage(1);
+  }, [searchValue]);
+
+  const itemsToDisplay = searchValue ? filteredItems : apiData;
+
+  const lastIndex = currentPage * ITEMS_PER_PAGE;
+  const firstIndex = lastIndex - ITEMS_PER_PAGE;
+  const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
+
+  const handleNextPage = () => {
+    if (lastIndex < itemsToDisplay.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+
+  console.log(currentItems);
+  
 
   return (
     <div className='bg-[#F2F4F7] flex-col'>
@@ -75,15 +99,15 @@ export default function CoursesPage() {
             />
           </div>
           <div className="grid grid-cols-3 gap-5 mx-10">
-            {/* {filteredItems.map((data, index) => (
+            {currentItems.map((data, index) => (
               <Bankcard key={index} Name={data.name} image="/brand_assets/ctbank.png" />
-            ))} */}
+            ))}
           </div>
-          <div className='mt-10 mx-10'>
-            <Button>
+          <div className='mt-6 mx-auto w-60 space-x-2'>
+            <Button onClick={handlePrevPage}>
               Previous
             </Button>
-            <Button className='ml-auto mr-0'>
+            <Button onClick={handleNextPage}>
               Next
             </Button>
           </div>
