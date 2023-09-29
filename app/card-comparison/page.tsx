@@ -7,54 +7,17 @@ import ApplyCard from '../../components/ApplyCard'
 import CreditScore from '../../components/CreditScore'
 import TableRow from '../../components/TableRow'
 import Nav from '@/components/Nav';
+import CardInfo from '@/components/CardInfo';
 import { items } from "./data"
 import { Button } from 'antd';
-import { useEffect, useState } from 'react';
 
 export default function CoursesPage() {
   const router = useRouter();
 
-  const ITEMS_PER_PAGE = 3
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchValue, setSearchValue] = useState('');
-  const [filteredItems, setFilteredItems] = useState<any[]>([]);
-
-  useEffect(() => {
-    const filtered = items.filter((item) =>
-      item.bankName.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setFilteredItems(filtered);
-
-    setCurrentPage(1);
-  }, [searchValue]);
-
-  const itemsToDisplay = searchValue ? filteredItems : items;
-
-  const lastIndex = currentPage * ITEMS_PER_PAGE;
-  const firstIndex = lastIndex - ITEMS_PER_PAGE;
-  const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
-
-  const handleNextPage = () => {
-    if (lastIndex < itemsToDisplay.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
-
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
-      <div className="h-[24533930px] relative">
+      <div className="h-[2600px] relative">
         <div className="flex h-[450px]">
           <div className="flex-col">
             <div className="pl-40 pt-32 font-inter mx-auto font-medium text-6xl absolute w-[600px] leading-tight">
@@ -77,26 +40,7 @@ export default function CoursesPage() {
             </h1>
             <h2 className='my-5 mx-10'>Choose the credit card of your choice from our extensive comparison features.</h2>
           </div>
-          <div className="flex mx-10 my-8">
-            <input
-              className="w-[630px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4"
-              placeholder="Search Credit Card"
-              onChange={handleInputChange}
-          />
-          </div>
-          <div className="grid grid-cols-3 gap-5 mx-10">
-            {currentItems.map((data, index) => (
-              <CreditCard key={index} Name={data.bankName} image={data.image} />
-            ))}          
-          </div>
-          <div className='mt-20 mx-10'>
-          <Button onClick={handlePrevPage}>
-            Previous
-          </Button>
-          <Button onClick={handleNextPage}>
-            Next
-          </Button>
-          </div>
+          <CardInfo/>
           <div className="grid grid-cols-[13fr,29fr,29fr,29fr] mt-20">
             <div className="col-span-1 border-t-2">
             </div>
