@@ -24,8 +24,7 @@ const Footer = (): JSX.Element => {
                   <Link href="/">Home</Link>
                   <Link href="/all-banks">Banking</Link>
                   <Link href="/card-details">Credit Cards</Link>
-                  <Link href="/">Deposits</Link>
-                  <Link href="/">Loans</Link>
+                  <Link href="/atm">ATMs</Link>
                 </div>
             </div>
             <div className='flex-col mr-0 ml-auto'>

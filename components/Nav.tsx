@@ -39,7 +39,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
         <Link href="/">Home</Link>
         <Link href="/all-banks">Banking</Link>
         <Link href="/card-details">Credit Cards</Link>
-        <Link href="/">Deposits</Link>
+        <Link href="/atm">ATM</Link>
         <Link href="/">Loans</Link>
         <Link href="/">Mutual Funds</Link>
         <Link href="/">Bonds</Link>

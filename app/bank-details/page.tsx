@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Bankrow from '../../components/Bankrow'
 import Nav from '@/components/Nav';
 
-export default function CoursesPage() {
+export default function BankDetails() {
   const router = useRouter();
 
   return (

@@ -11,7 +11,7 @@ import CardInfo from '@/components/CardInfo';
 import { items } from "./data"
 import { Button } from 'antd';
 
-export default function CoursesPage() {
+export default function CardComparison() {
   const router = useRouter();
 
   return (

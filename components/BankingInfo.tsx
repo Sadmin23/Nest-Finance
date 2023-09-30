@@ -17,7 +17,7 @@ const BankingInfo = (): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/bankapi/branch/')
+    fetch('http://127.0.0.1:8000/bankapi/atm/')
       .then((response) => response.json())
       .then((data) => {
         setApiData(data);
@@ -27,8 +27,7 @@ const BankingInfo = (): JSX.Element => {
 
   useEffect(() => {
     const filtered = apiData.filter((item) =>
-    item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-    item.slug.toLowerCase().includes(searchValue.toLowerCase())
+    item.name.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredItems(filtered);
 
@@ -58,7 +57,7 @@ const BankingInfo = (): JSX.Element => {
   };  
 
   return (
-    <div className='h-[960px] bg-white mx-40 rounded-xl flex-col relative z-10'>
+    <div className='h-auto bg-white mx-40 rounded-xl flex-col relative z-10'>
         <div className='py-10 border-b-2'>
           <h1 className='mx-10 font-inter text-2xl font-medium leading-5 '>Search Banks</h1>
         </div>
@@ -75,10 +74,10 @@ const BankingInfo = (): JSX.Element => {
         </div>
         <div className="grid grid-cols-3 gap-5 mx-10">
           {currentItems.map((data, index) => (
-            <Bankcard key={index} Name={data.slug + ", " + data.name} image="/brand_assets/ctbank.png" />
+            <Bankcard key={index} Name={data.name} image="/brand_assets/ctbank.png" />
           ))}
         </div>
-        <div className='mt-6 mx-auto w-60 space-x-2'>
+        <div className='py-6 mx-auto w-60 space-x-2'>
           <Button onClick={handlePrevPage}>
             Previous
           </Button>

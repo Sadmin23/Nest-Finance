@@ -8,7 +8,7 @@ import { Button } from 'antd';
 import { useEffect, useState } from 'react';
 import BankingInfo from '../../components/BankingInfo';
 
-export default function AllBanks() {
+export default function Atm() {
   return (
     <div className='bg-[#F2F4F7] flex-col'>
       <Nav bgOption='white'/>
@@ -16,7 +16,7 @@ export default function AllBanks() {
         <div className='flex h-[370px]'>
           <div className='flex-col'>
             <div className="pl-40 pt-16 font-inter mx-auto font-medium text-6xl absolute w-[900px] leading-tight">
-              <h1>All your banking information in one place</h1>
+              <h1>All your nearby ATM information in one place</h1>
             </div>
             <div className="pl-40 pt-56 w-[870px] font-inter font-medium text-base absolute">
               Managing your finances has never been easier with the convenience of centralized banking information.

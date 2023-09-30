@@ -6,7 +6,7 @@ import Cardrow from '../../components/Cardrow'
 import Nav from '@/components/Nav';
 import Link from 'next/link';
 
-export default function CoursesPage() {
+export default function CardDetails() {
   const router = useRouter();
 
   return (
