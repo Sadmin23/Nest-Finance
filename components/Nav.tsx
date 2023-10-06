@@ -12,20 +12,20 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
   if (bgOption==='purple')
   {
     image="/brand_assets/Logo.png";
-    bg = "violet-500"
+    bg = 'bg-[#7f56d9]'
     text += "white"
 
 
   }
   else{
     image="/brand_assets/Logo3.png";
-    bg = "#FFFFFF"
+    bg = "bg-white"
     text += "black" 
   }
 
   const router = useRouter();
   return (
-    <div className="flex py-10" style={{backgroundColor: bg}}>
+    <div className={`flex py-16 ${bg}`}>
       <div className='pl-40 pr-16'>
         <Link href="/">
           <Image
@@ -60,7 +60,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Dropdown/>
         </section>
       </div>
-      <div className='ml-auto mr-40 space-x-4'>
+      <div className='ml-auto mr-40 space-x-6'>
       <button className='rounded-[8px] w-28 h-10 text-base font-medium text-white border-[1px] border-white'>Login</button>
         <button className='rounded-[8px] w-28 h-10 text-base font-medium text-violet-500 bg-white'>Register</button>
       </div>
