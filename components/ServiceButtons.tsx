@@ -8,7 +8,7 @@ import LoansSvg from './ui/LoansSvg';
 import MutualFundsSvg from './ui/MutualFundsSvg';
 import BondsSvg from './ui/BondsSvg';
 
-const Buttons = ({ x }: { x: number }): JSX.Element => {
+const ServiceButtons = ({ x }: { x: number }): JSX.Element => {
 
   let content;
 
@@ -36,7 +36,7 @@ const Buttons = ({ x }: { x: number }): JSX.Element => {
   }
 
   return (
-    <Button className='w-40 h-32 border-[#53389e] border-2'>
+    <Button className='w-40 h-32 border-[#53389e] border-4'>
       {content}
     <h3 className='text-[18px] font-semibold text-[#53389e]'>Banking</h3>
     </Button>
@@ -44,4 +44,4 @@ const Buttons = ({ x }: { x: number }): JSX.Element => {
   );
 };
 
-export default Buttons;
+export default ServiceButtons;
