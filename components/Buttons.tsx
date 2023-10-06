@@ -32,7 +32,7 @@ const Buttons = ({ x }: { x: number }): JSX.Element => {
       content = <BondsSvg />;
       break; 
     default:
-      content = <BankingSvg />; // Handle default case if needed
+      content = <BankingSvg />;
   }
 
   return (
