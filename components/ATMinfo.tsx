@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const BankingInfo = (): JSX.Element => {
+const ATMInfo = (): JSX.Element => {
   const router = useRouter();      
 
   const ITEMS_PER_PAGE = 9
@@ -17,7 +17,7 @@ const BankingInfo = (): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/bankapi/branch/')
+    fetch('http://127.0.0.1:8000/bankapi/atm/')
       .then((response) => response.json())
       .then((data) => {
         setApiData(data);
@@ -27,8 +27,7 @@ const BankingInfo = (): JSX.Element => {
 
   useEffect(() => {
     const filtered = apiData.filter((item) =>
-    item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-    item.slug.toLowerCase().includes(searchValue.toLowerCase())
+    item.name.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredItems(filtered);
 
@@ -58,14 +57,14 @@ const BankingInfo = (): JSX.Element => {
   };  
 
   return (
-    <div className='h-[960px] bg-white mx-40 rounded-xl flex-col relative z-10'>
+    <div className='h-auto bg-white mx-40 rounded-xl flex-col relative z-10'>
         <div className='py-10 border-b-2'>
-          <h1 className='mx-10 font-inter text-2xl font-medium leading-5 '>Search Banks</h1>
+          <h1 className='mx-10 font-inter text-2xl font-medium leading-5 '>Search ATMs</h1>
         </div>
         <div className='flex mx-10 my-8'>
           <input
               className="w-[630px] border-[1px] border-[#D0D5DD] h-10 rounded-md font-medium text-sm leading-5 pl-4"
-              placeholder="Search Banks"
+              placeholder="Search ATMs"
               onChange={handleInputChange}            
             />
           <input
@@ -75,10 +74,10 @@ const BankingInfo = (): JSX.Element => {
         </div>
         <div className="grid grid-cols-3 gap-5 mx-10">
           {currentItems.map((data, index) => (
-            <Bankcard key={index} Name={data.slug + ", " + data.name} image="/brand_assets/ctbank.png" />
+            <Bankcard key={index} Name={data.name} image="/brand_assets/ctbank.png" />
           ))}
         </div>
-        <div className='mt-6 mx-auto w-60 space-x-2'>
+        <div className='py-6 mx-auto w-60 space-x-2'>
           <Button onClick={handlePrevPage}>
             Previous
           </Button>
@@ -90,4 +89,4 @@ const BankingInfo = (): JSX.Element => {
   );
 };
 
-export default BankingInfo;
+export default ATMInfo;

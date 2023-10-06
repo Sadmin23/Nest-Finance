@@ -6,7 +6,7 @@ import Bankcard from '../../components/BankingInfo'
 import Nav from '@/components/Nav';
 import { Button } from 'antd';
 import { useEffect, useState } from 'react';
-import BankingInfo from '../../components/BankingInfo';
+import ATMInfo from '../../components/ATMinfo';
 
 export default function Atm() {
   return (
@@ -19,7 +19,7 @@ export default function Atm() {
               <h1>All your nearby ATM information in one place</h1>
             </div>
             <div className="pl-40 pt-56 w-[870px] font-inter font-medium text-base absolute">
-              Managing your finances has never been easier with the convenience of centralized banking information.
+              Managing your finances has never been easier with the convenience of centralized ATM information.
                Imagine having all your financial accounts - from various banks to credit cards and loans - neatly organized and easily accessible in a single location.              
             </div>
           </div>
@@ -32,7 +32,7 @@ export default function Atm() {
                 />
           </div>
         </div>
-        <BankingInfo/>
+        <ATMInfo/>
       </div>
       <div className='bg-[#F2F4F7] h-16'>
       </div>
