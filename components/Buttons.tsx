@@ -3,10 +3,12 @@
 import { Button } from 'antd';
 import BankingSvg from './ui/BankingSvg';
 import CreditCardSvg from './ui/CreditCardsSvg';
+import DepositSchemesSvg from './ui/DepositSchemesSvg';
+import LoansSvg from './ui/LoansSvg';
+import MutualFundsSvg from './ui/MutualFundsSvg';
+import BondsSvg from './ui/BondsSvg';
 
-const Buttons = (): JSX.Element => {
-
-  let x = 2
+const Buttons = ({ x }: { x: number }): JSX.Element => {
 
   let content;
 
@@ -17,10 +19,18 @@ const Buttons = (): JSX.Element => {
     case 2:
       content = <CreditCardSvg />;
       break;
-    // Add more cases for other values of x
-    // case 3:
-    //   content = <SomeOtherSvg />;
-    //   break;
+    case 3:
+      content = <DepositSchemesSvg />;
+      break;
+    case 4:
+      content = <LoansSvg />;
+      break;
+    case 5:
+      content = <MutualFundsSvg />;
+      break;
+    case 6:
+      content = <BondsSvg />;
+      break; 
     default:
       content = <BankingSvg />; // Handle default case if needed
   }
