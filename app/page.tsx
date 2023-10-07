@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import Options from '@/components/Options';
 import LearnMore from '@/components/LearnMore';
 import PopularBanks from '@/components/PopularBanks';
+import Testemonial from '@/components/Testemonial';
 
 const Home = () => {
   const router = useRouter();
@@ -18,6 +19,7 @@ const Home = () => {
         <Options/>
         <LearnMore/>
         <PopularBanks/>
+        <Testemonial/>
     </div>
   );
 };
