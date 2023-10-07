@@ -1,7 +1,5 @@
 'use client';
 
-import { Button } from 'antd';
-
 const BankingSvg = (): JSX.Element => {
 
   return (

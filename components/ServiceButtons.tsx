@@ -1,12 +1,12 @@
 'use client';
 
 import { Button } from 'antd';
-import BankingSvg from './ui/BankingSvg';
-import CreditCardSvg from './ui/CreditCardsSvg';
-import DepositSchemesSvg from './ui/DepositSchemesSvg';
-import LoansSvg from './ui/LoansSvg';
-import MutualFundsSvg from './ui/MutualFundsSvg';
-import BondsSvg from './ui/BondsSvg';
+import BankingSvg from './SVG/BankingSvg';
+import CreditCardSvg from './SVG/CreditCardsSvg';
+import DepositSchemesSvg from './SVG/DepositSchemesSvg';
+import LoansSvg from './SVG/LoansSvg';
+import MutualFundsSvg from './SVG/MutualFundsSvg';
+import BondsSvg from './SVG/BondsSvg';
 
 const ServiceButtons = ({ x }: { x: number }): JSX.Element => {
 

@@ -1,7 +1,5 @@
 'use client';
 
-import { Button } from 'antd';
-
 const PlaySvg = (): JSX.Element => {
 
   return (

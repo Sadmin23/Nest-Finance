@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from 'antd';
-import PlaySvg from './ui/PlaySvg';
+import PlaySvg from './SVG/PlaySvg';
 
 const LearnMore = (): JSX.Element => {
   return (

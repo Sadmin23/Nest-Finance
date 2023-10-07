@@ -8,7 +8,7 @@ import SmallButton from './SmallButton';
 const Options = (): JSX.Element => {
   return (
     <section>
-      <div className='bg-white rounded-xl mt-8 mb-16 flex items-center justify-center space-x-12 mx-40'>
+      <div className='bg-white rounded-xl mt-16 mb-16 flex items-center justify-center space-x-12 mx-40'>
           <ServiceButtons x={1}/>
           <ServiceButtons x={2}/>
           <ServiceButtons x={3}/>

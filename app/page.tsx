@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import Hero from '@/components/Hero';
 import Options from '@/components/Options';
 import LearnMore from '@/components/LearnMore';
+import PopularBanks from '@/components/PopularBanks';
 
 const Home = () => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const Home = () => {
         <Hero/>
         <Options/>
         <LearnMore/>
+        <PopularBanks/>
     </div>
   );
 };
