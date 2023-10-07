@@ -31,8 +31,7 @@ const LearnMore = (): JSX.Element => {
                       src="/brand_assets/manIllustr.png"
                       width={1400}
                       height={40}
-                      alt="Picture of the author"
-                      className=''
+                      alt="Picture"
                     />
                 </div>
             </div>

@@ -16,7 +16,7 @@ const Testemonial = (): JSX.Element => {
                     <h1 className='text-3xl font-semibold leading-tight tracking-tight text-white'>
                         Trusted Voices of Finance
                     </h1>
-                    <h2 className='text-lg w-[665px] mt-4 text-white'>
+                    <h2 className='text-lg w-[680px] mt-4 text-white tracking-wide'>
                         Real Stories from Our Satisfied Users: Discover How Our Solutions Are Transforming Financial Experiences.
                     </h2>
                     <div className='flex mt-20'>

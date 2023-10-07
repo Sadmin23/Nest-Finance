@@ -8,6 +8,7 @@ import Options from '@/components/Options';
 import LearnMore from '@/components/LearnMore';
 import PopularBanks from '@/components/PopularBanks';
 import Testemonial from '@/components/Testemonial';
+import Subscription from '@/components/Subscription';
 
 const Home = () => {
   const router = useRouter();
@@ -20,6 +21,7 @@ const Home = () => {
         <LearnMore/>
         <PopularBanks/>
         <Testemonial/>
+        <Subscription/>
     </div>
   );
 };
