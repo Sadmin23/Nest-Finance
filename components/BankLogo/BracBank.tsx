@@ -3,7 +3,7 @@
 const BracBank = (): JSX.Element => {
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="156" height="40" viewBox="0 0 245 63" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" className='mt-8' width="160" height="41" viewBox="0 0 245 63" fill="none">
       <path d="M26.7686 0.327759H0.517578V26.5125H26.7686V0.327759Z" fill="white"/>
       <path d="M21.6099 7.07392C17.7124 13.0198 11.9807 20.7952 1.31982 20.1091V1.12805H25.2782C25.2782 1.12805 23.9026 3.75794 21.6099 7.07392Z" fill="#006CB6"/>
       <path d="M1.31982 21.5958V25.5978H25.8514V1.47119C25.8514 1.47119 18.0563 23.1966 1.31982 21.5958Z" fill="#E4A724"/>

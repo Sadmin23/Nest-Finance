@@ -8,6 +8,7 @@ import DBBL from "./BankLogo/DBBL";
 import EasternBank from "./BankLogo/EasternBank";
 import IslamiBank from "./BankLogo/IslamiBank";
 import AgraniBank from "./BankLogo/SonaliBank";
+import { Button } from 'antd';
 
 const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
 
@@ -43,8 +44,11 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
   }
 
   return (
-    <section className='w-64 h-52 rounded-2xl px-12 pt-6 border-2 border-[#53389E]'>
+    <section className='w-64 h-52 rounded-2xl px-12 pt-6 border-2 border-[#53389E] flex flex-col justify-between'>
       {content}
+      <div className="mb-6 mx-auto">
+        <Button className='mt-auto px-5 w-32 h-9 bg-[#53389e] text-white'>Bank details</Button>
+      </div>
     </section>
   );
 };

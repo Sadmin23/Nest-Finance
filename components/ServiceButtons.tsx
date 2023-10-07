@@ -36,7 +36,7 @@ const ServiceButtons = ({ x }: { x: number }): JSX.Element => {
   }
 
   return (
-    <Button className='w-40 h-32 border-[#53389e] border-4'>
+    <Button className='w-40 h-32 border-[#53389e] border-2'>
       {content}
     <h3 className='text-[18px] font-semibold text-[#53389e]'>Banking</h3>
     </Button>
