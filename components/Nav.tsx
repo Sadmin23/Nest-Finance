@@ -4,40 +4,26 @@ import Image from 'next/image'
 import Link from 'next/link';
 import Dropdown from '../components/Dropdown';
 import 'typeface-poppins';
+import NFLogoSmall from './SVG/NFLogoSmall';
 
 const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
 
-  let image, bg, text="text-";
+  let bg
 
   if (bgOption==='purple')
-  {
-    image="/brand_assets/Logo.png";
+
     bg = 'bg-[#7f56d9]'
-    text += "white"
+  else
+    bg = 'bg-[#53389E]'
 
-
-  }
-  else{
-    image="/brand_assets/Logo3.png";
-    bg = "bg-white"
-    text += "black" 
-  }
-
-  const router = useRouter();
   return (
-    <div className={`flex py-16 ${bg}`}>
+    <div className={`flex py-10 ${bg}`}>
       <div className='pl-40 pr-16'>
         <Link href="/">
-          <Image
-            src={image}
-            width={75}
-            height={40}
-            className='p-auto'
-            alt="Picture of the author"
-            />
+          <NFLogoSmall/>
         </Link>
       </div>
-      <div className={`font-poppins font-normal text-base ${text} my-auto space-x-12 flex`}>
+      <div className={`font-poppins font-normal text-base text-white my-auto space-x-12 flex`}>
         <Link className='ml-4' href="/">Home</Link>
         <section className='flex space-x-2'>
           <Link href="/all-banks">Banks</Link>

@@ -25,7 +25,7 @@ const Options = (): JSX.Element => {
           </h2>
           <div className='flex space-x-8 mt-16'>
             <Button className='w-48 h-20 bg-gradient-to-b from-[#7F56D9] to-[#53389e] text-white text-[18px] font-semibold'>Search Banks</Button>
-            <Button className='w-64 h-20  text-[#53389E] text-[18px] border-2 border-[#53389E] font-semibold'>Explore Guides and Tips</Button>
+            <Button className='w-64 h-20  text-[#53389E] text-[18px] border-2 border-[#53389E] font-semibold'>Explore Guides & Tips</Button>
           </div>
           <h1 className='text-[42px] font-semibold leading-10 tracking-tight mt-10'>Services</h1>
           <h2 className='text-[22px] mt-6'>

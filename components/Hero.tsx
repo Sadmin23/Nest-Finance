@@ -1,9 +1,7 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const Hero = (): JSX.Element => {
-  const router = useRouter();
   return (
     <div className='text-gray-25 text-center bg-gradient-to-b from-[#7F56D9] to-[#53389e]'>
         <div className='font-inter font-normal text-base p-5 pt-16'>
