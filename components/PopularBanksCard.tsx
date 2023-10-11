@@ -25,7 +25,7 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
       content = <DBBL/>
       break;
     case 4:
-      content = <EasternBank/>
+      content = <EasternBank w={89} h={103}/>
       break;
     case 5:
       content = <BankAsia/>
@@ -34,7 +34,7 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
       content = <IslamiBank/>
       break;
     case 7:
-      content = <ABBank/>
+      content = <ABBank w={130} h={41}/>
       break; 
     case 8:
       content = <AgraniBank/>
