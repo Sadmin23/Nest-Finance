@@ -6,6 +6,7 @@ import CityBank from "./BankLogo/CityBank";
 import DBBL from "./BankLogo/DBBL";
 import EasternBank from "./BankLogo/EasternBank";
 import IslamiBank from "./BankLogo/IslamiBank";
+import Image from 'next/image';
 
 const BankListCard = ({ n }: { n: number }): JSX.Element => {
 
@@ -23,8 +24,15 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
       text = "AB Bank Limited"
       break;
     case 3:
-      content = <DBBL w={251} h={78}/>
-      color = "text-[#282828] mx-20"
+      content =           
+        <Image
+          src="/brand_assets/dbbl.png"
+          width={167}
+          height={106}
+          alt="dbbllogo"
+          className='ml-24 mt-32'
+        />
+      color = "text-[#282828] mx-9"
       text = "Dutch-Bangla Bank Ltd"
       break;
     case 4:
@@ -42,7 +50,43 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
       color = "text-[#ED1D24] ml-28"
       text = "City Bank"
       break;
-    }
+    case 7:
+      content =           
+        <Image
+          src="/brand_assets/aibl.png"
+          width={210}
+          height={134}
+          alt="aibllogo"
+          className='ml-16 mt-24'
+        />
+      color = "text-[#1E1E1E] ml-11"
+      text = "Al-Arafah Islami Bank"
+      break;
+    case 8:
+      content =           
+        <Image
+          src="/brand_assets/eximbank.png"
+          width={203}
+          height={118}
+          alt="eximllogo"
+          className='ml-20 mt-28'
+        />
+      color = "text-[#ED1C24] mx-28"
+      text = "Exim Bank"
+    break;
+    case 9:
+      content =           
+        <Image
+          src="/brand_assets/sonali.png"
+          width={250}
+          height={183}
+          alt="eximllogo"
+          className='ml-14 mt-[74px]'
+        />
+      color = "text-[#DBA627] mx-14"
+      text = "Sonali Bank Limited"
+    break;
+  }
 
   return (
     <div className='w-[365px] h-[455px] rounded-2xl border-2 border-[#53389E] flex flex-col'>
