@@ -1,9 +1,14 @@
 'use client';
 
-const DBBL = (): JSX.Element => {
+const DBBL = ({ w, h }: { w: number, h: number }): JSX.Element => {
+
+  let style = "mt-3"
+
+  if (w===165)
+    style = "ml-24 mt-20"
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="mt-3"  width="160" height="64" viewBox="0 0 256 104" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" className="mt-3"  width={w} height={h} viewBox="0 0 256 104" fill="none">
       <path d="M181.472 35.5965C181.472 53.5601 157.201 68.0912 127.319 68.0912C97.4381 68.0912 73.1666 53.5601 73.1666 35.5965C73.1666 17.6329 97.4381 3.10181 127.319 3.10181C157.201 3.10181 181.472 17.6329 181.472 35.5965Z" fill="url(#paint0_linear_98_1547)"/>
       <mask id="mask0_98_1547" maskUnits="userSpaceOnUse" x="73" y="0" width="109" height="66">
         <path d="M181.358 32.5073C181.358 50.4709 157.087 65.002 127.205 65.002C97.3238 65.002 73.0524 50.4709 73.0524 32.5073C72.9379 14.5437 97.2093 0.0125732 127.091 0.0125732C157.087 0.0125732 181.358 14.5437 181.358 32.5073Z" fill="white"/>

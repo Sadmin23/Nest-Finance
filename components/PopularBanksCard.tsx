@@ -22,7 +22,7 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
       content = <BracBank/>
       break;
     case 3:
-      content = <DBBL/>
+      content = <DBBL w={160} h={64}/>
       break;
     case 4:
       content = <EasternBank w={89} h={103}/>
