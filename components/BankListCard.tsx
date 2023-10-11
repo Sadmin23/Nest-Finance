@@ -1,6 +1,8 @@
 'use client';
 
 import ABBank from "./BankLogo/ABBank";
+import AgraniBank from "./BankLogo/AgraniBank";
+import CityBank from "./BankLogo/CityBank";
 import DBBL from "./BankLogo/DBBL";
 import EasternBank from "./BankLogo/EasternBank";
 import IslamiBank from "./BankLogo/IslamiBank";
@@ -29,6 +31,16 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
       content = <IslamiBank w={188} h={168}/>
       color = "text-[#00A651] mx-8"
       text = "Islami Bank Bangladesh"
+      break;
+    case 5:
+      content = <AgraniBank w={297} h={153}/>
+      color = "text-[#00A651]  ml-14"
+      text = "Agrani Bank Limited"
+      break;
+    case 6:
+      content = <CityBank w={195} h={144}/>
+      color = "text-[#ED1D24] ml-28"
+      text = "City Bank"
       break;
     }
 

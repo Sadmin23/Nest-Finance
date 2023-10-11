@@ -1,9 +1,14 @@
 'use client';
 
-const AgraniBank = (): JSX.Element => {
+const AgraniBank = ({ w, h }: { w: number, h: number }): JSX.Element => {
+
+  let style = ""
+
+  if (w===297)
+    style = "mx-8 mt-[100px]"  
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="82" viewBox="0 0 241 124" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" className={style} width={w} height={h} viewBox="0 0 241 124" fill="none">
       <path d="M68.582 43.1537C68.582 25.5061 77.2976 9.91975 90.6225 0.5H150.044C163.369 9.91918 172.086 25.5058 172.246 43.1557C172.245 72.0255 148.958 95.3077 120.414 95.3077C91.7093 95.3077 68.582 72.0254 68.582 43.1537Z" fill="white" stroke="#00A651"/>
       <path d="M114.456 9.01709V77.1292C116.388 77.4512 118.16 77.6122 120.092 77.6122V9.01709H114.456Z" fill="#00A651"/>
       <path d="M125.889 9.01709V77.2902C126.211 77.2902 126.533 77.1292 126.855 77.1292V9.01709H125.889Z" fill="#00A651"/>

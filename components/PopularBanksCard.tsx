@@ -7,7 +7,7 @@ import CityBank from "./BankLogo/CityBank";
 import DBBL from "./BankLogo/DBBL";
 import EasternBank from "./BankLogo/EasternBank";
 import IslamiBank from "./BankLogo/IslamiBank";
-import AgraniBank from "./BankLogo/SonaliBank";
+import AgraniBank from "./BankLogo/AgraniBank";
 import { Button } from 'antd';
 
 const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
@@ -16,7 +16,7 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
 
   switch (x) {
     case 1:
-      content = <CityBank/>
+      content = <CityBank w={113} h={82}/>
       break;
     case 2:
       content = <BracBank/>
@@ -31,16 +31,16 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
       content = <BankAsia/>
       break;
     case 6:
-      content = <IslamiBank/>
+      content = <IslamiBank w={93} h={84}/>
       break;
     case 7:
       content = <ABBank w={130} h={41}/>
       break; 
     case 8:
-      content = <AgraniBank/>
+      content = <AgraniBank w={160} h={82}/>
       break; 
     default:
-      content = <CityBank />;
+      content = <CityBank w={113} h={82}/>;
   }
 
   return (
