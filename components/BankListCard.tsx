@@ -14,12 +14,26 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
 
   switch (n) {
     case 1:
-      content = <EasternBank w={165} h={182}/>
+      content =           
+        <Image
+          src="/brand_assets/ebl.png"
+          width={164}
+          height={181}
+          alt="ebllogo"
+          className='ml-28 mt-[88px]'
+        />
       color = "text-[#005BAA] mx-[76px]"
       text = "Eastern Bank Ltd."
       break;
     case 2:
-      content = <ABBank w={251} h={78}/>
+      content = 
+        <Image
+        src="/brand_assets/abbank.png"
+        width={251}
+        height={77}
+        alt="abbanklogo"
+        className='ml-14 mt-36'
+        />
       color = "text-[#ED1C24] mx-20"
       text = "AB Bank Limited"
       break;
@@ -36,17 +50,38 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
       text = "Dutch-Bangla Bank Ltd"
       break;
     case 4:
-      content = <IslamiBank w={188} h={168}/>
+      content =           
+        <Image
+          src="/brand_assets/islami.png"
+          width={188}
+          height={168}
+          alt="dbbllogo"
+          className='ml-[88px] mt-20'
+        />
       color = "text-[#00A651] mx-8"
       text = "Islami Bank Bangladesh"
       break;
     case 5:
-      content = <AgraniBank w={297} h={153}/>
+      content =           
+        <Image
+          src="/brand_assets/agrani.png"
+          width={297}
+          height={153}
+          alt="dbbllogo"
+          className='mx-8 mt-[100px]'
+        />
       color = "text-[#00A651]  ml-14"
       text = "Agrani Bank Limited"
       break;
     case 6:
-      content = <CityBank w={195} h={144}/>
+      content =           
+        <Image
+          src="/brand_assets/city.png"
+          width={195}
+          height={144}
+          alt="dbbllogo"
+          className='ml-20 mt-[108px]'
+        />
       color = "text-[#ED1D24] ml-28"
       text = "City Bank"
       break;
