@@ -3,6 +3,7 @@ import BankCardWrapper from '@/components/BankCardWrapper';
 import BankListHero from '@/components/BankListHero';
 import BankSearch from '@/components/BankSearch';
 import Nav from '@/components/Nav';
+import PageNavigation from '@/components/PageNavigation';
 
 const Home = () => {
 
@@ -12,6 +13,7 @@ const Home = () => {
         <BankListHero/>
         <BankSearch/>
         <BankCardWrapper/>
+        <PageNavigation/>
     </div>
   );
 };
