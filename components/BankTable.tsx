@@ -1,36 +1,43 @@
 'use client';
 
-const BankTable = (): JSX.Element => {
-  return (
-    <div className='flex-col mx-40'>
-        <div className="flex h-20 bg-[#53389E]">
-            <div className="w-36 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center rounded-[10px]">
-                Branch Name
-            </div>
-            <div className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                District
-            </div>
-            <div className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                Division
-            </div>
-            <div className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                Address
-            </div>
-            <div className="w-52 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                Contact
-            </div>
-            <div className="w-40 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                Email
-            </div>
-            <div className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                Swift Code
-            </div>
-            <div className="w-32 text-white text-center flex items-center justify-center">
-                Routing No.
-            </div>
+import BranchComponent from "./BankTableRow";
+import { BranchData } from "@/app/branch-list/data";
 
-        </div>
-    </div>
+const BankTable = (): JSX.Element => {
+
+
+  return (
+    <table className='flex-col mx-40 mb-10 border-b-2 border-[#D3D3D3'>
+        <tr className="flex h-20 bg-[#53389E]">
+            <td className="w-36 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
+                Branch Name
+            </td>
+            <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                District
+            </td>
+            <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                Division
+            </td>
+            <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                Address
+            </td>
+            <td className="w-52 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                Contact
+            </td>
+            <td className="w-44 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                Email
+            </td>
+            <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                Swift Code
+            </td>
+            <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
+                Routing No.
+            </td>
+        </tr>
+        {BranchData.map((branch, index) => (
+        <BranchComponent key={index} index={index} {...branch} />
+      ))}
+    </table>
   );
 };
 
