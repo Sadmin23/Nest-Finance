@@ -15,7 +15,6 @@ const Home = () => {
 
   return (
     <div className='flex-col'>
-        <Nav bgOption='purple'/>
         <Hero/>
         <Options/>
         <LearnMore/>
