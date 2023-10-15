@@ -2,7 +2,7 @@ import React from 'react';
 
 const SmallButton = ({ text }: { text: string }) => {
   return (
-    <button className='h-12 min-w-min rounded-md bg-[#D6BBFB] py-1 px-4 text-[18px]'>
+    <button className='h-8 min-w-min rounded-md bg-[#D6BBFB] py-1 px-4 text-[#1D2939] leading-6'>
       {text}
     </button>
   );

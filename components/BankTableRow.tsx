@@ -25,13 +25,14 @@ interface BranchDataProps {
       Routing_No,
     } = props;
 
-    let bg = "bg-"
 
-    if (index%2===0)
-        bg+="[#F0EBFF]"
+    
 
-    else
-        bg+="white"
+    let bg = "bg-[#F0EBFF]"
+
+    if (index % 2 === 0)
+        bg="bg-white"
+    
 
   return (
         <tr className={`flex ${bg}`}>

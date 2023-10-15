@@ -8,7 +8,7 @@ const TestemonialCard = (): JSX.Element => {
   return (
     <div className='w-[465px] h-[294px] bg-white bg-opacity-50 rounded-2xl flex text-[#121111]'>
       <Image
-        src="/brand_assets/test2.png"
+        src="/brand_assets/person1.png"
         width={169}
         height={40}
         alt="Picture"
