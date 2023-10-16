@@ -3,8 +3,20 @@
 import Image from 'next/image';
 import OptionsButton from "./OptionsButton";
 import ServiceButton from "./ServiceButton";
+import { useState } from 'react';
 
 const BankListCard = ({ n }: { n: number }): JSX.Element => {
+
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovered(false);
+  };
 
   let content, color, text
 
@@ -18,7 +30,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={164}
           height={181}
           alt="ebllogo"
-          className='ml-28 mt-[88px]'
         />
       color = "text-[#005BAA]"
       text = "Eastern Bank Ltd."
@@ -30,7 +41,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
         width={251}
         height={77}
         alt="abbanklogo"
-        className='ml-14 mt-36'
         />
       color = "text-[#ED1C24]"
       text = "AB Bank Limited"
@@ -42,7 +52,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={167}
           height={106}
           alt="dbbllogo"
-          className='ml-24 mt-32'
         />
       color = "text-[#282828]"
       text = "Dutch-Bangla Bank Ltd"
@@ -54,7 +63,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={188}
           height={168}
           alt="dbbllogo"
-          className='ml-[88px] mt-20'
         />
       color = "text-[#00A651]"
       text = "Islami Bank Bangladesh"
@@ -66,7 +74,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={297}
           height={153}
           alt="dbbllogo"
-          className='mx-8 mt-[100px]'
         />
       color = "text-[#00A651]"
       text = "Agrani Bank Limited"
@@ -79,7 +86,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={195}
           height={144}
           alt="dbbllogo"
-          className='ml-20 mt-[108px]'
         />
       color = "text-[#ED1D24]"
       text = "City Bank"
@@ -91,7 +97,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={210}
           height={134}
           alt="aibllogo"
-          className='ml-16 mt-24'
         />
       color = "text-[#1E1E1E]"
       text = "Al-Arafah Islami Bank"
@@ -103,7 +108,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={203}
           height={118}
           alt="eximllogo"
-          className='ml-20 mt-28'
         />
       color = "text-[#ED1C24]"
       text = "Exim Bank"
@@ -115,7 +119,6 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           width={250}
           height={183}
           alt="eximllogo"
-          className='ml-14 mt-[74px]'
         />
       color = "text-[#DBA627]"
       text = "Sonali Bank Limited"
@@ -123,16 +126,21 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
   }
 
   return (
-    <div className='w-[365px] rounded-2xl border-2 border-[#53389E] flex flex-col'>
+    <div className='w-[365px] h-[455px]  relative overflow-hidden rounded-2xl border-2 border-[#53389E] flex flex-col'
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+    >
         <div className="flex-col mb-auto">
-            {content}
-            <h1 className={`mb-3 ${color} text-xl font-semibold leading-normal text-center`}>{text}</h1>
-            <h2 className="mb-4 text-[#9E9E9E] leading-5 font-medium text-center">Private • Commercial • Local</h2>
-            <h2 className="text-[#1D2939] text-justify text-sm leading-5 mx-8 opacity-0">
+            <div className={`flex h-48 my-16 items-center justify-center ${isHovered ? 'opacity-0 duration-500' : 'opacity-100'}`}>
+              {content}
+            </div>
+            <h1 className={`mb-3 ${color} text-xl font-semibold leading-normal text-center ${isHovered ? 'transform -translate-y-40 duration-500' : ''}`}>{text}</h1>
+            <h2 className={`mb-4 text-[#9E9E9E] leading-5 font-medium text-center ${isHovered ? 'transform -translate-y-40 duration-500' : ''}`}>Private • Commercial • Local</h2>
+            <h2 className={`text-[#1D2939] text-justify text-sm leading-5 mx-8 ${isHovered ? 'transform -translate-y-40 opacity-100 duration-500' : 'opacity-0'}`}>
                 {textContent}
             </h2>
         </div>
-        <section className='space-y-6 mt-auto mb-6 opacity-0'>
+        <section className={`space-y-6 mt-auto mb-6 ${isHovered ? 'transform -translate-y-40 opacity-100 duration-500' : 'opacity-0'}`}>
             <div className='justify-center flex space-x-3'>
                 <OptionsButton text='Deposits'/>
                 <OptionsButton text='Loans'/>
