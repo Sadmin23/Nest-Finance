@@ -70,7 +70,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
         />
       color = "text-[#00A651]"
       text = "Agrani Bank Limited"
-      textContent = "Agrani Bank Limited is a leading commercial bank with 922 outlets strategically located in almost all the commercial areas throughout Bangladesh."
+      textContent = "located in almost all the commercial areas throughout Bangladesh."
       break;
     case 6:
       content =           
@@ -123,31 +123,30 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
   }
 
   return (
-    <div className='w-[365px] h-[455px] rounded-2xl border-2 border-[#53389E]'>
+    <div className='w-[365px] h-[455px] rounded-2xl border-2 border-[#53389E] flex flex-col'>
         {/* <div className="flex-grow">
             {content}
         </div> */}
-        <div className="mx-[26px]">
+        <div className="flex-col mb-auto">
             <h1 className={`mb-3 ${color} text-xl font-semibold leading-normal text-center`}>{text}</h1>
             <h2 className="mb-4 text-[#9E9E9E] leading-5 font-medium text-center">Private • Commercial • Local</h2>
-            <h2 className=" text-[#1D2939] text-justify text-sm leading-5 mx-8">
-              {textContent}
+            <h2 className="text-[#1D2939] text-justify text-sm leading-5 mx-8">
+                {textContent}
             </h2>
-              <section className='space-y-6 mb-8 mt-6'>
-                  <div className='justify-center flex space-x-3'>
-                      <OptionsButton text='Deposits'/>
-                      <OptionsButton text='Loans'/>
-                      <OptionsButton text='Cards'/>
-                  </div>
-                  <div className=' flex space-x-4'>
-                      <ServiceButton text='Banking Details'/>
-                      <ServiceButton text='Branches'/>
-                      <ServiceButton text='ATM'/>
-                  </div>
-              </section>
         </div>
+        <section className='space-y-6 mt-auto mb-6'>
+            <div className='justify-center flex space-x-3'>
+                <OptionsButton text='Deposits'/>
+                <OptionsButton text='Loans'/>
+                <OptionsButton text='Cards'/>
+            </div>
+            <div className='justify-center flex space-x-4'>
+                <ServiceButton text='Banking Details'/>
+                <ServiceButton text='Branches'/>
+                <ServiceButton text='ATM'/>
+            </div>
+        </section>
     </div>
-
   );
 };
 
