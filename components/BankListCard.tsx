@@ -107,7 +107,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
         />
       color = "text-[#ED1C24]"
       text = "Exim Bank"
-    break;
+      break;
     case 9:
       content =           
         <Image
@@ -123,18 +123,16 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
   }
 
   return (
-    <div className='w-[365px] h-[455px] rounded-2xl border-2 border-[#53389E] flex flex-col'>
-        {/* <div className="flex-grow">
-            {content}
-        </div> */}
+    <div className='w-[365px] rounded-2xl border-2 border-[#53389E] flex flex-col'>
         <div className="flex-col mb-auto">
+            {content}
             <h1 className={`mb-3 ${color} text-xl font-semibold leading-normal text-center`}>{text}</h1>
             <h2 className="mb-4 text-[#9E9E9E] leading-5 font-medium text-center">Private • Commercial • Local</h2>
-            <h2 className="text-[#1D2939] text-justify text-sm leading-5 mx-8">
+            <h2 className="text-[#1D2939] text-justify text-sm leading-5 mx-8 opacity-0">
                 {textContent}
             </h2>
         </div>
-        <section className='space-y-6 mt-auto mb-6'>
+        <section className='space-y-6 mt-auto mb-6 opacity-0'>
             <div className='justify-center flex space-x-3'>
                 <OptionsButton text='Deposits'/>
                 <OptionsButton text='Loans'/>
