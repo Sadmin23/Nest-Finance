@@ -1,16 +1,14 @@
 'use client';
 
-import ABBank from "./BankLogo/ABBank";
-import AgraniBank from "./BankLogo/AgraniBank";
-import CityBank from "./BankLogo/CityBank";
-import DBBL from "./BankLogo/DBBL";
-import EasternBank from "./BankLogo/EasternBank";
-import IslamiBank from "./BankLogo/IslamiBank";
 import Image from 'next/image';
+import OptionsButton from "./OptionsButton";
+import ServiceButton from "./ServiceButton";
 
 const BankListCard = ({ n }: { n: number }): JSX.Element => {
 
   let content, color, text
+
+  let textContent = "Islami Bank Bangladesh Limited is a Joint Venture Public Limited Company engaged in commercial banking business based on Islamic Shari'ah with 63.09% foreign shareholding."
 
   switch (n) {
     case 1:
@@ -22,7 +20,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="ebllogo"
           className='ml-28 mt-[88px]'
         />
-      color = "text-[#005BAA] mx-[76px]"
+      color = "text-[#005BAA]"
       text = "Eastern Bank Ltd."
       break;
     case 2:
@@ -34,7 +32,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
         alt="abbanklogo"
         className='ml-14 mt-36'
         />
-      color = "text-[#ED1C24] mx-20"
+      color = "text-[#ED1C24]"
       text = "AB Bank Limited"
       break;
     case 3:
@@ -46,7 +44,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="dbbllogo"
           className='ml-24 mt-32'
         />
-      color = "text-[#282828] mx-9"
+      color = "text-[#282828]"
       text = "Dutch-Bangla Bank Ltd"
       break;
     case 4:
@@ -58,7 +56,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="dbbllogo"
           className='ml-[88px] mt-20'
         />
-      color = "text-[#00A651] mx-8"
+      color = "text-[#00A651]"
       text = "Islami Bank Bangladesh"
       break;
     case 5:
@@ -70,8 +68,9 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="dbbllogo"
           className='mx-8 mt-[100px]'
         />
-      color = "text-[#00A651]  ml-14"
+      color = "text-[#00A651]"
       text = "Agrani Bank Limited"
+      textContent = "Agrani Bank Limited is a leading commercial bank with 922 outlets strategically located in almost all the commercial areas throughout Bangladesh."
       break;
     case 6:
       content =           
@@ -82,7 +81,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="dbbllogo"
           className='ml-20 mt-[108px]'
         />
-      color = "text-[#ED1D24] ml-28"
+      color = "text-[#ED1D24]"
       text = "City Bank"
       break;
     case 7:
@@ -94,7 +93,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="aibllogo"
           className='ml-16 mt-24'
         />
-      color = "text-[#1E1E1E] ml-11"
+      color = "text-[#1E1E1E]"
       text = "Al-Arafah Islami Bank"
       break;
     case 8:
@@ -106,7 +105,7 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="eximllogo"
           className='ml-20 mt-28'
         />
-      color = "text-[#ED1C24] mx-28"
+      color = "text-[#ED1C24]"
       text = "Exim Bank"
     break;
     case 9:
@@ -118,19 +117,34 @@ const BankListCard = ({ n }: { n: number }): JSX.Element => {
           alt="eximllogo"
           className='ml-14 mt-[74px]'
         />
-      color = "text-[#DBA627] mx-14"
+      color = "text-[#DBA627]"
       text = "Sonali Bank Limited"
     break;
   }
 
   return (
-    <div className='w-[365px] h-[455px] rounded-2xl border-2 border-[#53389E] flex flex-col'>
-        <div className="flex-grow">
+    <div className='w-[365px] h-[455px] rounded-2xl border-2 border-[#53389E]'>
+        {/* <div className="flex-grow">
             {content}
-        </div>
-        <div className="flex flex-col justify-end">
-            <h1 className={`mb-3 ${color} text-xl font-semibold leading-normal`}>{text}</h1>
-            <h2 className="mb-[84px] mx-16 text-[#9E9E9E] leading-5 font-medium">Private • Commercial • Local</h2>
+        </div> */}
+        <div className="mx-[26px]">
+            <h1 className={`mb-3 ${color} text-xl font-semibold leading-normal text-center`}>{text}</h1>
+            <h2 className="mb-4 text-[#9E9E9E] leading-5 font-medium text-center">Private • Commercial • Local</h2>
+            <h2 className=" text-[#1D2939] text-justify text-sm leading-5 mx-8">
+              {textContent}
+            </h2>
+              <section className='space-y-6 mb-8 mt-6'>
+                  <div className='justify-center flex space-x-3'>
+                      <OptionsButton text='Deposits'/>
+                      <OptionsButton text='Loans'/>
+                      <OptionsButton text='Cards'/>
+                  </div>
+                  <div className=' flex space-x-4'>
+                      <ServiceButton text='Banking Details'/>
+                      <ServiceButton text='Branches'/>
+                      <ServiceButton text='ATM'/>
+                  </div>
+              </section>
         </div>
     </div>
 
