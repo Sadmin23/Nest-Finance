@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import OptionsButton from "./OptionsButton";
 import ServiceButton from "./ServiceButton";
-import details from "@/app/bank-list/data"
 
 import { useState } from 'react';
 

@@ -1,6 +1,13 @@
 'use client';
 
-const LoansSvg = (): JSX.Element => {
+const LoansSvg = ({ x }: { x: number }): JSX.Element => {
+
+  let colour
+
+  if (x===1)
+    colour="#53389E"
+  else
+    colour = "white"
 
   return (
     <svg className='mx-auto my-2' xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">

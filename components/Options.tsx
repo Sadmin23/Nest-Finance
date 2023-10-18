@@ -1,20 +1,22 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from 'antd';
 import ServiceButtons from './ServiceButtons';
 import SmallButton from './SmallButton';
 
 const Options = (): JSX.Element => {
+
+  let hoverbutton = 1
+
   return (
     <section>
       <div className='bg-white rounded-xl mt-10 mb-16 flex items-center justify-center space-x-12 mx-40'>
-          <ServiceButtons x={1}/>
-          <ServiceButtons x={2}/>
-          <ServiceButtons x={3}/>
-          <ServiceButtons x={4}/>
-          <ServiceButtons x={5}/>
-          <ServiceButtons x={6}/>
+          <ServiceButtons x={1} y={hoverbutton}/>
+          <ServiceButtons x={2} y={hoverbutton}/>
+          <ServiceButtons x={3} y={hoverbutton}/>
+          <ServiceButtons x={4} y={hoverbutton}/>
+          <ServiceButtons x={5} y={hoverbutton}/>
+          <ServiceButtons x={6} y={hoverbutton}/>
       </div>
       <section className='flex mx-40'>
         <div className=''>

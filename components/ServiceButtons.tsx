@@ -8,19 +8,28 @@ import LoansSvg from './SVG/LoansSvg';
 import MutualFundsSvg from './SVG/MutualFundsSvg';
 import BondsSvg from './SVG/BondsSvg';
 
-const ServiceButtons = ({ x }: { x: number }): JSX.Element => {
+const ServiceButtons = ({ x, y }: { x: number, y:number }): JSX.Element => {
 
-  let content;
+  let content, colour, bg = ""
+
+  if (x===y){
+    colour = "text-white"
+    bg = "bg-gradient-to-b from-[#53389E] to-[#9075DE]"
+  }
+  else{
+    colour = "text-[#53389E]"
+    bg = "border-4 border-[#53389E]"
+  }
 
   switch (x) {
     case 1:
-      content = <BankingSvg />;
+      content = <BankingSvg x={0}/>;
       break;
     case 2:
-      content = <CreditCardSvg />;
+      content = <CreditCardSvg x={1}/>;
       break;
     case 3:
-      content = <DepositSchemesSvg />;
+      content = <DepositSchemesSvg x={1}/>;
       break;
     case 4:
       content = <LoansSvg />;
@@ -32,14 +41,14 @@ const ServiceButtons = ({ x }: { x: number }): JSX.Element => {
       content = <BondsSvg />;
       break; 
     default:
-      content = <BankingSvg />;
+      content = <BankingSvg x={1}/>;
   }
 
   return (
-    <Button className='w-40 h-32 border-[#53389e] border-2'>
+    <button className={`w-40 h-32 rounded-[10px] ${bg}`}>
       {content}
-    <h3 className='text-[18px] font-semibold text-[#53389e]'>Banking</h3>
-    </Button>
+    <h3 className={`text-[18px] font-semibold text-[#53389e] ${colour}`}>Banking</h3>
+    </button>
 
   );
 };

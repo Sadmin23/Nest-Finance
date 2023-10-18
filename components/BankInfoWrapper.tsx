@@ -5,32 +5,32 @@ import BankInfoCard from "./BankInfoCard";
 const BankInfoWrapper = (): JSX.Element => {
 
   return (
-    <div className="flex-col space-y-16 my-20">
-        <div className="flex mx-40 space-x-16">
+    <div className="flex-col space-y-9 my-20">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={5}/>
             <BankInfoCard n={6}/>
         </div>
-        <div className="flex mx-40 space-x-16">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={4}/>
             <BankInfoCard n={8}/>
         </div>
-        <div className="flex mx-40 space-x-16">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={10}/>
             <BankInfoCard n={3}/>
         </div>
-        <div className="flex mx-40 space-x-16">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={2}/>
             <BankInfoCard n={11}/>
         </div>
-        <div className="flex mx-40 space-x-16">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={1}/>
             <BankInfoCard n={9}/>
         </div>
-        <div className="flex mx-40 space-x-16">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={12}/>
             <BankInfoCard n={7}/>
         </div>
-        <div className="flex mx-40 space-x-16">
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={13}/>
             <BankInfoCard n={14}/>
         </div>
