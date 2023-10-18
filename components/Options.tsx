@@ -8,33 +8,40 @@ import { useState } from 'react';
 const Options = (): JSX.Element => {
 
   const [selectedOption, setSelectedOption] = useState(1);
+  const [hoverOption, setHoverOption] = useState(0);
 
   const handleButtonClick = (x:number) => {
     setSelectedOption(x);
   };
 
-//  onClick={() => handleButtonClick(5)}
+  const handleMouseOver = (x:number) => {
+    setHoverOption(x);
+  };
+
+  const handleMouseOut = () => {
+    setHoverOption(0);
+  };
 
   return (
     <section>
       <div className='bg-white rounded-xl mt-10 mb-16 flex items-center justify-center space-x-12 mx-40'>
-        <div onClick={()=>handleButtonClick(1)}>
-          <ServiceButtons x={1} y={selectedOption}/>
+        <div onClick={()=>handleButtonClick(1)} onMouseOver={()=>handleMouseOver(1)} onMouseOut={handleMouseOut}>
+          <ServiceButtons x={1} y={selectedOption} z={hoverOption}/>
         </div>
-        <div onClick={()=>handleButtonClick(2)}>
-          <ServiceButtons x={2} y={selectedOption}/>
+        <div onClick={()=>handleButtonClick(2)} onMouseOver={()=>handleMouseOver(2)} onMouseOut={handleMouseOut}>
+          <ServiceButtons x={2} y={selectedOption} z={hoverOption}/>
         </div>
-        <div onClick={()=>handleButtonClick(3)}>
-          <ServiceButtons x={3} y={selectedOption}/>
+        <div onClick={()=>handleButtonClick(3)} onMouseOver={()=>handleMouseOver(3)} onMouseOut={handleMouseOut}>
+          <ServiceButtons x={3} y={selectedOption} z={hoverOption}/>
         </div>
-        <div onClick={()=>handleButtonClick(4)}>
-          <ServiceButtons x={4} y={selectedOption}/>
+        <div onClick={()=>handleButtonClick(4)} onMouseOver={()=>handleMouseOver(4)} onMouseOut={handleMouseOut}>
+          <ServiceButtons x={4} y={selectedOption} z={hoverOption}/>
         </div>
-        <div onClick={()=>handleButtonClick(5)}>
-          <ServiceButtons x={5} y={selectedOption}/>
+        <div onClick={()=>handleButtonClick(5)} onMouseOver={()=>handleMouseOver(5)} onMouseOut={handleMouseOut}>
+          <ServiceButtons x={5} y={selectedOption} z={hoverOption}/>
         </div>
-        <div onClick={()=>handleButtonClick(6)}>
-          <ServiceButtons x={6} y={selectedOption}/>
+        <div onClick={()=>handleButtonClick(6)} onMouseOver={()=>handleMouseOver(6)} onMouseOut={handleMouseOut}>
+          <ServiceButtons x={6} y={selectedOption} z={hoverOption}/>
         </div>
       </div>
       <section className='flex mx-40'>
