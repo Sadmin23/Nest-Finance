@@ -60,7 +60,7 @@ const ServiceButtons = ({ x, y, z }: { x: number, y:number, z:number }): JSX.Ele
   return (
     <button className={`w-40 h-32 rounded-[10px] ${bg}`}>
       {content}
-    <h3 className={`text-[18px] font-semibold text-[#53389e] ${colour}`}>{text}</h3>
+    <h3 className={`text-[18px] px-1 font-semibold text-[#53389e] ${colour}`}>{text}</h3>
     </button>
 
   );
