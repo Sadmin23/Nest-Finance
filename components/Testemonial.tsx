@@ -9,24 +9,18 @@ import RightArrow from './Icons/RightArrow';
 
 const Testemonial = (): JSX.Element => {
   return (
-    <section className='h-[800px]'>
-        <div className='bg-[#53389E] h-[756px] skew-y-3'>
-            <div className='mx-40 flex'>
-                <div className='transform -skew-y-3 mt-28'>
-                    <h1 className='text-3xl font-semibold leading-tight tracking-tight text-white'>
-                        Trusted Voices of Finance
-                    </h1>
-                    <h2 className='text-lg w-[680px] mt-4 text-white tracking-wide'>
-                        Real Stories from Our Satisfied Users: Discover How Our Solutions Are Transforming Financial Experiences.
-                    </h2>
-                    <div className='flex mt-20'>
-                        <LeftArrow/>
-                            <div className='space-x-12 flex'>
-                                <TestemonialCard/>
-                                <TestemonialCard/>
-                            </div>
-                        <RightArrow/>
-                    </div>
+    <section className='bg-[#53389E]'>
+        <div className='mx-40 pt-[59px]'>
+            <h1 className='text-[28px] font-semibold text-white'>
+                Trusted Voices of Finance
+            </h1>
+            <h2 className='w-[565px] my-6 text-white font-medium'>
+                Real Stories from Our Satisfied Users: Discover How Our Solutions Are Transforming Financial Experiences.
+            </h2>
+            <div className='flex'>
+                <div className='space-x-12 flex'>
+                    <TestemonialCard/>
+                    <TestemonialCard/>
                 </div>
             </div>
         </div>

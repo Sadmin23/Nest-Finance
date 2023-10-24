@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 import ABBank from "./BankLogo/ABBank";
 import BankAsia from "./BankLogo/BankAsia";
 import BracBank from "./BankLogo/BracBank";
@@ -16,39 +18,80 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
 
   switch (x) {
     case 1:
-      content = <CityBank w={113} h={82}/>
+      content =           
+        <Image
+          src="/brand_assets/city0.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-8'
+        />
       break;
     case 2:
-      content = <BracBank/>
+      content =           
+        <Image
+          src="/brand_assets/easternbl.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-[26px]'
+        />
       break;
     case 3:
-      content = <DBBL w={160} h={64}/>
+      content =           
+        <Image
+          src="/brand_assets/islami.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-[30px]'
+        />
       break;
     case 4:
-      content = <EasternBank w={89} h={103}/>
+      content =           
+        <Image
+          src="/brand_assets/bankasia0.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-10'
+        />
       break;
     case 5:
-      content = <BankAsia/>
+      content =           
+        <Image
+          src="/brand_assets/bracbank.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-[54px]'
+        />
       break;
     case 6:
-      content = <IslamiBank w={93} h={84}/>
+      content =           
+        <Image
+          src="/brand_assets/dbbl0.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-[44px]'
+        />
       break;
-    case 7:
-      content = <ABBank w={130} h={41}/>
-      break; 
-    case 8:
-      content = <AgraniBank w={160} h={82}/>
-      break; 
     default:
-      content = <CityBank w={113} h={82}/>;
+      content =           
+        <Image
+          src="/brand_assets/city0.png"
+          width={111}
+          height={600}
+          alt="bg"
+          className='mt-8'
+        />
   }
 
   return (
-    <section className='w-64 h-52 rounded-2xl px-12 pt-6 border-2 border-[#53389E] flex flex-col justify-between'>
+    <section className='w-[165px] h-[207px] rounded-2xl border-2 border-[#53389E] flex flex-col justify-center items-center'>
       {content}
-      <div className="mb-6 mx-auto">
-        <Button className='mt-auto px-5 w-32 h-9 bg-[#53389e] text-white'>Bank details</Button>
-      </div>
+      <h2 className='font-medium leading-normal text-[#53389E] mt-auto mb-7'>Bank details</h2>
     </section>
   );
 };
