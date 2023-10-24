@@ -1,18 +1,51 @@
 'use client';
 
-const BankingSvg = ({ x }: { x: number }): JSX.Element => {
+import Image from 'next/image';
 
-  let colour
+const BankingSvg = ({ a, b }: { a: number, b: number }): JSX.Element => {
 
-  if (x===1)
-    colour="#53389E"
-  else
-    colour = "white"
+  let image = "/brand_assets/"
+
+  switch (a) {
+    case 1:
+      image += "banking"
+      break;
+    case 2:
+      image += "card"
+      break;
+    case 3:
+      image += "deposit"
+      break;
+    case 4:
+      image += "loans"
+      break;
+    case 5:
+      image += "funds"
+      break;
+    case 6:
+      image += "bonds"
+      break; 
+    default:
+      image += "banking"
+    }
+
+
+
+
+  if (b===0)
+    image+="2"
+
+  
+   image += ".png" 
 
   return (
-    <svg className="mx-auto my-2" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
-      <path d="M0.98877 41.2326H45.9888V45.7326H0.98877V41.2326ZM5.48877 23.2326H9.98877V38.9826H5.48877V23.2326ZM16.7388 23.2326H21.2388V38.9826H16.7388V23.2326ZM25.7388 23.2326H30.2388V38.9826H25.7388V23.2326ZM36.9888 23.2326H41.4888V38.9826H36.9888V23.2326ZM0.98877 11.9826L23.4888 0.732605L45.9888 11.9826V20.9826H0.98877V11.9826ZM23.4888 14.2326C24.0855 14.2326 24.6578 13.9956 25.0798 13.5736C25.5017 13.1516 25.7388 12.5793 25.7388 11.9826C25.7388 11.3859 25.5017 10.8136 25.0798 10.3916C24.6578 9.96966 24.0855 9.7326 23.4888 9.7326C22.892 9.7326 22.3197 9.96966 21.8978 10.3916C21.4758 10.8136 21.2388 11.3859 21.2388 11.9826C21.2388 12.5793 21.4758 13.1516 21.8978 13.5736C22.3197 13.9956 22.892 14.2326 23.4888 14.2326Z" fill={colour}/>
-    </svg>
+    <Image
+      src={image}
+      width={48}
+      height={48}
+      alt="blob"
+      className='py-2 pr-2'
+    />
   );
 };
 

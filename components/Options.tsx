@@ -7,8 +7,6 @@ import GetIllustration from './GetIllustration';
 
 const Options = (): JSX.Element => {
 
-  let image
-
   const [selectedOption, setSelectedOption] = useState(1);
   const [hoverOption, setHoverOption] = useState(0);
 
