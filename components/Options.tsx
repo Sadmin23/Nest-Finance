@@ -75,7 +75,6 @@ const Options = (): JSX.Element => {
           </div>
         </div>
         <GetIllustration x={selectedOption}/>
-
       </section>
     </section>
 

@@ -11,7 +11,7 @@ const GetIllustration = ({ x }: { x: number }) => {
             image =
             <Image
                 src="/brand_assets/bankIllustration.png"
-                width={465}
+                width={450}
                 height={40}
                 alt="r"
                 className=''
@@ -21,7 +21,7 @@ const GetIllustration = ({ x }: { x: number }) => {
             image =
             <Image
                 src="/brand_assets/cardIllustration.png"
-                width={420}
+                width={450}
                 height={40}
                 alt="r"
                 className=''
@@ -30,8 +30,8 @@ const GetIllustration = ({ x }: { x: number }) => {
         case 3:
             image =
             <Image
-                src="/brand_assets/bankIllustration.png"
-                width={465}
+                src="/brand_assets/depositIllustration.png"
+                width={450}
                 height={40}
                 alt="r"
                 className=''
@@ -41,7 +41,7 @@ const GetIllustration = ({ x }: { x: number }) => {
             image =
             <Image
                 src="/brand_assets/loanIllustration.png"
-                width={510}
+                width={480}
                 height={40}
                 alt="r"
                 className='mt-[70px]'
@@ -51,7 +51,7 @@ const GetIllustration = ({ x }: { x: number }) => {
             image =
             <Image
                 src="/brand_assets/mutualfundsIllustration.png"
-                width={504}
+                width={450}
                 height={40}
                 alt="r"
                 className='mt-14'
@@ -60,8 +60,8 @@ const GetIllustration = ({ x }: { x: number }) => {
         case 6:
             image =
             <Image
-                src="/brand_assets/bankIllustration.png"
-                width={465}
+                src="/brand_assets/bondsIllustration.png"
+                width={450}
                 height={40}
                 alt="r"
                 className=''
@@ -71,7 +71,7 @@ const GetIllustration = ({ x }: { x: number }) => {
             image =
             <Image
                 src="/brand_assets/bankIllustration.png"
-                width={500}
+                width={450}
                 height={40}
                 alt="r"
                 className=''
