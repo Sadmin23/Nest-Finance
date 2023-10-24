@@ -34,7 +34,7 @@ const GetIllustration = ({ x }: { x: number }) => {
                 width={450}
                 height={40}
                 alt="r"
-                className=''
+                className='mt-10'
             />
             break;
         case 4:
@@ -44,7 +44,7 @@ const GetIllustration = ({ x }: { x: number }) => {
                 width={480}
                 height={40}
                 alt="r"
-                className='mt-[70px]'
+                className='mt-10'
             />
             break;
         case 5:
@@ -54,7 +54,7 @@ const GetIllustration = ({ x }: { x: number }) => {
                 width={450}
                 height={40}
                 alt="r"
-                className='mt-14'
+                className='mt-10'
             />
             break;
         case 6:
@@ -81,7 +81,7 @@ const GetIllustration = ({ x }: { x: number }) => {
     
 
   return (
-    <div className='mt-24'>
+    <div className='ml-[52px]'>
         {image}
     </div>
   )

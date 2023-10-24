@@ -45,21 +45,21 @@ const Options = (): JSX.Element => {
         </div>
       </div>
       <section className='flex mx-40'>
-        <div className='w-[800px]'>
-          <h1 className='text-[44px] font-semibold leading-10 tracking-tight'>Find a bank for the way you save</h1>
-          <h2 className='text-[20px] mt-6 w-[650px]'>
+        <div className=''>
+          <h1 className='text-[28px] font-semibold leading-10 tracking-tight'>Find a bank for the way you save</h1>
+          <h2 className='leading-[26px] mt-6 w-[650px]'>
             Keep your cash in a bank account that fits your needs. 
             Compare options and dig into the details with objective reviews that help you make smart decisions.
           </h2>
-          <div className='flex space-x-8 mt-16'>
-            <button className='w-48 h-20 rounded-[10px] bg-gradient-to-b from-[#7F56D9] to-[#53389e] text-white text-[18px] font-semibold'>Search Banks</button>
-            <button className='w-64 h-20 rounded-[10px] text-[#53389E] text-[18px] border-2 border-[#53389E] font-semibold'>Explore Guides & Tips</button>
+          <div className='flex space-x-8 my-9'>
+            <button className='rounded-[10px] px-6 py-4 bg-gradient-to-b from-[#7F56D9] to-[#53389e] text-white font-medium'>Search Banks</button>
+            <button className='rounded-[10px] px-6 py-4 text-[#53389E] border-2 border-[#53389E] font-medium'>Explore Guides & Tips</button>
           </div>
-          <h1 className='text-[44px] font-semibold leading-10 tracking-tight mt-10'>Services</h1>
-          <h2 className='text-[20px] mt-6 w-[690px]'>
+          <h1 className='text-[28px] font-semibold leading-10 tracking-tight'>Service</h1>
+          <h2 className='my-6 w-[565px]'>
             Our services harness the full potential of our engines to deliver personalized and seamless customer journeys.
           </h2>
-          <div className='flex-col space-y-3 mt-10 mb-16'>
+          <div className='flex-col space-y-3 mb-16'>
             <div className='flex space-x-3'>
               <SmallButton text='Bank List'/>
               <SmallButton text='Bank Branch'/>
