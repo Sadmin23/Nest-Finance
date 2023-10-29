@@ -35,29 +35,31 @@ interface BranchDataProps {
     
 
   return (
-        <tr className={`flex ${bg}`}>
-            <td className="w-36 px-6 text-sm leading-[18px] border-x-2 border-[#D3D3D3] flex items-center">
+        <tr className={`flex ${bg} leading-[18px]`}>
+            <td className="w-36 pl-3 py-6 text-sm border-x-2 border-[#D3D3D3] flex items-center">
                 {Branch_Name}
             </td>
-            <td className="w-28 text-center text-sm leading-[18px] border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+            <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                 {District}
             </td>
-            <td className="w-28 text-center text-sm leading-[18px] border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+            <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                 {Division}
             </td>
-            <td className="w-56 px-4 py-2 text-sm leading-[18px] border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+            <td className="w-56 px-4 py-2 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
                 {Address}
             </td>
-            <td className="w-52 px-3 text-sm leading-[18px] border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+            <td className="w-44 px-3 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
                 {Contact}
             </td>
-            <td className="w-44 px-2 text-center text-sm leading-[18px] border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                {Email}
+            <td className="w-48 px-2 py-2 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
+                <div className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+                    {Email}
+                </div>
             </td>
-            <td className="w-28 text-center text-sm leading-[18px] border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+            <td className="w-32 pl-3 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
                 {Swift_Code}
             </td>
-            <td className="w-32 text-center text-sm border-r-2 border-[#D3D3D3 leading-[18px] flex items-center justify-center">
+            <td className="w-32 pl-4 text-smborder-r-2 border-[#D3D3D3  flex items-center">
                 {Routing_No}
             </td>
         </tr>

@@ -6,7 +6,7 @@ import Stars from './Icons/Stars';
 
 const TestemonialCard = (): JSX.Element => {
   return (
-    <div className='w-[365px] h-[211px]  bg-white bg-opacity-50 rounded-2xl text-[#121111]'>
+    <div className='w-[365px] h-[211px]  bg-white bg-opacity-50 rounded-md text-[#121111]'>
       <div className='flex'>
         <Image
           src="/brand_assets/person2.png"

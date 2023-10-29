@@ -18,7 +18,8 @@ const Testemonial = (): JSX.Element => {
                 Real Stories from Our Satisfied Users: Discover How Our Solutions Are Transforming Financial Experiences.
             </h2>
             <div className='flex'>
-                <div className='space-x-12 flex'>
+                <div className='space-x-12 flex mb-14'>
+                    <TestemonialCard/>
                     <TestemonialCard/>
                     <TestemonialCard/>
                 </div>
