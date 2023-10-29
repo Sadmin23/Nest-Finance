@@ -13,21 +13,21 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
         content =           
           <Image
             src="/brand_assets/bracbank.png"
-            width={248}
+            width={210}
             height={70}
             alt="brac"
-            className='mt-10 mb-2'
+            className='mb-2'
           />
-        textContent = "With the vision of Building profitable and socially responsible financial institution focused on Market and Business with Growth potential, thereby assisting [BRAC](http://www.brac.net/ ) ..."
+        textContent = "With the vision of Building profitable and socially responsible financial institution focused on Market and Business with Growth potential, thereby assisting..."
         break;
       case 2:
         content = 
           <Image
           src="/brand_assets/dhakabank.png"
-          width={239}
+          width={217}
           height={46}
           alt="dhaka"
-          className='mt-11 mb-6'
+          className='mb-4'
           />
           textContent = "Dhaka Bank Ltd. was registered as a public limited company in the year 1995 and it started functioning as a commercial bank on 5 July, 1995. The bank opened its business ..."
           break;    
@@ -35,23 +35,23 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
             content = 
               <Image
               src="/brand_assets/abbank.png"
-              width={217}
+              width={159}
               height={67}
               alt="abbanklogo"
-              className='mt-6 mb-4'
+              className='mb-5'
               />
-            textContent = "Arab Bangladesh Bank as formerly known started its effective operation from 12th April, 1982 with the mission to be the best performing bank of the country."
+            textContent = "AB Bank Limited is the pioneer in commercial banking under private ownership in Bangladesh. It started functioning as Arab Bangladesh Bank Ltd. on 12 April, 1982..."
             break;
         case 4:
             content = 
               <Image
               src="/brand_assets/aibl.png"
-              width={124}
+              width={107}
               height={79}
               alt="abbanklogo"
-              className='mt-[22px] mb-[6px]'
+              className='mb-3'
               />
-            textContent = "With the objective of achieving success here and hereafter by pursuing the way directed by Allah and the path shown by His Rasul (SM), Al Arafah Islami Bank Ltd was registered as a private limited company."
+            textContent = "With a vision to emerge as the leading Islami bank in Bangladesh, Al-Arafa Islami Bank was established by some religious  from commerce and industries..."
             break;
 
           case 5:
@@ -62,11 +62,11 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
                 width={78}
                 height={56}
                 alt="citybank"
-                className='mt-[22px] mb-4'
+                className='mb-4'
                 />
                 <h1 className='text-[28px] font-semibold leading-normal text-[#ED1D24] my-auto ml-6'>City Bank</h1>
             </div>
-            textContent = "City Bank is one of the oldest private Commercial Banks operating in Bangladesh. It is a top bank among the oldest five Commercial Banks in the country which started their operations in 1983."
+            textContent = "City Bank is one of the oldest private Commercial Banks operating in Bangladesh. It is a top bank among the oldest five Commercial Banks in the country..."
             break;
         case 6:
             content = 
@@ -76,9 +76,9 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
                 width={63}
                 height={69}
                 alt="ebl"
-                className='mt-[22px] mb-4'
+                className='mb-3'
                 />
-                <h1 className='text-[28px] font-semibold leading-normal text-[#005BAA] my-auto ml-6'>Eastern Bank Ltd.</h1>
+                <h1 className='text-[18px] font-semibold text-[#005BAA] my-auto ml-6'>Eastern Bank Ltd.</h1>
             </div>
             textContent = "Eastern Bank Ltd. came into reality in the new democratic environment of Bangladesh with a vision to create a brand in financial arena of the country. Being established in 1992..."
             break;
@@ -91,22 +91,22 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
                 height={51}
                 alt="ebl"
                 />
-                <h1 className='text-2xl font-medium leading-normal text-[#00B7DE] mt-auto ml-6'>Janata Bank Limited</h1>
+                <h1 className='text-lg font-medium text-[#00B7DE] my-auto ml-3'>Janata Bank Limited</h1>
             </div>
-            textContent = "Export Import Bank of Bangladesh Limited got in the financial market of the country in the year 1999. It started functioning as Bengal Export Import Bank limited on 3 August, 1999...."
+            textContent = "Export Import Bank of Bangladesh Limited got in the financial market of the country in the year 1999. It started functioning as Bengal Export Import Bank limited..."
             break;
         case 8:
             content = 
             <div className='flex'>
                 <Image
                 src="/brand_assets/ific.png"
-                width={269}
+                width={217}
                 height={37}
                 alt="ific"
-                className='mt-12 mb-6'
+                className='mb-5'
                 />
             </div>
-            textContent = "IFIC Bank started functioning as a finance company in 1976. It was formed as a joint venture between the Government of Bangladesh and several farsighted sponsors from private sector..."
+            textContent = "IFIC Bank started functioning as a finance company in 1976. It was formed as a joint venture between the Government of Bangladesh..."
             break;
         case 9:
             content = 
@@ -116,49 +116,33 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
                 width={70}
                 height={62}
                 alt="islami"
-                className='mt-[22px] mb-4'
+                className='mb-4'
                 />
-                <h1 className='text-[26px] font-semibold leading-normal text-[#008c44] my-auto ml-6'>Islami Bank Bangladesh Ltd</h1>
+                <h1 className='font-semibold text-[#008c44] my-auto ml-4'>Islami Bank Bangladesh Ltd</h1>
             </div>
-            textContent = "Islami Bank Bangladesh Limited is a Joint Venture Public Limited Company engaged in commercial banking business based on Islamic Shari'ah with 63.09% foreign shareholding."
+            textContent = "Bangladesh is one of the largest Muslim countries in the world. The people of this country are deeply committed to Islamic way of life as enshrined in the Holy Qur'an..."
             break;
 
         case 10:
           content = 
-          <div className='flex mt-[42px] mb-5'>
-              <Image
-              src="/brand_assets/bankasia.png"
-              width={47}
+            <Image
+              src="/brand_assets/bankasia3.png"
+              width={213}
               height={44}
               alt="basia"
-              />
-              <Image
-              src="/brand_assets/bankasia2.png"
-              width={205}
-              height={36}
-              alt="basia2"
-              className='ml-3 mt-auto'
-              />
-          </div>
-          textContent = "With a vision to make a poverty free Bangladesh, some distinguished entrepreneurs of the country decided to establish a commercial bank. The result was Bank Asia Limited .... "
+              className='mb-5'
+            />
+          textContent = "With a vision to make a poverty free Bangladesh, some distinguished entrepreneurs of the country decided to establish a commercial bank... "
           break;
         case 11:
           content = 
-          <div className='flex mt-10 mb-5'>
-              <Image
-              src="/brand_assets/mbank.png"
-              width={70}
+            <Image
+              src="/brand_assets/midland2.png"
+              width={250}
               height={47}
               alt="basia"
-              />
-              <Image
-              src="/brand_assets/mbank2.png"
-              width={232}
-              height={31}
-              alt="basia2"
-              className='ml-4 my-auto'
-              />
-          </div>
+              className='mb-5'
+            />
           textContent = "Midland Bank Ltd is the 4th generation Scheduled Bank licensed from Bangladesh Bank. Midland Bank has paid-up capital worth BDT 400 crore that demonstrates ..."
           break;
         case 12:
@@ -183,10 +167,10 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
 
         case 13:
           content = 
-          <div className='flex mt-[34px] mb-4'>
+          <div className='flex mb-4'>
               <Image
               src="/brand_assets/sonali3.png"
-              width={55}
+              width={53}
               height={51}
               alt="sonali"
               />
@@ -195,10 +179,10 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
               width={208}
               height={56}
               alt="sonali2"
-              className='ml-6 my-auto'
+              className='ml-3 my-auto'
               />
           </div>
-          textContent = "Sonali Bank was established in 1972 under the Bangladesh Banks (Nationalisation) Order, through the amalgamation and nationalisation of the branches of National Bank of Pakistan."
+          textContent = "National Bank of Pakistan was the largest commercial bank in the then East Pakistan. After liberation of Bangladesh in 1971, this bank along with two smaller banks..."
           break;
 
         case 14:
@@ -223,14 +207,14 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
       }
 
   return (
-    <div className='w-[580px] h-[347px] rounded-2xl border-2 border-[#53389E] flex items-end'>
-        <div className='flex-col mx-8'>
+    <div className='w-[365px] h-[347px] rounded-2xl border-2 border-[#53389E] flex items-end'>
+        <div className='flex-col mx-6'>
             {content}
             <h2 className='font-semibold text-sm leading-5 text-[#53389E]'>Private • Commercial • Local</h2>
-            <h2 className='text-sm leading-5 text-[#1D2939] h-[60px] mt-4'>
+            <h2 className='text-sm leading-[18px] text-[#1D2939] w-[317px] mt-4'>
               {textContent}
             </h2>
-            <section className='space-y-6 mb-8 mt-6'>
+            <section className='space-y-4 mb-8 mt-6'>
                 <div className='flex space-x-4'>
                     <OptionButton text='Deposits'/>
                     <OptionButton text='Loans'/>

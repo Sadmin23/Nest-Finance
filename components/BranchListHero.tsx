@@ -19,7 +19,7 @@ const BranchListHero = (): JSX.Element => {
                     <h1 className='text-lg font-medium leading-7 mt-7'>Search your nearest Branches, SME Centers, and offices</h1>
                     <div className='flex-col space-y-3'>
                         <div className='flex leading-5 space-x-4 mt-6'>
-                            <div contentEditable={true} className='w-[270px] h-12 rounded-[10px] pl-4 py-3 border-2 border-[#53389E] font-semibold'>City Bank</div>
+                            <div contentEditable={true} className='w-[270px] h-12 rounded-[10px] pl-4 py-3 border-2 border-[#53389E] font-semibold'></div>
                             <div contentEditable={true} className='w-[270px] h-12 rounded-[10px] pl-4 py-3 border-2 border-[#53389E] text-[#C9C9C9]'>Branch Name</div>
                         </div>
                         <div className='flex leading-5 space-x-4'>

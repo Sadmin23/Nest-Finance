@@ -9,32 +9,23 @@ const BankInfoWrapper = (): JSX.Element => {
         <div className="flex mx-40 space-x-9">
             <BankInfoCard n={5}/>
             <BankInfoCard n={6}/>
-        </div>
-        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={4}/>
-            <BankInfoCard n={8}/>
         </div>
         <div className="flex mx-40 space-x-9">
+            <BankInfoCard n={8}/>
             <BankInfoCard n={10}/>
             <BankInfoCard n={3}/>
         </div>
         <div className="flex mx-40 space-x-9">
             <BankInfoCard n={2}/>
             <BankInfoCard n={11}/>
-        </div>
-        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={1}/>
+        </div>
+        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={9}/>
-        </div>
-        <div className="flex mx-40 space-x-9">
-            <BankInfoCard n={12}/>
             <BankInfoCard n={7}/>
-        </div>
-        <div className="flex mx-40 space-x-9">
             <BankInfoCard n={13}/>
-            <BankInfoCard n={14}/>
         </div>
-
     </div>
   );
 };
