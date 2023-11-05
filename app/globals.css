@@ -8,3 +8,8 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+div:empty:before {
+  content:attr(data-placeholder);
+  color: #C9C9C9
+}

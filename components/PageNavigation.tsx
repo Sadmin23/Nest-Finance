@@ -1,9 +1,13 @@
 'use client';
 
-const PageNavigation = (): JSX.Element => {
+const PageNavigation = ({ n, m }: { n: number, m: number }): JSX.Element => {
+
+  let x = 10*(n-1)+1
+  let y = 10*(n)
+
   return (
     <div className="flex mx-40 mt-9 mb-32">
-      <h2 className="leading-5">Showing 1 to 10 of 57 entries</h2>
+      <h2 className="leading-5">Showing {x} to {y} of {m} entries</h2>
       <div className='flex space-x-1 ml-auto'>
           <button className='bg-[#E1E1E1] text-white ml-auto px-2 h-7'>Prev</button>
           <button className='bg-[#E1E1E1] text-white px-2 h-7'>First</button>

@@ -13,7 +13,6 @@ const Home = () => {
         <BankListHero/>
         <BankSearch/>
         <BankInfoWrapper/>
-        <PageNavigation/>
     </div>
   );
 };
