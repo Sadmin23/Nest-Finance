@@ -10,8 +10,7 @@ import PageNo from "./pageNo";
 
 const BankTable = (): JSX.Element => {
 
-    const rowsperpage = 5
-    const ITEMS_PER_PAGE = 9
+    const [rowsnum, setRowsnum] = useState(5);
     const [searchValue, setSearchValue] = useState('');
     const [filteredItems, setFilteredItems] = useState<any[]>([]);  
     const [error, setError] = useState(true)
@@ -38,8 +37,8 @@ const BankTable = (): JSX.Element => {
     }, [searchValue]);
 
     const itemsToDisplay = searchValue ? filteredItems : apiData;
-    const lastIndex = currentPage * ITEMS_PER_PAGE;
-    const firstIndex = lastIndex - ITEMS_PER_PAGE;
+    const lastIndex = currentPage * rowsnum;
+    const firstIndex = lastIndex - rowsnum;
     const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
     const size = itemsToDisplay.length
 
@@ -49,13 +48,36 @@ const BankTable = (): JSX.Element => {
       x=0, y=0
     }
     else{
-      x=0
+      x=1
       y = (size<10) ? size: 10 
     }
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
       };
+    
+    const handleNextPage = () => {
+      if (lastIndex < itemsToDisplay.length) {
+        setCurrentPage(currentPage + 1);
+      }
+    };
+
+    const handlePrevPage = () => {
+      if (currentPage !== 1) {
+        setCurrentPage(currentPage - 1);
+      }
+    };
+
+    const IncreaseRow = () => {
+        setRowsnum(rowsnum+1)
+    };
+
+    const DecreaseRow = () => {
+        const down = rowsnum
+
+        if (down>5)
+            setRowsnum(rowsnum-1)
+    };
 
   return (
         <div className="flex-col">
@@ -100,10 +122,16 @@ const BankTable = (): JSX.Element => {
             <div className='flex justify-end mt-7 mb-6'>
                 <h1 className='leading-5 py-1'>Showing</h1>
                 <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
-                    {rowsperpage}
+                    {rowsnum}
                     <div className='flex-col'>
-                        <Up/>
-                        <Down/>
+                        {/* <Up/>
+                        <Down/> */}
+                        <button onClick={IncreaseRow} className="block">
+                            <Up/>
+                        </button>
+                        <button onClick={DecreaseRow} className="block">
+                            <Down/>
+                        </button>
                     </div>
                 </div>
                 <h1 className='leading-5 py-1'>entries</h1>
@@ -159,14 +187,14 @@ const BankTable = (): JSX.Element => {
         <div className="flex mx-40 mt-9 mb-32">
             <h2 className="leading-5">Showing {x} to {y} of {size} entries</h2>
             <div className='flex space-x-1 ml-auto'>
-                <button className='bg-[#E1E1E1] text-white ml-auto px-2 h-7'>Prev</button>
+                <button onClick={handlePrevPage} className='bg-[#E1E1E1] text-white ml-auto px-2 h-7'>Prev</button>
                 <button className='bg-[#E1E1E1] text-white px-2 h-7'>First</button>
                 <PageNo x={0} y={1}/>
                 <PageNo x={1} y={2}/>
                 <PageNo x={1} y={3}/>
                 <PageNo x={1} y={4}/>
                 <PageNo x={1} y={5}/>
-                <button className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
+                <button onClick={handleNextPage} className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
             </div>
         </div>
     </div>
