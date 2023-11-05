@@ -10,12 +10,33 @@ import PageNo from "./pageNo";
 
 const BankTable = (): JSX.Element => {
 
+    const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
     const [searchValue, setSearchValue] = useState('');
     const [filteredItems, setFilteredItems] = useState<any[]>([]);  
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
+
+    type PageRange = {
+        firstEntry: number;
+        lastEntry: number;
+      };
+      
+      const calculatePageRange = (
+        totalEntries: number,
+        pageSize: number,
+        pageNumber: number
+      ): PageRange => {
+        if (totalEntries === 0) {
+          return { firstEntry: 0, lastEntry: 0 };
+        } else {
+          const firstEntry = (pageNumber - 1) * pageSize + 1;
+          const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
+          return { firstEntry, lastEntry };
+        }
+      };
+      
 
     useEffect(() => {
         fetch('http://127.0.0.1:8000/bankapi/branch/')
@@ -42,15 +63,10 @@ const BankTable = (): JSX.Element => {
     const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
     const size = itemsToDisplay.length
 
-    let x, y
-    
-    if (size==0){
-      x=0, y=0
-    }
-    else{
-      x=1
-      y = (size<10) ? size: 10 
-    }
+    useEffect(() => {
+        const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+        setLF([firstEntry, lastEntry]);
+      }, [size, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
@@ -65,7 +81,7 @@ const BankTable = (): JSX.Element => {
     const handlePrevPage = () => {
       if (currentPage !== 1) {
         setCurrentPage(currentPage - 1);
-      }
+        }
     };
 
     const IncreaseRow = () => {
@@ -77,7 +93,13 @@ const BankTable = (): JSX.Element => {
 
         if (down>5)
             setRowsnum(rowsnum-1)
+    
     };
+
+    let x, y
+
+    x = lf[0]
+    y = lf[1] 
 
   return (
         <div className="flex-col">
@@ -124,8 +146,6 @@ const BankTable = (): JSX.Element => {
                 <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
                     {rowsnum}
                     <div className='flex-col'>
-                        {/* <Up/>
-                        <Down/> */}
                         <button onClick={IncreaseRow} className="block">
                             <Up/>
                         </button>
