@@ -9,9 +9,8 @@ const Loans = () => {
   return (
     <div className='flex-col'>
         <Nav bgOption='white'/>
-        <BankListHero n={1}/>
+        <BankListHero n={2}/>
         <BankSearch/>
-        <BankInfoWrapper/>
     </div>
   );
 };

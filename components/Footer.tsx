@@ -18,14 +18,14 @@ const Footer = (): JSX.Element => {
             </div>
             <div className='flex flex-col text-white space-y-6 ml-28 mt-11'>
               <Link href="/">Home</Link>
-              <Link href="/all-banks">Banking</Link>
-              <Link href="/card-details">Credit Cards</Link>
+              <Link href="/banks">Banking</Link>
+              <Link href="/">Credit Cards</Link>
               <Link href="/atm">Mutual Funds</Link>
             </div>
             <div className='flex flex-col text-white space-y-6 ml-28 mt-11 mb-10'>
               <Link href="/">Deposits</Link>
-              <Link href="/all-banks">Loans</Link>
-              <Link href="/card-details">Bonds</Link>
+              <Link href="/loans">Loans</Link>
+              <Link href="/">Bonds</Link>
               <Link href="/atm">Deposit Scheme</Link>
             </div>
             <FooterIllustration/>
