@@ -1,7 +1,32 @@
 'use client';
 import Image from 'next/image';
 
-const BankListHero = (): JSX.Element => {
+const BankListHero = ({ n }: { n: number }): JSX.Element => {
+
+  let content
+
+  switch (n) {
+    case 1:
+      content =           
+      <Image
+        src="/brand_assets/bankimage.png"
+        width={369}
+        height={600}
+        alt="bg"
+      />
+      break;
+    case 2:
+      content = 
+        <Image
+        src="/brand_assets/dhakabank.png"
+        width={217}
+        height={46}
+        alt="dhaka"
+        className='mb-4'
+        />
+        break;
+  }
+
   return (
     <div className='flex mx-40 mt-16'>
         <div className='flex-col'>
@@ -12,12 +37,7 @@ const BankListHero = (): JSX.Element => {
             </h2>
         </div>
         <div className='ml-36'>
-            <Image
-                src="/brand_assets/bankimage.png"
-                width={369}
-                height={600}
-                alt="bg"
-            />
+          {content}
         </div>
     </div>
   );

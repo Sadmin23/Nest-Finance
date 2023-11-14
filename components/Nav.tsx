@@ -26,7 +26,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
       <div className={`font-poppins font-normal text-base text-white my-auto space-x-12 flex`}>
         <Link className='ml-4' href="/">Home</Link>
         <section className='flex space-x-2'>
-          <Link href="/all-banks">Banks</Link>
+          <Link href="/banks">Banks</Link>
           <Dropdown/>
         </section>
         <section className='flex space-x-2'>

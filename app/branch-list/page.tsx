@@ -1,10 +1,9 @@
 'use client';
 
 import BankTable from "@/components/BankTable";
-import BranchListHero from "@/components/BranchListHero";
 import Nav from "@/components/Nav";
 
-const Home = () => {
+const Branch = () => {
 
   return (
     <div className='flex-col'>
@@ -14,4 +13,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Branch;

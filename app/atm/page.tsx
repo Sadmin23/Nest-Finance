@@ -1,41 +1,16 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Bankcard from '../../components/BankingInfo'
-import Nav from '@/components/Nav';
-import { Button } from 'antd';
-import { useEffect, useState } from 'react';
-import ATMInfo from '../../components/ATMinfo';
+import ATMTable from "@/components/ATMTable";
+import Nav from "@/components/Nav";
 
-export default function Atm() {
+const ATM = () => {
+
   return (
-    <div className='bg-[#F2F4F7] flex-col'>
-      <Nav bgOption='white'/>
-      <div className='h-auto flex-col relative'>
-        <div className='flex h-[370px]'>
-          <div className='flex-col'>
-            <div className="pl-40 pt-16 font-inter mx-auto font-medium text-6xl absolute w-[900px] leading-tight">
-              <h1>All your nearby ATM information in one place</h1>
-            </div>
-            <div className="pl-40 pt-56 w-[870px] font-inter font-medium text-base absolute">
-              Managing your finances has never been easier with the convenience of centralized ATM information.
-               Imagine having all your financial accounts - from various banks to credit cards and loans - neatly organized and easily accessible in a single location.              
-            </div>
-          </div>
-          <div className='mr-0 ml-auto'>
-              <Image
-                src="/brand_assets/bg.png"
-                width={800}
-                height={600}
-                alt="bg"
-                />
-          </div>
-        </div>
-        <ATMInfo/>
-      </div>
-      <div className='bg-[#F2F4F7] h-16'>
-      </div>
+    <div className='flex-col'>
+        <Nav bgOption='white'/>
+        <ATMTable/>
     </div>
   );
-}
+};
+
+export default ATM;

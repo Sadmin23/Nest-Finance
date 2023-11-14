@@ -1,12 +1,12 @@
 'use client';
 
-import BranchComponent from "./BankTableRow";
+import ATMComponent from './ATMTableRow';
 import Options from './Icons/Options';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
 import { useEffect, useState } from 'react';
 
-const BankTable = (): JSX.Element => {
+const ATMTable = (): JSX.Element => {
 
     const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
@@ -37,7 +37,7 @@ const BankTable = (): JSX.Element => {
       
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/bankapi/branch/')
+        fetch('http://127.0.0.1:8000/bankapi/atm/')
           .then((response) => response.json())
           .then((data) => {
             setApiData(data)
@@ -117,7 +117,7 @@ const BankTable = (): JSX.Element => {
                 <section className='mx-40'>
             <div className='flex mt-11 mb-8'>
                 <div className='flex-col w-[465px]'>
-                    <h1 className='text-[28px] mt-14 font-medium tracking-tight leading-snug '>Search and find your nearest Branches</h1>
+                    <h1 className='text-[28px] mt-14 font-medium tracking-tight leading-snug '>Search and find your nearest Automated teller machine(ATM)</h1>
                     <h2 className="mt-5 text-base font-normal leading-normal">
                         You can find your branch according to your choice and 
                         know your branch location according to your area.              
@@ -179,20 +179,17 @@ const BankTable = (): JSX.Element => {
                 <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Division
                 </td>
-                <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-72 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Address
                 </td>
-                <td className="w-44 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-80 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Contact
-                </td>
-                <td className="w-48 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Email
-                </td>
-                <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Swift Code
                 </td>
                 <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
                     Routing No.
+                </td>
+                <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
+                    Map
                 </td>
             </tr>
             {error ? 
@@ -200,16 +197,14 @@ const BankTable = (): JSX.Element => {
                 : 
                 (
                     currentItems.map((branch, index) => (
-                        <BranchComponent 
+                        <ATMComponent 
                         key={index} 
                         index={index} 
                         Branch_Name={branch.name} 
                         District={branch.district}
                         Division="Dhaka"
                         Address={branch.address_line} 
-                        Email={branch.email}
-                        Contact={branch.telephone}
-                        Swift_Code={branch.swift_code}
+                        Contact=""
                         Routing_No={branch.routing_number}
                         />
                     ))
@@ -239,4 +234,4 @@ const BankTable = (): JSX.Element => {
   );
 };
 
-export default BankTable;
+export default ATMTable;
