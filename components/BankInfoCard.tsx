@@ -207,7 +207,7 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
       }
 
   return (
-    <div className='w-[365px] h-[347px] rounded-2xl border-2 border-[#53389E] flex items-end'>
+    <div className='w-[365px] h-[347px] rounded-2xl border-2 bg-white border-[#53389E] flex items-end'>
         <div className='flex-col mx-6'>
             {content}
             <h2 className='font-semibold text-sm leading-5 text-[#53389E]'>Private • Commercial • Local</h2>

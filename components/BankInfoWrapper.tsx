@@ -5,7 +5,7 @@ import BankInfoCard from "./BankInfoCard";
 const BankInfoWrapper = (): JSX.Element => {
 
   return (
-    <div className="flex-col space-y-9 my-20">
+    <div className="flex-col space-y-9 mb-12">
         <div className="flex mx-40 space-x-9">
             <BankInfoCard n={5}/>
             <BankInfoCard n={6}/>

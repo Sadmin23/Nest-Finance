@@ -62,7 +62,7 @@ export default async function RootLayout({
         {roboto}
       </head>
       {/* <body className="bg-white text-black selection:bg-teal-300 dark:bg-black dark:text-white dark:selection:bg-fuchsia-600 dark:selection:text-white"> */}
-      <body className="bg-white text-black selection:bg-teal-300">
+      <body className="bg-[#FAFAFA] text-black selection:bg-teal-300">
         <Suspense>
           <ReactQueryProvider>
             <main>{children}</main>
