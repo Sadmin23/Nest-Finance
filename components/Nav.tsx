@@ -38,7 +38,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Dropdown/>
         </section>
         <section className='flex space-x-2'>
-          <Link href="/">Compare</Link>
+          <Link href="/loans">Loans</Link>
           <Dropdown/>
         </section>
         <section className='flex space-x-2'>
