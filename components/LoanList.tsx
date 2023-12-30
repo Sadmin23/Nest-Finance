@@ -26,25 +26,36 @@ const LoanList = (): JSX.Element => {
                     "10 Years - 120 Month"
                     ];
 
-  const [sliderValues, setSliderValues] = useState([20, 80]);
+  const [sliderValues, setSliderValues] = useState([0, 15000]);
+  const [sliderValues2, setSliderValues2] = useState([0, 20]);
 
 
   const handleSliderChange = (values: [number, number]) => {
     setSliderValues(values);
   };
-
+  const handleSliderChange2 = (values: [number, number]) => {
+    setSliderValues2(values);
+  };
   return (
     <div className="mx-40 my-20 flex">
-      <div className="w-96">
-        {/* <SelectOption title="Select your bank" banks={bankArray}/>
+      <div className="w-96 flex-col space-y-6">
+        <SelectOption title="Select your bank" banks={bankArray}/>
         <SelectOption title="Select Loan type" banks={loanArray}/>
-        <SelectOption title="Loan Duration" banks={durationArray}/> */}
-          <SliderComponent
-            min={0}
-            max={100}
-            value={sliderValues}
-            onChange={handleSliderChange}
-          />
+        <SliderComponent
+          title="Loan Amount"
+          min={0}
+          max={20000}
+          value={sliderValues}
+          onChange={handleSliderChange}
+        />
+        <SelectOption title="Loan Duration" banks={durationArray}/>
+        <SliderComponent
+          title="Rate of interest (ROI)"
+          min={0}
+          max={100}
+          value={sliderValues2}
+          onChange={handleSliderChange2}
+        />
       </div>
       <div className="ml-auto">
           <LoanRow/>

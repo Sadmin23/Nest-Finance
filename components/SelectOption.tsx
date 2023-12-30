@@ -1,5 +1,6 @@
 'use client';
 
+import Dropdown from "./Icons/Dropdown";
 import RadioButton from "./RadioButton";
 
 interface SelectOptionProps {
@@ -9,8 +10,12 @@ interface SelectOptionProps {
 
 const SelectOption = ({ banks, title }: SelectOptionProps): JSX.Element => {
   return (
-    <div className='bg-white rounded-md border-2 border-[#d4d4d4] pb-5'>
-        <h1 className="text-lg font-medium pl-10 py-5 border-b-2 border-[#d4d4d4]">{title}</h1>
+    <div className='bg-white rounded-md border-2 border-[#d4d4d4] pb-3'>
+        <div className="flex border-b-2 border-[#d4d4d4] items-center mx-9 ">
+          <h1 className="text-lg py-4 font-medium mr-auto">{title}</h1>
+          <Dropdown/>
+        </div>
+        <div className="h-5"></div>
         {banks.map((bank, index) => (
         <RadioButton key={index} Text={bank} />
       ))}
