@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from "react";
 import LoanRow from "./LoanRow";
+import SliderComponent from "./RangeSlider";
 import SelectOption from "./SelectOption";
 
 const LoanList = (): JSX.Element => {
@@ -24,14 +26,30 @@ const LoanList = (): JSX.Element => {
                     "10 Years - 120 Month"
                     ];
 
+  const [sliderValues, setSliderValues] = useState([20, 80]);
+
+
+  const handleSliderChange = (values: [number, number]) => {
+    setSliderValues(values);
+  };
+
   return (
     <div className="mx-40 my-20 flex">
       <div className="w-96">
-        <SelectOption title="Select your bank" banks={bankArray}/>
+        {/* <SelectOption title="Select your bank" banks={bankArray}/>
         <SelectOption title="Select Loan type" banks={loanArray}/>
-        <SelectOption title="Loan Duration" banks={durationArray}/>
+        <SelectOption title="Loan Duration" banks={durationArray}/> */}
+          <SliderComponent
+            min={0}
+            max={100}
+            value={sliderValues}
+            onChange={handleSliderChange}
+          />
       </div>
       <div className="ml-auto">
+          <LoanRow/>
+          <LoanRow/>
+          <LoanRow/>
           <LoanRow/>
           <LoanRow/>
           <LoanRow/>
