@@ -57,7 +57,7 @@ const LoanList = (): JSX.Element => {
           onChange={handleSliderChange2}
         />
       </div>
-      <div className="ml-auto">
+      <div className="ml-auto space-y-9">
           <LoanRow/>
           <LoanRow/>
           <LoanRow/>
