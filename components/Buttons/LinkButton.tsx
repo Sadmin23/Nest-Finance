@@ -2,7 +2,7 @@ import React from 'react';
 
 const LinkButton = () => {
   return (
-    <button className='rounded-md bg-[#53389E] text-white text-xs flex px-3 py-[6px] font-medium ml-4 mt-11'>
+    <button className='rounded-md bg-[#53389E] text-white text-xs flex px-3 py-[6px] font-medium ml-4 mt-6'>
       Go to site
       <svg className='ml-2' xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
         <g clip-path="url(#clip0_1612_2598)">

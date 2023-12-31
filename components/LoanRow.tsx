@@ -1,7 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import LinkButton from './LinkButton';
+import LinkButton from './Buttons/LinkButton';
+import CompareButton from './Buttons/Comparebutton';
+import DetailsButton from './Buttons/DetailsButton';
 
 const LoanRow = (): JSX.Element => {
 
@@ -16,6 +18,7 @@ const LoanRow = (): JSX.Element => {
             className='mx-auto'
             />
             <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center'>City Double Loan</h2>
+            <DetailsButton/>
         </div>
         <div className='w-[142px] pl-6 border-r-2'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
@@ -33,8 +36,9 @@ const LoanRow = (): JSX.Element => {
             <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[63px]'>Minimum: 3 Years</h1>            
             <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[66px]'>Minimum: 20 Years</h1>            
         </div>
-        <div className='w-[156px]'>
+        <div className='w-[156px] space-y-12'>
           <LinkButton/>
+          <CompareButton/>
         </div>
     </div>
   );

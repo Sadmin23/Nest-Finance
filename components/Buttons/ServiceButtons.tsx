@@ -1,11 +1,11 @@
 'use client';
 
-import BankingSvg from './SVG/BankingSvg';
-import CreditCardSvg from './SVG/CreditCardsSvg';
-import DepositSchemesSvg from './SVG/DepositSchemesSvg';
-import LoansSvg from './SVG/LoansSvg';
-import MutualFundsSvg from './SVG/MutualFundsSvg';
-import BondsSvg from './SVG/BondsSvg';
+import BankingSvg from '../SVG/BankingSvg';
+import CreditCardSvg from '../SVG/CreditCardsSvg';
+import DepositSchemesSvg from '../SVG/DepositSchemesSvg';
+import LoansSvg from '../SVG/LoansSvg';
+import MutualFundsSvg from '../SVG/MutualFundsSvg';
+import BondsSvg from '../SVG/BondsSvg';
 
 const ServiceButtons = ({ x, y, z }: { x: number, y:number, z:number }): JSX.Element => {
 

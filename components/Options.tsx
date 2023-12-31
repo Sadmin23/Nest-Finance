@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
-import ServiceButtons from './ServiceButtons';
-import SmallButton from './SmallButton';
+import ServiceButtons from './Buttons/ServiceButtons';
+import SmallButton from './Buttons/SmallButton';
 import { useState } from 'react';
 import GetIllustration from './GetIllustration';
 

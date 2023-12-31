@@ -1,7 +1,7 @@
 'use client';
 
 import Dropdown from "./Icons/Dropdown";
-import RadioButton from "./RadioButton";
+import RadioButton from "./Buttons/RadioButton";
 
 interface SelectOptionProps {
   banks: string[];

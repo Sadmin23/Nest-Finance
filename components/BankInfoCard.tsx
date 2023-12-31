@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import ServiceButton from './ServiceButton';
-import OptionButton from './OptionButton';
+import ServiceButton from './Buttons/ServiceButton';
+import OptionButton from './Buttons/OptionButton';
 
 const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
 
