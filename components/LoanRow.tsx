@@ -5,6 +5,8 @@ import LinkButton from './Buttons/LinkButton';
 import CompareButton from './Buttons/Comparebutton';
 import DetailsButton from './Buttons/DetailsButton';
 import { useState } from 'react';
+import DetailDown from './Icons/DetailDown';
+import DetailUp from './Icons/DetailUp';
 
 const LoanRow = (): JSX.Element => {
 
@@ -24,27 +26,28 @@ const LoanRow = (): JSX.Element => {
               height={70}
               alt="brac"
               className='mx-auto'
-              />
-              <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center'>City Double Loan</h2>
-              <button onClick={handleButtonClick}>
-                <DetailsButton/>
-              </button>
+            />
+            <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center'>City Double Loan</h2>
+            <button className='rounded-md border-2 border-[#CAC1E1] text-[#53389E] bg-white text-xs flex px-4 py-2 font-medium mx-auto mt-6' onClick={handleButtonClick}>
+                Details
+                {isExpanded ? <DetailUp/> : <DetailDown/>}
+            </button>
           </div>
           <div className='w-[142px] pl-6 border-r-2'>
-              <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
-              <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>500,000 BDT</h1>
-              <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[76px]'>Minimum: BDT 5,00,000</h1>            
-              <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[93px]'>Minimum: BDT 5,00,00,000</h1>            
+            <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
+            <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>500,000 BDT</h1>
+            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[76px]'>Minimum: BDT 5,00,000</h1>            
+            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[93px]'>Minimum: BDT 5,00,00,000</h1>            
           </div>
           <div className='w-[134px] px-4 border-r-2'>
-              <h1 className='text-base font-medium leading-4 text-[#1A1A1A]'>Interest Rate</h1>
-              <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>9 %</h1>
+            <h1 className='text-base font-medium leading-4 text-[#1A1A1A]'>Interest Rate</h1>
+            <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>9 %</h1>
           </div>
           <div className='w-[144px] px-4 border-r-2'>
-              <h1 className='etxt-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Loan Duration</h1>
-              <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>5 Years</h1>
-              <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[63px]'>Minimum: 3 Years</h1>            
-              <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[66px]'>Minimum: 20 Years</h1>            
+            <h1 className='etxt-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Loan Duration</h1>
+            <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>5 Years</h1>
+            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[63px]'>Minimum: 3 Years</h1>            
+            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[66px]'>Minimum: 20 Years</h1>            
           </div>
           <div className='w-[156px] space-y-12'>
             <LinkButton/>

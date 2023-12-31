@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import LoanRow from "./LoanRow";
-import SliderComponent from "./RangeSlider";
+import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
 
 const LoanList = (): JSX.Element => {
