@@ -16,7 +16,6 @@ const LoanRow = (): JSX.Element => {
             className='mx-auto'
             />
             <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center'>City Double Loan</h2>
-          <LinkButton/>
         </div>
         <div className='w-[142px] pl-6 border-r-2'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
@@ -35,6 +34,7 @@ const LoanRow = (): JSX.Element => {
             <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[66px]'>Minimum: 20 Years</h1>            
         </div>
         <div className='w-[156px]'>
+          <LinkButton/>
         </div>
     </div>
   );
