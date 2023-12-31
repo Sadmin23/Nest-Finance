@@ -39,8 +39,8 @@ const LoanList = (): JSX.Element => {
   return (
     <div className="mx-40 my-20 flex">
       <div className="w-96 flex-col space-y-6">
-        <SelectOption title="Select your bank" banks={bankArray}/>
-        <SelectOption title="Select Loan type" banks={loanArray}/>
+        <SelectOption title="Select your bank" types={bankArray}/>
+        <SelectOption title="Select Loan type" types={loanArray}/>
         <SliderComponent
           title="Loan Amount"
           min={0}
@@ -48,7 +48,7 @@ const LoanList = (): JSX.Element => {
           value={sliderValues}
           onChange={handleSliderChange}
         />
-        <SelectOption title="Loan Duration" banks={durationArray}/>
+        <SelectOption title="Loan Duration" types={durationArray}/>
         <SliderComponent
           title="Rate of interest (ROI)"
           min={0}
