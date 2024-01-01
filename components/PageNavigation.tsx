@@ -1,8 +1,30 @@
 'use client';
 
-import { useEffect } from "react";
+type PageNavigationProps = {
+  l: number;
+  f: number;
+  curPage: number;
+  dataSize: number;
+  entrySize: number;
+  handleNextPage: () => void;
+  handlePrevPage: () => void;
+  handleFirst: () => void;
+  handleLast: () => void;
+  changePage: (n: number) => void;
+};
 
-const PageNavigation = ({ l, f, curPage, dataSize, entrySize }: { l: number, f:number, curPage: number, dataSize: number, entrySize: number }): JSX.Element => {
+const PageNavigation: React.FC<PageNavigationProps> = ({ 
+  l, 
+  f, 
+  curPage, 
+  dataSize, 
+  entrySize, 
+  handleNextPage,
+  handlePrevPage,
+  handleFirst,
+  handleLast,
+  changePage
+}) => {
 
   let size = Math.ceil(dataSize/entrySize)
 
@@ -12,19 +34,22 @@ const PageNavigation = ({ l, f, curPage, dataSize, entrySize }: { l: number, f:n
     <div className="flex mx-40 mt-9 mb-32">
       <h2 className="leading-5">Showing {l} to {f} of {dataSize} entries</h2>
       <div className='flex space-x-1 ml-auto'>
-      <button className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
-                <button className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>First</button>
-                {pageNumbers.map((number, index) => (
-                  <button
-                    key={index}
-                    className={number === curPage
-                      ? 'bg-[#53389E] text-white px-2 h-7'
-                      : 'bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'
-                    }
-                  >
-                    {number}
-                  </button>
-                ))}
+          <button onClick={handleFirst} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>First</button>
+          <button onClick={handlePrevPage} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
+          {pageNumbers.map((number, index) => (
+            <button
+              key={index}
+              onClick={() => changePage(number)}
+              className={number === curPage
+                ? 'bg-[#53389E] text-white px-2 h-7'
+                : 'bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'
+              }
+            >
+              {number}
+            </button>
+          ))}
+          <button onClick={handleNextPage} className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
+          <button onClick={handleLast} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Last</button>
       </div>
     </div>
   );

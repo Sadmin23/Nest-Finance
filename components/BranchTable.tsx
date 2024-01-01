@@ -73,15 +73,19 @@ const BranchTable = (): JSX.Element => {
             curPage={currentPage}
             dataSize={size}
             entrySize={rowsnum}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+            handleFirst={handleFirst}
+            handleLast={handleLast}
+            changePage={changePage}
           />
         );
-
       }, [size, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
       };
-    
+
     const handleNextPage = () => {
       if (lastIndex < size) {
         setCurrentPage(currentPage + 1);
@@ -116,7 +120,7 @@ const BranchTable = (): JSX.Element => {
       };
       
     const handleLast = () => {
-      setCurrentPage(Math.ceil(size+rowsnum));
+      setCurrentPage(Math.ceil(size/rowsnum));
     };
 
     let x, y
@@ -231,26 +235,6 @@ const BranchTable = (): JSX.Element => {
         <div>
           {pageNav.current}
         </div>
-        {/* <div className="flex mx-40 mt-9 mb-32">
-            <h2 className="leading-5">Showing {x} to {y} of {size} entries</h2>
-            <div className='flex space-x-1 ml-auto'>
-                <button onClick={handlePrevPage} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
-                <button onClick={handleFirst} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>First</button>
-                {[1, 2, 3].map((number, index) => (
-                  <button
-                    key={index}
-                    onClick={() => changePage(number)}
-                    className={number === currentPage
-                      ? 'bg-[#53389E] text-white px-2 h-7'
-                      : 'bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'
-                    }
-                  >
-                    {number}
-                  </button>
-                ))}
-                <button onClick={handleNextPage} className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
-            </div>
-        </div> */}
     </div>
   );
 };

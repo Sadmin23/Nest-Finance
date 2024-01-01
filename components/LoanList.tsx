@@ -29,6 +29,28 @@ const LoanList = (): JSX.Element => {
   const [sliderValues, setSliderValues] = useState([0, 15000]);
   const [sliderValues2, setSliderValues2] = useState([0, 20]);
 
+  const [lf, setLF] = useState([0,0]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  type PageRange = {
+    firstEntry: number;
+    lastEntry: number;
+  };
+  
+  const calculatePageRange = (
+    totalEntries: number,
+    pageSize: number,
+    pageNumber: number
+  ): PageRange => {
+    if (totalEntries === 0) {
+      return { firstEntry: 0, lastEntry: 0 };
+    } else {
+      const firstEntry = (pageNumber - 1) * pageSize + 1;
+      const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
+      return { firstEntry, lastEntry };
+    }
+  };
+
   const handleSliderChange = (values: [number, number]) => {
     setSliderValues(values);
   };

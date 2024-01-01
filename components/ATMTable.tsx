@@ -4,7 +4,8 @@ import ATMComponent from './ATMTableRow';
 import Options from './Icons/Options';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import PageNavigation from './PageNavigation';
 
 const ATMTable = (): JSX.Element => {
 
@@ -60,10 +61,25 @@ const ATMTable = (): JSX.Element => {
     const firstIndex = lastIndex - rowsnum;
     const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
     const size = itemsToDisplay.length
+    const pageNav = useRef(null)
 
     useEffect(() => {
         const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
         setLF([firstEntry, lastEntry]);
+        pageNav.current = (
+          <PageNavigation
+            l={firstEntry} 
+            f={lastEntry} 
+            curPage={currentPage}
+            dataSize={size}
+            entrySize={rowsnum}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+            handleFirst={handleFirst}
+            handleLast={handleLast}
+            changePage={changePage}
+          />
+        );
       }, [size, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,7 +120,7 @@ const ATMTable = (): JSX.Element => {
       };
       
     const handleLast = () => {
-      setCurrentPage(Math.ceil(size+rowsnum));
+      setCurrentPage(Math.ceil(size/rowsnum));
     };
 
     let x, y
@@ -158,10 +174,10 @@ const ATMTable = (): JSX.Element => {
                     {rowsnum}
                     <div className='flex-col'>
                         <button onClick={IncreaseRow} className="block">
-                            <Up/>
+                            <Up colour='white'/>
                         </button>
                         <button onClick={DecreaseRow} className="block">
-                            <Down/>
+                            <Down colour='white'/>
                         </button>
                     </div>
                 </div>
@@ -210,25 +226,8 @@ const ATMTable = (): JSX.Element => {
                     ))
                 )}        
         </table>
-        <div className="flex mx-40 mt-9 mb-32">
-            <h2 className="leading-5">Showing {x} to {y} of {size} entries</h2>
-            <div className='flex space-x-1 ml-auto'>
-                <button onClick={handlePrevPage} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
-                <button onClick={handleFirst} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>First</button>
-                {[1, 2, 3, 4, 5].map((number, index) => (
-                  <button
-                    key={index}
-                    onClick={() => changePage(number)}
-                    className={number === currentPage
-                      ? 'bg-[#53389E] text-white px-2 h-7'
-                      : 'bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'
-                    }
-                  >
-                    {number}
-                  </button>
-                ))}
-                <button onClick={handleNextPage} className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
-            </div>
+        <div>
+          {pageNav.current}
         </div>
     </div>
   );
