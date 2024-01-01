@@ -4,6 +4,10 @@ import { useState } from "react";
 import LoanRow from "./LoanRow";
 import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
+import SmallSearchIcon from "./Icons/SmallSearchIcon";
+import Up from "./Icons/Up";
+import Down from "./Icons/Down";
+import FilterIcon from "./Icons/FilterIcon";
 
 const LoanList = (): JSX.Element => {
 
@@ -11,7 +15,8 @@ const LoanList = (): JSX.Element => {
                     "Brac Bank Limited", 
                     "Al-Arafah Bank Limited",
                     "Agrani Bank Limited",
-                    "Jamuna Bank Limited"
+                    "Jamuna Bank Limited",
+                    "Eastern Bank"
                     ];
   const loanArray = ["Home Loan", 
                     "Car Loan", 
@@ -57,14 +62,39 @@ const LoanList = (): JSX.Element => {
           onChange={handleSliderChange2}
         />
       </div>
-      <div className="ml-auto space-y-9">
-          <LoanRow/>
-          <LoanRow/>
-          <LoanRow/>
-          <LoanRow/>
-          <LoanRow/>
-          <LoanRow/>
-          <LoanRow/>
+      <div className="ml-auto">
+        <h1 className="text-[28px] font-semibold leading-[38px] text-[#1D2939]">Search your loan information</h1>
+        <div className="flex mt-8 mb-12">
+          <div contentEditable={true} className="flex items-center h-11 w-[278px] border-[0.5px] border-[#D4D4D4] rounded-md px-4 py-2 font-normal text-sm text-[#B3B3B3]">
+                <SmallSearchIcon/>
+                Search your desire bank loans
+          </div>
+          <h1 className="leading-10 font-normal ml-56">Showing</h1>
+          <div className='bg-white border-[0.5px] border-[#B3B3B3] rounded-md text-[#53389E] p-2 mx-4 flex'>
+            7
+            <div className='flex-col'>
+              <button className="block">
+                  <Up colour="purple"/>
+              </button>
+              <button  className="block">
+                  <Down colour="purple"/>
+              </button>
+            </div>
+          </div>
+          <div contentEditable={true} className="flex border-[0.5px] text-center text-sm leading-5 border-[#B3B3B3] rounded-md  text-[#B3B3B3] px-4 py-2 items-center">
+              <FilterIcon right="2"/>
+              Sort By
+          </div>
+        </div>
+        <div className="space-y-9">
+            <LoanRow/>
+            <LoanRow/>
+            <LoanRow/>
+            <LoanRow/>
+            <LoanRow/>
+            <LoanRow/>
+            <LoanRow/>
+        </div>
       </div>
     </div>
   );

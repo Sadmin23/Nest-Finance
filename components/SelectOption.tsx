@@ -11,6 +11,7 @@ interface SelectOptionProps {
 
 const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
 
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   
@@ -31,7 +32,7 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
   }, [selectedOptions]);
 
   return (
-    <div className='bg-white rounded-md border-2 border-[#d4d4d4]'>
+    <div className='bg-white rounded-md border border-[#d4d4d4]'>
         <div className="flex items-center mx-9 ">
           <h1 className="text-lg py-4 font-medium mr-auto">{title}</h1>
           <button onClick={handleButtonClick}>
@@ -41,7 +42,7 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
         {isExpanded && (
           <main className="pb-3">
             <div className="border-t-2 border-[#DFDFDF] h-5"></div>
-            <div className="ml-10 space-y-2 pb-2">
+            <div className="ml-10 space-y-2 pb-2 h-40 overflow-y-auto">
               {types.map((type, index) => (
                 <div key={index} className="flex items-center">
                   <input

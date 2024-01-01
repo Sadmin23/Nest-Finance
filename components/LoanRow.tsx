@@ -17,7 +17,7 @@ const LoanRow = (): JSX.Element => {
   };
 
   return (
-    <div className='w-[764px] rounded-md border-2 border-[#EDEDED]'>
+    <div className='w-[764px] rounded-md border-2 border-[#D4D4D4]'>
       <div className="bg-white h-[200px] flex py-5">
           <div className='w-[192px] border-r-2'>
             <Image

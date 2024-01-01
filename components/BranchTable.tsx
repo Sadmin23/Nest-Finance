@@ -1,12 +1,12 @@
 'use client';
 
-import BranchComponent from "./BankTableRow";
 import Options from './Icons/Options';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
 import { useEffect, useState } from 'react';
+import BranchComponent from './BranchComponent';
 
-const BankTable = (): JSX.Element => {
+const BranchTable = (): JSX.Element => {
 
     const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
@@ -131,7 +131,8 @@ const BankTable = (): JSX.Element => {
                                 <input
                                   className="w-[270px] border-2 border-[#53389E] h-12 rounded-[10px] pl-4 py-3 font-semibold"
                                   placeholder="Bank Name"            
-                                />                                 <input
+                                />
+                                <input
                                   className="w-[270px] border-2 border-[#53389E] h-12 rounded-[10px] pl-4 py-3"
                                   placeholder="Branch Name"
                                   onChange={handleInputChange}            
@@ -158,7 +159,7 @@ const BankTable = (): JSX.Element => {
                     {rowsnum}
                     <div className='flex-col'>
                         <button onClick={IncreaseRow} className="block">
-                            <Up/>
+                            <Up colour="white"/>
                         </button>
                         <button onClick={DecreaseRow} className="block">
                             <Down/>
@@ -200,7 +201,7 @@ const BankTable = (): JSX.Element => {
                 : 
                 (
                     currentItems.map((branch, index) => (
-                        <BranchComponent 
+                        <BranchComponent
                         key={index} 
                         index={index} 
                         Branch_Name={branch.name} 
@@ -220,7 +221,7 @@ const BankTable = (): JSX.Element => {
             <div className='flex space-x-1 ml-auto'>
                 <button onClick={handlePrevPage} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
                 <button onClick={handleFirst} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>First</button>
-                {[1, 2, 3, 4, 5].map((number, index) => (
+                {[1, 2, 3].map((number, index) => (
                   <button
                     key={index}
                     onClick={() => changePage(number)}
@@ -239,4 +240,4 @@ const BankTable = (): JSX.Element => {
   );
 };
 
-export default BankTable;
+export default BranchTable;

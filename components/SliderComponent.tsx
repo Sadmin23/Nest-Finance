@@ -24,7 +24,7 @@ const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, onCh
   };
 
   return (
-    <div className='bg-white rounded-md border-2 border-[#d4d4d4]'>
+    <div className='bg-white rounded-md border border-[#d4d4d4]'>
       <div className="flex items-center mx-9">
         <h1 className="text-lg font-medium py-4 mr-auto">{title}</h1>
           <button onClick={handleButtonClick}>

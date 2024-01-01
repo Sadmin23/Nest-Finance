@@ -1,6 +1,6 @@
 'use client';
 
-import BankTable from "@/components/BankTable";
+import BankTable from "@/components/BranchTable";
 import Nav from "@/components/Nav";
 
 const Branch = () => {
