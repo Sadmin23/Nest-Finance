@@ -99,15 +99,19 @@ const ATMTable = (): JSX.Element => {
     };
 
     const IncreaseRow = () => {
-        setRowsnum(rowsnum+1)
+      if (rowsnum === 5) {
+        setRowsnum(10);
+      } else if (rowsnum === 10) {
+        setRowsnum(20);
+      }
     };
 
     const DecreaseRow = () => {
-        const down = rowsnum
-
-        if (down>5)
-            setRowsnum(rowsnum-1)
-    
+      if (rowsnum === 20) {
+        setRowsnum(10);
+      } else if (rowsnum === 10) {
+        setRowsnum(5);
+      }
     };
 
     const changePage = (n: number) => {
