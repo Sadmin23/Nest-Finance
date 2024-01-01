@@ -31,7 +31,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
   const pageNumbers: number[] = Array.from({ length: size }, (_, index) => index + 1);  
 
   return (
-    <div className="flex mx-40 mt-9 mb-32">
+    <div className="flex">
       <h2 className="leading-5">Showing {l} to {f} of {dataSize} entries</h2>
       <div className='flex space-x-1 ml-auto'>
           <button onClick={handleFirst} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>First</button>

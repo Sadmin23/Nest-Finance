@@ -226,7 +226,7 @@ const ATMTable = (): JSX.Element => {
                     ))
                 )}        
         </table>
-        <div>
+        <div className='mx-40 mt-9 mb-32'>
           {pageNav.current}
         </div>
     </div>

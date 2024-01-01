@@ -1,6 +1,6 @@
 'use client';
 
-import {  useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 import LoanRow from "./LoanRow";
 import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
@@ -8,6 +8,7 @@ import SmallSearchIcon from "./Icons/SmallSearchIcon";
 import Up from "./Icons/Up";
 import Down from "./Icons/Down";
 import FilterIcon from "./Icons/FilterIcon";
+import PageNavigation from "./PageNavigation";
 
 const LoanList = (): JSX.Element => {
 
@@ -30,6 +31,7 @@ const LoanList = (): JSX.Element => {
   const [sliderValues2, setSliderValues2] = useState([0, 20]);
 
   const [lf, setLF] = useState([0,0]);
+  const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
   type PageRange = {
@@ -50,6 +52,72 @@ const LoanList = (): JSX.Element => {
       return { firstEntry, lastEntry };
     }
   };
+
+  const lastIndex = currentPage * rowsnum;
+  const firstIndex = lastIndex - rowsnum;
+  const size = 7
+  const pageNav = useRef(null)
+
+  useEffect(() => {
+      const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+      setLF([firstEntry, lastEntry]);
+      pageNav.current = (
+        <PageNavigation 
+          l={firstEntry} 
+          f={lastEntry} 
+          curPage={currentPage}
+          dataSize={size}
+          entrySize={rowsnum}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+          handleFirst={handleFirst}
+          handleLast={handleLast}
+          changePage={changePage}
+        />
+      );
+    }, [size, rowsnum, currentPage]);
+
+    const handleNextPage = () => {
+      if (lastIndex < size) {
+        setCurrentPage(currentPage + 1);
+      }
+    };
+
+    const handlePrevPage = () => {
+      if (currentPage !== 1) {
+        setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const IncreaseRow = () => {
+        setRowsnum(rowsnum+1)
+    };
+
+    const DecreaseRow = () => {
+        const down = rowsnum
+
+        if (down>5)
+            setRowsnum(rowsnum-1)
+    
+    };
+
+    const changePage = (n: number) => {
+        if (n*rowsnum <= size + rowsnum)
+            setCurrentPage(n)
+    }
+
+    const handleFirst = () => {
+        setCurrentPage(1);
+      };
+      
+    const handleLast = () => {
+      setCurrentPage(Math.ceil(size/rowsnum));
+    };
+
+    let x, y
+
+    x = lf[0]
+    y = lf[1]     
 
   const handleSliderChange = (values: [number, number]) => {
     setSliderValues(values);
@@ -90,12 +158,12 @@ const LoanList = (): JSX.Element => {
           </div>
           <h1 className="leading-10 font-normal ml-auto">Showing</h1>
           <div className='bg-white border-[0.5px] border-[#B3B3B3] rounded-md text-[#53389E] p-2 mx-4 flex'>
-            7
+            {rowsnum}
             <div className='flex-col'>
-              <button className="block">
+              <button onClick={IncreaseRow} className="block">
                   <Up colour="purple"/>
               </button>
-              <button  className="block">
+              <button onClick={DecreaseRow} className="block">
                   <Down colour="purple"/>
               </button>
             </div>
@@ -113,6 +181,9 @@ const LoanList = (): JSX.Element => {
             <LoanRow/>
             <LoanRow/>
             <LoanRow/>
+        </div>
+        <div className="mt-[72px]">
+          {pageNav.current}
         </div>
       </div>
     </div>
