@@ -17,7 +17,7 @@ interface SliderComponentProps {
 
 const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, onChange, value }) => {
 
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleButtonClick = () => {
     setIsExpanded(!isExpanded);

@@ -17,20 +17,24 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
   if (title === "Select your bank")
     isBank = true
 
-  const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [data, setData] = useState<string[]>(types);
   const [filteredData, setFilteredData] = useState<string[]>(types);
   const [searchValue, setSearchValue] = useState('');
+  const [error, setError] = useState(true)
 
-    useEffect(() => {
-      fetch('http://127.0.0.1:8000/bankapi/bank/')
-        .then((response) => response.json())
-        .then((data: Array<{ name: string }>) => {
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/bankapi/bank/')
+      .then((response) => response.json())
+      .then((data: Array<{ name: string }>) => {
+        if (isBank === true){
           setData(data.map((item) => item.name));
-        })
-        .catch(() => setData([]));
-    }, []);
+          setFilteredData(data.map((item) => item.name));
+          setError(false)
+        }
+      })
+      .catch(() => setError(true));
+  }, []);
 
   useEffect(() => {
     console.log(searchValue);
@@ -39,6 +43,8 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
     );
     setFilteredData(filtered)
   }, [searchValue]);
+
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleButtonClick = () => {
     setIsExpanded(!isExpanded);
@@ -68,7 +74,7 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
             {isExpanded ? <Dropdown/> : <Dropup/>}
           </button>
         </div>
-        {isExpanded && isBank && (
+        {isExpanded && isBank && !error && (
           <main>
             <div className="border-t-2 border-[#DFDFDF]"></div>
             <div className="relative w-[300px] my-4 flex items-center mx-auto">
@@ -81,27 +87,31 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
             </div>
           </main>
         )}
-        {isExpanded && (
-            <main className="pb-3">
-              <div className="border-t-2 border-[#DFDFDF] h-5"></div>
-              <div className="ml-10 space-y-2 pb-2 h-40 overflow-y-auto">
-                {filteredData.map((type, index) => (
-                  <div key={index} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={`option${index + 1}`}
-                      name={`option${index + 1}`}
-                      className="mr-6 w-5 h-5 border-black border"
-                      checked={selectedOptions.includes(type)}
-                      onChange={() => handleCheckboxChange(type)}
-                    />
-                    <label htmlFor={`option${index + 1}`} className="leading-6 w-72">
-                      {type}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </main>
+        {isExpanded && (isBank && error ?                 
+          <div className="text-center py-4 border-t-2 text-gray-500">
+            No bank information available
+          </div> 
+          :
+          <main className="pb-3">
+            <div className="border-t-2 border-[#DFDFDF] h-5"></div>
+            <div className="ml-10 space-y-2 pb-2 h-40 overflow-y-auto">
+              {filteredData.map((type, index) => (
+                <div key={index} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id={`option${index + 1}`}
+                    name={`option${index + 1}`}
+                    className="mr-6 w-5 h-5 border-black border"
+                    checked={selectedOptions.includes(type)}
+                    onChange={() => handleCheckboxChange(type)}
+                  />
+                  <label htmlFor={`option${index + 1}`} className="leading-6 w-72">
+                    {type}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </main>
         )}
     </div>
   );
