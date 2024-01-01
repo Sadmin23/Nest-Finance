@@ -162,7 +162,7 @@ const BranchTable = (): JSX.Element => {
                             <Up colour="white"/>
                         </button>
                         <button onClick={DecreaseRow} className="block">
-                            <Down/>
+                            <Down colour='white'/>
                         </button>
                     </div>
                 </div>

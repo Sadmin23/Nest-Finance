@@ -65,11 +65,14 @@ const LoanList = (): JSX.Element => {
       <div className="ml-auto">
         <h1 className="text-[28px] font-semibold leading-[38px] text-[#1D2939]">Search your loan information</h1>
         <div className="flex mt-8 mb-12">
-          <div contentEditable={true} className="flex items-center h-11 w-[278px] border-[0.5px] border-[#D4D4D4] rounded-md px-4 py-2 font-normal text-sm text-[#B3B3B3]">
-                <SmallSearchIcon/>
-                Search your desire bank loans
+          <div className="relative w-[286px] flex items-center">
+            <input
+              className="h-11 w-full border-[0.5px] border-[#D4D4D4] rounded-md pl-12 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
+              placeholder="Search your desired bank loans"
+            />
+            <SmallSearchIcon/>
           </div>
-          <h1 className="leading-10 font-normal ml-56">Showing</h1>
+          <h1 className="leading-10 font-normal ml-auto">Showing</h1>
           <div className='bg-white border-[0.5px] border-[#B3B3B3] rounded-md text-[#53389E] p-2 mx-4 flex'>
             7
             <div className='flex-col'>
