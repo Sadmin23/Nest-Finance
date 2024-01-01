@@ -37,7 +37,6 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    console.log(searchValue);
     const filtered = data.filter((item) =>
     item.toLowerCase().includes(searchValue.toLowerCase())
     );

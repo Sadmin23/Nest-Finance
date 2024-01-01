@@ -3,8 +3,9 @@
 import Options from './Icons/Options';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BranchComponent from './BranchComponent';
+import PageNavigation from './PageNavigation';
 
 const BranchTable = (): JSX.Element => {
 
@@ -60,10 +61,21 @@ const BranchTable = (): JSX.Element => {
     const firstIndex = lastIndex - rowsnum;
     const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
     const size = itemsToDisplay.length
+    const pageNav = useRef(null)
 
     useEffect(() => {
         const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
         setLF([firstEntry, lastEntry]);
+        pageNav.current = (
+          <PageNavigation 
+            l={firstEntry} 
+            f={lastEntry} 
+            curPage={currentPage}
+            dataSize={size}
+            entrySize={rowsnum}
+          />
+        );
+
       }, [size, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -216,7 +228,10 @@ const BranchTable = (): JSX.Element => {
                     ))
                 )}        
         </table>
-        <div className="flex mx-40 mt-9 mb-32">
+        <div>
+          {pageNav.current}
+        </div>
+        {/* <div className="flex mx-40 mt-9 mb-32">
             <h2 className="leading-5">Showing {x} to {y} of {size} entries</h2>
             <div className='flex space-x-1 ml-auto'>
                 <button onClick={handlePrevPage} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
@@ -235,7 +250,7 @@ const BranchTable = (): JSX.Element => {
                 ))}
                 <button onClick={handleNextPage} className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
             </div>
-        </div>
+        </div> */}
     </div>
   );
 };
