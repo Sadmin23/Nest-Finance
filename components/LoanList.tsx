@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import {  useState } from "react";
 import LoanRow from "./LoanRow";
 import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
@@ -11,13 +11,6 @@ import FilterIcon from "./Icons/FilterIcon";
 
 const LoanList = (): JSX.Element => {
 
-  const bankArray = ["Sonali Bank Limited", 
-                    "Brac Bank Limited", 
-                    "Al-Arafah Bank Limited",
-                    "Agrani Bank Limited",
-                    "Jamuna Bank Limited",
-                    "Eastern Bank"
-                    ];
   const loanArray = ["Home Loan", 
                     "Car Loan", 
                     "Personal Loan",
@@ -31,9 +24,10 @@ const LoanList = (): JSX.Element => {
                     "10 Years - 120 Month"
                     ];
 
+  const bankArray = [""];
+
   const [sliderValues, setSliderValues] = useState([0, 15000]);
   const [sliderValues2, setSliderValues2] = useState([0, 20]);
-
 
   const handleSliderChange = (values: [number, number]) => {
     setSliderValues(values);

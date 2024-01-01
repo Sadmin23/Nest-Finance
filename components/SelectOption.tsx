@@ -1,7 +1,7 @@
 'use client';
 
-import Dropdown from "./Icons/Dropdown";
 import { useEffect, useState } from "react";
+import Dropdown from "./Icons/Dropdown";
 import Dropup from "./Icons/Dropup";
 import TinySearchIcon from "./Icons/TinySearchIcon";
 
@@ -19,7 +19,27 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  
+  const [data, setData] = useState<string[]>(types);
+  const [filteredData, setFilteredData] = useState<string[]>(types);
+  const [searchValue, setSearchValue] = useState('');
+
+    useEffect(() => {
+      fetch('http://127.0.0.1:8000/bankapi/bank/')
+        .then((response) => response.json())
+        .then((data: Array<{ name: string }>) => {
+          setData(data.map((item) => item.name));
+        })
+        .catch(() => setData([]));
+    }, []);
+
+  useEffect(() => {
+    console.log(searchValue);
+    const filtered = data.filter((item) =>
+    item.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredData(filtered)
+  }, [searchValue]);
+
   const handleButtonClick = () => {
     setIsExpanded(!isExpanded);
   };
@@ -30,6 +50,10 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
     } else {
       setSelectedOptions([...selectedOptions, option]);
     }
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
   };
 
   useEffect(() => {
@@ -51,7 +75,8 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
               <input
                 className="h-9 w-full border-[0.5px] border-[#53389E] rounded-md pl-11 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
                 placeholder="Search bank"
-                />
+                onChange={handleInputChange}            
+              />
               <TinySearchIcon/>
             </div>
           </main>
@@ -60,7 +85,7 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
             <main className="pb-3">
               <div className="border-t-2 border-[#DFDFDF] h-5"></div>
               <div className="ml-10 space-y-2 pb-2 h-40 overflow-y-auto">
-                {types.map((type, index) => (
+                {filteredData.map((type, index) => (
                   <div key={index} className="flex items-center">
                     <input
                       type="checkbox"
@@ -69,10 +94,10 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
                       className="mr-6 w-5 h-5 border-black border"
                       checked={selectedOptions.includes(type)}
                       onChange={() => handleCheckboxChange(type)}
-                  />
-                  <label htmlFor={`option${index + 1}`} className="leading-6">
-                    {type}
-                  </label>
+                    />
+                    <label htmlFor={`option${index + 1}`} className="leading-6 w-72">
+                      {type}
+                    </label>
                   </div>
                 ))}
               </div>
