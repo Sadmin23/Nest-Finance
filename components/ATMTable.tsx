@@ -73,10 +73,9 @@ const ATMTable = (): JSX.Element => {
             curPage={currentPage}
             dataSize={size}
             entrySize={rowsnum}
+            type={1}
             handleNextPage={handleNextPage}
             handlePrevPage={handlePrevPage}
-            handleFirst={handleFirst}
-            handleLast={handleLast}
             changePage={changePage}
           />
         );
@@ -118,14 +117,6 @@ const ATMTable = (): JSX.Element => {
         if (n*rowsnum <= size + rowsnum)
             setCurrentPage(n)
     }
-
-    const handleFirst = () => {
-        setCurrentPage(1);
-      };
-      
-    const handleLast = () => {
-      setCurrentPage(Math.ceil(size/rowsnum));
-    };
 
     let x, y
 

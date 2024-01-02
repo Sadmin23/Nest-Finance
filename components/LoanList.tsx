@@ -90,7 +90,7 @@ const LoanList = (): JSX.Element => {
 
   const lastIndex = currentPage * rowsnum;
   const firstIndex = lastIndex - rowsnum;
-  const size = 7
+  const size = 500
   const pageNav = useRef(null)
 
   useEffect(() => {
@@ -103,29 +103,9 @@ const LoanList = (): JSX.Element => {
           curPage={currentPage}
           dataSize={size}
           entrySize={rowsnum}
+          type={2}
           handleNextPage={handleNextPage}
           handlePrevPage={handlePrevPage}
-          handleFirst={handleFirst}
-          handleLast={handleLast}
-          changePage={changePage}
-        />
-      );
-    }, [size, rowsnum, currentPage]);
-
-  useEffect(() => {
-      const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
-      setLF([firstEntry, lastEntry]);
-      pageNav.current = (
-        <PageNavigation 
-          l={firstEntry} 
-          f={lastEntry} 
-          curPage={currentPage}
-          dataSize={size}
-          entrySize={rowsnum}
-          handleNextPage={handleNextPage}
-          handlePrevPage={handlePrevPage}
-          handleFirst={handleFirst}
-          handleLast={handleLast}
           changePage={changePage}
         />
       );
@@ -163,14 +143,6 @@ const LoanList = (): JSX.Element => {
         if (n*rowsnum <= size + rowsnum)
             setCurrentPage(n)
     }
-
-    const handleFirst = () => {
-        setCurrentPage(1);
-      };
-      
-    const handleLast = () => {
-      setCurrentPage(Math.ceil(size/rowsnum));
-    };
 
     let x, y
 
