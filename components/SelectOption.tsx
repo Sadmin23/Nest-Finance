@@ -8,16 +8,24 @@ import TinySearchIcon from "./Icons/TinySearchIcon";
 interface SelectOptionProps {
   types: string[];
   title: string;
+  handleChange: (option: string, category: number) => void;
+  checkBox: (bank: string, category: number) => boolean
 }
 
-const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
+const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProps): JSX.Element => {
 
   let isBank = false
+  let group = 0;
 
-  if (title === "Select your bank")
+  if (title === "Select your bank"){
     isBank = true
+    group = 1
+  }
+  else if (title === "Select Loan type")
+    group = 2
+  else if (title === "Loan Duration")
+    group = 3
 
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [data, setData] = useState<string[]>(types);
   const [filteredData, setFilteredData] = useState<string[]>(types);
   const [searchValue, setSearchValue] = useState('');
@@ -49,21 +57,9 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleCheckboxChange = (option: string) => {
-    if (selectedOptions.includes(option)) {
-      setSelectedOptions(selectedOptions.filter((item) => item !== option));
-    } else {
-      setSelectedOptions([...selectedOptions, option]);
-    }
-  };
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
-
-  useEffect(() => {
-    console.log("Selected Options:", selectedOptions);
-  }, [selectedOptions]);
 
   return (
     <div className='bg-white rounded-md border border-[#d4d4d4]'>
@@ -93,7 +89,7 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
           :
           <main className="pb-3">
             <div className="border-t-2 border-[#DFDFDF] h-5"></div>
-            <div className="ml-10 space-y-2 pb-2 h-40 overflow-y-auto">
+            <div className={`ml-10 space-y-3 pb-2 overflow-y-auto ${(group == 1 ) ? 'h-40' : 'h-44'}`}>
               {filteredData.map((type, index) => (
                 <div key={index} className="flex items-center">
                   <input
@@ -101,10 +97,10 @@ const SelectOption = ({ types, title }: SelectOptionProps): JSX.Element => {
                     id={`option${index + 1}`}
                     name={`option${index + 1}`}
                     className="mr-6 w-5 h-5 border-black border"
-                    checked={selectedOptions.includes(type)}
-                    onChange={() => handleCheckboxChange(type)}
+                    checked={checkBox(type, group)}
+                    onChange={() => handleChange(type, group)}
                   />
-                  <label htmlFor={`option${index + 1}`} className="leading-6 w-72">
+                  <label htmlFor={`option${index + 1}`} className="leading-6 w-64">
                     {type}
                   </label>
                 </div>

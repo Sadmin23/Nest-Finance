@@ -1,6 +1,6 @@
 'use client';
 
-import {  useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LoanRow from "./LoanRow";
 import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
@@ -34,6 +34,41 @@ const LoanList = (): JSX.Element => {
   const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [banks, setBanks] = useState<string[]>([]);
+  const [loans, setLoans] = useState<string[]>([]);
+  const [durations, setDurations] = useState<string[]>([]);
+
+  const handleChange = (option: string, category: number) => {
+    if (category === 1) {
+      if (banks.includes(option)) {
+        setBanks(banks.filter((item) => item !== option));
+      } else {
+        setBanks([...banks, option]);
+      }
+    } else if (category === 2) {
+      if (loans.includes(option)) {
+        setLoans(loans.filter((item) => item !== option));
+      } else {
+        setLoans([...loans, option]);
+      }
+    } else if (category === 3) {
+      if (durations.includes(option)) {
+        setDurations(durations.filter((item) => item !== option));
+      } else {
+        setDurations([...durations, option]);
+      }
+    }
+  };
+
+  const checkBox = (option: string, category: number): boolean => {
+    if (category === 1)
+      return banks.includes(option);
+    else if (category === 2)
+      return loans.includes(option)
+    else if (category === 3)
+      return durations.includes(option)
+  };
+
   type PageRange = {
     firstEntry: number;
     lastEntry: number;
@@ -57,6 +92,25 @@ const LoanList = (): JSX.Element => {
   const firstIndex = lastIndex - rowsnum;
   const size = 7
   const pageNav = useRef(null)
+
+  useEffect(() => {
+      const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+      setLF([firstEntry, lastEntry]);
+      pageNav.current = (
+        <PageNavigation 
+          l={firstEntry} 
+          f={lastEntry} 
+          curPage={currentPage}
+          dataSize={size}
+          entrySize={rowsnum}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+          handleFirst={handleFirst}
+          handleLast={handleLast}
+          changePage={changePage}
+        />
+      );
+    }, [size, rowsnum, currentPage]);
 
   useEffect(() => {
       const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
@@ -129,11 +183,19 @@ const LoanList = (): JSX.Element => {
   const handleSliderChange2 = (values: [number, number]) => {
     setSliderValues2(values);
   };
+
+  useEffect(() => {
+    console.log(banks);
+    console.log(loans);
+    console.log(durations);
+    
+  }, [banks, loans, durations]);  
+
   return (
     <div className="mx-40 my-20 flex">
       <div className="w-96 flex-col space-y-6">
-        <SelectOption title="Select your bank" types={bankArray}/>
-        <SelectOption title="Select Loan type" types={loanArray}/>
+        <SelectOption title="Select your bank" types={bankArray} handleChange={handleChange} checkBox={checkBox}/>
+        <SelectOption title="Select Loan type" types={loanArray} handleChange={handleChange} checkBox={checkBox}/>
         <SliderComponent
           title="Loan Amount"
           min={0}
@@ -141,7 +203,7 @@ const LoanList = (): JSX.Element => {
           value={sliderValues}
           onChange={handleSliderChange}
         />
-        <SelectOption title="Loan Duration" types={durationArray}/>
+        <SelectOption title="Loan Duration" types={durationArray} handleChange={handleChange} checkBox={checkBox}/>
         <SliderComponent
           title="Rate of interest (ROI)"
           min={0}
