@@ -10,11 +10,7 @@ const BankSearch = (): JSX.Element => {
                 <SearchIcon/>
                 Search your desire bank
             </div>
-            <div contentEditable={true} className="flex border-2 border-[#B3B3B3] ml-auto h-14 py-4 px-6 rounded-xl mt-9 text-[#B3B3B3]">
-                <FilterIcon right="6"/>
-                Filter by district
-            </div>
-            <div contentEditable={true} className="flex border-2 border-[#B3B3B3] ml-9 h-14 py-4 px-6 rounded-xl mt-9 text-[#B3B3B3]">
+            <div contentEditable={true} className="flex border-2 border-[#B3B3B3] h-14 py-4 px-6 rounded-xl mt-9 text-[#B3B3B3] ml-auto">
                 <FilterIcon right="6"/>
                 Filter by bank type
             </div>

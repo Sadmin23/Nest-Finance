@@ -21,8 +21,8 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
   origin = origin.replace(" Bank", "");
 
   return (
-    <div className='w-[365px] h-[347px] rounded-2xl border-2 bg-white border-[#53389E] flex items-end'>
-        <div className='flex-col mx-6'>
+    <div className='w-[376px] h-[360px] px-6 rounded-2xl border-2 bg-white border-[#53389E] flex items-end'>
+        <div className='flex-col mx-auto'>
           <div className='flex'>
             <Image
             src={url}
@@ -33,10 +33,10 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
           />
           </div>
             <h2 className='font-semibold text-sm leading-5 text-[#53389E]'>{type} • {category} • {origin}</h2>
-            <h2 className='text-sm leading-[18px] text-[#1D2939] w-[317px] mt-3'>
+            <h2 className='text-sm leading-[18px] text-[#1D2939] mt-3'>
               {textContent}
             </h2>
-            <section className='space-y-3 mb-4 mt-4'>
+            <section className='space-y-4 mb-6 mt-4'>
                 <div className='flex space-x-4'>
                     <OptionButton text='Deposits'/>
                     <OptionButton text='Loans'/>
