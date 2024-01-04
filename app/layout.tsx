@@ -1,6 +1,6 @@
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
-import Nav from '../components/Nav';
+import { PrimeReactProvider } from 'primereact/api';
 import { ReactQueryProvider } from '@/components/React-query-provider';
 import Footer from '../components/Footer'
 
@@ -65,7 +65,9 @@ export default async function RootLayout({
       <body className="bg-[#FAFAFA] text-black selection:bg-teal-300">
         <Suspense>
           <ReactQueryProvider>
-            <main>{children}</main>
+            <PrimeReactProvider>
+              <main>{children}</main>
+            </PrimeReactProvider>
           </ReactQueryProvider>
         </Suspense>
         <Footer/>

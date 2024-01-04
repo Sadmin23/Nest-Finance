@@ -27,9 +27,10 @@ const BankInfoWrapper = (): JSX.Element => {
 
     useEffect(() => {
         const filtered = data.filter((item) =>
-        item.name.toLowerCase().includes(searchValue.toLowerCase()))
-        setFilteredData(filtered)
-      }, [searchValue]);
+          item.name.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        setFilteredData(filtered);
+      }, [searchValue, data]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchValue(event.target.value);
@@ -56,7 +57,7 @@ const BankInfoWrapper = (): JSX.Element => {
         <div className="flex-col space-y-9 mb-12">
           {Array.from({ length: numberOfRows }, (_, rowIndex) => (
               <div key={rowIndex} className="flex mx-40 space-x-9">
-              {data
+              {filteredData
                 .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
                 .map((bank, index) => (
                     <BankInfoCard
