@@ -1,8 +1,8 @@
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
-import { PrimeReactProvider } from 'primereact/api';
+import { NextUIProvider } from "@nextui-org/react";
 import { ReactQueryProvider } from '@/components/React-query-provider';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
@@ -61,16 +61,13 @@ export default async function RootLayout({
         />
         {roboto}
       </head>
-      {/* <body className="bg-white text-black selection:bg-teal-300 dark:bg-black dark:text-white dark:selection:bg-fuchsia-600 dark:selection:text-white"> */}
       <body className="bg-[#FAFAFA] text-black selection:bg-teal-300">
         <Suspense>
-          <ReactQueryProvider>
-            <PrimeReactProvider>
+            <ReactQueryProvider>
               <main>{children}</main>
-            </PrimeReactProvider>
-          </ReactQueryProvider>
+            </ReactQueryProvider>
         </Suspense>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

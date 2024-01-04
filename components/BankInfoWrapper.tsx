@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import BankInfoCard from "./BankInfoCard";
 import SearchIcon from "./Icons/SearchIcon";
 import FilterIcon from "./Icons/FilterIcon";
+import { Dropdown } from 'primereact/dropdown';
+        
 
 const BankInfoWrapper = (): JSX.Element => {
 
@@ -11,16 +13,18 @@ const BankInfoWrapper = (): JSX.Element => {
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState('');
     const [error, setError] = useState(true)
-  
+    const [filter, setFilter] = useState('');
+    const [api, setApi] = useState('http://127.0.0.1:8000/bankapi/bank/');
+
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/bankapi/bank/')
+      fetch(api)
         .then((response) => response.json())
         .then((data) => {
             setData(data)
             setError(false)
         })
         .catch(() => setError(true));
-    }, []);
+    }, [api]);
     
     const itemsPerRow = 3;
     const numberOfRows = Math.ceil(filteredData.length / itemsPerRow);
@@ -36,10 +40,16 @@ const BankInfoWrapper = (): JSX.Element => {
       setSearchValue(event.target.value);
     };
 
+    const handleChangeFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      const newFilter = event.target.value;
+      setFilter(newFilter);
+      setApi(newFilter ? `http://127.0.0.1:8000/bankapi/bank/?type=${newFilter}` : 'http://127.0.0.1:8000/bankapi/bank/');
+    };
+    
     return (
       <main className="flex-col">
         <div className='mx-40 mb-12'>
-          <div className='border-t-2 flex'>
+          <div className='border-t-2 flex pt-9'>
             <div className="flex items-center relative">
                 <input
                     className="border-2 border-[#B3B3B3] h-14 rounded-xl w-[376px] py-4 pl-[72px]"
@@ -48,9 +58,17 @@ const BankInfoWrapper = (): JSX.Element => {
                 />
                 <SearchIcon/>
             </div>
-            <div contentEditable={true} className="flex border-2 border-[#B3B3B3] h-14 py-4 px-6 rounded-xl mt-9 text-[#B3B3B3] ml-auto">
-                <FilterIcon right="6"/>
-                Filter by bank type
+            <div className="ml-auto">
+              <select
+                name="filter"
+                value={filter}
+                onChange={handleChangeFilter}
+                className="border-2 border-[#B3B3B3] h-14 rounded-xl w-60 py-4 px-4"
+              >
+                <option value="">Filter by bank type</option>
+                <option value="Public+Bank">Public Bank</option>
+                <option value="Private+Bank">Private Bank</option>
+              </select>
             </div>
           </div>
         </div>
