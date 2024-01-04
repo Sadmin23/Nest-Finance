@@ -72,13 +72,12 @@ const BankInfoCard = ({ n }: { n: number }): JSX.Element => {
             content = 
             <div className='flex'>
                 <Image
-                src="/brand_assets/easternbl.png"
-                width={63}
-                height={69}
+                src="https://www.banksbd.org/assets/images/logos/2.jpg"
+                width={280}
+                height={100}
                 alt="ebl"
                 className='mb-3'
                 />
-                <h1 className='text-[18px] font-semibold text-[#005BAA] my-auto ml-6'>Eastern Bank Ltd.</h1>
             </div>
             textContent = "Eastern Bank Ltd. came into reality in the new democratic environment of Bangladesh with a vision to create a brand in financial arena of the country. Being established in 1992..."
             break;
