@@ -1,15 +1,13 @@
 'use client';
 
-import Options from './Icons/Options';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import BranchComponent from './BranchComponent';
 import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
-import FilterIcon from './Icons/FilterIcon';
 import SearchDropdown from './SearchDropdown';
-import { DistrictData, Option } from '@/app/branch-list/data';
+import { BankData, DistrictData, Option } from '@/app/branch-list/data';
 
 const BranchTable = (): JSX.Element => {
 
@@ -20,12 +18,8 @@ const BranchTable = (): JSX.Element => {
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
-    const [api, setApi] = useState('http://127.0.0.1:8000/bankapi/branch/');
-
-    interface ColourOption {
-      readonly value: string;
-      readonly label: string;
-    }
+    const [selectedDistrict, setSelectedDistrict] = useState("")
+    const [selectedBank, setSelectedBank] = useState("")
 
     type PageRange = {
         firstEntry: number;
@@ -46,16 +40,25 @@ const BranchTable = (): JSX.Element => {
         }
       };
       
-
-    useEffect(() => {
-        fetch(api)
+      useEffect(() => {
+        let apiUrl = 'http://127.0.0.1:8000/bankapi/branch/';
+      
+        if (selectedDistrict && selectedBank) {
+          apiUrl += `?district=${selectedDistrict}&slug=${selectedBank}`;
+        } else if (selectedDistrict) {
+          apiUrl += `?district=${selectedDistrict}`;
+        } else if (selectedBank) {
+          apiUrl += `?slug=${selectedBank}`;
+        }
+      
+        fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
-            setApiData(data)
-            setError(false)
+            setApiData(data);
+            setError(false);
           })
           .catch(() => setError(true));
-      }, [api]);
+      }, [selectedDistrict, selectedBank]);
 
     useEffect(() => {
       const filtered = apiData.filter((item) =>
@@ -128,10 +131,13 @@ const BranchTable = (): JSX.Element => {
             setCurrentPage(n)
     }
 
-    const handleFilterChange = (selectedOption: Option | null) => {
-        setApi(selectedOption ? `http://127.0.0.1:8000/bankapi/branch/?district=${selectedOption.value}` : 'http://127.0.0.1:8000/bankapi/branch/');
-    };    
-
+    const handleDistrictChange = (selectedOption: Option) => {
+      setSelectedDistrict(selectedOption.value);
+    }
+    const handleBankChange = (selectedOption: Option) => {
+      setSelectedBank(selectedOption.value);
+    };
+    
     let x, y
 
     x = lf[0]
@@ -156,8 +162,9 @@ const BranchTable = (): JSX.Element => {
                   />
                   <SearchIcon/>
               </div>
-              <SearchDropdown option={DistrictData} onChange={handleFilterChange} />
-              <div className='flex ml-auto'>
+              <SearchDropdown option={DistrictData} onChange={handleDistrictChange} />
+              <SearchDropdown option={BankData} onChange={handleBankChange} />
+                  <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
                   <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
                       {rowsnum}

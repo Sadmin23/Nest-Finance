@@ -9,7 +9,7 @@ label: string;
 
 type SearchDropdownProps = {
     option: readonly Option[];
-    onChange: (selectedOption: Option | null) => void;
+    onChange: (selectedOption: Option) => void;
   };
 
   const SearchDropdown: React.FC<SearchDropdownProps> = ({ 
@@ -19,7 +19,7 @@ type SearchDropdownProps = {
 
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
-    const handleChange = (selectedOption: Option | null) => {
+    const handleChange = (selectedOption: Option) => {
       setSelectedOption(selectedOption);
       onChange(selectedOption);
     };
