@@ -32,12 +32,16 @@ type SearchDropdownProps = {
             ...baseStyles,
             borderColor: '#B3B3B3',
             borderRadius: 12,
-            color: '#B3B3B3'
+            borderWidth: 2,
+            color: '#B3B3B3',
+            height: 56,
+            paddingRight: 16,
+            paddingLeft: 16
           }),
         }}
-        className="w-60 h-14"
+        className="w-52"
         classNamePrefix="select"
-        placeholder="Filter"
+        placeholder="District"
         isClearable={true}
         isSearchable={true}
         name="color"

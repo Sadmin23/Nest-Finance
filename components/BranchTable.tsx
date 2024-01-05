@@ -8,6 +8,8 @@ import BranchComponent from './BranchComponent';
 import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
 import FilterIcon from './Icons/FilterIcon';
+import SearchDropdown from './SearchDropdown';
+import { DistrictData } from '@/app/branch-list/data';
 
 const BranchTable = (): JSX.Element => {
 
@@ -125,6 +127,12 @@ const BranchTable = (): JSX.Element => {
             setCurrentPage(n)
     }
 
+    const handleFilterChange = (selectedOption: Option | null) => {
+      if (selectedOption) {
+        console.log('Selected Option Value:', selectedOption.value);
+      }
+    };    
+
     let x, y
 
     x = lf[0]
@@ -149,9 +157,7 @@ const BranchTable = (): JSX.Element => {
                   />
                   <SearchIcon/>
               </div>
-              <div contentEditable={true} className="flex border-2 border-[#B3B3B3] h-14 py-4 px-6 rounded-xl text-[#B3B3B3]">
-                  Filter by bank type
-              </div>
+              <SearchDropdown option={DistrictData} onChange={handleFilterChange} />
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
                   <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
