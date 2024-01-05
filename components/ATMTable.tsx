@@ -1,11 +1,13 @@
 'use client';
 
 import ATMComponent from './ATMTableRow';
-import Options from './Icons/Options';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import PageNavigation from './PageNavigation';
+import SearchIcon from './Icons/SearchIcon';
+import SearchDropdown from './SearchDropdown';
+import { DistrictData, Option } from '@/app/branch-list/data';
 
 const ATMTable = (): JSX.Element => {
 
@@ -16,6 +18,7 @@ const ATMTable = (): JSX.Element => {
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
+    const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
 
     type PageRange = {
         firstEntry: number;
@@ -37,15 +40,21 @@ const ATMTable = (): JSX.Element => {
       };
       
 
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/bankapi/atm/')
+      useEffect(() => {
+        let apiUrl = 'http://127.0.0.1:8000/bankapi/atm/';
+      
+        if (selectedDistrict) {
+          apiUrl += `?district=${selectedDistrict}`;
+        }
+      
+        fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
-            setApiData(data)
-            setError(false)
+            setApiData(data);
+            setError(false);
           })
           .catch(() => setError(true));
-      }, []);
+      }, [selectedDistrict]);
 
     useEffect(() => {
       const filtered = apiData.filter((item) =>
@@ -118,6 +127,9 @@ const ATMTable = (): JSX.Element => {
             setCurrentPage(n)
     }
 
+    const handleDistrictChange = (selectedOption: Option | null) => {
+      selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict(null)
+    }
     let x, y
 
     x = lf[0]
@@ -134,49 +146,34 @@ const ATMTable = (): JSX.Element => {
                         know your branch location according to your area.              
                     </h2>
                 </div>
-                <div className='rounded-[10px] border-2 border-[#E6E6E6] ml-auto'>
-                    <div className='mx-12'>
-                        <h1 className='text-lg font-medium leading-7 mt-7'>Search your nearest Branches, SME Centers, and offices</h1>
-                        <div className='flex-col space-y-3'>
-                            <div className='flex leading-5 space-x-4 mt-6'>
-                                <input
-                                  className="w-[270px] border-2 border-[#53389E] h-12 rounded-[10px] pl-4 py-3 font-semibold"
-                                  placeholder="Bank Name"            
-                                />                                 <input
-                                  className="w-[270px] border-2 border-[#53389E] h-12 rounded-[10px] pl-4 py-3"
-                                  placeholder="Branch Name"
-                                  onChange={handleInputChange}            
-                                />                            
-                            </div>
-                            <div className='flex leading-5 space-x-4'>
-                                <div className='flex w-[270px] h-12 rounded-[10px] px-4 py-3 border-2 border-[#53389E] text-[#C9C9C9]'>
-                                    Select Division
-                                    <Options/>
-                                </div>
-                                <div className='flex w-[270px] h-12 rounded-[10px] px-4 py-3 border-2 border-[#53389E] text-[#C9C9C9]'>
-                                    Select District
-                                    <Options/>
-                                </div>
-                            </div>
-                        </div>
-                        <button className='rounded-[10px] bg-[#53389E] text-white text-lg font-medium leading-7 h-16 w-full mt-5 mb-7'>Search</button>
-                    </div>
-                </div>
             </div>
-            <div className='flex justify-end mt-7 mb-6'>
-                <h1 className='leading-5 py-1'>Showing</h1>
-                <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
-                    {rowsnum}
-                    <div className='flex-col'>
-                        <button onClick={IncreaseRow} className="block">
-                            <Up colour='white'/>
-                        </button>
-                        <button onClick={DecreaseRow} className="block">
-                            <Down colour='white'/>
-                        </button>
-                    </div>
-                </div>
-                <h1 className='leading-5 py-1'>entries</h1>
+            <div className='flex items-center my-8'>
+              <div className="flex items-center relative">
+                  <input
+                      className="border-2 border-[#B3B3B3] h-14 rounded-xl py-4 pl-14"
+                      placeholder="Search branch"
+                      onChange={handleInputChange}            
+                  />
+                  <SearchIcon/>
+              </div>
+              <div className='flex ml-6'>
+                <SearchDropdown option={DistrictData} width={60} name='District' onChange={handleDistrictChange} />
+              </div>
+              <div className='flex ml-auto'>
+                  <h1 className='leading-5 py-1'>Showing</h1>
+                  <div className='bg-[#53389E] text-white py-1 px-4 mx-4  flex'>
+                      {rowsnum}
+                      <div className='flex-col'>
+                          <button onClick={IncreaseRow} className="block">
+                              <Up colour="white"/>
+                          </button>
+                          <button onClick={DecreaseRow} className="block">
+                              <Down colour='white'/>
+                          </button>
+                      </div>
+                  </div>
+                  <h1 className='leading-5 py-1'>entries</h1>
+              </div>
             </div>
         </section>
         <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>

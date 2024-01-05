@@ -26,39 +26,39 @@ const BranchTable = (): JSX.Element => {
         lastEntry: number;
       };
       
-      const calculatePageRange = (
-        totalEntries: number,
-        pageSize: number,
-        pageNumber: number
-      ): PageRange => {
-        if (totalEntries === 0) {
-          return { firstEntry: 0, lastEntry: 0 };
-        } else {
-          const firstEntry = (pageNumber - 1) * pageSize + 1;
-          const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
-          return { firstEntry, lastEntry };
-        }
-      };
+    const calculatePageRange = (
+      totalEntries: number,
+      pageSize: number,
+      pageNumber: number
+    ): PageRange => {
+      if (totalEntries === 0) {
+        return { firstEntry: 0, lastEntry: 0 };
+      } else {
+        const firstEntry = (pageNumber - 1) * pageSize + 1;
+        const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
+        return { firstEntry, lastEntry };
+      }
+    };
       
-      useEffect(() => {
-        let apiUrl = 'http://127.0.0.1:8000/bankapi/branch/';
-      
-        if (selectedDistrict && selectedBank) {
-          apiUrl += `?district=${selectedDistrict}&slug=${selectedBank}`;
-        } else if (selectedDistrict) {
-          apiUrl += `?district=${selectedDistrict}`;
-        } else if (selectedBank) {
-          apiUrl += `?slug=${selectedBank}`;
-        }
-      
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            setApiData(data);
-            setError(false);
-          })
-          .catch(() => setError(true));
-      }, [selectedDistrict, selectedBank]);
+    useEffect(() => {
+      let apiUrl = 'http://127.0.0.1:8000/bankapi/branch/';
+    
+      if (selectedDistrict && selectedBank) {
+        apiUrl += `?district=${selectedDistrict}&slug=${selectedBank}`;
+      } else if (selectedDistrict) {
+        apiUrl += `?district=${selectedDistrict}`;
+      } else if (selectedBank) {
+        apiUrl += `?slug=${selectedBank}`;
+      }
+    
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          setApiData(data);
+          setError(false);
+        })
+        .catch(() => setError(true));
+    }, [selectedDistrict, selectedBank]);
 
     useEffect(() => {
       const filtered = apiData.filter((item) =>
@@ -77,22 +77,22 @@ const BranchTable = (): JSX.Element => {
     const pageNav = useRef(null)
 
     useEffect(() => {
-        const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
-        setLF([firstEntry, lastEntry]);
-        pageNav.current = (
-          <PageNavigation 
-            l={firstEntry} 
-            f={lastEntry} 
-            curPage={currentPage}
-            dataSize={size}
-            entrySize={rowsnum}
-            type={1}
-            handleNextPage={handleNextPage}
-            handlePrevPage={handlePrevPage}
-            changePage={changePage}
-          />
-        );
-      }, [size, rowsnum, currentPage]);
+      const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+      setLF([firstEntry, lastEntry]);
+      pageNav.current = (
+        <PageNavigation 
+          l={firstEntry} 
+          f={lastEntry} 
+          curPage={currentPage}
+          dataSize={size}
+          entrySize={rowsnum}
+          type={1}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+          changePage={changePage}
+        />
+      );
+    }, [size, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
@@ -143,30 +143,32 @@ const BranchTable = (): JSX.Element => {
     x = lf[0]
     y = lf[1] 
 
-  return (
+    return (
       <div className="flex-col">
         <section className='mx-40'>
-            <div className='flex-col w-[465px] mt-11 mb-8'>
+            <div className='flex-col w-[465px] mt-11'>
                 <h1 className='text-[28px] mt-14 font-medium tracking-tight leading-snug '>Search and find your nearest Branches</h1>
                 <h2 className="mt-5 text-base font-normal leading-normal">
                     You can find your branch according to your choice and 
                     know your branch location according to your area.              
                 </h2>
             </div>
-            <div className='flex items-center'>
+            <div className='flex items-center my-8'>
               <div className="flex items-center relative">
                   <input
-                      className="border-2 border-[#B3B3B3] h-14 rounded-xl w-52 py-4 pl-14"
+                      className="border-2 border-[#B3B3B3] h-14 rounded-xl py-4 pl-14"
                       placeholder="Search branch"
                       onChange={handleInputChange}            
                   />
                   <SearchIcon/>
               </div>
-              <SearchDropdown option={BankData} width={72} name='Bank name' onChange={handleBankChange} />
-              <SearchDropdown option={DistrictData} width={48} name='District' onChange={handleDistrictChange} />
-              <div className='flex ml-auto w-'>
+              <div className='flex space-x-6 ml-6'>
+                <SearchDropdown option={BankData} width={60} name='Bank name' onChange={handleBankChange} />
+                <SearchDropdown option={DistrictData} width={60} name='District' onChange={handleDistrictChange} />
+              </div>
+              <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
-                  <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
+                  <div className='bg-[#53389E] text-white py-1 px-4 mx-4  flex'>
                       {rowsnum}
                       <div className='flex-col'>
                           <button onClick={IncreaseRow} className="block">
@@ -183,19 +185,19 @@ const BranchTable = (): JSX.Element => {
         </section>
         <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>
             <tr className="flex h-20 bg-[#53389E]">
-                <td className="w-36 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
+                <td className="w-40 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
                     Branch Name
                 </td>
-                <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Bank Name
                 </td>
-                <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     District
                 </td>
-                <td className="w-44 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-72 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Address
                 </td>
-                <td className="w-48 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-40 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Email
                 </td>
                 <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">

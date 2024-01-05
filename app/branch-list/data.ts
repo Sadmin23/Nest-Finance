@@ -20,7 +20,7 @@ const District = [
     "Joypurhat",
     "Naogaon",
     "Natore",
-    "Nawabganj",
+    "Chapai Nawabganj",
     "Pabna",
     "Rajshahi",
     "Sirajgonj",
@@ -142,3 +142,58 @@ export interface Option {
     value: string;
     label: string;
 }
+/*
+8: Chadpur
+
+9: Chandpur
+
+10: Chapai Nawabganj
+
+11: Chapainawabganj
+
+26: Jhalakathi
+
+27: Jhalakati
+
+28: Jhalokati
+
+33: Kishoreganj
+
+34: Kishorganj
+
+9: Chapai Nawabganj
+
+10: Chapainawabganj
+
+13: Cox's Bazaar
+
+14: Cox's Bazar
+
+22: Gopalganj
+
+23: Goplaganj
+
+27: Jhalakati
+
+28: Jhalokati
+
+33: Kishoreganj
+
+34: Kishoregonj
+
+35: Kishorganj
+
+37: Kushtia
+
+38: Kustia
+
+51: Narsindhi
+
+52: Narsingdi
+
+65: Sariatpur
+
+67: Shariatpur
+
+71: Sonagazi(Feni)
+*/
