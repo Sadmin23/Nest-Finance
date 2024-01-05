@@ -1,102 +1,66 @@
 export const BranchData = [
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    },
-    {
-      Branch_Name: "Aganagar Branch",
-      District: "Dhaka",
-      Division: "Dhaka",
-      Address: "Babul Tower”, B ridge Road, Kadamtali, Aganagar Union , South Keraniganj, Dhaka",
-      Contact: "01787668285,01787668291 08809666 716 250 Ext-121910",
-      Email: "citybank@gmail.com",
-      Swift_Code: "120270136",
-      Routing_No: "120270136"
-    }
+"Dhaka",
+"Faridpur",
+"Gazipur",
+"Gopalganj",
+"Jamalpur",
+"Kishoreganj",
+"Madaripur",
+"Manikganj",
+"Munshiganj",
+"Mymensingh",
+"Narayanganj",
+"Narsingdi",
+"Netrokona",
+"Rajbari",
+"Shariatpur",
+"Sherpur",
+"Tangail",                         
+"Bogra",                              
+"Joypurhat",                         
+"Naogaon",                      
+"Natore",                             
+"Nawabganj",
+"Pabna",
+"Rajshahi",
+"Sirajgonj",
+"Dinajpur                           
+"Gaibandha                          
+"Kurigram                           
+"Lalmonirhat                        
+"Nilphamari                         
+"Panchagarh                         
+"Rangpur                            
+"Thakurgaon                         
+"Barguna                       
+"Barisal                       
+"Bhola                              
+"Jhalokati                          
+"Patuakhali                         
+"Pirojpur                          
+"Bandarban                          
+"Brahmanbaria                       
+"Chandpur                           
+"Chittagong                         
+"Comilla                            
+"Cox''s Bazar                       
+"Feni                               
+"Khagrachari                        
+"Lakshmipur                         
+"Noakhali                           
+"Rangamati                          
+"Habiganj                           
+"Maulvibazar                        
+"Sunamganj                          
+"Sylhet                             
+"Bagerhat                           
+"Chuadanga                          
+"Jessore                            
+"Jhenaidah                          
+"Khulna                             
+"Kushtia                             
+"Magura                             
+"Meherpur                           
+"Narail                             
+"Satkhira    
 ]

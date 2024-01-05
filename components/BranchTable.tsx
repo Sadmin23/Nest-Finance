@@ -19,6 +19,11 @@ const BranchTable = (): JSX.Element => {
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
 
+    interface ColourOption {
+      readonly value: string;
+      readonly label: string;
+    }
+
     type PageRange = {
         firstEntry: number;
         lastEntry: number;

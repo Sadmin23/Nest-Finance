@@ -72,11 +72,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
     pages = [firstPageIndex, -1, ...middleRange, -1, lastPageIndex];
   }     
 
-  
-
 /*END*/
-
-  const pageNumbers: number[] = range(1,10); 
 
   return (
     <div className="flex">
