@@ -18,8 +18,8 @@ const BranchTable = (): JSX.Element => {
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedDistrict, setSelectedDistrict] = useState("")
-    const [selectedBank, setSelectedBank] = useState("")
+    const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
+    const [selectedBank, setSelectedBank] = useState<string | null>("")
 
     type PageRange = {
         firstEntry: number;
@@ -131,11 +131,11 @@ const BranchTable = (): JSX.Element => {
             setCurrentPage(n)
     }
 
-    const handleDistrictChange = (selectedOption: Option) => {
-      setSelectedDistrict(selectedOption.value);
+    const handleDistrictChange = (selectedOption: Option | null) => {
+      selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict(null)
     }
-    const handleBankChange = (selectedOption: Option) => {
-      setSelectedBank(selectedOption.value);
+    const handleBankChange = (selectedOption: Option | null) => {
+      selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank(null)
     };
     
     let x, y
@@ -156,15 +156,15 @@ const BranchTable = (): JSX.Element => {
             <div className='flex items-center'>
               <div className="flex items-center relative">
                   <input
-                      className="border-2 border-[#B3B3B3] h-14 rounded-xl w-[376px] py-4 pl-[72px]"
-                      placeholder="Search your desire bank"
+                      className="border-2 border-[#B3B3B3] h-14 rounded-xl w-52 py-4 pl-14"
+                      placeholder="Search branch"
                       onChange={handleInputChange}            
                   />
                   <SearchIcon/>
               </div>
-              <SearchDropdown option={DistrictData} onChange={handleDistrictChange} />
-              <SearchDropdown option={BankData} onChange={handleBankChange} />
-                  <div className='flex ml-auto'>
+              <SearchDropdown option={BankData} width={72} name='Bank name' onChange={handleBankChange} />
+              <SearchDropdown option={DistrictData} width={48} name='District' onChange={handleDistrictChange} />
+              <div className='flex ml-auto w-'>
                   <h1 className='leading-5 py-1'>Showing</h1>
                   <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
                       {rowsnum}
@@ -187,13 +187,13 @@ const BranchTable = (): JSX.Element => {
                     Branch Name
                 </td>
                 <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    District
+                    Bank Name
                 </td>
                 <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Address
+                    District
                 </td>
                 <td className="w-44 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Contact
+                    Address
                 </td>
                 <td className="w-48 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Email
@@ -212,11 +212,11 @@ const BranchTable = (): JSX.Element => {
                     currentItems.map((branch, index) => (
                         <BranchComponent
                         key={index} 
-                        index={index} 
-                        Branch_Name={branch.name} 
+                        index={index}
+                        Branch_Name={branch.name}
+                        Bank_Name={branch.slug}
                         District={branch.district}
-                        Division="Dhaka"
-                        Address={branch.address_line} 
+                        Address={branch.address_line}
                         Email={branch.email}
                         Contact={branch.telephone}
                         Swift_Code={branch.swift_code}

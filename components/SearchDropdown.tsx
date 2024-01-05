@@ -9,11 +9,15 @@ label: string;
 
 type SearchDropdownProps = {
     option: readonly Option[];
-    onChange: (selectedOption: Option) => void;
+    width: number;
+    name: string;
+    onChange: (selectedOption: Option | null) => void;
   };
 
   const SearchDropdown: React.FC<SearchDropdownProps> = ({ 
     option,
+    width,
+    name,
     onChange
   }) => {
 
@@ -39,9 +43,9 @@ type SearchDropdownProps = {
             paddingLeft: 16
           }),
         }}
-        className="w-64"
+        className={`w-${width}`}
         classNamePrefix="select"
-        placeholder="District"
+        placeholder={name}
         isClearable={true}
         isSearchable={true}
         name="color"

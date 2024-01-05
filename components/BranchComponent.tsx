@@ -3,8 +3,8 @@
 interface BranchDataProps {
     index: number;
     Branch_Name: string;
+    Bank_Name: string;
     District: string;
-    Division: string;
     Address: string;
     Contact: string;
     Email: string;
@@ -16,10 +16,9 @@ interface BranchDataProps {
     const {
       index,
       Branch_Name,
+      Bank_Name,
       District,
-      Division,
       Address,
-      Contact,
       Email,
       Swift_Code,
       Routing_No,
@@ -40,13 +39,13 @@ interface BranchDataProps {
                 {Branch_Name}
             </td>
             <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                {District}
+                {Bank_Name}
             </td>
             <td className="w-56 px-4 py-2 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
-                {Address}
+                {District}
             </td>
             <td className="w-44 px-3 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
-                {Contact}
+                {Address}
             </td>
             <td className="w-48 px-2 py-2 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
                 <div className="whitespace-nowrap overflow-hidden overflow-ellipsis">
