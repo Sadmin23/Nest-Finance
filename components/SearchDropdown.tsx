@@ -39,7 +39,7 @@ type SearchDropdownProps = {
             paddingLeft: 16
           }),
         }}
-        className="w-52"
+        className="w-64"
         classNamePrefix="select"
         placeholder="District"
         isClearable={true}

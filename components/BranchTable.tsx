@@ -9,7 +9,7 @@ import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
 import FilterIcon from './Icons/FilterIcon';
 import SearchDropdown from './SearchDropdown';
-import { DistrictData } from '@/app/branch-list/data';
+import { DistrictData, Option } from '@/app/branch-list/data';
 
 const BranchTable = (): JSX.Element => {
 
@@ -20,6 +20,7 @@ const BranchTable = (): JSX.Element => {
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
+    const [api, setApi] = useState('http://127.0.0.1:8000/bankapi/branch/');
 
     interface ColourOption {
       readonly value: string;
@@ -47,14 +48,14 @@ const BranchTable = (): JSX.Element => {
       
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/bankapi/branch/')
+        fetch(api)
           .then((response) => response.json())
           .then((data) => {
             setApiData(data)
             setError(false)
           })
           .catch(() => setError(true));
-      }, []);
+      }, [api]);
 
     useEffect(() => {
       const filtered = apiData.filter((item) =>
@@ -128,9 +129,7 @@ const BranchTable = (): JSX.Element => {
     }
 
     const handleFilterChange = (selectedOption: Option | null) => {
-      if (selectedOption) {
-        console.log('Selected Option Value:', selectedOption.value);
-      }
+        setApi(selectedOption ? `http://127.0.0.1:8000/bankapi/branch/?district=${selectedOption.value}` : 'http://127.0.0.1:8000/bankapi/branch/');
     };    
 
     let x, y
