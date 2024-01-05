@@ -1,21 +1,52 @@
 'use client'
-import React, { useState } from "react";
-import { Dropdown } from 'primereact/dropdown';
+import React from 'react';
 
-export default function UnstyledDemo() {
-    const [selectedCity, setSelectedCity] = useState(null);
-    const cities = [
-        { name: 'New York', code: 'NY' },
-        { name: 'Rome', code: 'RM' },
-        { name: 'London', code: 'LDN' },
-        { name: 'Istanbul', code: 'IST' },
-        { name: 'Paris', code: 'PRS' }
-    ];
+import Select from 'react-select';
 
-    return (
-        <div className="card flex justify-center">
-            <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="name" 
-                placeholder="Select a City" className="w-full md:w-14rem" />
-        </div>
-    )
+export interface ColourOption {
+  readonly value: string;
+  readonly label: string;
+  readonly color: string;
+  readonly isFixed?: boolean;
+  readonly isDisabled?: boolean;
 }
+
+const Checkbox = ({ children, ...props }: JSX.IntrinsicElements['input']) => (
+  <label style={{ marginRight: '1em' }}>
+    <input type="checkbox" {...props} />
+    {children}
+  </label>
+);
+
+const colourOptions: readonly ColourOption[] = [
+  { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+  { value: 'purple', label: 'Purple', color: '#5243AA' },
+  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+  { value: 'orange', label: 'Orange', color: '#FF8B00' },
+  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+  { value: 'green', label: 'Green', color: '#36B37E' },
+  { value: 'forest', label: 'Forest', color: '#00875A' },
+  { value: 'slate', label: 'Slate', color: '#253858' },
+  { value: 'silver', label: 'Silver', color: '#666666' },
+];
+
+const Dropdown = () => {
+
+  return (
+    <>
+      <Select
+        className="w-60 h-10"
+        classNamePrefix="select"
+        placeholder="Filter"
+        defaultValue={colourOptions[0]}
+        isClearable={true}
+        isSearchable={true}
+        name="color"
+        options={colourOptions}
+      />
+    </>
+  );
+};
+
+export default Dropdown;

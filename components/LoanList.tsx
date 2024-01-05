@@ -207,7 +207,6 @@ const LoanList = (): JSX.Element => {
             </div>
           </div>
           <div contentEditable={true} className="flex border-[0.5px] text-center text-sm leading-5 border-[#B3B3B3] rounded-md  text-[#B3B3B3] px-4 py-2 items-center">
-              <FilterIcon/>
               Sort By
           </div>
         </div>

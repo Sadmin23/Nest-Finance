@@ -18,7 +18,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
 
   return (
     <div className={`flex py-10 ${bg}`}>
-      <div className='pl-40 pr-16'>
+      <div className='pl-40 pr-56'>
         <Link href="/">
           <NFLogoSmall/>
         </Link>
@@ -30,25 +30,26 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Dropdown/>
         </section>
         <section className='flex space-x-2'>
-          <Link href="/card-details">Cards</Link>
-          <Dropdown/>
+          <Link href="/branch-list">Branch</Link>
         </section>
         <section className='flex space-x-2'>
           <Link href="/atm">ATMs</Link>
-          <Dropdown/>
         </section>
         <section className='flex space-x-2'>
           <Link href="/loans">Loans</Link>
           <Dropdown/>
         </section>
         <section className='flex space-x-2'>
-          <Link href="/">Bonds</Link>
+          <Link href="/">Account</Link>
           <Dropdown/>
         </section>
-      </div>
-      <div className='ml-auto mr-40 space-x-6'>
-      <button className='rounded-[8px] w-28 h-10 text-base font-medium text-white border-[1px] border-white'>Login</button>
-        <button className='rounded-[8px] w-28 h-10 text-base font-medium text-violet-500 bg-white'>Register</button>
+        <section className='flex space-x-2'>
+          <Link href="/">Compare</Link>
+        </section>
+        <section className='flex space-x-2'>
+          <Link href="/">Card</Link>
+          <Dropdown/>
+        </section>
       </div>
     </div>
   );

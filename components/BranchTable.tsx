@@ -6,6 +6,8 @@ import Down from './Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import BranchComponent from './BranchComponent';
 import PageNavigation from './PageNavigation';
+import SearchIcon from './Icons/SearchIcon';
+import FilterIcon from './Icons/FilterIcon';
 
 const BranchTable = (): JSX.Element => {
 
@@ -124,60 +126,42 @@ const BranchTable = (): JSX.Element => {
     y = lf[1] 
 
   return (
-        <div className="flex-col">
-                <section className='mx-40'>
-            <div className='flex mt-11 mb-8'>
-                <div className='flex-col w-[465px]'>
-                    <h1 className='text-[28px] mt-14 font-medium tracking-tight leading-snug '>Search and find your nearest Branches</h1>
-                    <h2 className="mt-5 text-base font-normal leading-normal">
-                        You can find your branch according to your choice and 
-                        know your branch location according to your area.              
-                    </h2>
-                </div>
-                <div className='rounded-[10px] border-2 border-[#E6E6E6] ml-auto'>
-                    <div className='mx-12'>
-                        <h1 className='text-lg font-medium leading-7 mt-7'>Search your nearest Branches, SME Centers, and offices</h1>
-                        <div className='flex-col space-y-3'>
-                            <div className='flex leading-5 space-x-4 mt-6'>
-                                <input
-                                  className="w-[270px] border-2 border-[#53389E] h-12 rounded-[10px] pl-4 py-3 font-semibold"
-                                  placeholder="Bank Name"            
-                                />
-                                <input
-                                  className="w-[270px] border-2 border-[#53389E] h-12 rounded-[10px] pl-4 py-3"
-                                  placeholder="Branch Name"
-                                  onChange={handleInputChange}            
-                                />                            
-                            </div>
-                            <div className='flex leading-5 space-x-4'>
-                                <div className='flex w-[270px] h-12 rounded-[10px] px-4 py-3 border-2 border-[#53389E] text-[#C9C9C9]'>
-                                    Select Division
-                                    <Options/>
-                                </div>
-                                <div className='flex w-[270px] h-12 rounded-[10px] px-4 py-3 border-2 border-[#53389E] text-[#C9C9C9]'>
-                                    Select District
-                                    <Options/>
-                                </div>
-                            </div>
-                        </div>
-                        <button className='rounded-[10px] bg-[#53389E] text-white text-lg font-medium leading-7 h-16 w-full mt-5 mb-7'>Search</button>
-                    </div>
-                </div>
+      <div className="flex-col">
+        <section className='mx-40'>
+            <div className='flex-col w-[465px] mt-11 mb-8'>
+                <h1 className='text-[28px] mt-14 font-medium tracking-tight leading-snug '>Search and find your nearest Branches</h1>
+                <h2 className="mt-5 text-base font-normal leading-normal">
+                    You can find your branch according to your choice and 
+                    know your branch location according to your area.              
+                </h2>
             </div>
-            <div className='flex justify-end mt-7 mb-6'>
-                <h1 className='leading-5 py-1'>Showing</h1>
-                <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
-                    {rowsnum}
-                    <div className='flex-col'>
-                        <button onClick={IncreaseRow} className="block">
-                            <Up colour="white"/>
-                        </button>
-                        <button onClick={DecreaseRow} className="block">
-                            <Down colour='white'/>
-                        </button>
-                    </div>
-                </div>
-                <h1 className='leading-5 py-1'>entries</h1>
+            <div className='flex items-center'>
+              <div className="flex items-center relative">
+                  <input
+                      className="border-2 border-[#B3B3B3] h-14 rounded-xl w-[376px] py-4 pl-[72px]"
+                      placeholder="Search your desire bank"
+                      onChange={handleInputChange}            
+                  />
+                  <SearchIcon/>
+              </div>
+              <div contentEditable={true} className="flex border-2 border-[#B3B3B3] h-14 py-4 px-6 rounded-xl text-[#B3B3B3]">
+                  Filter by bank type
+              </div>
+              <div className='flex ml-auto'>
+                  <h1 className='leading-5 py-1'>Showing</h1>
+                  <div className='bg-[#53389E] text-white py-1 px-4 mx-4 flex'>
+                      {rowsnum}
+                      <div className='flex-col'>
+                          <button onClick={IncreaseRow} className="block">
+                              <Up colour="white"/>
+                          </button>
+                          <button onClick={DecreaseRow} className="block">
+                              <Down colour='white'/>
+                          </button>
+                      </div>
+                  </div>
+                  <h1 className='leading-5 py-1'>entries</h1>
+              </div>
             </div>
         </section>
         <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>
@@ -187,9 +171,6 @@ const BranchTable = (): JSX.Element => {
                 </td>
                 <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     District
-                </td>
-                <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Division
                 </td>
                 <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Address

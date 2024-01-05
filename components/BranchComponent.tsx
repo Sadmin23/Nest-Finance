@@ -42,9 +42,6 @@ interface BranchDataProps {
             <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                 {District}
             </td>
-            <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                {Division}
-            </td>
             <td className="w-56 px-4 py-2 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
                 {Address}
             </td>
