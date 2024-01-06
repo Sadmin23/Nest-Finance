@@ -157,7 +157,7 @@ const ATMTable = (): JSX.Element => {
                   <SearchIcon/>
               </div>
               <div className='flex ml-6'>
-                <SearchDropdown option={DistrictData} width={60} name='District' onChange={handleDistrictChange} />
+                <SearchDropdown option={DistrictData} width={60} name='District' searchable={true} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
@@ -178,16 +178,16 @@ const ATMTable = (): JSX.Element => {
         </section>
         <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>
             <tr className="flex h-20 bg-[#53389E]">
-                <td className="w-36 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
+                <td className="w-64 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
                     ATM Name
                 </td>
-                <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-44 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     District
                 </td>
                 <td className="w-72 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Bank Name
                 </td>
-                <td className="w-80 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-96 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     Address
                 </td>
                 <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">

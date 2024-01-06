@@ -11,6 +11,7 @@ type SearchDropdownProps = {
     option: readonly Option[];
     width: number;
     name: string;
+    searchable: boolean;
     onChange: (selectedOption: Option | null) => void;
   };
 
@@ -18,6 +19,7 @@ type SearchDropdownProps = {
     option,
     width,
     name,
+    searchable,
     onChange
   }) => {
 
@@ -47,7 +49,7 @@ type SearchDropdownProps = {
         classNamePrefix="select"
         placeholder={name}
         isClearable={true}
-        isSearchable={true}
+        isSearchable={searchable}
         name="color"
         options={option}
         onChange={onChange}

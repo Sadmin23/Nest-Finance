@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Dropdown from '../components/Dropdown';
 import 'typeface-poppins';
 import NFLogoSmall from './SVG/NFLogoSmall';
+import { useState } from 'react';
 
 const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
 
@@ -15,6 +16,12 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
     bg = 'bg-[#7f56d9]'
   else
     bg = 'bg-[#53389E]'
+
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+      setDropdownOpen(!isDropdownOpen);
+    };
 
   return (
     <div className={`flex py-10 ${bg}`}>
@@ -27,7 +34,16 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
         <Link className='ml-4' href="/">Home</Link>
         <section className='flex space-x-2'>
           <Link href="/banks">Banks</Link>
-          <Dropdown/>
+          <button onClick={toggleDropdown}>
+            <Dropdown/>
+          </button>
+          {isDropdownOpen && (
+            <div className="">
+              {/* Dropdown menu content goes here */}
+              <Link href="/option1">Option 1</Link>
+              <Link href="/option2">Option 2</Link>
+            </div>
+          )} 
         </section>
         <section className='flex space-x-2'>
           <Link href="/branch-list">Branch</Link>

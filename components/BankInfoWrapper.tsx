@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef } from "react";
 import BankInfoCard from "./BankInfoCard";
 import SearchIcon from "./Icons/SearchIcon";
-import CustomDropdown from "./CustomDropdown";
+import { Option } from "@/app/branch-list/data";
+import SearchDropdown from "./SearchDropdown";
 
 
 const BankInfoWrapper = (): JSX.Element => {
@@ -11,25 +12,27 @@ const BankInfoWrapper = (): JSX.Element => {
     const [data, setData] = useState<any[]>([]);
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState('');
-    const [error, setError] = useState(true)
-    const [filter, setFilter] = useState('');
-    const [api, setApi] = useState('http://127.0.0.1:8000/bankapi/bank/');
+    const [bankType, setBankType] = useState<string | null>('')
 
     const options = [
-      { value: '', label: 'All types' },
       { value: 'Public+Bank', label: 'Public Bank' },
-      { value: 'Private+Bank', label: 'Private Bank' },
+      { value: 'Private+Bank', label: 'Private Bank' }
     ];
 
     useEffect(() => {
-      fetch(api)
+      let apiUrl = 'http://127.0.0.1:8000/bankapi/bank/';
+    
+      if (bankType) {
+        apiUrl += `?type=${bankType}`;
+      }
+    
+      fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-            setData(data)
-            setError(false)
+          setData(data);
         })
-        .catch(() => setError(true));
-    }, [api]);
+        .catch(() => '');
+    }, [bankType]);
     
     const itemsPerRow = 3;
     const numberOfRows = Math.ceil(filteredData.length / itemsPerRow);
@@ -45,11 +48,9 @@ const BankInfoWrapper = (): JSX.Element => {
       setSearchValue(event.target.value);
     };
 
-    const handleChangeFilter = (value: string)=> {
-      const newFilter = value;
-      setFilter(newFilter);
-      setApi(newFilter ? `http://127.0.0.1:8000/bankapi/bank/?type=${newFilter}` : 'http://127.0.0.1:8000/bankapi/bank/');
-    };
+    const handleTypeChange = (selectedOption: Option | null) => {
+      selectedOption ? setBankType(selectedOption.value) : setBankType(null)
+    }
     
     return (
       <main className="flex-col">
@@ -64,7 +65,7 @@ const BankInfoWrapper = (): JSX.Element => {
                 <SearchIcon/>
             </div>
             <div className="ml-auto">
-              <CustomDropdown options={options} onSelect={handleChangeFilter} />
+              <SearchDropdown option={options} width={60} name='Bank type' searchable={false} onChange={handleTypeChange} />
             </div>
           </div>
         </div>

@@ -163,8 +163,8 @@ const BranchTable = (): JSX.Element => {
                   <SearchIcon/>
               </div>
               <div className='flex space-x-6 ml-6'>
-                <SearchDropdown option={BankData} width={60} name='Bank name' onChange={handleBankChange} />
-                <SearchDropdown option={DistrictData} width={60} name='District' onChange={handleDistrictChange} />
+                <SearchDropdown option={BankData} width={60} name='Bank name' searchable={true} onChange={handleBankChange} />
+                <SearchDropdown option={DistrictData} width={60} name='District' searchable={true} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>

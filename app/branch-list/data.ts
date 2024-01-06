@@ -212,6 +212,11 @@ export const findNameById = (id:string) => {
     return foundOption ? foundOption.name : '';
 };
 
+export const findIdByName = (name : string) => {
+    const foundOption = BankInfo.find(option => option.name === name);
+    return foundOption ? foundOption.id : '';
+};
+
 console.log(findNameById("68c7a06f-b3f7-419c-9635-7af80c3efbee"));
 
 
