@@ -1,13 +1,13 @@
 'use client';
 
-import ATMComponent from './ATMTableRow';
+import ATMComponent from './ATMComponent';
 import Up from './Icons/Up';
 import Down from './Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
 import SearchDropdown from './SearchDropdown';
-import { DistrictData, Option } from '@/app/branch-list/data';
+import { DistrictData, Option, findNameById } from '@/app/branch-list/data';
 
 const ATMTable = (): JSX.Element => {
 
@@ -179,22 +179,16 @@ const ATMTable = (): JSX.Element => {
         <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>
             <tr className="flex h-20 bg-[#53389E]">
                 <td className="w-36 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
-                    Branch Name
+                    ATM Name
                 </td>
                 <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                     District
                 </td>
-                <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Division
-                </td>
                 <td className="w-72 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Address
+                    Bank Name
                 </td>
                 <td className="w-80 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                    Contact
-                </td>
-                <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
-                    Routing No.
+                    Address
                 </td>
                 <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
                     Map
@@ -208,12 +202,10 @@ const ATMTable = (): JSX.Element => {
                         <ATMComponent 
                         key={index} 
                         index={index} 
-                        Branch_Name={branch.name} 
+                        ATM_Name={branch.name} 
                         District={branch.district}
-                        Division="Dhaka"
                         Address={branch.address_line} 
-                        Contact=""
-                        Routing_No={branch.routing_number}
+                        Bank_Name={findNameById(branch.bank_id)}
                         />
                     ))
                 )}        

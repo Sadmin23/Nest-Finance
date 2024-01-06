@@ -4,23 +4,19 @@ import Image from 'next/image';
 
 interface BranchDataProps {
     index: number;
-    Branch_Name: string;
+    ATM_Name: string;
     District: string;
-    Division: string;
     Address: string;
-    Contact: string;
-    Routing_No: string;
+    Bank_Name: string;
   }
   
   const ATMComponent: React.FC<BranchDataProps> = (props) => {
     const {
       index,
-      Branch_Name,
+      ATM_Name,
       District,
-      Division,
       Address,
-      Contact,
-      Routing_No,
+      Bank_Name,
     } = props;
 
 
@@ -33,22 +29,16 @@ interface BranchDataProps {
   return (
         <tr className={`flex ${bg} leading-[18px]`}>
             <td className="w-36 px-3 py-6 text-sm border-x-2 border-[#D3D3D3] flex items-center">
-                {Branch_Name}
+                {ATM_Name}
             </td>
             <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
                 {District}
-            </td>
-            <td className="w-28 text-sm border-r-2 border-[#D3D3D3]  flex items-center justify-center">
-                {Division}
             </td>
             <td className="w-72 px-4 py-2 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
                 {Address}
             </td>
             <td className="w-80 px-3 text-sm border-r-2 border-[#D3D3D3]  flex items-center">
-                {Contact}
-            </td>
-            <td className="w-32 px-4 text-sm border-r-2 border-[#D3D3D3  flex items-center">
-                {Routing_No}
+                {Bank_Name}
             </td>
             <td className='flex items-center'>
                 <Image
