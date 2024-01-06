@@ -13,11 +13,16 @@ const BankInfoWrapper = (): JSX.Element => {
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState('');
     const [bankType, setBankType] = useState<string | null>('')
+    const [displayedRows, setDisplayedRows] = useState(3);
 
     const options = [
       { value: 'Public+Bank', label: 'Public Bank' },
       { value: 'Private+Bank', label: 'Private Bank' }
     ];
+
+    const handleLoadMore = () => {
+      setDisplayedRows(displayedRows + 3);
+  };
 
     useEffect(() => {
       let apiUrl = 'http://127.0.0.1:8000/bankapi/bank/';
@@ -70,23 +75,30 @@ const BankInfoWrapper = (): JSX.Element => {
           </div>
         </div>
         <div className="flex-col space-y-9 mb-12">
-          {Array.from({ length: numberOfRows }, (_, rowIndex) => (
-              <div key={rowIndex} className="flex mx-40 space-x-9">
-              {filteredData
-                .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
-                .map((bank, index) => (
-                    <BankInfoCard
-                    key={index}
-                    name={bank.name}
-                    url={bank.image_url}
-                    type={bank.type}
-                    category={bank.category}
-                    origin={bank.origin}
-                    />
-                    ))}
+                {Array.from({ length: displayedRows }, (_, rowIndex) => (
+                    <div key={rowIndex} className="flex mx-40 space-x-9">
+                        {filteredData
+                            .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
+                            .map((bank, index) => (
+                                <BankInfoCard
+                                    key={index}
+                                    name={bank.name}
+                                    url={bank.image_url}
+                                    type={bank.type}
+                                    category={bank.category}
+                                    origin={bank.origin}
+                                />
+                            ))}
+                    </div>
+                ))}
             </div>
-          ))}
-        </div>
+            {filteredData.length > displayedRows *3 && (
+                <div className="flex justify-center mb-12">
+                    <button className="bg-[#53389E] text-white py-4 px-7 rounded" onClick={handleLoadMore}>
+                        Show more bank details
+                    </button>
+                </div>
+            )}
       </main>  
     );
 };
