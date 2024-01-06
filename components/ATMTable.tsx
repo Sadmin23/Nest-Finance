@@ -7,7 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
 import SearchDropdown from './SearchDropdown';
-import { DistrictData, Option, findNameById } from '@/app/branch-list/data';
+import { BankData, DistrictData, Option, findNameById } from '@/app/branch-list/data';
+import { findIdByName } from '../app/branch-list/data';
 
 const ATMTable = (): JSX.Element => {
 
@@ -19,6 +20,7 @@ const ATMTable = (): JSX.Element => {
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
+    const [selectedBank, setSelectedBank] = useState<string | null>("")
 
     type PageRange = {
         firstEntry: number;
@@ -43,8 +45,12 @@ const ATMTable = (): JSX.Element => {
       useEffect(() => {
         let apiUrl = 'http://127.0.0.1:8000/bankapi/atm/';
       
-        if (selectedDistrict) {
+        if (selectedDistrict && selectedBank) {
+          apiUrl += `?district=${selectedDistrict}&bank_id=${selectedBank}`;
+        } else if (selectedDistrict) {
           apiUrl += `?district=${selectedDistrict}`;
+        } else if (selectedBank) {
+          apiUrl += `?bank_id=${selectedBank}`;
         }
       
         fetch(apiUrl)
@@ -54,7 +60,7 @@ const ATMTable = (): JSX.Element => {
             setError(false);
           })
           .catch(() => setError(true));
-      }, [selectedDistrict]);
+      }, [selectedDistrict, selectedBank]);
 
     useEffect(() => {
       const filtered = apiData.filter((item) =>
@@ -130,6 +136,10 @@ const ATMTable = (): JSX.Element => {
     const handleDistrictChange = (selectedOption: Option | null) => {
       selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict(null)
     }
+    const handleBankChange = (selectedOption: Option | null) => {
+      selectedOption ? setSelectedBank(findIdByName(selectedOption.value)) : setSelectedBank(null)
+    };
+
     let x, y
 
     x = lf[0]
@@ -156,7 +166,8 @@ const ATMTable = (): JSX.Element => {
                   />
                   <SearchIcon/>
               </div>
-              <div className='flex ml-6'>
+              <div className='flex space-x-6 ml-6'>
+                <SearchDropdown option={BankData} width={60} name='Bank name' searchable={true} onChange={handleBankChange} />
                 <SearchDropdown option={DistrictData} width={60} name='District' searchable={true} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>

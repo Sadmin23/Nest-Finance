@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import BankInfoCard from "./BankInfoCard";
 import SearchIcon from "./Icons/SearchIcon";
 import { Option } from "@/app/branch-list/data";
