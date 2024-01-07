@@ -1,6 +1,4 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image'
 import Link from 'next/link';
 import Dropdown from '../components/Dropdown';
 import 'typeface-poppins';
@@ -36,18 +34,18 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
       </div>
       <div className={`font-poppins font-normal text-base text-white my-auto space-x-12 flex`}>
         <Link className='ml-4' href="/">Home</Link>
-        <section className='relative inline-block flex space-x-2'>
+        <section className='relative flex space-x-2'>
           <Link href="/banks">Banks</Link>
           <button onClick={toggleDropdown}>
             <Dropdown/>
           </button>
           {isOpen && (
-                    <div className="origin-top-right absolute right-0 mt-8 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div className="absolute -left-2 mt-12 rounded-lg w-40 text-center bg-white">
                         <ul>
                             <li>
                                 <a
                                     href="/banks/public-bank"
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    className="block px-4 py-4 text-[#53389E] hover:bg-[#7f56d9] hover:text-white hover:rounded-t-lg"
                                     onClick={closeDropdown}
                                 >
                                     Public Bank
@@ -56,7 +54,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
                             <li>
                                 <a
                                     href="/banks/private-bank"
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    className="block px-4 py-4 text-[#53389E] hover:bg-[#7f56d9] hover:text-white hover:rounded-b-lg"
                                     onClick={closeDropdown}
                                 >
                                     Private Bank
