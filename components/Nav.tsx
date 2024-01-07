@@ -17,10 +17,14 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
   else
     bg = 'bg-[#53389E]'
 
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
-      setDropdownOpen(!isDropdownOpen);
+        setIsOpen(!isOpen);
+    };
+
+    const closeDropdown = () => {
+        setIsOpen(false);
     };
 
   return (
@@ -32,17 +36,35 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
       </div>
       <div className={`font-poppins font-normal text-base text-white my-auto space-x-12 flex`}>
         <Link className='ml-4' href="/">Home</Link>
-        <section className='flex space-x-2'>
+        <section className='relative inline-block flex space-x-2'>
           <Link href="/banks">Banks</Link>
           <button onClick={toggleDropdown}>
             <Dropdown/>
           </button>
-          {isDropdownOpen && (
-            <div className="">
-              <Link href="/option1">Option 1</Link>
-              <Link href="/option2">Option 2</Link>
-            </div>
-          )} 
+          {isOpen && (
+                    <div className="origin-top-right absolute right-0 mt-8 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                        <ul>
+                            <li>
+                                <a
+                                    href="/banks/public-bank"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    onClick={closeDropdown}
+                                >
+                                    Public Bank
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/banks/private-bank"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    onClick={closeDropdown}
+                                >
+                                    Private Bank
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                )}
         </section>
         <section className='flex space-x-2'>
           <Link href="/branch-list">Branch</Link>
@@ -59,7 +81,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Dropdown/>
         </section>
         <section className='flex space-x-2'>
-          <Link href="/banks/private-bank">Compare</Link>
+          <Link href="">Compare</Link>
         </section>
         <section className='flex space-x-2'>
           <Link href="/">Card</Link>

@@ -67,7 +67,7 @@ const BranchTable = (): JSX.Element => {
       setFilteredItems(filtered);
 
       setCurrentPage(1);
-    }, [searchValue]);
+    }, [searchValue, apiData]);
 
     const itemsToDisplay = searchValue ? filteredItems : apiData;
     const lastIndex = currentPage * rowsnum;
