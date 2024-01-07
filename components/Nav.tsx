@@ -39,7 +39,6 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           </button>
           {isDropdownOpen && (
             <div className="">
-              {/* Dropdown menu content goes here */}
               <Link href="/option1">Option 1</Link>
               <Link href="/option2">Option 2</Link>
             </div>

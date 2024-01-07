@@ -7,18 +7,20 @@ import { Option } from "@/app/branch-list/data";
 import SearchDropdown from "./SearchDropdown";
 
 
-const BankInfoWrapper = (): JSX.Element => {
+const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Element => {
 
     const [data, setData] = useState<any[]>([]);
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState('');
-    const [bankType, setBankType] = useState<string | null>('')
+    const [bankType, setBankType] = useState<string | null>(selectedType)
     const [displayedRows, setDisplayedRows] = useState(3);
 
     const options = [
-      { value: 'Public+Bank', label: 'Public Bank' },
-      { value: 'Private+Bank', label: 'Private Bank' }
+      { value: 'Public Bank', label: 'Public Bank' },
+      { value: 'Private Bank', label: 'Private Bank' }
     ];
+
+    let selectedOption = {value: selectedType, label: selectedType}
 
     const handleLoadMore = () => {
       setDisplayedRows(displayedRows + 3);
@@ -70,7 +72,7 @@ const BankInfoWrapper = (): JSX.Element => {
                 <SearchIcon/>
             </div>
             <div className="ml-auto">
-              <SearchDropdown option={options} width={64} name='Bank type' searchable={false} onChange={handleTypeChange} />
+              <SearchDropdown option={options} width={64} name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
             </div>
           </div>
         </div>

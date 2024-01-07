@@ -12,6 +12,7 @@ type SearchDropdownProps = {
     width: number;
     name: string;
     searchable: boolean;
+    defaultOption: Option;
     onChange: (selectedOption: Option | null) => void;
   };
 
@@ -20,6 +21,7 @@ type SearchDropdownProps = {
     width,
     name,
     searchable,
+    defaultOption,
     onChange
   }) => {
 
@@ -46,7 +48,7 @@ type SearchDropdownProps = {
         name="color"
         options={option}
         onChange={onChange}
-        // defaultValue={option[0]}
+        defaultValue={defaultOption.value!='' ? defaultOption : undefined}
       />
     </>
   );
