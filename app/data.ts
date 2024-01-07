@@ -217,8 +217,6 @@ export const findIdByName = (name : string) => {
     return foundOption ? foundOption.id : '';
 };
 
-console.log(findNameById("68c7a06f-b3f7-419c-9635-7af80c3efbee"));
-
 
 /*
 8: Chadpur

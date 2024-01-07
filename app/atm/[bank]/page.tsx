@@ -3,12 +3,14 @@
 import ATMTable from "@/components/ATMTable";
 import Nav from "@/components/Nav";
 
-const ATM = () => {
+const ATM = (props:any) => {
+
+  let name = props.params.bank
 
   return (
     <div className='flex-col'>
         <Nav bgOption='white'/>
-        <ATMTable searchedBank=''/>
+        <ATMTable searchedBank={name}/>
     </div>
   );
 };

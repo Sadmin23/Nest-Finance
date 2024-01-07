@@ -9,7 +9,9 @@ import SearchIcon from './Icons/SearchIcon';
 import SearchDropdown from './SearchDropdown';
 import { BankData, DistrictData, Option } from '@/app/data';
 
-const BranchTable = (): JSX.Element => {
+const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
+
+  let result = searchedBank.replace(/-/g, ' ');
 
     const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
@@ -19,7 +21,7 @@ const BranchTable = (): JSX.Element => {
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
-    const [selectedBank, setSelectedBank] = useState<string | null>("")
+    const [selectedBank, setSelectedBank] = useState<string | null>(result)
 
     type PageRange = {
         firstEntry: number;
@@ -138,7 +140,8 @@ const BranchTable = (): JSX.Element => {
       selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank(null)
     };
     
-    let selectedOption = {value: '', label: ''}
+    let defaultBank = {value: result, label: result}
+    let defaultDistrict = {value: '', label: ''}
 
     let x, y
 
@@ -165,8 +168,8 @@ const BranchTable = (): JSX.Element => {
                   <SearchIcon/>
               </div>
               <div className='flex space-x-6 ml-6'>
-                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} defaultOption={selectedOption} onChange={handleBankChange} />
-                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} defaultOption={selectedOption} onChange={handleDistrictChange} />
+                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} defaultOption={defaultBank} onChange={handleBankChange} />
+                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} defaultOption={defaultDistrict} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>

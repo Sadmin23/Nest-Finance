@@ -8,7 +8,7 @@ const Branch = () => {
   return (
     <div className='flex-col'>
         <Nav bgOption='white'/>
-        <BankTable/>
+        <BankTable searchedBank=""/>
     </div>
   );
 };

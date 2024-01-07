@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import ServiceButton from './Buttons/ServiceButton';
 import OptionButton from './Buttons/OptionButton';
+import Link from 'next/link';
 
 interface BankInfoCardProps {
   name: string
@@ -16,6 +17,7 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
 
   let textContent = "City Bank is one of the oldest private Commercial Banks operating in Bangladesh. It is a top bank among the oldest five Commercial Banks in the country.."
 
+  let slug = name.replace(/ /g, '-');
   type = type.replace(" Bank", "");
   category = category.replace(" Bank", "");
   origin = origin.replace(" Bank", "");
@@ -44,8 +46,12 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
                 </div>
                 <div className='flex space-x-4'>
                     <ServiceButton text='Bank Details'/>
-                    <ServiceButton text='Branches'/>
-                    <ServiceButton text='ATM'/>
+                    <Link href={`/branch-list/${slug}`}>
+                      <ServiceButton text='Branches'/>
+                    </Link>
+                    <Link href={`/atm/${slug}`}>
+                      <ServiceButton text='ATM'/>
+                    </Link>
                 </div>
             </section>
         </div>
