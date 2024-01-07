@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
 
 
@@ -23,13 +23,6 @@ type SearchDropdownProps = {
     onChange
   }) => {
 
-    const [selectedOption, setSelectedOption] = useState<Option | null>(null);
-
-    const handleChange = (selectedOption: Option) => {
-      setSelectedOption(selectedOption);
-      onChange(selectedOption);
-    };
-
     return (
     <>
       <Select
@@ -53,6 +46,7 @@ type SearchDropdownProps = {
         name="color"
         options={option}
         onChange={onChange}
+        // defaultValue={option[0]}
       />
     </>
   );

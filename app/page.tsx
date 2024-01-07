@@ -1,6 +1,5 @@
 'use client';
 import Nav from '@/components/Nav';
-import { useRouter } from 'next/navigation';
 import Hero from '@/components/Hero';
 import Options from '@/components/Options';
 import LearnMore from '@/components/LearnMore';
@@ -9,7 +8,6 @@ import Testemonial from '@/components/Testemonial';
 import Subscription from '@/components/Subscription';
 
 const Home = () => {
-  const router = useRouter();
 
   return (
     <div className='flex-col'>

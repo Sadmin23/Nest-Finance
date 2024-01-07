@@ -70,7 +70,7 @@ const BankInfoWrapper = (): JSX.Element => {
                 <SearchIcon/>
             </div>
             <div className="ml-auto">
-              <SearchDropdown option={options} width={60} name='Bank type' searchable={false} onChange={handleTypeChange} />
+              <SearchDropdown option={options} width={64} name='Bank type' searchable={false} onChange={handleTypeChange} />
             </div>
           </div>
         </div>

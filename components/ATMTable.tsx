@@ -160,15 +160,15 @@ const ATMTable = (): JSX.Element => {
             <div className='flex items-center my-8'>
               <div className="flex items-center relative">
                   <input
-                      className="border-2 border-[#B3B3B3] h-14 rounded-xl py-4 pl-14"
+                      className="border-2 border-[#B3B3B3] w-72 h-14 rounded-xl py-4 pl-14"
                       placeholder="Search branch"
                       onChange={handleInputChange}            
                   />
                   <SearchIcon/>
               </div>
               <div className='flex space-x-6 ml-6'>
-                <SearchDropdown option={BankData} width={60} name='Bank name' searchable={true} onChange={handleBankChange} />
-                <SearchDropdown option={DistrictData} width={60} name='District' searchable={true} onChange={handleDistrictChange} />
+                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} onChange={handleBankChange} />
+                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
