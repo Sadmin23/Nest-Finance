@@ -138,7 +138,8 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
     const handleDistrictChange = (selectedOption: Option | null) => {
       selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict(null)
     }
-    const handleBankChange = (selectedOption: Option | null) => {
+    const handleBankChange = (selectedOption: any) => {
+      console.log(selectedOption);
       selectedOption ? setSelectedBank(findIdByName(selectedOption.value)) : setSelectedBank(null)
     };
 
@@ -163,19 +164,19 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                 </div>
             </div>
             <div className='flex items-center my-8'>
-              <div className="flex items-center relative">
+              {/* <div className="flex items-center relative">
                   <input
                       className="border-2 border-[#B3B3B3] w-72 h-14 rounded-xl py-4 pl-14"
-                      placeholder="Search branch"
+                      placeholder="Search ATM"
                       onChange={handleInputChange}            
                   />
                   <SearchIcon/>
-              </div>
-              <div className='flex space-x-6 ml-6'>
-                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} defaultOption={defaultBank} onChange={handleBankChange} />
-                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} defaultOption={defaultDistrict} onChange={handleDistrictChange} />
-              </div>
-              <div className='flex ml-auto'>
+              </div> */}
+              {/* <div className='flex space-x-6 ml-6'> */}
+                <SearchDropdown option={BankData} width='72' name='Bank name' searchable={true} defaultOption={defaultBank} onChange={handleBankChange} />
+                {/* <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} defaultOption={defaultDistrict} onChange={handleDistrictChange} />
+              </div> */}
+              {/* <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
                   <div className='bg-[#53389E] text-white py-1 px-4 mx-4  flex'>
                       {rowsnum}
@@ -189,7 +190,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                       </div>
                   </div>
                   <h1 className='leading-5 py-1'>entries</h1>
-              </div>
+              </div> */}
             </div>
         </section>
         <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>

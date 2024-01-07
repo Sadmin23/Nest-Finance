@@ -9,11 +9,11 @@ label: string;
 
 type SearchDropdownProps = {
     option: readonly Option[];
-    width: number;
+    width: string;
     name: string;
     searchable: boolean;
     defaultOption: Option;
-    onChange: (selectedOption: Option | null) => void;
+    onChange: (selectedOption: any) => void;
   };
 
   const SearchDropdown: React.FC<SearchDropdownProps> = ({ 
@@ -35,7 +35,6 @@ type SearchDropdownProps = {
             borderRadius: 12,
             borderWidth: 2,
             color: '#B3B3B3',
-            height: 56,
             paddingRight: 16,
             paddingLeft: 16
           }),
@@ -47,6 +46,7 @@ type SearchDropdownProps = {
         isSearchable={searchable}
         name="color"
         options={option}
+        isMulti
         onChange={onChange}
         defaultValue={defaultOption.value!='' ? defaultOption : undefined}
       />
