@@ -7,7 +7,7 @@ import BranchComponent from './BranchComponent';
 import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
 import SearchDropdown from './SearchDropdown';
-import { BankData, DistrictData, Option } from '@/app/branch-list/data';
+import { BankData, DistrictData, Option } from '@/app/data';
 
 const BranchTable = (): JSX.Element => {
 
@@ -138,6 +138,8 @@ const BranchTable = (): JSX.Element => {
       selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank(null)
     };
     
+    let selectedOption = {value: '', label: ''}
+
     let x, y
 
     x = lf[0]
@@ -163,8 +165,8 @@ const BranchTable = (): JSX.Element => {
                   <SearchIcon/>
               </div>
               <div className='flex space-x-6 ml-6'>
-                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} onChange={handleBankChange} />
-                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} onChange={handleDistrictChange} />
+                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} defaultOption={selectedOption} onChange={handleBankChange} />
+                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} defaultOption={selectedOption} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>

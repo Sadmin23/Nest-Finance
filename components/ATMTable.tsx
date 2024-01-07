@@ -7,8 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import PageNavigation from './PageNavigation';
 import SearchIcon from './Icons/SearchIcon';
 import SearchDropdown from './SearchDropdown';
-import { BankData, DistrictData, Option, findNameById } from '@/app/branch-list/data';
-import { findIdByName } from '../app/branch-list/data';
+import { BankData, DistrictData, Option, findNameById } from '@/app/data';
+import { findIdByName } from '../app/data';
 
 const ATMTable = (): JSX.Element => {
 
@@ -27,40 +27,40 @@ const ATMTable = (): JSX.Element => {
         lastEntry: number;
       };
       
-      const calculatePageRange = (
-        totalEntries: number,
-        pageSize: number,
-        pageNumber: number
-      ): PageRange => {
-        if (totalEntries === 0) {
-          return { firstEntry: 0, lastEntry: 0 };
-        } else {
-          const firstEntry = (pageNumber - 1) * pageSize + 1;
-          const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
-          return { firstEntry, lastEntry };
-        }
-      };
+    const calculatePageRange = (
+      totalEntries: number,
+      pageSize: number,
+      pageNumber: number
+    ): PageRange => {
+      if (totalEntries === 0) {
+        return { firstEntry: 0, lastEntry: 0 };
+      } else {
+        const firstEntry = (pageNumber - 1) * pageSize + 1;
+        const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
+        return { firstEntry, lastEntry };
+      }
+    };
       
 
-      useEffect(() => {
-        let apiUrl = 'http://127.0.0.1:8000/bankapi/atm/';
-      
-        if (selectedDistrict && selectedBank) {
-          apiUrl += `?district=${selectedDistrict}&bank_id=${selectedBank}`;
-        } else if (selectedDistrict) {
-          apiUrl += `?district=${selectedDistrict}`;
-        } else if (selectedBank) {
-          apiUrl += `?bank_id=${selectedBank}`;
-        }
-      
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            setApiData(data);
-            setError(false);
-          })
-          .catch(() => setError(true));
-      }, [selectedDistrict, selectedBank]);
+    useEffect(() => {
+      let apiUrl = 'http://127.0.0.1:8000/bankapi/atm/';
+    
+      if (selectedDistrict && selectedBank) {
+        apiUrl += `?district=${selectedDistrict}&bank_id=${selectedBank}`;
+      } else if (selectedDistrict) {
+        apiUrl += `?district=${selectedDistrict}`;
+      } else if (selectedBank) {
+        apiUrl += `?bank_id=${selectedBank}`;
+      }
+    
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          setApiData(data);
+          setError(false);
+        })
+        .catch(() => setError(true));
+    }, [selectedDistrict, selectedBank]);
 
     useEffect(() => {
       const filtered = apiData.filter((item) =>
@@ -140,6 +140,8 @@ const ATMTable = (): JSX.Element => {
       selectedOption ? setSelectedBank(findIdByName(selectedOption.value)) : setSelectedBank(null)
     };
 
+    let selectedOption = {value: '', label: ''}
+
     let x, y
 
     x = lf[0]
@@ -167,8 +169,8 @@ const ATMTable = (): JSX.Element => {
                   <SearchIcon/>
               </div>
               <div className='flex space-x-6 ml-6'>
-                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} onChange={handleBankChange} />
-                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} onChange={handleDistrictChange} />
+                <SearchDropdown option={BankData} width={72} name='Bank name' searchable={true} defaultOption={selectedOption} onChange={handleBankChange} />
+                <SearchDropdown option={DistrictData} width={72} name='District' searchable={true} defaultOption={selectedOption} onChange={handleDistrictChange} />
               </div>
               <div className='flex ml-auto'>
                   <h1 className='leading-5 py-1'>Showing</h1>
