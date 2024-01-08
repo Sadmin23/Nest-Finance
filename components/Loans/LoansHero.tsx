@@ -1,7 +1,7 @@
 'use client';
 
-import DurationInput from "./DurationInput";
 import Input from "./Input";
+import Output from "./Output";
 
 const LoansHero = (): JSX.Element => {
   return (
@@ -14,21 +14,21 @@ const LoansHero = (): JSX.Element => {
               <h2>Loan amount</h2>
               <Input type={1} value="7,00,00,000"/>
             </div>
-            <div className="w-48 h-[72px] ml-16 rounded-md border border-[#8C7ABE]"></div>
+            <Output label="Monthly EMI" value={8500}/>
           </div>
           <div className="flex items-center">
             <div className="flex items-start">
               <h2>Loan amount</h2>
               <Input type={3} value="60"/>
             </div>
-            <div className="w-48 h-[72px] ml-16 rounded-md border border-[#8C7ABE]"></div>
+            <Output label="Total Interest" value={112500}/>
           </div>
           <div className="flex items-end">
             <div className="flex items-start">
               <h2>Loan amount</h2>
               <Input type={2} value="7.5%"/>
             </div>
-            <div className="w-48 h-[72px] ml-16 rounded-md border border-[#8C7ABE]"></div>
+            <Output label="Total Payable" value={812500}/>
           </div>
         </section>
       </div>
