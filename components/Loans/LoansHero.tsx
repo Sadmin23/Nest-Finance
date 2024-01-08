@@ -12,21 +12,21 @@ const LoansHero = (): JSX.Element => {
           <div className="flex items-start">
             <div className="flex items-start">
               <h2>Loan amount</h2>
-              <Input value="7,00,00,000"/>
+              <Input type={1} value="7,00,00,000"/>
             </div>
             <div className="w-48 h-[72px] ml-16 rounded-md border border-[#8C7ABE]"></div>
           </div>
           <div className="flex items-center">
             <div className="flex items-start">
               <h2>Loan amount</h2>
-            <DurationInput value="60"/>
+              <Input type={3} value="60"/>
             </div>
             <div className="w-48 h-[72px] ml-16 rounded-md border border-[#8C7ABE]"></div>
           </div>
           <div className="flex items-end">
             <div className="flex items-start">
               <h2>Loan amount</h2>
-              <Input value="7.5%"/>
+              <Input type={2} value="7.5%"/>
             </div>
             <div className="w-48 h-[72px] ml-16 rounded-md border border-[#8C7ABE]"></div>
           </div>

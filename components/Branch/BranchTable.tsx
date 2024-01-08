@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import BranchComponent from './BranchComponent';
 import PageNavigation from '../PageNavigation';
 import SearchIcon from '../Icons/SearchIcon';
-import SearchDropdown from '../Bank/SearchDropdown';
+import SearchDropdown from '../SearchDropdown';
 import { BankData, DistrictData, Option } from '@/app/data';
 
 const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {

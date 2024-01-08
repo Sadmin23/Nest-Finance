@@ -1,6 +1,6 @@
 'use client';
 
-const Taka = (): JSX.Element => {
+const TakaWhite = (): JSX.Element => {
 
   return (
     <svg className="m-auto" xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
@@ -15,4 +15,4 @@ const Taka = (): JSX.Element => {
     </svg>
   );
 };
-export default Taka;
+export default TakaWhite;

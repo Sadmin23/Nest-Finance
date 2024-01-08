@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import BankInfoCard from "./BankInfoCard";
 import SearchIcon from "../Icons/SearchIcon";
 import { Option } from "@/app/data";
-import SearchDropdown from "./SearchDropdown";
+import SearchDropdown from "../SearchDropdown";
 
 
 const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Element => {

@@ -6,7 +6,7 @@ import Down from '../Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import PageNavigation from '../PageNavigation';
 import SearchIcon from '../Icons/SearchIcon';
-import SearchDropdown from '../Bank/SearchDropdown';
+import SearchDropdown from '../SearchDropdown';
 import { BankData, DistrictData, Option, findNameById } from '@/app/data';
 import { findIdByName } from '../../app/data';
 
