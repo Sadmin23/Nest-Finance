@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import NavDropdown from './NavDropdown';
+import NavDropdown from './Icons/NavDropdown';
 import 'typeface-poppins';
 import NFLogoSmall from './SVG/NFLogoSmall';
 import { useState } from 'react';
