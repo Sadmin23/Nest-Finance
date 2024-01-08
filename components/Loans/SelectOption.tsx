@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import Dropdown from "./Icons/Dropdown";
-import Dropup from "./Icons/Dropup";
-import TinySearchIcon from "./Icons/TinySearchIcon";
+import Dropdown from "../Icons/Dropdown";
+import Dropup from "../Icons/Dropup";
+import TinySearchIcon from "../Icons/TinySearchIcon";
 
 interface SelectOptionProps {
   types: string[];

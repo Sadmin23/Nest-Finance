@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import ServiceButton from './Buttons/ServiceButton';
-import OptionButton from './Buttons/OptionButton';
+import ServiceButton from '../Buttons/ServiceButton';
+import OptionButton from '../Buttons/OptionButton';
 import Link from 'next/link';
 
 interface BankInfoCardProps {

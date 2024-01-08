@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import Dropdown from '../components/Dropdown';
+import NavDropdown from './NavDropdown';
 import 'typeface-poppins';
 import NFLogoSmall from './SVG/NFLogoSmall';
 import { useState } from 'react';
@@ -37,7 +37,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
         <section className='relative flex space-x-2'>
           <Link href="/banks">Banks</Link>
           <button onClick={toggleDropdown}>
-            <Dropdown/>
+            <NavDropdown/>
           </button>
           {isOpen && (
                     <div className="absolute -left-4 mt-8 rounded-xl w-60 shadow-2xl bg-white">
@@ -72,18 +72,18 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
         </section>
         <section className='flex space-x-2'>
           <Link href="/loans">Loans</Link>
-          <Dropdown/>
+          <NavDropdown/>
         </section>
         <section className='flex space-x-2'>
           <Link href="/">Account</Link>
-          <Dropdown/>
+          <NavDropdown/>
         </section>
         <section className='flex space-x-2'>
           <Link href="/">Compare</Link>
         </section>
         <section className='flex space-x-2'>
           <Link href="/">Card</Link>
-          <Dropdown/>
+          <NavDropdown/>
         </section>
       </div>
     </div>

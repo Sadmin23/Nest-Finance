@@ -1,14 +1,14 @@
 'use client';
 
 import ATMComponent from './ATMComponent';
-import Up from './Icons/Up';
-import Down from './Icons/Down';
+import Up from '../Icons/Up';
+import Down from '../Icons/Down';
 import { useEffect, useRef, useState } from 'react';
-import PageNavigation from './PageNavigation';
-import SearchIcon from './Icons/SearchIcon';
-import SearchDropdown from './SearchDropdown';
+import PageNavigation from '../PageNavigation';
+import SearchIcon from '../Icons/SearchIcon';
+import SearchDropdown from '../Bank/SearchDropdown';
 import { BankData, DistrictData, Option, findNameById } from '@/app/data';
-import { findIdByName } from '../app/data';
+import { findIdByName } from '../../app/data';
 
 const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
@@ -48,7 +48,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
       let apiUrl = 'http://127.0.0.1:8000/bankapi/atm/';
     
       if (selectedDistrict && selectedBank) {
-        apiUrl += `?district=${selectedDistrict}&bank_id=${selectedBank}`;
+        apiUrl += `?district=${selectedDistrict}&bank_id=${findIdByName(selectedBank)}`;
       } else if (selectedDistrict) {
         apiUrl += `?district=${selectedDistrict}`;
       } else if (selectedBank) {
@@ -140,7 +140,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
     }
     const handleBankChange = (selectedOption: any) => {
       console.log(selectedOption);
-      selectedOption ? setSelectedBank(findIdByName(selectedOption.value)) : setSelectedBank(null)
+      selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank(null)
     };
 
     let defaultBank = {value: result, label: result}

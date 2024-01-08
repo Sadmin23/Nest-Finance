@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import PlaySvg from './Icons/PlayIcon';
+import PlaySvg from '../Icons/PlayIcon';
 
 const LearnMore = (): JSX.Element => {
   return (

@@ -1,6 +1,6 @@
 'use client';
-import LoanList from '@/components/LoanList';
-import LoansHero from '@/components/LoansHero';
+import LoanList from '@/components/Loans/LoanList';
+import LoansHero from '@/components/Loans/LoansHero';
 import Nav from '@/components/Nav';
 
 const Loans = () => {

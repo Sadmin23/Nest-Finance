@@ -1,11 +1,11 @@
 'use client';
 import Nav from '@/components/Nav';
-import Hero from '@/components/Hero';
-import Options from '@/components/Options';
-import LearnMore from '@/components/LearnMore';
-import PopularBanks from '@/components/PopularBanks';
-import Testemonial from '@/components/Testemonial';
-import Subscription from '@/components/Subscription';
+import Hero from '@/components/Home/Hero';
+import Options from '@/components/Home/Options';
+import LearnMore from '@/components/Home/LearnMore';
+import PopularBanks from '@/components/Home/PopularBanks';
+import Testemonial from '@/components/Home/Testemonial';
+import Subscription from '@/components/Home/Subscription';
 
 const Home = () => {
 

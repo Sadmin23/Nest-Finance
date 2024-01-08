@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from 'antd';
-import Stars from './Icons/Stars';
+import Stars from '../Icons/Stars';
 
 const TestemonialCard = (): JSX.Element => {
   return (

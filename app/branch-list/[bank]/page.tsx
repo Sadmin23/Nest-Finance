@@ -1,6 +1,6 @@
 'use client';
 
-import BranchTable from "@/components/BranchTable";
+import BranchTable from "@/components/Branch/BranchTable";
 import Nav from "@/components/Nav";
 
 const Branch = (props:any) => {

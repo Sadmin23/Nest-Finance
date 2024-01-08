@@ -2,14 +2,14 @@
 
 import Image from 'next/image';
 
-import ABBank from "./BankLogo/ABBank";
-import BankAsia from "./BankLogo/BankAsia";
-import BracBank from "./BankLogo/BracBank";
-import CityBank from "./BankLogo/CityBank";
-import DBBL from "./BankLogo/DBBL";
-import EasternBank from "./BankLogo/EasternBank";
-import IslamiBank from "./BankLogo/IslamiBank";
-import AgraniBank from "./BankLogo/AgraniBank";
+import ABBank from "../Logo/ABBank";
+import BankAsia from "../Logo/BankAsia";
+import BracBank from "../Logo/BracBank";
+import CityBank from "../Logo/CityBank";
+import DBBL from "../Logo/DBBL";
+import EasternBank from "../Logo/EasternBank";
+import IslamiBank from "../Logo/IslamiBank";
+import AgraniBank from "../Logo/AgraniBank";
 import { Button } from 'antd';
 
 const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {

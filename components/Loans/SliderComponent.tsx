@@ -4,8 +4,8 @@
 import React, { useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import Dropdown from './Icons/Dropdown';
-import Dropup from './Icons/Dropup';
+import Dropdown from '../Icons/Dropdown';
+import Dropup from '../Icons/Dropup';
 
 interface SliderComponentProps {
   title: string;

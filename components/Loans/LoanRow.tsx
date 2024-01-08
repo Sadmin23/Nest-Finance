@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import LinkButton from './Buttons/LinkButton';
-import CompareButton from './Buttons/Comparebutton';
+import LinkButton from '../Buttons/LinkButton';
+import CompareButton from '../Buttons/Comparebutton';
 import { useState } from 'react';
-import DetailDown from './Icons/DetailDown';
-import DetailUp from './Icons/DetailUp';
+import DetailDown from '../Icons/DetailDown';
+import DetailUp from '../Icons/DetailUp';
 
 const LoanRow = (): JSX.Element => {
 

@@ -1,6 +1,6 @@
 'use client';
 
-import ATMTable from "@/components/ATMTable";
+import ATMTable from "@/components/ATM/ATMTable";
 import Nav from "@/components/Nav";
 
 const ATM = () => {

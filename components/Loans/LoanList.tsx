@@ -4,11 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import LoanRow from "./LoanRow";
 import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
-import SmallSearchIcon from "./Icons/SmallSearchIcon";
-import Up from "./Icons/Up";
-import Down from "./Icons/Down";
-import FilterIcon from "./Icons/FilterIcon";
-import PageNavigation from "./PageNavigation";
+import SmallSearchIcon from "../Icons/SmallSearchIcon";
+import Up from "../Icons/Up";
+import Down from "../Icons/Down";
+import PageNavigation from "../PageNavigation";
 
 const LoanList = (): JSX.Element => {
 

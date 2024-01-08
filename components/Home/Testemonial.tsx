@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import { Button } from 'antd';
-import PlaySvg from './Icons/PlayIcon';
+import PlaySvg from '../Icons/PlayIcon';
 import TestemonialCard from './TestemonialCard';
-import LeftArrow from './Icons/LeftArrow';
-import RightArrow from './Icons/RightArrow';
+import LeftArrow from '../Icons/LeftArrow';
+import RightArrow from '../Icons/RightArrow';
 
 const Testemonial = (): JSX.Element => {
   return (
