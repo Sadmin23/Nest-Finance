@@ -40,12 +40,12 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
             <Dropdown/>
           </button>
           {isOpen && (
-                    <div className="absolute -left-2 mt-[72px] rounded-lg w-48  bg-white">
+                    <div className="absolute -left-4 mt-8 rounded-xl w-60 shadow-2xl bg-white">
                         <ul>
                             <li>
                                 <a
                                     href="/banks/public-bank"
-                                    className="block px-8 py-4 font-medium text-[#53389E] hover:bg-[#7f56d9] hover:text-white hover:rounded-t-lg"
+                                    className="block pl-6 pr-8 pt-5 pb-3  text-[#53389E] hover:bg-[#F0EBFF] hover:rounded-t-xl"
                                     onClick={closeDropdown}
                                 >
                                     Public Bank
@@ -54,7 +54,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
                             <li>
                                 <a
                                     href="/banks/private-bank"
-                                    className="block px-8 py-4 font-medium text-[#53389E] hover:bg-[#7f56d9] hover:text-white hover:rounded-b-lg"
+                                    className="block pl-6 pr-8 pb-5 pt-3  text-[#53389E] hover:bg-[#F0EBFF] hover:rounded-b-xl"
                                     onClick={closeDropdown}
                                 >
                                     Private Bank

@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
+import Select, { components } from 'react-select'
 
 
 interface Option {
@@ -15,6 +15,8 @@ type SearchDropdownProps = {
     defaultOption: Option;
     onChange: (selectedOption: any) => void;
   };
+
+
 
   const SearchDropdown: React.FC<SearchDropdownProps> = ({ 
     option,
@@ -36,7 +38,9 @@ type SearchDropdownProps = {
             borderWidth: 2,
             color: '#B3B3B3',
             paddingRight: 16,
-            paddingLeft: 16
+            maxHeight: 80,
+            paddingLeft: 16,
+            height: 56
           }),
         }}
         className={`w-${width}`}
@@ -46,7 +50,6 @@ type SearchDropdownProps = {
         isSearchable={searchable}
         name="color"
         options={option}
-        isMulti
         onChange={onChange}
         defaultValue={defaultOption.value!='' ? defaultOption : undefined}
       />
