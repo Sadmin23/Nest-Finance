@@ -34,7 +34,7 @@ const Input = ({ type, value }: { type: number, value: string }): JSX.Element =>
   }
 
   return (
-    <div className="ml-40 h-11 flex">
+    <div className="ml-6 h-11 flex">
     <div className={`${length} text-[#53389E] font-medium flex bg-white border-[#D3D3D3] border-y border-l rounded-l-md py-2 pl-2`}>
         {value}
     </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import Input from "./Input";
+import InputSlider from "./InputSlider";
 import Output from "./Output";
 
 const LoansHero = (): JSX.Element => {
@@ -11,21 +12,30 @@ const LoansHero = (): JSX.Element => {
         <section className="p-8 space-y-4">
           <div className="flex items-start">
             <div className="flex items-start">
-              <h2>Loan amount</h2>
+              <div className="">
+                <h2>Loan amount</h2>
+                <InputSlider/>
+              </div>
               <Input type={1} value="7,00,00,000"/>
             </div>
             <Output label="Monthly EMI" value={8500}/>
           </div>
           <div className="flex items-center">
             <div className="flex items-start">
-              <h2>Loan amount</h2>
+              <div>
+                <h2>Loan Duration</h2>
+                <InputSlider/>                
+              </div>
               <Input type={3} value="60"/>
             </div>
             <Output label="Total Interest" value={112500}/>
           </div>
           <div className="flex items-end">
             <div className="flex items-start">
-              <h2>Loan amount</h2>
+              <div>
+                <h2>Loan amount</h2>
+                <InputSlider/>
+              </div>
               <Input type={2} value="7.5%"/>
             </div>
             <Output label="Total Payable" value={812500}/>
