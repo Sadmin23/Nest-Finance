@@ -1,5 +1,5 @@
 'use client';
-import InputSlider from '@/components/Loans/InputSlider';
+
 import LoanList from '@/components/Loans/LoanList';
 import LoansHero from '@/components/Loans/LoansHero';
 import Nav from '@/components/Nav';

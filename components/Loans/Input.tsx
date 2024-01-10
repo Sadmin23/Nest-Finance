@@ -2,7 +2,7 @@
 
 import TakaWhite from "../Icons/TakaWhite";
 
-const Input = ({ type, value }: { type: number, value: string }): JSX.Element => {
+const Input = ({ type, value }: { type: number, value: number }): JSX.Element => {
 
   let children, length
 
