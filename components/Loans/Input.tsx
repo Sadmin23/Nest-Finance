@@ -1,8 +1,15 @@
 'use client';
 
+import { MouseEventHandler } from "react";
 import TakaWhite from "../Icons/TakaWhite";
 
-const Input = ({ type, value }: { type: number, value: number | number[] }): JSX.Element => {
+interface InputProps {
+  type: number;
+  value: number | number[];
+  onChange: (value: number) => MouseEventHandler<HTMLDivElement>;
+}
+
+const Input: React.FC<InputProps> = ({ type, value, onChange}) => {
 
   let children, length
 
@@ -20,14 +27,28 @@ const Input = ({ type, value }: { type: number, value: number | number[] }): JSX
         %
     </div>
   }
-  else if (type==3){
+  else if (type===3 || type === 4){
+
+    const handleClickMonth = () => {
+      if (type===4)
+        onChange(3);
+    }
+    const handleClickYear = () => {
+      if (type===3)
+        onChange(4)
+    };
+
     length = 'w-[84px]'
+
+    let selected = 'text-white bg-[#53389E]'
+    let unselected = 'text-[#B8B8B8] bg-[#EAEAEA]'
+
     children =
     <div className="flex h-11">
-        <div className="w-7 text-white text-xs font-medium px-[3px] bg-[#53389E] py-3 border-[#D3D3D3] border-y">
+        <div onClick={handleClickMonth} className={`w-7 text-xs font-medium px-[3px] py-3 border-[#D3D3D3] border-y  ${type===3 ? selected : unselected}`}>
           MO
         </div>
-        <div className="w-7 text-[#B8B8B8] text-xs font-medium px-[6px] bg-[#EAEAEA] py-3 rounded-r-md border-[#D3D3D3] border-r border-y">
+        <div onClick={handleClickYear} className={`w-7 text-xs font-medium px-[6px] py-3 rounded-r-md border-[#D3D3D3] border-r border-y ${type===4 ? selected : unselected}`}>
           YR
         </div>
       </div>
