@@ -2,15 +2,14 @@ import Slider from 'rc-slider';
 import React, { useState } from 'react';
 import 'rc-slider/assets/index.css';
 
-const InputSlider: React.FC = () => {
-  const [value, setValue] = useState<number | number[]>(0);
+type InputSliderProps = {
+  onChange: (value: number | number[]) => void;
+};
 
-  const handleChange = (newValue: number | number[]) => {
-    setValue(newValue);
-  };
+const InputSlider: React.FC<InputSliderProps> = ({ onChange }) => {
 
   return (
-    <Slider value={value} onChange={handleChange}               
+    <Slider onChange={onChange}
     trackStyle={{ 
       backgroundColor: "#53389E", 
       height: 4,

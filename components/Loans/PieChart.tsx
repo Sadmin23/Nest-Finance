@@ -11,7 +11,7 @@ export default function PieChart() {
   const options = {
     chart: {
       type : 'pie',
-      height : 320,
+      height : 300,
       options3d: {
         enabled: true,
         alpha: 50,
@@ -24,13 +24,11 @@ export default function PieChart() {
       pie: {
         depth: 55,
         startAngle: 50,
-        slicedOffset: 25,
-        center: [150,80],
+        center: [200,80],
         showInLegend: true,
         dataLabels: {
           connectorColor: '#53389E',
           enabled: true,
-          format: '<b>{point.name}</b>: {point.y}',
           pointFormat: '{point.y}',
           color: 'black',
           style: {
