@@ -25,16 +25,20 @@ export default function PieChart() {
         depth: 55,
         startAngle: 50,
         slicedOffset: 25,
-        center: [150,100],
+        center: [150,80],
+        showInLegend: true,
         dataLabels: {
           connectorColor: '#53389E',
-          enabled: false,
+          enabled: true,
           format: '<b>{point.name}</b>: {point.y}',
-          pointFormat: '<b>{point.name}</b>:<br/>{point.y}',
+          pointFormat: '{point.y}',
           color: 'black',
           style: {
             fontSize: '12px', // Set the font size for data labels
-          }
+          },
+          
+          distance: -30,
+          y : -5
         }
       }
     },
