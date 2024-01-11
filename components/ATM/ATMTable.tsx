@@ -166,7 +166,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
             <div className='flex items-center my-8'>
               <div className="flex items-center relative">
                   <input
-                      className="border-2 border-[#B3B3B3] w-72 h-14 rounded-xl py-4 pl-14"
+                      className="border border-[#53389E] w-72 h-14 rounded-xl py-4 pl-14"
                       placeholder="Search ATM"
                       onChange={handleInputChange}            
                   />

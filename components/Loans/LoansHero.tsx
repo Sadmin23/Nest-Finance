@@ -1,9 +1,7 @@
 'use client';
 
 import CalculatorInput from "./CalculatorInput";
-import Input from "./Input";
-import InputSlider from "./InputSlider";
-import Output from "./Output";
+import PieChart from "./PieChart";
 
 const LoansHero = (): JSX.Element => {
   return (
@@ -15,6 +13,7 @@ const LoansHero = (): JSX.Element => {
           <CalculatorInput type={3}/>
           <CalculatorInput type={2}/>
         </section>
+        <PieChart/>
       </div>
     </div>
   );
