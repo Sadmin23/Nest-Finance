@@ -3,13 +3,35 @@ import React, { useState } from 'react';
 import 'rc-slider/assets/index.css';
 
 type InputSliderProps = {
-  onChange: (value: number | number[]) => void;
+  type: number
+  value: number
+  onChange: (type:number, value: number) => void;
 };
 
-const InputSlider: React.FC<InputSliderProps> = ({ onChange }) => {
+const InputSlider: React.FC<InputSliderProps> = ({ type, value, onChange }) => {
+
+  let max, step
+
+  if (type === 1){
+    max = 1000000
+    step = 50000
+
+  } else if (type === 2){
+    max = 50
+    step = 2.5
+
+  } else if (type === 3){
+    max = 60
+    step = 6
+
+  } else if (type === 4){
+    max = 5
+    step = 1
+
+  }
 
   return (
-    <Slider onChange={onChange}
+    <Slider onChange={onChange} max={max} step={step} min={0} value={value}
     trackStyle={{ 
       backgroundColor: "#53389E", 
       height: 4,

@@ -5,24 +5,18 @@ import Output from './Output';
 
 interface CalculatorInputProps {
   type: number;
+  value: number;
   onChange: (value: number) => MouseEventHandler<HTMLDivElement>;
+  handleChange: (value: number) => void;
 }
 
-const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, onChange}) => {
-
-  if (type===3||type===4)
-    console.log(type);
-  
-
-  const [loanAmount, setLoanAmount] = useState<number | number[]>(70000000);
-  const [loanDuration, setLoanDuration] = useState<number | number[]>(60);
-  const [rateOfInterest, setRateOfInterest] = useState<number | number[]>(7.5);
+const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, onChange, handleChange}) => {
 
   useEffect(() => {
     if (type === 3) {
-      setLoanDuration(60);
+      handleChange(18)
     } else if (type === 4) {
-      setLoanDuration(5);
+      handleChange(3);
     }
   }, [type]);
 
@@ -47,28 +41,19 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, onChange}) => {
       output_value = 812500
   }
 
-  const handleLoanAmountChange = (value: number | number[]) => {
-    setLoanAmount(value);
-  };
-
-  const handleLoanDurationChange = (value: number | number[]) => {
-    setLoanDuration(value);
-  };
-
-  const handleRateOfInterestChange = (value: number | number[]) => {
-    setRateOfInterest(value);
-  };
-
   return (
     <div className={`flex ${alignment}`}>
       <div className="flex">
         <div className='w-64 pl-2 pt-2'>
           <h2>{heading}</h2>
-          {type === 1 && <InputSlider onChange={handleLoanAmountChange} />}
-          {(type === 3 || type === 4) && <InputSlider onChange={handleLoanDurationChange} />}
-          {type === 2 && <InputSlider onChange={handleRateOfInterestChange} />}
+          {type === 1 && <InputSlider type={type} value={value} onChange={handleChange} />}
+          {(type === 3 || type === 4) && <InputSlider type={type} value={value} onChange={handleChange} />}
+          {type === 2 && <InputSlider type={type} value={value} onChange={handleChange} />}
           </div>
-          <Input type={type} onChange={onChange} value={type === 1 ? loanAmount : (type === 3 || type === 4) ? loanDuration : rateOfInterest} />
+          <Input 
+            type={type} 
+            onChange={onChange} 
+            value={value} />
         </div>
       <Output label={label} value={output_value}/>
   </div>
