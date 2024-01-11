@@ -6,11 +6,12 @@ import Output from './Output';
 interface CalculatorInputProps {
   type: number;
   value: number;
+  output: number;
   onChange: (value: number) => MouseEventHandler<HTMLDivElement>;
   handleChange: (value: number) => void;
 }
 
-const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, onChange, handleChange}) => {
+const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, output, onChange, handleChange}) => {
 
   useEffect(() => {
     if (type === 3) {
@@ -20,25 +21,20 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, onChange
     }
   }, [type]);
 
-  let label="", heading, output_value=0, alignment
+  let label="", heading, alignment
 
   if (type === 1){
       heading = "Loan Amount"
       label = "Monthly EMI"
       alignment='items-start'
-      output_value = 85000
-
   } else if (type === 3 || type === 4){
       heading = "Loan Duration"
       label = "Total Interest"
       alignment='items-center'
-      output_value = 112500
-
   } else if (type === 2){
       heading = "Rate of Interest (ROI)"
       label = "Total Payable"
       alignment='items-end'
-      output_value = 812500
   }
 
   return (
@@ -55,7 +51,7 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, onChange
             onChange={onChange} 
             value={value} />
         </div>
-      <Output label={label} value={output_value}/>
+      <Output label={label} value={output}/>
   </div>
   );
 };

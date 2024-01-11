@@ -3,7 +3,12 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts3D from 'highcharts/highcharts-3d'
 
-export default function PieChart() {
+type PieChartProps = {
+  principal: number
+  interest: number
+};
+
+const PieChart: React.FC<PieChartProps> = ({ principal, interest }) => {
 
   if (typeof Highcharts === 'object'){
     Highcharts3D(Highcharts)
@@ -45,13 +50,13 @@ export default function PieChart() {
       data: [
         {
           name: 'Total Interest', 
-          y: 112000,
+          y: interest,
           sliced: true,
           selected: true
         },
         {
           name: 'Principle Amount', 
-          y: 700000,
+          y: principal,
         }
       ]
     }
@@ -68,3 +73,5 @@ export default function PieChart() {
     </div>
   );
 }
+
+export default PieChart;
