@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import CalculatorInput from "./CalculatorInput";
 import PieChart from "./PieChart";
+import PieChart3D from "./PieChart3D";
 
 const LoansHero = (): JSX.Element => {
   const [loanAmount, setLoanAmount] = useState<number | number[]>(200000);
@@ -62,12 +63,12 @@ const LoansHero = (): JSX.Element => {
     <div className='bg-white mx-40 mt-12 mb-[70px] rounded-md'>
       <h1 className='text-xl font-semibold text-[#53389E] ml-12 py-6'>Calculate your monthly installment (EMI)</h1>
       <div className='border-t-2 flex'>
-        <section className="pl-12 py-8 space-y-4">
+        {/* <section className="pl-12 py-8 border space-y-4">
           <CalculatorInput type={1} value={loanAmount} output={monthlyEMI} onChange={changeDurationType} handleChange={handleLoanAmountChange}/>
           <CalculatorInput type={durationType} value={loanDuration} output={totalInterest} onChange={changeDurationType} handleChange={handleLoanDurationChange}/>
           <CalculatorInput type={2} value={rateOfInterest} output={totalPayable} onChange={changeDurationType} handleChange={handleRateOfInterestChange}/>
-        </section>
-        <PieChart principal={loanAmount} interest={totalInterest}/>
+        </section> */}
+        <PieChart3D/>
       </div>
     </div>
   );
