@@ -13,19 +13,18 @@ const PieChart3D = () => {
 
     // Create chart instance
     const chart = am4core.create('chartdiv', am4charts.PieChart3D);
-    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-    chart.radius = am4core.percent(100)
+    chart.radius = am4core.percent(80)
 
-    chart.width = am4core.percent(100)
-
-    let x = 20
+    chart.hiddenState.properties.opacity = 0;
 
     // Set chart data
     chart.data = [
-      { type: 'Total Interest', value: x, color: '#F0EBFF' },
-      { type: 'Principal Amount', value: 100-x, color: '#53389E' },
+      { type: 'Total Interest', value: 112000, color: '#F0EBFF' },
+      { type: 'Principal Amount', value: 700000, color: '#53389E' },
     ];
+
+    chart.angle = 40
 
     // Create series
     const series = chart.series.push(new am4charts.PieSeries3D());
@@ -33,7 +32,11 @@ const PieChart3D = () => {
     series.dataFields.category = 'type';
     series.slices.template.propertyFields.fill = 'color'; // Set slice color
 
-    series.labels.template.text = "{category}\n{value}";
+    series.labels.template.text = "{category}\n[bold]{value}[/]";
+
+
+    // Adjust label style
+    series.labels.template.fontSize = 10; // Set font size
 
     // Cleanup function
     return () => {
@@ -42,7 +45,7 @@ const PieChart3D = () => {
   }, []);
 
   return (
-    <div id="chartdiv" className='w-full h-full mt-14 ml-14'/>
+    <div id="chartdiv" className='w-full'/>
     );
 };
 
