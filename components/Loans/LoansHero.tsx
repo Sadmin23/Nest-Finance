@@ -68,7 +68,7 @@ const LoansHero = (): JSX.Element => {
           <CalculatorInput type={durationType} value={loanDuration} output={totalInterest} onChange={changeDurationType} handleChange={handleLoanDurationChange}/>
           <CalculatorInput type={2} value={rateOfInterest} output={totalPayable} onChange={changeDurationType} handleChange={handleRateOfInterestChange}/>
         </section>
-        <PieChart3D/>
+        <PieChart3D principal={loanAmount} interest={totalInterest}/>
       </div>
     </div>
   );
