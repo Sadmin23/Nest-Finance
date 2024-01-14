@@ -65,14 +65,14 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
           <div className='border-t-2 flex pt-9'>
             <div className="flex items-center relative">
                 <input
-                    className="border-2 border-[#B3B3B3] h-14 rounded-xl w-[376px] py-4 pl-[72px]"
+                    className="border-2 border-[#B3B3B3] h-10 rounded-xl w-[376px] py-4 pl-[72px]"
                     placeholder="Search your desire bank"
                     onChange={handleInputChange}            
                 />
                 <SearchIcon/>
             </div>
             <div className="ml-auto">
-              <SearchDropdown option={options} width={64} name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
+              <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
             </div>
           </div>
         </div>

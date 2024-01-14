@@ -149,9 +149,6 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     x = lf[0]
     y = lf[1] 
 
-    // console.log(lastIndex);
-    
-
     return (
       <div className="flex-col">
         <section className='mx-40'>
