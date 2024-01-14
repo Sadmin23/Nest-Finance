@@ -193,21 +193,21 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
               </div>
             </div>
         </section>
-        <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>
-            <tr className="flex h-20 bg-[#53389E]">
-                <td className="w-64 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
+        <table className='flex-col mx-40 rounded-xl'>
+            <tr className="flex h-20 bg-[#53389E] rounded-t-xl">
+                <td className="w-64 text-white text-center border-x rounded-tl-xl border-[#D3D3D3] flex items-center justify-center">
                     ATM Name
                 </td>
-                <td className="w-44 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-44 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     District
                 </td>
-                <td className="w-72 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-72 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Bank Name
                 </td>
-                <td className="w-96 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-96 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Address
                 </td>
-                <td className="w-28 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
+                <td className="w-28 text-white text-center border-r border-t rounded-tr-xl border-[#D3D3D3] flex items-center justify-center">
                     Map
                 </td>
             </tr>
@@ -223,6 +223,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                         District={branch.district}
                         Address={branch.address_line} 
                         Bank_Name={findNameById(branch.bank_id)}
+                        Last_Entry={lastIndex}
                         />
                     ))
                 )}        
