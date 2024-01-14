@@ -188,32 +188,32 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
               </div>
             </div>
         </section>
-        <table className='flex-col mx-40 border-b-2 border-[#D3D3D3'>
-            <tr className="flex h-20 bg-[#53389E]">
-                <td className="w-40 text-white text-center border-x-2 border-[#D3D3D3] flex items-center justify-center">
+        <table className='flex-col mx-40 rounded-xl'>
+            <tr className="flex h-20 bg-[#53389E] rounded-t-xl">
+                <td className="w-40 text-white text-center border-x border-t rounded-tl-xl border-[#D3D3D3] flex items-center justify-center">
                     Branch Name
                 </td>
-                <td className="w-56 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-56 text-white text-center border-r border-t  border-[#D3D3D3]  flex items-center justify-center">
                     Bank Name
                 </td>
-                <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-32 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     District
                 </td>
-                <td className="w-72 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-72 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Address
                 </td>
-                <td className="w-40 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-40 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Email
                 </td>
-                <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3]  flex items-center justify-center">
+                <td className="w-32 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Swift Code
                 </td>
-                <td className="w-32 text-white text-center border-r-2 border-[#D3D3D3] flex items-center justify-center">
+                <td className="w-32 text-white text-center border-r border-t rounded-tr-xl border-[#D3D3D3] flex items-center justify-center">
                     Routing No.
                 </td>
             </tr>
             {error ? 
-                <div className="flex items-center justify-center h-[100px] border-x-2 border-[#D3D3D3]">No result</div>
+                <div className="flex items-center justify-center h-[100px] border-x-2 border-[#D3D3D3] rounded-b-xl">No result</div>
                 : 
                 (
                     currentItems.map((branch, index) => (
@@ -228,6 +228,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                         Contact={branch.telephone}
                         Swift_Code={branch.swift_code}
                         Routing_No={branch.routing_number}
+                        Last_Entry={lastIndex}
                         />
                     ))
                 )}        

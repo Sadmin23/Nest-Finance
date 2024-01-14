@@ -22,7 +22,7 @@ const PieChart3D: React.FC<PieChart3DProps> = ({ principal, interest }) => {
     const chart = am4core.create('chartdiv', am4charts.PieChart3D);
     chartRef.current = chart;
 
-    chart.radius = am4core.percent(80);
+    chart.radius = am4core.percent(95);
     chart.angle = 40
     chart.depth = 25
 
@@ -41,26 +41,7 @@ const PieChart3D: React.FC<PieChart3DProps> = ({ principal, interest }) => {
     series.ticks.template.stroke = am4core.color("##53389E");
     series.labels.template.radius = 5
 
-    // Set isActive property and dy for the slice you want to be elevated by default
-    // series.slices.template.events.on('inited', (event) => {
-    //   const slice = event.target;
-
-    //   let sliceNo = "Total Interest"
-
-    //   // if (principal < interest)
-    //   //   sliceNo = "Principal Amount"
-
-
-    //   if (slice.dataItem && slice.dataItem.dataContext.type === sliceNo) {
-    //     slice.isActive = true;
-    //   }
-    // });
-
     series.slices.template.isActive = (slice) => slice.dataItem?.dataContext.type === 'Total Interest';
-
-    // let as = series.slices.template.states.getKey("active"); // Get the right state (click)
-    // as.properties.dy = -60; //
-    // as.properties.dx = 5
 
     return () => {
       chart.dispose();
