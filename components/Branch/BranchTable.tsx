@@ -8,6 +8,7 @@ import PageNavigation from '../PageNavigation';
 import SearchIcon from '../Icons/SearchIcon';
 import SearchDropdown from '../SearchDropdown';
 import { BankData, DistrictData, Option } from '@/app/data';
+import BranchHero from './BranchHero';
 
 const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
@@ -154,17 +155,11 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     return (
       <div className="flex-col">
         <section className='mx-40'>
-            <div className='flex-col w-[465px] mt-11'>
-                <h1 className='text-[28px] mt-14 font-medium tracking-tight leading-snug '>Search and find your nearest Branches</h1>
-                <h2 className="mt-5 text-base font-normal leading-normal">
-                    You can find your branch according to your choice and 
-                    know your branch location according to your area.              
-                </h2>
-            </div>
+            <BranchHero/>
             <div className='flex items-center my-8'>
               <div className="flex items-center relative">
                   <input
-                      className="border w-72 border-[#53389E] h-14 rounded-xl py-4 pl-14"
+                      className="border w-72 border-[#53389E] h-10 rounded-xl py-4 pl-14"
                       placeholder="Search branch"
                       onChange={handleInputChange}            
                   />

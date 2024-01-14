@@ -40,7 +40,7 @@ type SearchDropdownProps = {
             paddingRight: 16,
             maxHeight: 80,
             paddingLeft: 16,
-            height: 56
+            height: 40
           }),
         }}
         className={`w-${width}`}
