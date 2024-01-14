@@ -1,5 +1,7 @@
 'use client';
 
+import { number } from "zod";
+
 type PageNavigationProps = {
   l: number;
   f: number;
@@ -29,7 +31,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
   changePage
 }) => {
 
-  const siblingCount = type === 1 ? 3 : 1;
+  const siblingCount = 1;
 
   let pages: number[]
 
@@ -54,13 +56,13 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
   const lastPageIndex = size;
 
   if (!shouldShowLeftDots && shouldShowRightDots) {
-    let leftItemCount = 3 + 2 * siblingCount;
+    let leftItemCount = 2 + 2 * siblingCount;
     let leftRange = range(1, leftItemCount);
 
     pages = [...leftRange, -1, size];
   }
   if (shouldShowLeftDots && !shouldShowRightDots) {
-    let rightItemCount = 3 + 2 * siblingCount;
+    let rightItemCount = 2 + 2 * siblingCount;
     let rightRange = range(
       size - rightItemCount + 1,
       size
@@ -75,28 +77,32 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
 /*END*/
 
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <h2 className="leading-5">Showing {l} to {f} of {dataSize} entries</h2>
-      <div className='flex space-x-1 ml-auto'>
-          <button onClick={handlePrevPage} className='text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Prev</button>
+      <div className='flex ml-auto rounded-[100px] '>
+          <button onClick={handlePrevPage} className={`leading-normal px-5 h-11 bg-[#F0EBFF] rounded-l-[100px] ${(curPage === 1)? 'text-[#BCBCBC]' : 'text-[#53389E]'}`}>Prev</button>
           {pages.map((number, index) => (
             number === -1 ? (
-              <div key={index}>...</div>
+              <div key={index} className="bg-[#F0EBFF] flex items-end pb-3 space-x-2">
+                <div className="bg-[#F0EBFF]">.</div>
+                <div className="bg-[#F0EBFF]">.</div>
+                <div className="bg-[#F0EBFF]">.</div>
+              </div>
             ) : (
               <button
                 key={index}
                 onClick={() => changePage(number)}
-                className={number === curPage
-                  ? 'bg-[#53389E] text-white px-2 h-7'
-                  : 'bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'
-                }
+                className={`px-4 h-11 leading-normal ${number === curPage
+                  ? 'bg-[#53389E] text-white'
+                  : 'text-[#53389E] bg-[#F0EBFF]'}
+                `}
               >
                 {number}
               </button>
             )
           ))}
 
-          <button onClick={handleNextPage} className='bg-white text-[#53389E] border-2 border-[#53389E] leading-normal px-2 h-7'>Next</button>
+          <button onClick={handleNextPage} className={`bg-[#F0EBFF] leading-normal px-5 h-11 rounded-r-[100px] ${(curPage === lastPageIndex)? 'text-[#BCBCBC]' : 'text-[#53389E]'}`}>Next</button>
       </div>
     </div>
   );

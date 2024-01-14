@@ -22,7 +22,7 @@ const PieChart3D: React.FC<PieChart3DProps> = ({ principal, interest }) => {
     const chart = am4core.create('chartdiv', am4charts.PieChart3D);
     chartRef.current = chart;
 
-    chart.radius = am4core.percent(95);
+    chart.radius = am4core.percent(90);
     chart.angle = 40
     chart.depth = 25
 
