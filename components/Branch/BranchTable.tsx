@@ -148,6 +148,9 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     x = lf[0]
     y = lf[1] 
 
+    // console.log(lastIndex);
+    
+
     return (
       <div className="flex-col">
         <section className='mx-40'>
@@ -219,7 +222,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                     currentItems.map((branch, index) => (
                         <BranchComponent
                         key={index} 
-                        index={index}
+                        index={firstIndex+index}
                         Branch_Name={branch.name}
                         Bank_Name={branch.slug}
                         District={branch.district}
