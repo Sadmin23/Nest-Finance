@@ -25,22 +25,28 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
         setIsOpen(false);
     };
 
+    const underline = 
+    <div className='absolute h-[2px] w-full bg-[#F0EBFF] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
+
   return (
-    <div className={`flex items-end h-20 px-40 ${bg}`}>
-      <div className='mr-16 my-auto'>
+    <div className={`flex items-end h-24 px-40 ${bg}`}>
+      <div className='mr-auto my-auto'>
         <Link href="/" className='text-white'>
           <NFLogoSmall/>
         </Link>
       </div>
-      <div className={`h-full text-white text-sm tracking-widest font-semibold space-x-16 flex`}>
-        <Link href="/" className='ml-4 my-auto'>Home</Link>
-        <section className='relative flex space-x-2 items-center' onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
-          <Link href="/banks">Banks</Link>
-          <button>
-            <NavDropdown/>
-          </button>
+      <div className={`h-full text-[#F0EBFF] font-medium space-x-12 flex`}>
+        <Link href="/" className='ml-4 my-auto relative inline-block group'>
+          Home
+          {underline}  
+        </Link>
+        <section className='relative flex space-x-2 items-center inline-block group' onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
+          <Link href="/banks">Banks
+          {underline}
+          </Link>
+          <NavDropdown/>
           {isOpen && (
-              <div className="absolute -left-4 mt-[400px] rounded-xl w-[600px] h-80 shadow-2xl bg-white">
+              <div className="absolute -left-4 mt-[416px] rounded-xl w-72 h-80 shadow-2xl bg-white">
                 <ul>
                   <li>
                     <a
@@ -62,21 +68,39 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
               </div>
           )}
         </section>
-        <Link href="/branch-list" className='my-auto'>Branch</Link>
-        <Link href="/atm" className='my-auto'>ATMs</Link>
-        <section className='flex space-x-2 my-auto'>
-          <Link href="/loans">Loans</Link>
+        <Link href="/branch-list" className='my-auto inline-block relative group'>
+          Branch
+          {underline}
+        </Link>
+        <Link href="/atm" className='my-auto items-center relative inline-block group'>
+          ATMs
+          {underline}
+        </Link>
+        <section className='flex space-x-2 my-auto items-center relative inline-block group'>
+          <Link href="/loans">
+            Loans
+            {underline}
+          </Link>
           <NavDropdown/>
         </section>
-        <section className='flex space-x-2 my-auto'>
-          <Link href="/loans">Account</Link>
+        <section className='flex space-x-2 my-auto items-center inline-block relative group'>
+          <Link href="/loans">
+            Account
+            {underline}
+          </Link>
           <NavDropdown/>
         </section>
-        <section className='flex space-x-2 my-auto'>
-          <Link href="/loans">Card</Link>
+        <section className='flex space-x-2 my-auto items-center relative inline-block group'>
+          <Link href="/loans">
+            Card
+            {underline}
+          </Link>
           <NavDropdown/>
         </section>
-        <Link href="/atm" className='my-auto'>Compare</Link>
+        <Link href="/atm" className='my-auto relative inline-block group'>
+          Compare
+          {underline}
+        </Link>
       </div>
 
     </div>
