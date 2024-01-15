@@ -19,16 +19,22 @@ const Hero = (): JSX.Element => {
           width={864}
           height={623}
           alt="blob"
-          className='mx-auto pt-[70px]'
+          className='mx-auto pt-20'
         />
-        <div className='flex space-x-4 mt-2'>
-          <FloatingButtons x={1}/>
-          <FloatingButtons x={2}/>
-          <FloatingButtons x={3}/>
-          <FloatingButtons x={4}/>
-          <FloatingButtons x={5}/>
-          <FloatingButtons x={6}/>
-        </div>
+        <section className=''>
+          <div className='flex absolute mx-auto left-0 right-0 top-[324px] w-[762px] space-x-[444px] justify-center'>
+            <FloatingButtons x={1}/>
+            <FloatingButtons x={4}/>
+          </div>
+          <div className='flex absolute mx-auto left-0 right-0 top-[388px] w-[882px] space-x-[562px]'>
+            <FloatingButtons x={2}/>
+            <FloatingButtons x={5}/>
+          </div>
+          <div className='flex absolute mx-auto left-0 right-0 top-[452px] w-[1004px] space-x-[684px]'>
+            <FloatingButtons x={3}/>
+            <FloatingButtons x={6}/>
+          </div>
+        </section>
     </div>
   );
 };

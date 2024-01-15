@@ -46,7 +46,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           </Link>
           <NavDropdown/>
           {isOpen && (
-              <div className="absolute -left-4 mt-[416px] rounded-xl w-72 h-80 shadow-2xl bg-white">
+              <div className="absolute -left-4 mt-[416px] rounded-xl w-72 h-80 shadow-2xl bg-white z-10">
                 <ul>
                   <li>
                     <a
