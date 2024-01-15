@@ -8,6 +8,8 @@ import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import Up from "../Icons/Up";
 import Down from "../Icons/Down";
 import PageNavigation from "../PageNavigation";
+import Select from 'react-select'
+import { Filter, NumOption } from "@/app/data";
 
 const LoanList = (): JSX.Element => {
 
@@ -122,20 +124,8 @@ const LoanList = (): JSX.Element => {
         }
     };
 
-    const IncreaseRow = () => {
-      if (rowsnum === 5) {
-        setRowsnum(10);
-      } else if (rowsnum === 10) {
-        setRowsnum(20);
-      }
-    };
-
-    const DecreaseRow = () => {
-      if (rowsnum === 20) {
-        setRowsnum(10);
-      } else if (rowsnum === 10) {
-        setRowsnum(5);
-      }
+    const handleRowsNumChange = (selectedOption:NumOption | null) => {
+      selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
     };
 
     const changePage = (n: number) => {
@@ -185,7 +175,7 @@ const LoanList = (): JSX.Element => {
       </div>
       <div className="ml-auto">
         <h1 className="text-[28px] font-semibold leading-[38px] text-[#1D2939]">Search your loan information</h1>
-        <div className="flex mt-8 mb-12">
+        <div className="flex mt-8 mb-12 items-center">
           <div className="relative w-[286px] flex items-center">
             <input
               className="h-11 w-full border-[0.5px] border-[#D4D4D4] rounded-md pl-12 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
@@ -194,17 +184,26 @@ const LoanList = (): JSX.Element => {
             <SmallSearchIcon/>
           </div>
           <h1 className="leading-10 font-normal ml-auto">Showing</h1>
-          <div className='bg-white border-[0.5px] border-[#B3B3B3] rounded-md text-[#53389E] p-2 mx-4 flex'>
-            {rowsnum}
-            <div className='flex-col'>
-              <button onClick={IncreaseRow} className="block">
-                  <Up colour="purple"/>
-              </button>
-              <button onClick={DecreaseRow} className="block">
-                  <Down colour="purple"/>
-              </button>
-            </div>
-          </div>
+          <Select
+            styles={{
+              control: (baseStyles) => ({
+                ...baseStyles,
+                borderColor: '#53389E',
+                borderRadius: 12,
+                borderWidth: 1,
+                color: '#B3B3B3',
+                marginLeft: 16,
+                marginRight: 16,
+                width: 84,
+                height: 28,
+                textAlign: 'center',
+              }),
+            }}
+            defaultValue={Filter[0]}
+            // isDisabled={error ? true : false}
+            onChange={handleRowsNumChange}
+            options={Filter}
+          />
           <div contentEditable={true} className="flex border-[0.5px] text-center text-sm leading-5 border-[#B3B3B3] rounded-md  text-[#B3B3B3] px-4 py-2 items-center">
               Sort By
           </div>

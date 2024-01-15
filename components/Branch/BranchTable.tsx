@@ -1,7 +1,5 @@
 'use client';
 
-import Up from '../Icons/Up';
-import Down from '../Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import BranchComponent from './BranchComponent';
 import PageNavigation from '../PageNavigation';
@@ -115,9 +113,9 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
         }
     };
 
-      const handleRowsNumChange = (selectedOption:NumOption | null) => {
-        selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
-      };
+    const handleRowsNumChange = (selectedOption:NumOption | null) => {
+      selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
+    };
 
     const changePage = (n: number) => {
         if (n*rowsnum <= size + rowsnum)
