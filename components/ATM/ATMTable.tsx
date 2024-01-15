@@ -206,7 +206,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                 </div>
             </main>
             {error ? 
-                <TableSkeleton widths={[60, 40, 68, 92, 24]}/>
+                <TableSkeleton type={0}/>
                 : 
                 (
                     currentItems.map((branch, index) => (

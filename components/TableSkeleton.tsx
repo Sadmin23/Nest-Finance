@@ -1,27 +1,62 @@
 'use client';
 
-const TableSkeleton = ({ widths }: { widths: number[] }): JSX.Element => {
+const TableSkeleton = ({ type }: { type: number }): JSX.Element => {
+
+  let skeletonBranch = 
+
+  <div key={0} className="flex animate-pulse border-b border-x border-[#D3D3D3] bg-white py-7">
+    <div key={0} className="h-5 w-36 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-52 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-28 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-[272px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-36 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-28 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-28 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+  </div>
+
+  let skeletonATM = 
+
+  <div key={0} className="flex animate-pulse border-b border-x border-[#D3D3D3] bg-white py-7">
+      <div key={0} className="h-5 w-60 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-40 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[272px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[368px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-24 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+  </div>
+
+  let branchBottom = 
+  
+  <div key={0} className="flex animate-pulse border-b border-x rounded-b-md border-[#D3D3D3] bg-white py-7">
+    <div key={0} className="h-5 w-36 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-52 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-28 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-[272px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-36 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-28 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+    <div key={0} className="h-5 w-28 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+  </div>
+
+  let ATMBottom = 
+
+  <div key={0} className="flex animate-pulse border-b border-x rounded-b-md border-[#D3D3D3] bg-white py-7">
+      <div key={0} className="h-5 w-60 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-40 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[272px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[368px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-24 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+  </div>
 
   return (
     <div className="">
         {
           Array.from({ length: 4 }).map((_, index) => (
-            <div key={0} className="flex animate-pulse border border-[#D3D3D3] bg-white py-7">
-            {
-                widths.map((width)=>(
-                    <div key={0} className={`h-5 bg-gray-200 rounded-full  ${(width == 92) ? 'w-[368px]' : (width == 68) ? 'w-[272px]' : `w-${width}`} dark:bg-gray-700  mx-2`}></div>
-                    ))
-                }
-            </div>
+              type ? skeletonBranch : skeletonATM
           ))
         }
-        <div className="flex animate-pulse bg-white rounded-b-md border border-[#D3D3D3] py-7">
-            {
-              widths.map((width)=>(
-                <div key={0} className={`h-5 bg-gray-200 rounded-full  ${(width == 92) ? 'w-[368px]' : (width == 68) ? 'w-[272px]' : `w-${width}`} dark:bg-gray-700  mx-2`}></div>
-              ))
-            }
-        </div>
+        {
+          type ? branchBottom : ATMBottom
+        }
+
     </div>
 
 
