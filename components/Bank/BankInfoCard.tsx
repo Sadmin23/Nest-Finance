@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ServiceButton from '../Buttons/ServiceButton';
 import OptionButton from '../Buttons/OptionButton';
 import Link from 'next/link';
+import { findIdByName } from '@/app/data';
 
 interface BankInfoCardProps {
   name: string
@@ -21,6 +22,7 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
   type = type.replace(" Bank", "");
   category = category.replace(" Bank", "");
   origin = origin.replace(" Bank", "");
+  let id = findIdByName(name);
 
   return (
     <div className='w-[376px] h-[360px] px-6 rounded-2xl border-2 bg-white border-[#53389E] flex items-end'>
@@ -45,7 +47,9 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
                     <OptionButton text='Cards'/>
                 </div>
                 <div className='flex space-x-4'>
-                    <ServiceButton text='Bank Details'/>
+                    <Link href={`/bank-details/${id}`}>
+                      <ServiceButton text='Bank Details'/>
+                    </Link>  
                     <Link href={`/branch-list/${slug}`}>
                       <ServiceButton text='Branches'/>
                     </Link>
