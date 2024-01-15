@@ -143,6 +143,11 @@ export interface Option {
     label: string;
 }
 
+export interface NumOption {
+    value: number;
+    label: number;
+}
+
 const BankInfo = [
     {id: '86d03fe0-9560-4fd0-a9da-94a08f5c79aa', name: 'AB Bank Limited'},
     {id: '594d3a08-8ebe-461e-9be5-d2e0a083576a', name: 'Agrani Bank Limited'},
@@ -217,6 +222,29 @@ export const findIdByName = (name : string) => {
     return foundOption ? foundOption.id : '';
 };
 
+
+export const Filter = [
+    {
+      value: 5,
+      label: 5,
+    },
+    {
+      value: 10,
+      label: 10,
+    },
+    {
+        value: 20,
+        label: 20,
+    },
+    {
+        value: 50,
+        label: 50,
+    },
+    {
+        value: 100,
+        label: 100,
+    },
+  ];
 
 /*
 8: Chadpur

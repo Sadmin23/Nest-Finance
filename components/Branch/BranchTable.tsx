@@ -7,9 +7,10 @@ import BranchComponent from './BranchComponent';
 import PageNavigation from '../PageNavigation';
 import SearchIcon from '../Icons/SearchIcon';
 import SearchDropdown from '../SearchDropdown';
-import { BankData, DistrictData, Option } from '@/app/data';
+import { BankData, DistrictData, Filter, NumOption, Option } from '@/app/data';
 import BranchHero from './BranchHero';
 import TableSkeleton from '../TableSkeleton';
+import Select from 'react-select'
 
 const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
@@ -114,21 +115,9 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
         }
     };
 
-    const IncreaseRow = () => {
-      if (rowsnum === 5) {
-        setRowsnum(10);
-      } else if (rowsnum === 10) {
-        setRowsnum(20);
-      }
-    };
-
-    const DecreaseRow = () => {
-      if (rowsnum === 20) {
-        setRowsnum(10);
-      } else if (rowsnum === 10) {
-        setRowsnum(5);
-      }
-    };
+      const handleRowsNumChange = (selectedOption:NumOption | null) => {
+        selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
+      };
 
     const changePage = (n: number) => {
         if (n*rowsnum <= size + rowsnum)
@@ -167,21 +156,31 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                 <SearchDropdown option={BankData} width='72' name='Bank name' searchable={true} defaultOption={defaultBank} onChange={handleBankChange} />
                 <SearchDropdown option={DistrictData} width='72' name='District' searchable={true} defaultOption={defaultDistrict} onChange={handleDistrictChange} />
               </div>
-              <div className='flex ml-auto'>
+              <div className='flex ml-auto items-center'>
                   <h1 className='leading-5 py-1'>Showing</h1>
-                  <div className='bg-[#53389E] text-white py-1 px-4 mx-4  flex'>
-                      {rowsnum}
-                      <div className='flex-col'>
-                          <button onClick={IncreaseRow} className="block">
-                              <Up colour="white"/>
-                          </button>
-                          <button onClick={DecreaseRow} className="block">
-                              <Down colour='white'/>
-                          </button>
-                      </div>
-                  </div>
+                  <Select
+                    styles={{
+                      control: (baseStyles) => ({
+                        ...baseStyles,
+                        borderColor: '#53389E',
+                        borderRadius: 12,
+                        borderWidth: 1,
+                        color: '#B3B3B3',
+                        marginLeft: 16,
+                        marginRight: 16,
+                        width: 84,
+                        height: 28,
+                        textAlign: 'center',
+                      }),
+                    }}
+                    defaultValue={Filter[0]}
+                    isDisabled={error ? true : false}
+                    onChange={handleRowsNumChange}
+                    options={Filter}
+                  />
                   <h1 className='leading-5 py-1'>entries</h1>
               </div>
+
             </div>
         </section>
         <section className='flex-col mx-40 rounded-xl'>
