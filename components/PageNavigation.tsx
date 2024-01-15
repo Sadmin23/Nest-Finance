@@ -53,7 +53,10 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
   const shouldShowRightDots = rightSiblingIndex < size - 2;
 
   const firstPageIndex = 1;
-  const lastPageIndex = size;
+
+
+  
+  const lastPageIndex = size ? size : 1;
 
   if (!shouldShowLeftDots && shouldShowRightDots) {
     let leftItemCount = 2 + 2 * siblingCount;
