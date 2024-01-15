@@ -1,8 +1,6 @@
 'use client';
 
-const TableSkeleton = (): JSX.Element => {
-
-  let widths = [36,52,28,68,36,28,28]
+const TableSkeleton = ({ widths }: { widths: number[] }): JSX.Element => {
 
   return (
     <div className="">
@@ -11,7 +9,7 @@ const TableSkeleton = (): JSX.Element => {
             <div key={0} className="flex animate-pulse border border-[#D3D3D3] bg-white py-7">
             {
                 widths.map((width)=>(
-                    <div key={0} className={`h-5 bg-gray-200 rounded-full  ${(width != 68) ? `w-${width}` : 'w-[272px]'} dark:bg-gray-700  mx-2`}></div>
+                    <div key={0} className={`h-5 bg-gray-200 rounded-full  ${(width == 92) ? 'w-[368px]' : (width == 68) ? 'w-[272px]' : `w-${width}`} dark:bg-gray-700  mx-2`}></div>
                     ))
                 }
             </div>
@@ -19,9 +17,9 @@ const TableSkeleton = (): JSX.Element => {
         }
         <div className="flex animate-pulse bg-white rounded-b-md border border-[#D3D3D3] py-7">
             {
-                widths.map((width)=>(
-                    <div key={0} className={`h-5 bg-gray-200 rounded-full  ${(width != 68) ? `w-${width}` : 'w-[272px]'} dark:bg-gray-700  mx-2`}></div>
-                    ))
+              widths.map((width)=>(
+                <div key={0} className={`h-5 bg-gray-200 rounded-full  ${(width == 92) ? 'w-[368px]' : (width == 68) ? 'w-[272px]' : `w-${width}`} dark:bg-gray-700  mx-2`}></div>
+              ))
             }
         </div>
     </div>

@@ -10,6 +10,7 @@ import SearchDropdown from '../SearchDropdown';
 import { BankData, DistrictData, Option, findNameById } from '@/app/data';
 import { findIdByName } from '../../app/data';
 import ATMHero from './ATMHero';
+import TableSkeleton from '../TableSkeleton';
 
 const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
@@ -186,26 +187,26 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
               </div>
             </div>
         </section>
-        <table className='flex-col mx-40 rounded-xl'>
-            <tr className="flex h-20 bg-[#53389E] rounded-t-xl">
-                <td className="w-64 text-white text-center border-x rounded-tl-xl border-[#D3D3D3] flex items-center justify-center">
+        <section className='flex-col mx-40 rounded-xl'>
+            <main className="flex h-20 bg-[#53389E] rounded-t-xl">
+                <div className="w-64 text-white text-center border-x rounded-tl-xl border-[#D3D3D3] flex items-center justify-center">
                     ATM Name
-                </td>
-                <td className="w-44 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
+                </div>
+                <div className="w-44 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     District
-                </td>
-                <td className="w-72 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
+                </div>
+                <div className="w-72 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Bank Name
-                </td>
-                <td className="w-96 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
+                </div>
+                <div className="w-96 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     Address
-                </td>
-                <td className="w-28 text-white text-center border-r border-t rounded-tr-xl border-[#D3D3D3] flex items-center justify-center">
+                </div>
+                <div className="w-28 text-white text-center border-r border-t rounded-tr-xl border-[#D3D3D3] flex items-center justify-center">
                     Map
-                </td>
-            </tr>
+                </div>
+            </main>
             {error ? 
-                <div className="flex items-center justify-center h-[100px] border-x-2 border-[#D3D3D3]">No result</div>
+                <TableSkeleton widths={[60, 40, 68, 92, 24]}/>
                 : 
                 (
                     currentItems.map((branch, index) => (
@@ -220,7 +221,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                         />
                     ))
                 )}        
-        </table>
+        </section>
         <div className='mx-40 mt-9 mb-32'>
           {pageNav.current}
         </div>

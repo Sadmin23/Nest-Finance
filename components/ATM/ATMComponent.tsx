@@ -30,20 +30,20 @@ interface BranchDataProps {
     let condition = (Last_Entry === index + 1)
 
   return (
-        <tr className={`flex ${bg} leading-[18px] ${condition ? 'rounded-b-xl border-b' : ''}`}>
-            <td className={`w-64 px-4 py-6 text-sm border-x border-[#D3D3D3] flex items-center ${(condition)? 'rounded-bl-xl' : ''}`}>
+        <main className={`flex ${bg} leading-[18px] ${condition ? 'rounded-b-xl border-b' : ''}`}>
+            <div className={`w-64 px-4 py-6 text-sm border-x border-[#D3D3D3] flex items-center ${(condition)? 'rounded-bl-xl' : ''}`}>
                 {ATM_Name}
-            </td>
-            <td className="w-44 px-4 text-sm border-r border-[#D3D3D3] flex items-center">
+            </div>
+            <div className="w-44 px-4 text-sm border-r border-[#D3D3D3] flex items-center">
                 {District}
-            </td>
-            <td className="w-72 px-4 py-2 text-sm border-r border-[#D3D3D3]  flex items-center">
+            </div>
+            <div className="w-72 px-4 py-2 text-sm border-r border-[#D3D3D3]  flex items-center">
                 {Bank_Name}
-            </td>
-            <td className="w-96 px-3 text-sm border-r border-[#D3D3D3]  flex items-center">
+            </div>
+            <div className="w-96 px-3 text-sm border-r border-[#D3D3D3]  flex items-center">
                 {Address}
-            </td>
-            <td className={`flex items-center ${(condition)? 'rounded-br-xl' : ''}`}>
+            </div>
+            <div className={`flex items-center ${(condition)? 'rounded-br-xl' : ''}`}>
                 <Image
                     src="/brand_assets/map.png"
                     width={24}
@@ -51,8 +51,8 @@ interface BranchDataProps {
                     alt="ific"
                     className='mx-10'
                 />
-            </td>         
-        </tr>
+            </div>         
+        </main>
   );
 };
 

@@ -209,7 +209,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                 </div>
             </main>
             {error ? 
-                <TableSkeleton/>
+                <TableSkeleton widths={[36,52,28,68,36,28,28]}/>
                 : 
                 (
                     currentItems.map((branch, index) => (
