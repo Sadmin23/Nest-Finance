@@ -2,16 +2,6 @@
 
 import Image from 'next/image';
 
-import ABBank from "../Logo/ABBank";
-import BankAsia from "../Logo/BankAsia";
-import BracBank from "../Logo/BracBank";
-import CityBank from "../Logo/CityBank";
-import DBBL from "../Logo/DBBL";
-import EasternBank from "../Logo/EasternBank";
-import IslamiBank from "../Logo/IslamiBank";
-import AgraniBank from "../Logo/AgraniBank";
-import { Button } from 'antd';
-
 const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
 
   let content

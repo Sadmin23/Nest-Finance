@@ -62,7 +62,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     return (
       <main className="flex-col">
         <div className='mx-40 mb-12'>
-          <div className='border-t-2 flex pt-9'>
+          <div className='flex'>
             <div className="flex items-center relative">
                 <input
                     className="border-2 border-[#B3B3B3] h-10 rounded-xl w-[376px] py-4 pl-[72px]"
