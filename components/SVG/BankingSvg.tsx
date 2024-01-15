@@ -4,32 +4,30 @@ import Image from 'next/image';
 
 const BankingSvg = ({ a, b }: { a: number, b: number }): JSX.Element => {
 
-  let image = "/brand_assets/"
+  let image = "/brand_assets/options/"
 
   switch (a) {
     case 1:
       image += "banking"
       break;
     case 2:
-      image += "card"
+      image += "cards"
       break;
     case 3:
-      image += "deposit"
+      image += "atm"
       break;
     case 4:
       image += "loans"
       break;
     case 5:
-      image += "funds"
+      image += "account"
       break;
     case 6:
-      image += "bonds"
+      image += "branch"
       break; 
     default:
       image += "banking"
     }
-
-
 
 
   if (b===0)
@@ -41,10 +39,10 @@ const BankingSvg = ({ a, b }: { a: number, b: number }): JSX.Element => {
   return (
     <Image
       src={image}
-      width={48}
-      height={48}
+      width={24}
+      height={24}
       alt="blob"
-      className='py-2 pr-2'
+      className='mx-auto'
     />
   );
 };

@@ -1,11 +1,6 @@
 'use client';
 
 import BankingSvg from '../SVG/BankingSvg';
-import CreditCardSvg from '../SVG/CreditCardsSvg';
-import DepositSchemesSvg from '../SVG/DepositSchemesSvg';
-import LoansSvg from '../SVG/LoansSvg';
-import MutualFundsSvg from '../SVG/MutualFundsSvg';
-import BondsSvg from '../SVG/BondsSvg';
 
 const ServiceButtons = ({ x, y, z }: { x: number, y:number, z:number }): JSX.Element => {
 
@@ -15,7 +10,7 @@ const ServiceButtons = ({ x, y, z }: { x: number, y:number, z:number }): JSX.Ele
 
   if (x===y || x===z){
     colour = "text-white"
-    bg = "bg-gradient-to-b from-[#53389E] to-[#9075DE]"
+    bg = "bg-gradient-to-b from-[#9075DE] to-[#53389E]"
   }
   else{
     colour = "text-[#53389E]"
@@ -35,23 +30,23 @@ const ServiceButtons = ({ x, y, z }: { x: number, y:number, z:number }): JSX.Ele
       text = "Cards"
       break;
     case 3:
-      text = "Deposit"
+      text = "ATM"
       break;
     case 4:
       text = "Loans"
       break;
     case 5:
-      text = "Funds"
+      text = "Account"
       break;
     case 6:
-      text = "Bonds"
+      text = "Branch"
       break;
   }
 
   return (
-      <button className={`w-40 h-16 rounded-md ${bg} flex items-center justify-center`}>
+      <button className={`w-40 h-16 rounded-md ${bg} mx-auto`}>
         <BankingSvg a={x} b={value[x-1]}/>
-      <h3 className={`font-semibold text-[#53389e] ${colour}`}>{text}</h3>
+        <h3 className={`font-semibold text-[#53389e] ${colour}`}>{text}</h3>
       </button>
   );
 };
