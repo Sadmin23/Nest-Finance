@@ -44,8 +44,8 @@ const ServiceButtons = ({ x, y, z }: { x: number, y:number, z:number }): JSX.Ele
   }
 
   return (
-      <button className={`w-40 h-16 rounded-md ${bg} mx-auto`}>
-        <BankingSvg a={x} b={value[x-1]}/>
+      <button className={`w-40 h-16 rounded-md ${bg}`}>
+        <BankingSvg a={x} b={value[x-1]} type={0}/>
         <h3 className={`font-semibold text-[#53389e] ${colour}`}>{text}</h3>
       </button>
   );

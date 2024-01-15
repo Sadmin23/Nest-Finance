@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-const BankingSvg = ({ a, b }: { a: number, b: number }): JSX.Element => {
+const BankingSvg = ({ a, b, type }: { a: number, b: number, type: number }): JSX.Element => {
 
   let image = "/brand_assets/options/"
 
@@ -29,11 +29,14 @@ const BankingSvg = ({ a, b }: { a: number, b: number }): JSX.Element => {
       image += "banking"
     }
 
+  let style
+
+  if (type==1)  style = 'mr-3'
+  else style = style = 'mx-auto'
 
   if (b===0)
     image+="2"
 
-  
    image += ".png" 
 
   return (
@@ -42,7 +45,7 @@ const BankingSvg = ({ a, b }: { a: number, b: number }): JSX.Element => {
       width={24}
       height={24}
       alt="blob"
-      className='mx-auto'
+      className={style}
     />
   );
 };

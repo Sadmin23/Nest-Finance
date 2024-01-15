@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import FloatingButtons from '../Buttons/FloatingButton';
 
 const Hero = (): JSX.Element => {
   return (
@@ -14,13 +15,20 @@ const Hero = (): JSX.Element => {
           <h3 className='text-[#E9D7FE]'>Best banking cards made simplified.</h3>
         </div>
         <Image
-              src="/brand_assets/cards.png"
-              width={864}
-              height={623}
-              alt="blob"
-              className='mx-auto pt-[70px]'
-              />
-
+          src="/brand_assets/cards.png"
+          width={864}
+          height={623}
+          alt="blob"
+          className='mx-auto pt-[70px]'
+        />
+        <div className='flex space-x-4 mt-2'>
+          <FloatingButtons x={1}/>
+          <FloatingButtons x={2}/>
+          <FloatingButtons x={3}/>
+          <FloatingButtons x={4}/>
+          <FloatingButtons x={5}/>
+          <FloatingButtons x={6}/>
+        </div>
     </div>
   );
 };
