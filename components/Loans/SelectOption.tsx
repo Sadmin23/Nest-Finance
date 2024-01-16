@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Dropdown from "../Icons/Dropdown";
 import Dropup from "../Icons/Dropup";
 import TinySearchIcon from "../Icons/TinySearchIcon";
+import FilterTag from "../Buttons/FilterTag";
+import { findShortName } from '../../app/data';
 
 interface SelectOptionProps {
   types: string[];
@@ -30,6 +32,7 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
   const [filteredData, setFilteredData] = useState<string[]>(types);
   const [searchValue, setSearchValue] = useState('');
   const [error, setError] = useState(true)
+  const [selectedBanks, setSelectedBanks] = useState<string[]>([])
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/bankapi/bank/')
@@ -61,6 +64,18 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
     setSearchValue(event.target.value);
   };
 
+  const handleCheckbox = (option : string) => {
+    if (selectedBanks.includes(option)) {
+      setSelectedBanks(selectedBanks.filter((item) => item !== option));
+    } else {
+      setSelectedBanks([...selectedBanks, option]);
+    }
+  };  
+
+  useEffect(() => {
+    console.log(selectedBanks);  
+  }, [selectedBanks]);
+
   return (
     <div className='bg-white rounded-md border border-[#d4d4d4]'>
         <div className="flex items-center mx-9 ">
@@ -71,7 +86,7 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
         </div>
         {isExpanded && isBank && !error && (
           <main>
-            <div className="border-t-2 border-[#DFDFDF]"></div>
+            <div className="border-t border-[#DFDFDF]"></div>
             <div className="relative w-[300px] my-4 flex items-center mx-auto">
               <input
                 className="h-9 w-full border-[0.5px] border-[#53389E] rounded-md pl-11 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
@@ -80,16 +95,25 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
               />
               <TinySearchIcon/>
             </div>
+            {
+              (selectedBanks.length !== 0) ? 
+              (
+                <div className="flex space-x-1 px-10 border-t border-[#DFDFDF] py-3">
+                {selectedBanks.map((bank)=>
+                  <FilterTag text={findShortName(bank)}/>
+                )}
+                </div>
+              ) : ''
+            }
           </main>
         )}
         {isExpanded && (isBank && error ?                 
-          <div className="text-center py-4 border-t-2 text-gray-500">
+          <div className="text-center py-4 border-t text-gray-500">
             No bank information available
           </div> 
           :
-          <main className="pb-3">
-            <div className="border-t-2 border-[#DFDFDF] h-5"></div>
-            <div className={`ml-10 space-y-3 pb-2 overflow-y-auto ${(group == 1 ) ? 'h-40' : 'h-44'}`}>
+          <main className="pb-3 pt-5 border-t border-[#DFDFDF]">
+            <div className={`ml-10 space-y-3 pb-2 overflow-y-auto ${(group == 1 ) ? 'h-56' : 'h-44'}`}>
               {filteredData.map((type, index) => (
                 <div key={index} className="flex items-center">
                   <input
@@ -98,7 +122,7 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
                     name={`option${index + 1}`}
                     className="mr-6 w-5 h-5 border-black border"
                     checked={checkBox(type, group)}
-                    onChange={() => handleChange(type, group)}
+                    onChange={() => {handleChange(type, group); handleCheckbox(type)}}
                   />
                   <label htmlFor={`option${index + 1}`} className="leading-6 w-64">
                     {type}

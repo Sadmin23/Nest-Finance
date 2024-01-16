@@ -246,6 +246,75 @@ export const Filter = [
     },
   ];
 
+
+  const ShortName = [
+    {id: 'AB', name: 'AB Bank Limited'},
+    {id: 'Agrani', name: 'Agrani Bank Limited'},
+    {id: 'Al-Arafah', name: 'Al-Arafah Islami Bank Limited'},
+    {id: 'BCB', name: 'Bangladesh Commerce Bank Limited'},
+    {id: 'BDBL', name: 'Bangladesh Development Bank Limited'},
+    {id: 'Krishi', name: 'Bangladesh Krishi Bank'},
+    {id: 'Alfalah', name: 'Bank Alfalah Limited'},
+    {id: 'Bankasia', name: 'Bank Asia Limited'},
+    {id: 'Basic', name: 'Bangladesh Small Industries and Commerce Bank Limited'},
+    {id: 'Bengal', name: 'Bengal Commercial Bank Limited'},
+    {id: 'BRAC', name: 'BRAC Bank Limited'},
+    {id: 'Citibank', name: 'Citibank N.A'},
+    {id: 'City', name: 'The City Bank Limited'},
+    {id: 'Ceylon', name: 'Commercial Bank of Ceylon Limited'},
+    {id: 'CBBL', name: 'Community Bank Bangladesh Limited'},
+    {id: 'Dhaka', name: 'Dhaka Bank Limited'},
+    {id: 'DBBL', name: 'Dutch-Bangla Bank Limited'},
+    {id: 'Eastern', name: 'Eastern Bank Limited'},
+    {id: 'EXIM', name: 'Export Import Bank of Bangladesh Limited'},
+    {id: 'FSIBL', name: 'First Security Islami Bank Limited'},
+    {id: 'GIB', name: 'Global Islami Bank Limited'},
+    {id: 'HBL', name: 'Habib Bank Limited'},
+    {id: 'HSBC', name: 'The Hongkong and Shanghai Banking Corporation Limited'},
+    {id: 'ICB', name: 'ICB Islamic Bank Limited'},
+    {id: 'IFIC', name: 'International Finance Invest and Commerce Bank Limited'},
+    {id: 'Islami', name: 'Islami Bank Bangladesh Limited'},
+    {id: 'Jamuna', name: 'Jamuna Bank Limited'},
+    {id: 'Janata', name: 'Janata Bank Limited'},
+    {id: 'Meghna', name: 'Meghna Bank Limited'},
+    {id: 'Mercantile', name: 'Mercantile Bank Limited'},
+    {id: 'Midland', name: 'Midland Bank Limited'},
+    {id: 'Modhumoti', name: 'Modhumoti Bank Limited'},
+    {id: 'MTB', name: 'Mutual Trust Bank Limited'},
+    {id: 'National', name: 'National Bank Limited'},
+    {id: 'NBP', name: 'National Bank of Pakistan'},
+    {id: 'NCC', name: 'National Credit & Commerce Bank Limited'},
+    {id: 'NRB', name: 'NRB Bank Limited'},
+    {id: 'NRBC', name: 'NRB Commercial Bank Limited'},
+    {id: 'Onebank', name: 'One Bank Limited'},
+    {id: 'Padma', name: 'Padma Bank Limited'},
+    {id: 'Premier', name: 'The Premier Bank Limited'},
+    {id: 'Primebank', name: 'Prime Bank Limited'},
+    {id: 'Probashi', name: 'Probashi Kallyan Bank'},
+    {id: 'Pubali', name: 'Pubali Bank Limited'},
+    {id: 'Krishi', name: 'Rajshahi Krishi Unnayan Bank'},
+    {id: 'Rupali', name: 'Rupali Bank Limited'},
+    {id: 'SBAC', name: 'South Bangla Agriculture & Commerce Bank Limited'},
+    {id: 'Shahjalal', name: 'Shahjalal Islami Bank Limited'},
+    {id: 'Shimanto', name: 'Shimanto Bank Limited'},
+    {id: 'SIBL', name: 'Social Islami Bank Limited'},
+    {id: 'Sonali', name: 'Sonali Bank Limited'},
+    {id: 'Southeast', name: 'Southeast Bank Limited'},
+    {id: 'SBL', name: 'Standard Bank Limited'},
+    {id: 'Std Chartered', name: 'Standard Chartered Bank'},
+    {id: 'SBI', name: 'State Bank of India'},
+    {id: 'Trust', name: 'Trust Bank Limited'},
+    {id: 'Union', name: 'Union Bank Limited'},
+    {id: 'UCB', name: 'United Commercial Bank Limited'},
+    {id: 'Uttara', name: 'Uttara Bank Limited'},    
+    {id: 'Woori', name: 'Woori Bank Bangladesh'}
+]
+
+export const findShortName = (name : string) => {
+    const foundOption = ShortName.find(option => option.name === name);
+    return foundOption ? foundOption.id : '';
+};
+
 /*
 8: Chadpur
 

@@ -5,8 +5,6 @@ import LoanRow from "./LoanRow";
 import SliderComponent from "./SliderComponent";
 import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
-import Up from "../Icons/Up";
-import Down from "../Icons/Down";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
 import { Filter, NumOption } from "@/app/data";
@@ -145,12 +143,12 @@ const LoanList = (): JSX.Element => {
     setSliderValues2(values);
   };
 
-  useEffect(() => {
-    console.log(banks);
-    console.log(loans);
-    console.log(durations);
+  // useEffect(() => {
+  //   console.log(banks);
+  //   console.log(loans);
+  //   console.log(durations);
     
-  }, [banks, loans, durations]);  
+  // }, [banks, loans, durations]);  
 
   return (
     <div className="mx-40 my-20 flex">
