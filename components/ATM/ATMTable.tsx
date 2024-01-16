@@ -187,20 +187,20 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
         </section>
         <section className='flex-col mx-40 rounded-xl'>
             <main className="flex h-20 bg-[#53389E] rounded-t-xl">
-                <div className="w-64 text-white text-center border-x rounded-tl-xl border-[#D3D3D3] flex items-center justify-center">
+                <div className="w-80 text-white text-center border-x rounded-tl-xl border-[#D3D3D3] flex items-center justify-center">
                     ATM Name
+                </div>
+                <div className="w-52 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
+                    Bank Name
+                </div>
+                <div className="w-80 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
+                    Address
                 </div>
                 <div className="w-44 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
                     District
                 </div>
-                <div className="w-72 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
-                    Bank Name
-                </div>
-                <div className="w-96 text-white text-center border-r border-t border-[#D3D3D3]  flex items-center justify-center">
-                    Address
-                </div>
-                <div className="w-28 text-white text-center border-r border-t rounded-tr-xl border-[#D3D3D3] flex items-center justify-center">
-                    Map
+                <div className="w-44 text-white text-center border-r border-t rounded-tr-xl border-[#D3D3D3] flex items-center justify-center">
+                    Division
                 </div>
             </main>
             {error ? 

@@ -17,11 +17,11 @@ const TableSkeleton = ({ type }: { type: number }): JSX.Element => {
   let skeletonATM = 
 
   <div key={0} className="flex animate-pulse border-b border-x border-[#D3D3D3] bg-white py-7">
-      <div key={0} className="h-5 w-60 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[304px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-48 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[304px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
       <div key={0} className="h-5 w-40 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
-      <div key={0} className="h-5 w-[272px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
-      <div key={0} className="h-5 w-[368px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
-      <div key={0} className="h-5 w-24 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-40 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
   </div>
 
   let branchBottom = 
@@ -39,11 +39,11 @@ const TableSkeleton = ({ type }: { type: number }): JSX.Element => {
   let ATMBottom = 
 
   <div key={0} className="flex animate-pulse border-b border-x rounded-b-md border-[#D3D3D3] bg-white py-7">
-      <div key={0} className="h-5 w-60 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[304px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-48 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-[304px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
       <div key={0} className="h-5 w-40 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
-      <div key={0} className="h-5 w-[272px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
-      <div key={0} className="h-5 w-[368px] bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
-      <div key={0} className="h-5 w-24 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
+      <div key={0} className="h-5 w-40 bg-gray-200 rounded-full dark:bg-gray-700 mx-2"></div>
   </div>
 
   return (
