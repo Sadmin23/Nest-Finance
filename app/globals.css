@@ -13,3 +13,8 @@ div:empty:before {
   content:attr(data-placeholder);
   color: #C9C9C9
 }
+
+.title{
+  /* font-weight: 600; */
+  line-height: 24px;
+}
