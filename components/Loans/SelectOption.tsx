@@ -76,6 +76,8 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
     console.log(selectedBanks);  
   }, [selectedBanks]);
 
+  let num = selectedBanks.length - 3
+
   return (
     <div className='bg-white rounded-md border border-[#d4d4d4]'>
         <div className="flex items-center mx-9 ">
@@ -98,13 +100,16 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
             {
               (selectedBanks.length !== 0) ? 
               (
-                <div className="flex space-x-1 px-10 border-t border-[#DFDFDF] py-3">
-                {selectedBanks.map((bank)=>
-                  <FilterTag text={findShortName(bank)}/>
+                <div className="flex px-10 border-t border-[#DFDFDF] py-3">
+                {selectedBanks.map((bank, index)=>
+                  (index <= 2)?
+                    <FilterTag key={index} type={1} text={findShortName(bank)}/> : ''
                 )}
+                {
+                  (selectedBanks.length > 3)? <FilterTag type={2} text={`+${num} others`}/> : ''}
                 </div>
               ) : ''
-            }
+            } 
           </main>
         )}
         {isExpanded && (isBank && error ?                 
