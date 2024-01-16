@@ -22,16 +22,16 @@ const NavButton = ({ type, text }: { type : number, text: string }) => {
     icon = 
     <Image
       src={image}
-      width={48}
+      width={32}
       height={48}
       alt="blob"
       className='mx-auto'
     />
 
     return (
-      <button className='bg-[#F0EBFF] w-60 h-32 mx-auto rounded-md space-y-2'>
+      <button className='bg-[#F0EBFF] shadow-md w-32 h-32 mx-auto my-auto rounded-md space-y-2'>
         {icon}
-        <h2 className='font-medium text-[#53389E]'>
+        <h2 className='font-medium text-sm text-[#53389E] w-28 mx-auto'>
         {text}
         </h2>
       </button>

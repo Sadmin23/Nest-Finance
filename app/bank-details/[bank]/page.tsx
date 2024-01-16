@@ -32,14 +32,14 @@ const BankDetails = (props: any) => {
   return (
     <div className='flex-col'>
       <Nav bgOption='white' />
-      <div className="mx-40 my-20 pt-10 bg-white rounded-md text-black">
-        <div className="flex">
+      <div className="ml-auto mr-40 w-7/12 my-16">
+        <div className="flex items-start">
           <Image
             src={apiData.image_url}
             width={320}
             height={100}
             alt="logo"
-            className="py-12 mx-20"
+            className="mr-10"
           />
           <section className="space-y-6">
             <h1 className="text-2xl font-bold leading-9">{apiData.name}</h1>
@@ -62,7 +62,9 @@ const BankDetails = (props: any) => {
               </span>
               <span className="flex space-x-2">
                 <h2 className="font-semibold">Website:</h2>
-                <h2>{apiData.website}</h2>
+                <a href={apiData.website} target="_blank" rel="noopener noreferrer">
+                  {apiData.website}
+                </a>
               </span>
               {
                 (apiData.email!==null) ?(
@@ -75,7 +77,7 @@ const BankDetails = (props: any) => {
             </main>
           </section>
         </div>
-        <section className="mx-10 mt-10 space-y-6">
+        <section className="mt-10 space-y-6">
           <h1 className="text-xl leading-8 font-semibold">About {name}</h1>
           <h2 className="text-justify text-sm leading-6 font-normal">
           City Bank is one of the oldest private Commercial Banks operating in Bangladesh. 
@@ -85,12 +87,6 @@ const BankDetails = (props: any) => {
           Those sponsor directors commenced the journey with only Taka 3.4 crore worth of Capital, which now is a respectable Taka 330.77 crore as capital & reserve. 
           City Bank is among the very few local banks which do not follow the traditional, decentralized, geographically managed, branch based business or profit model. 
           Instead the bank manages its business and operation vertically from the head office through 4 distinct business divisions namely
-          <ul className="list">
-            <li>Corporate & Investment Banking</li>
-            <li>Retail Banking (including Cards)</li>
-            <li>SME Banking</li>
-            <li>Treasury & Market Risks</li>
-          </ul>
           Under a real-time online banking platform, these 4 business divisions are supported at the back by a robust service delivery or operations setup and also a smart IT Backbone. 
           Such centralized business segment based business & operating model ensure specialized treatment and services to the bank's different customer segments. 
           The bank currently has 87 online branches and 10 SME service centers spread across the length & breadth of the country that include a full fledged Islami Banking branch. 
@@ -102,10 +98,10 @@ const BankDetails = (props: any) => {
           The launch of VISA Prepaid Card for the travel sector is currently underway.
           </h2>
         </section>
-        <footer className="py-14 text-center space-y-11">
+        <footer className="py-10 text-center space-y-11">
           <h1 className="text-2xl font-semibold">More Details</h1>
-          <section className="space-x-12">
-            <NavButton type={1} text="Check available Loans"/>
+          <section className="space-x-14">
+            <NavButton type={1} text="Check bank Loans"/>
             <NavButton type={2} text="Find nearby Branch"/>
             <NavButton type={3} text="Find nearby ATM"/>
           </section>
