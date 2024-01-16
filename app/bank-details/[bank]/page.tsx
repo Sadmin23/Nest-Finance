@@ -32,7 +32,7 @@ const BankDetails = (props: any) => {
   return (
     <div className='flex-col'>
       <Nav bgOption='white' />
-      <div className="ml-auto mr-40 w-7/12 my-16">
+      <div className="ml-auto mr-40 w-7/12 rounded-md p-10 border-2 bg-white my-16">
         <div className="flex items-start">
           <Image
             src={apiData.image_url}
@@ -77,7 +77,7 @@ const BankDetails = (props: any) => {
             </main>
           </section>
         </div>
-        <section className="mt-10 space-y-6">
+        <section className=" space-y-6">
           <h1 className="text-xl leading-8 font-semibold">About {name}</h1>
           <h2 className="text-justify text-sm leading-6 font-normal">
           City Bank is one of the oldest private Commercial Banks operating in Bangladesh. 

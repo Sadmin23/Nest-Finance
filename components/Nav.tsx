@@ -4,6 +4,8 @@ import NavDropdown from './Icons/NavDropdown';
 import 'typeface-poppins';
 import NFLogoSmall from './SVG/NFLogoSmall';
 import { useState } from 'react';
+import BankDropdown from './BankDropdown';
+import LoanDropdown from './LoanDropdown';
 
 const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
 
@@ -15,14 +17,24 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
   else
     bg = 'bg-[#53389E]'
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isBankOpen, setIsBankOpen] = useState(false);
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
+    const toggleDropdownBank = () => {
+        setIsBankOpen(!isBankOpen);
     };
 
-    const closeDropdown = () => {
-        setIsOpen(false);
+    const closeDropdownBank = () => {
+        setIsBankOpen(false);
+    };
+
+    const [isLoanOpen, setIsLoanOpen] = useState(false);
+
+    const toggleDropdownLoan = () => {
+        setIsLoanOpen(!isBankOpen);
+    };
+
+    const closeDropdownLoan = () => {
+        setIsLoanOpen(false);
     };
 
     const underline = 
@@ -40,33 +52,12 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           Home
           {underline}  
         </Link>
-        <section className='relative flex space-x-2 items-center inline-block group' onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
+        <section className='relative flex space-x-2 items-center inline-block group' onMouseEnter={toggleDropdownBank} onMouseLeave={closeDropdownBank}>
           <Link href="/banks">Banks
           {underline}
           </Link>
           <NavDropdown/>
-          {isOpen && (
-              <div className="absolute -left-4 mt-[416px] rounded-xl w-72 h-80 shadow-2xl bg-white z-10">
-                <ul>
-                  <li>
-                    <a
-                      href="/banks/public-bank"
-                      className="block pl-6 pr-8 pt-5 pb-3  text-[#53389E] hover:bg-[#F0EBFF] hover:rounded-t-xl"
-                    >
-                      Public Bank
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/banks/private-bank"
-                      className="block pl-6 pr-8 pb-5 pt-3  text-[#53389E] hover:bg-[#F0EBFF] hover:rounded-b-xl"
-                    >
-                      Private Bank
-                    </a>
-                  </li>
-                </ul>
-              </div>
-          )}
+          {isBankOpen && <BankDropdown/>}
         </section>
         <Link href="/branch-list" className='my-auto inline-block relative group'>
           Branch
@@ -76,10 +67,11 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           ATMs
           {underline}
         </Link>
-        <section className='flex space-x-2 my-auto items-center relative inline-block group'>
+        <section className='relative flex space-x-2 items-center inline-block group' onMouseEnter={toggleDropdownLoan} onMouseLeave={closeDropdownLoan}>
           <Link href="/loans">
             Loans
             {underline}
+            {isLoanOpen && <LoanDropdown/>}
           </Link>
           <NavDropdown/>
         </section>
