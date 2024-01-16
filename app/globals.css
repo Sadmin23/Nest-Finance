@@ -18,3 +18,8 @@ div:empty:before {
   /* font-weight: 600; */
   line-height: 24px;
 }
+
+.list{
+  list-style-type: disc; /* Use 'disc' for filled circles or 'circle' for empty circles */
+  margin-left: 20px; /* Adjust margin as needed */
+}
