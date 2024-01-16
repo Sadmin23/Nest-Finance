@@ -143,12 +143,12 @@ const LoanList = (): JSX.Element => {
     setSliderValues2(values);
   };
 
-  // useEffect(() => {
-  //   console.log(banks);
-  //   console.log(loans);
-  //   console.log(durations);
+  useEffect(() => {
+    console.log(banks);
+    console.log(loans);
+    console.log(durations);
     
-  // }, [banks, loans, durations]);  
+  }, [banks, loans, durations]);  
 
   return (
     <div className="mx-40 my-20 flex">

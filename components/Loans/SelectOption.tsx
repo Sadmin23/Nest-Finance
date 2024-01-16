@@ -72,11 +72,11 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
     }
   };  
 
-  useEffect(() => {
-    console.log(selectedBanks);  
-  }, [selectedBanks]);
+  // useEffect(() => {
+  //   console.log(selectedBanks);  
+  // }, [selectedBanks]);
 
-  let num = selectedBanks.length - 3
+  let num = selectedBanks.length - 2
 
   return (
     <div className='bg-white rounded-md border border-[#d4d4d4]'>
@@ -102,11 +102,11 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
               (
                 <div className="flex px-10 border-t border-[#DFDFDF] py-3">
                 {selectedBanks.map((bank, index)=>
-                  (index <= 2)?
-                    <FilterTag key={index} type={1} text={findShortName(bank)}/> : ''
+                  (index <= 1)?
+                    <FilterTag key={index} type={1} text={findShortName(bank)} handleChange={handleChange} handleCheckbox={handleCheckbox}/> : ''
                 )}
                 {
-                  (selectedBanks.length > 3)? <FilterTag type={2} text={`+${num} others`}/> : ''}
+                  (selectedBanks.length > 2)? <FilterTag type={2} text={`+${num} others`} handleChange={handleChange} handleCheckbox={handleCheckbox}/> : ''}
                 </div>
               ) : ''
             } 
