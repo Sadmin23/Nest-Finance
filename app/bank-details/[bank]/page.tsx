@@ -1,5 +1,6 @@
 'use client'
 
+import NavButton from "@/components/Buttons/NavButton";
 import Nav from "@/components/Nav";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -49,7 +50,7 @@ const BankDetails = (props: any) => {
               </span>
               <span className="flex space-x-2">
                 <h2 className="font-semibold">Category:</h2>
-                <h2>{category}/{type}</h2>
+                <h2>{category} | {type}</h2>
               </span>
               <span className="flex space-x-2">
                 <h2 className="font-semibold">Origin:</h2>
@@ -63,10 +64,14 @@ const BankDetails = (props: any) => {
                 <h2 className="font-semibold">Website:</h2>
                 <h2>{apiData.website}</h2>
               </span>
-              <span className="flex space-x-2">
-                <h2 className="font-semibold">Email:</h2>
-                <h2>{apiData.email}</h2>
-              </span>
+              {
+                (apiData.email!==null) ?(
+                  <span className="flex space-x-2">
+                    <h2 className="font-semibold">Email:</h2>
+                    <h2>{apiData.email}</h2>
+                </span>
+                ) : ''
+              }
             </main>
           </section>
         </div>
@@ -97,6 +102,14 @@ const BankDetails = (props: any) => {
           The launch of VISA Prepaid Card for the travel sector is currently underway.
           </h2>
         </section>
+        <footer className="py-14 text-center space-y-11">
+          <h1 className="text-2xl font-semibold">More Details</h1>
+          <section className="space-x-12">
+            <NavButton type={1} text="Check available Loans"/>
+            <NavButton type={2} text="Find nearby Branch"/>
+            <NavButton type={3} text="Find nearby ATM"/>
+          </section>
+        </footer>
       </div>
     </div>
   );

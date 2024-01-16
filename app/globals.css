@@ -22,4 +22,6 @@ div:empty:before {
 .list{
   list-style-type: disc; /* Use 'disc' for filled circles or 'circle' for empty circles */
   margin-left: 20px; /* Adjust margin as needed */
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
