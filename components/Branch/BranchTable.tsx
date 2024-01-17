@@ -17,23 +17,20 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
     const [searchValue, setSearchValue] = useState('');
-    const [filteredItems, setFilteredItems] = useState<any[]>([]);  
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
     const [selectedBank, setSelectedBank] = useState<string | null>(result)
 
+    //define type for function
     type PageRange = {
         firstEntry: number;
         lastEntry: number;
       };
       
-    const calculatePageRange = (
-      totalEntries: number,
-      pageSize: number,
-      pageNumber: number
-    ): PageRange => {
+    //define function for calculating first and last entry
+    const calculatePageRange = ( totalEntries: number, pageSize: number, pageNumber: number): PageRange => {
       if (totalEntries === 0) {
         return { firstEntry: 0, lastEntry: 0 };
       } else {
@@ -44,16 +41,12 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     };
       
     useEffect(() => {
-      let apiUrl = 'http://127.0.0.1:8000/bankapi/branch/';
-    
-      if (selectedDistrict && selectedBank) {
-        apiUrl += `?district=${selectedDistrict}&slug=${selectedBank}`;
-      } else if (selectedDistrict) {
-        apiUrl += `?district=${selectedDistrict}`;
-      } else if (selectedBank) {
-        apiUrl += `?slug=${selectedBank}`;
-      }
-    
+      let apiUrl = `http://127.0.0.1:8000/bankapi/branch/?district=${selectedDistrict}&slug=${selectedBank}`;
+        
+      if (searchValue.length>=3)
+        apiUrl += `&search=${searchValue}`
+
+
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -61,18 +54,9 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
           setError(false);
         })
         .catch(() => setError(true));
-    }, [selectedDistrict, selectedBank]);
+    }, [selectedDistrict, selectedBank, searchValue]);
 
-    useEffect(() => {
-      const filtered = apiData.filter((item) =>
-      item.name.toLowerCase().includes(searchValue.toLowerCase())
-      );
-      setFilteredItems(filtered);
-
-      setCurrentPage(1);
-    }, [searchValue, apiData]);
-
-    const itemsToDisplay = searchValue ? filteredItems : apiData;
+    const itemsToDisplay = apiData;
     const lastIndex = currentPage * rowsnum;
     const firstIndex = lastIndex - rowsnum;
     const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
@@ -123,10 +107,10 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     }
 
     const handleDistrictChange = (selectedOption: Option | null) => {
-      selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict(null)
+      selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict("")
     }
     const handleBankChange = (selectedOption: Option | null) => {
-      selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank(null)
+      selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank("")
     };
     
     let defaultBank = {value: result, label: result}
