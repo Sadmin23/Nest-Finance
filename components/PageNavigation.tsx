@@ -54,8 +54,6 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
 
   const firstPageIndex = 1;
 
-
-  
   const lastPageIndex = size ? size : 1;
 
   if (!shouldShowLeftDots && shouldShowRightDots) {

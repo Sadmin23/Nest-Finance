@@ -41,7 +41,7 @@ const District = [
     "Bandarban",
     "Brahmanbaria",
     "Chandpur",
-    "Chittagong",
+    "Chattogram",
     "Comilla",
     "Cox's Bazar",
     "Feni",
@@ -318,6 +318,23 @@ export const findShortName = (name : string) => {
 export const findLongName = (name : string) => {
     const foundOption = ShortName.find(option => option.id === name);
     return foundOption ? foundOption.name : '';
+};
+
+//define type for function
+type PageRange = {
+    firstEntry: number;
+    lastEntry: number;
+  };
+  
+//define function for calculating first and last entry
+export const calculatePageRange = ( totalEntries: number, pageSize: number, pageNumber: number): PageRange => {
+  if (totalEntries === 0) {
+    return { firstEntry: 0, lastEntry: 0 };
+  } else {
+    const firstEntry = (pageNumber - 1) * pageSize + 1;
+    const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
+    return { firstEntry, lastEntry };
+  }
 };
 
 /*

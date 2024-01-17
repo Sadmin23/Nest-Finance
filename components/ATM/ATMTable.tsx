@@ -1,13 +1,11 @@
 'use client';
 
 import ATMComponent from './ATMComponent';
-import Up from '../Icons/Up';
-import Down from '../Icons/Down';
 import { useEffect, useRef, useState } from 'react';
 import PageNavigation from '../PageNavigation';
 import SearchIcon from '../Icons/SearchIcon';
 import SearchDropdown from '../SearchDropdown';
-import { BankData, DistrictData, Filter, NumOption, Option, findNameById } from '@/app/data';
+import { BankData, DistrictData, Filter, NumOption, Option, calculatePageRange, findNameById } from '@/app/data';
 import { findIdByName } from '../../app/data';
 import ATMHero from './ATMHero';
 import TableSkeleton from '../TableSkeleton';
@@ -19,82 +17,43 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
     const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
-    const [searchValue, setSearchValue] = useState('');
-    const [filteredItems, setFilteredItems] = useState<any[]>([]);  
+    const [entryCount, setEntryCount] = useState(0);
+    const [searchValue, setSearchValue] = useState('');  
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
     const [selectedBank, setSelectedBank] = useState<string | null>(result)
 
-    type PageRange = {
-        firstEntry: number;
-        lastEntry: number;
-      };
-      
-    const calculatePageRange = (
-      totalEntries: number,
-      pageSize: number,
-      pageNumber: number
-    ): PageRange => {
-      if (totalEntries === 0) {
-        return { firstEntry: 0, lastEntry: 0 };
-      } else {
-        const firstEntry = (pageNumber - 1) * pageSize + 1;
-        const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
-        return { firstEntry, lastEntry };
-      }
-    };
-      
-
     useEffect(() => {
-      let apiUrl = 'http://127.0.0.1:8000/bankapi/atm/';
-    
-      if (selectedDistrict && selectedBank) {
-        apiUrl += `?district=${selectedDistrict}&bank_id=${findIdByName(selectedBank)}`;
-      } else if (selectedDistrict) {
-        apiUrl += `?district=${selectedDistrict}`;
-      } else if (selectedBank) {
-        apiUrl += `?bank_id=${findIdByName(selectedBank)}`;
-      }
-    
+      let apiUrl = `http://127.0.0.1:8000/bankapi/atm/?district=${selectedDistrict}&bank_id=${findIdByName(selectedBank)}&pagesize=${rowsnum}&pagenumber=${currentPage}`;
+        
+      if (searchValue.length>=3)
+        apiUrl += `&search=${searchValue}`
+
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
           setApiData(data.results);
-
-          // console.log(data.result);
-          
-
+          setEntryCount(data.count)
           setError(false);
         })
         .catch(() => setError(true));
-    }, [selectedDistrict, selectedBank]);
+    }, [selectedDistrict, selectedBank, searchValue, rowsnum, currentPage]);
 
-    useEffect(() => {
-      const filtered = apiData.filter((item) =>
-      item.name.toLowerCase().includes(searchValue.toLowerCase())
-      );
-      setFilteredItems(filtered);
-      setCurrentPage(1);
-    }, [searchValue, apiData]);
-
-    const itemsToDisplay = searchValue ? filteredItems : apiData;
-    const lastIndex = currentPage * rowsnum;
-    const firstIndex = lastIndex - rowsnum;
-    const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
-    const size = itemsToDisplay.length
+    const lastIndex = lf[1];
+    const firstIndex = lf[0];
     const pageNav = useRef(null)
 
     useEffect(() => {
-        const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+        const { firstEntry, lastEntry } = calculatePageRange(entryCount, rowsnum, currentPage);
         setLF([firstEntry, lastEntry]);
         pageNav.current = (
           <PageNavigation
             l={firstEntry} 
             f={lastEntry} 
             curPage={currentPage}
-            dataSize={size}
+            dataSize={entryCount}
             entrySize={rowsnum}
             type={1}
             handleNextPage={handleNextPage}
@@ -102,14 +61,15 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
             changePage={changePage}
           />
         );
-      }, [size, rowsnum, currentPage]);
+      }, [entryCount, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
+        setCurrentPage(1)
       };
     
     const handleNextPage = () => {
-      if (lastIndex < size) {
+      if (lastIndex < entryCount) {
         setCurrentPage(currentPage + 1);
       }
     };
@@ -122,28 +82,27 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
     const handleRowsNumChange = (selectedOption:NumOption | null) => {
       selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
+      // selectedOption ? setCurrentPage(Math.ceil(lastIndex/selectedOption?.value)) : ''
+      setCurrentPage(1)
     };
 
     const changePage = (n: number) => {
-        if (n*rowsnum <= size + rowsnum)
+        if (n*rowsnum <= entryCount + rowsnum)
             setCurrentPage(n)
     }
 
     const handleDistrictChange = (selectedOption: Option | null) => {
-      selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict(null)
+      selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict("")
+      setCurrentPage(1)
     }
     const handleBankChange = (selectedOption: any) => {
       console.log(selectedOption);
-      selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank(null)
+      selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank("")
+      setCurrentPage(1)
     };
 
     let defaultBank = {value: result, label: result}
     let defaultDistrict = {value: '', label: ''}
-
-    let x, y
-
-    x = lf[0]
-    y = lf[1] 
 
   return (
         <div className="flex-col">
@@ -210,10 +169,10 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                 <TableSkeleton type={0}/>
                 : 
                 (
-                    currentItems.map((branch, index) => (
+                    apiData.map((branch, index) => (
                         <ATMComponent 
                         key={index} 
-                        index={index} 
+                        index={firstIndex+index} 
                         ATM_Name={branch.name} 
                         District={branch.district}
                         Address={branch.address_line} 

@@ -32,7 +32,7 @@ interface BranchDataProps {
         bg="bg-white"
     
 
-    let condition = (Last_Entry === index + 1)
+    let condition = (Last_Entry === index)
 
   return (
         <main className={`flex ${bg} leading-[18px] ${condition ? 'rounded-b-xl border-b' : ''}`}>

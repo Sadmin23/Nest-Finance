@@ -5,7 +5,7 @@ import BranchComponent from './BranchComponent';
 import PageNavigation from '../PageNavigation';
 import SearchIcon from '../Icons/SearchIcon';
 import SearchDropdown from '../SearchDropdown';
-import { BankData, DistrictData, Filter, NumOption, Option } from '@/app/data';
+import { BankData, DistrictData, Filter, NumOption, Option, calculatePageRange } from '@/app/data';
 import BranchHero from './BranchHero';
 import TableSkeleton from '../TableSkeleton';
 import Select from 'react-select'
@@ -21,32 +21,14 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedDistrict, setSelectedDistrict] = useState<string | null>("")
-    const [selectedBank, setSelectedBank] = useState<string | null>(result)
-
-    //define type for function
-    type PageRange = {
-        firstEntry: number;
-        lastEntry: number;
-      };
-      
-    //define function for calculating first and last entry
-    const calculatePageRange = ( totalEntries: number, pageSize: number, pageNumber: number): PageRange => {
-      if (totalEntries === 0) {
-        return { firstEntry: 0, lastEntry: 0 };
-      } else {
-        const firstEntry = (pageNumber - 1) * pageSize + 1;
-        const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
-        return { firstEntry, lastEntry };
-      }
-    };
+    const [selectedDistrict, setSelectedDistrict] = useState<string>("")
+    const [selectedBank, setSelectedBank] = useState<string>(result)
       
     useEffect(() => {
       let apiUrl = `http://127.0.0.1:8000/bankapi/branch/?district=${selectedDistrict}&slug=${selectedBank}&pagesize=${rowsnum}&pagenumber=${currentPage}`;
         
       if (searchValue.length>=3)
         apiUrl += `&search=${searchValue}`
-
 
       fetch(apiUrl)
         .then((response) => response.json())
@@ -58,10 +40,8 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
         .catch(() => setError(true));
     }, [selectedDistrict, selectedBank, searchValue, rowsnum, currentPage]);
 
-    const itemsToDisplay = apiData;
-    const lastIndex = currentPage * rowsnum;
-    const firstIndex = lastIndex - rowsnum;
-    const currentItems = itemsToDisplay;
+    const lastIndex = lf[1];
+    const firstIndex = lf[0];
     const pageNav = useRef(null)
 
     useEffect(() => {
@@ -84,6 +64,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
+        setCurrentPage(1)
       };
 
     const handleNextPage = () => {
@@ -100,6 +81,8 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
 
     const handleRowsNumChange = (selectedOption:NumOption | null) => {
       selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
+      setCurrentPage(1)
+      // selectedOption ? setCurrentPage(Math.ceil(lastIndex/selectedOption.value)) : ''
     };
 
     const changePage = (n: number) => {
@@ -109,18 +92,15 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
 
     const handleDistrictChange = (selectedOption: Option | null) => {
       selectedOption ? setSelectedDistrict(selectedOption.value) : setSelectedDistrict("")
+      setCurrentPage(1)
     }
     const handleBankChange = (selectedOption: Option | null) => {
       selectedOption ? setSelectedBank(selectedOption.value) : setSelectedBank("")
+      setCurrentPage(1)
     };
     
     let defaultBank = {value: result, label: result}
-    let defaultDistrict = {value: '', label: ''}
-
-    let x, y
-
-    x = lf[0]
-    y = lf[1] 
+    let defaultDistrict = {value: '', label: ''} 
 
     return (
       <div className="flex-col">
@@ -163,7 +143,6 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                   />
                   <h1 className='leading-5 py-1'>entries</h1>
               </div>
-
             </div>
         </section>
         <section className='flex-col mx-40 rounded-xl'>
@@ -194,7 +173,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                 <TableSkeleton type={1}/>
                 : 
                 (
-                    currentItems.map((branch, index) => (
+                    apiData.map((branch, index) => (
                         <BranchComponent
                         key={index} 
                         index={firstIndex+index}
