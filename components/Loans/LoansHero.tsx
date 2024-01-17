@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import CalculatorInput from "./CalculatorInput";
-import PieChart from "./PieChart";
 import PieChart3D from "./PieChart3D";
 
 const LoansHero = (): JSX.Element => {
@@ -17,7 +16,6 @@ const LoansHero = (): JSX.Element => {
 
 
   const changeDurationType = (value: number) => {
-    console.log(durationType);
     setDurationType(value);
   };
 
@@ -46,12 +44,14 @@ const LoansHero = (): JSX.Element => {
   }
 
   useEffect(() => {
-    console.log("Loan Amount: "+loanAmount+"\n"+"Loan Duration: "+loanDuration+"\n"+"Rate of Interest: "+rateOfInterest+"\n");
+
+    let constant = (durationType === 4 ) ? 12 : 1;
+
     const monthlyInterestRate = rateOfInterest / 12 / 100;
-    const denominator = Math.pow(1 + monthlyInterestRate, loanDuration) - 1;
-    const emi = loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanDuration) / denominator;
+    const denominator = Math.pow(1 + monthlyInterestRate, loanDuration*constant) - 1;
+    const emi = loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanDuration*constant) / denominator;
     setMonthlyEMI(roundToNearest500(emi))
-    const totalPayments = emi * loanDuration;
+    const totalPayments = emi * loanDuration*constant;
     const totalInterest = totalPayments - loanAmount;
     setTotalInterest(roundToNearest500(totalInterest))
     const totalPayable = loanAmount + totalInterest;

@@ -1,5 +1,5 @@
 import Slider from 'rc-slider';
-import React, { useState } from 'react';
+import React from 'react';
 import 'rc-slider/assets/index.css';
 
 type InputSliderProps = {
@@ -25,7 +25,7 @@ const InputSlider: React.FC<InputSliderProps> = ({ type, value, onChange }) => {
     step = 6
 
   } else if (type === 4){
-    max = 5
+    max = 10
     step = 1
 
   }
