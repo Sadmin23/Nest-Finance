@@ -16,6 +16,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
 
     const [lf, setLF] = useState([0,0]);
     const [rowsnum, setRowsnum] = useState(5);
+    const [entryCount, setEntryCount] = useState(0);
     const [searchValue, setSearchValue] = useState('');
     const [error, setError] = useState(true)
     const [apiData, setApiData] = useState<any[]>([])
@@ -41,7 +42,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     };
       
     useEffect(() => {
-      let apiUrl = `http://127.0.0.1:8000/bankapi/branch/?district=${selectedDistrict}&slug=${selectedBank}`;
+      let apiUrl = `http://127.0.0.1:8000/bankapi/branch/?district=${selectedDistrict}&slug=${selectedBank}&pagesize=${rowsnum}&pagenumber=${currentPage}`;
         
       if (searchValue.length>=3)
         apiUrl += `&search=${searchValue}`
@@ -51,27 +52,27 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
         .then((response) => response.json())
         .then((data) => {
           setApiData(data.results);
+          setEntryCount(data.count)
           setError(false);
         })
         .catch(() => setError(true));
-    }, [selectedDistrict, selectedBank, searchValue]);
+    }, [selectedDistrict, selectedBank, searchValue, rowsnum, currentPage]);
 
     const itemsToDisplay = apiData;
     const lastIndex = currentPage * rowsnum;
     const firstIndex = lastIndex - rowsnum;
-    const currentItems = itemsToDisplay.slice(firstIndex, lastIndex);
-    const size = itemsToDisplay.length
+    const currentItems = itemsToDisplay;
     const pageNav = useRef(null)
 
     useEffect(() => {
-      const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+      const { firstEntry, lastEntry } = calculatePageRange(entryCount, rowsnum, currentPage);
       setLF([firstEntry, lastEntry]);
       pageNav.current = (
         <PageNavigation 
           l={firstEntry} 
           f={lastEntry} 
           curPage={currentPage}
-          dataSize={size}
+          dataSize={entryCount}
           entrySize={rowsnum}
           type={1}
           handleNextPage={handleNextPage}
@@ -79,14 +80,14 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
           changePage={changePage}
         />
       );
-    }, [size, rowsnum, currentPage]);
+    }, [entryCount, rowsnum, currentPage]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
       };
 
     const handleNextPage = () => {
-      if (lastIndex < size) {
+      if (lastIndex < entryCount) {
         setCurrentPage(currentPage + 1);
       }
     };
@@ -102,7 +103,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     };
 
     const changePage = (n: number) => {
-        if (n*rowsnum <= size + rowsnum)
+        if (n*rowsnum <= entryCount + rowsnum)
             setCurrentPage(n)
     }
 
