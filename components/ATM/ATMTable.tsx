@@ -61,7 +61,11 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-          setApiData(data);
+          setApiData(data.results);
+
+          // console.log(data.result);
+          
+
           setError(false);
         })
         .catch(() => setError(true));
@@ -72,7 +76,6 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
       item.name.toLowerCase().includes(searchValue.toLowerCase())
       );
       setFilteredItems(filtered);
-
       setCurrentPage(1);
     }, [searchValue, apiData]);
 

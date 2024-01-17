@@ -11,11 +11,15 @@ const BankDetails = (props: any) => {
   let id = props.params.bank;
 
   useEffect(() => {
-    let apiUrl = 'http://127.0.0.1:8000/bankapi/bank/?id=' + id;
+    let apiUrl = `http://127.0.0.1:8000/bankapi/bank/${id}/`;
+
+    console.log(apiUrl);
+    
+
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setApiData(data[0]); // Assuming the API returns an array with a single object
+        setApiData(data);
       });
   }, []);
 

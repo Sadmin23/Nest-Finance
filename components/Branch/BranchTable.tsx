@@ -57,7 +57,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-          setApiData(data);
+          setApiData(data.results);
           setError(false);
         })
         .catch(() => setError(true));

@@ -43,7 +43,7 @@ interface BranchDataProps {
             <div className="w-44 px-6 text-sm border-r border-[#D3D3D3] flex items-center">
                 {District}
             </div>
-            <div className={` w-44 px-6 text-sm border-r border-[#D3D3D3]  flex items-center ${(condition)? 'rounded-br-xl' : ''}`}>
+            <div className={`w-44 px-6 text-sm border-r border-[#D3D3D3]  flex items-center ${(condition)? 'rounded-br-xl' : ''}`}>
                 Barishal
             </div>         
         </main>
