@@ -3,6 +3,7 @@
 import Image from 'next/image';
 
 interface BranchDataProps {
+    Total_Index : number;
     index: number;
     ATM_Name: string;
     District: string;
@@ -13,21 +14,22 @@ interface BranchDataProps {
   
   const ATMComponent: React.FC<BranchDataProps> = (props) => {
     const {
-      index,
-      ATM_Name,
-      District,
-      Address,
-      Bank_Name,
-      Last_Entry
+        Total_Index,
+        index,
+        ATM_Name,
+        District,
+        Address,
+        Bank_Name,
+        Last_Entry
     } = props;
 
 
     let bg = "bg-[#F0EBFF]"
 
-    if (index % 2 === 0)
+    if (index % 2 === 1)
         bg="bg-white"
     
-    let condition = (Last_Entry === index)
+    let condition = (Last_Entry === Total_Index)
 
   return (
         <main className={`flex ${bg} leading-[18px] ${condition ? 'rounded-b-xl border-b' : ''}`}>

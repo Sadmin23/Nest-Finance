@@ -175,8 +175,9 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                 (
                     apiData.map((branch, index) => (
                         <BranchComponent
-                        key={index} 
-                        index={firstIndex+index}
+                        key={index}
+                        Total_Index={firstIndex+index}
+                        index={index}
                         Branch_Name={branch.name}
                         Bank_Name={branch.slug}
                         District={branch.district}

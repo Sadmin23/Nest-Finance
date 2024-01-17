@@ -172,7 +172,8 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
                     apiData.map((branch, index) => (
                         <ATMComponent 
                         key={index} 
-                        index={firstIndex+index} 
+                        Total_Index={firstIndex+index} 
+                        index={index}
                         ATM_Name={branch.name} 
                         District={branch.district}
                         Address={branch.address_line} 

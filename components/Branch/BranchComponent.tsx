@@ -1,6 +1,7 @@
 'use client';
 
 interface BranchDataProps {
+    Total_Index: number;
     index: number;
     Branch_Name: string;
     Bank_Name: string;
@@ -15,6 +16,7 @@ interface BranchDataProps {
   
   const BranchComponent: React.FC<BranchDataProps> = (props) => {
     const {
+      Total_Index,
       index,
       Branch_Name,
       Bank_Name,
@@ -28,11 +30,11 @@ interface BranchDataProps {
 
     let bg = "bg-[#F0EBFF]"
 
-    if (index % 2 === 0)
+    if (index % 2 === 1)
         bg="bg-white"
     
 
-    let condition = (Last_Entry === index)
+    let condition = (Last_Entry === Total_Index)
 
   return (
         <main className={`flex ${bg} leading-[18px] ${condition ? 'rounded-b-xl border-b' : ''}`}>
