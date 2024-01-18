@@ -7,7 +7,14 @@ import { useState } from 'react';
 import DetailDown from '../Icons/DetailDown';
 import DetailUp from '../Icons/DetailUp';
 
-const LoanRow = (): JSX.Element => {
+interface LoanRowProps {
+  types: string[];
+  title: string;
+  handleChange: (option: string, category: number) => void;
+  checkBox: (bank: string, category: number) => boolean
+}
+
+const LoanRow = ({ Name }: { Name: string }): JSX.Element => {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -18,7 +25,7 @@ const LoanRow = (): JSX.Element => {
   return (
     <div className='w-[764px] rounded-md border-2 border-[#D4D4D4]'>
       <div className="bg-white rounded-md h-[200px] flex py-5">
-          <div className='w-[192px] border-r-2'>
+          <div className='w-[192px] border-r-2 mt-2'>
             <Image
               src="/brand_assets/city.png"
               width={86}
@@ -26,11 +33,7 @@ const LoanRow = (): JSX.Element => {
               alt="brac"
               className='mx-auto'
             />
-            <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center'>City Double Loan</h2>
-            <button className='rounded-md border-2 border-[#CAC1E1] text-[#53389E] bg-white text-xs flex px-4 py-2 font-medium mx-auto mt-6' onClick={handleButtonClick}>
-                Details
-                {isExpanded ? <DetailUp/> : <DetailDown/>}
-            </button>
+            <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center mx-5 mt-2'>{Name}</h2>
           </div>
           <div className='w-[142px] pl-6 border-r-2'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>

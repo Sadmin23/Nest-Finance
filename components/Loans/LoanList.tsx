@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter, NumOption } from "@/app/data";
+import { Filter, NumOption, calculatePageRange } from "@/app/data";
 
 const LoanList = (): JSX.Element => {
 
@@ -36,6 +36,24 @@ const LoanList = (): JSX.Element => {
   const [banks, setBanks] = useState<string[]>([]);
   const [loans, setLoans] = useState<string[]>([]);
   const [durations, setDurations] = useState<string[]>([]);
+  const [apiData, setApiData] = useState<any[]>([])
+  const [entryCount, setEntryCount] = useState(0);
+  const [error, setError] = useState(true)
+
+  useEffect(() => {
+    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}`;
+      
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setApiData(data.results);
+        setEntryCount(data.count)
+        setError(false);
+      })
+      .catch(() => setError(true));
+  }, [rowsnum, currentPage]);
+
 
   const handleChange = (option: string, category: number) => {
     if (category === 1) {
@@ -58,7 +76,7 @@ const LoanList = (): JSX.Element => {
       }
     }
   };
-
+  
   const checkBox = (option: string, category: number): boolean => {
     if (category === 1)
       return banks.includes(option);
@@ -68,39 +86,19 @@ const LoanList = (): JSX.Element => {
       return durations.includes(option)
   };
 
-  type PageRange = {
-    firstEntry: number;
-    lastEntry: number;
-  };
-  
-  const calculatePageRange = (
-    totalEntries: number,
-    pageSize: number,
-    pageNumber: number
-  ): PageRange => {
-    if (totalEntries === 0) {
-      return { firstEntry: 0, lastEntry: 0 };
-    } else {
-      const firstEntry = (pageNumber - 1) * pageSize + 1;
-      const lastEntry = Math.min(pageNumber * pageSize, totalEntries);
-      return { firstEntry, lastEntry };
-    }
-  };
-
-  const lastIndex = currentPage * rowsnum;
-  const firstIndex = lastIndex - rowsnum;
-  const size = 500
+  const lastIndex = lf[1];
+  const firstIndex = lf[0];  
   const pageNav = useRef(null)
 
   useEffect(() => {
-      const { firstEntry, lastEntry } = calculatePageRange(size, rowsnum, currentPage);
+      const { firstEntry, lastEntry } = calculatePageRange(entryCount, rowsnum, currentPage);
       setLF([firstEntry, lastEntry]);
       pageNav.current = (
         <PageNavigation 
           l={firstEntry} 
           f={lastEntry} 
           curPage={currentPage}
-          dataSize={size}
+          dataSize={entryCount}
           entrySize={rowsnum}
           type={2}
           handleNextPage={handleNextPage}
@@ -108,10 +106,10 @@ const LoanList = (): JSX.Element => {
           changePage={changePage}
         />
       );
-    }, [size, rowsnum, currentPage]);
+    }, [entryCount, rowsnum, currentPage]);
 
     const handleNextPage = () => {
-      if (lastIndex < size) {
+      if (lastIndex < entryCount) {
         setCurrentPage(currentPage + 1);
       }
     };
@@ -124,23 +122,21 @@ const LoanList = (): JSX.Element => {
 
     const handleRowsNumChange = (selectedOption:NumOption | null) => {
       selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
+      setCurrentPage(1);
     };
 
     const changePage = (n: number) => {
-        if (n*rowsnum <= size + rowsnum)
+        if (n*rowsnum <= entryCount + rowsnum)
             setCurrentPage(n)
-    }
-
-    let x, y
-
-    x = lf[0]
-    y = lf[1]     
+    }  
 
   const handleSliderChange = (values: [number, number]) => {
     setSliderValues(values);
+    setCurrentPage(1);
   };
   const handleSliderChange2 = (values: [number, number]) => {
     setSliderValues2(values);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
@@ -207,13 +203,17 @@ const LoanList = (): JSX.Element => {
           </div>
         </div>
         <div className="space-y-9">
-            <LoanRow/>
-            <LoanRow/>
-            <LoanRow/>
-            <LoanRow/>
-            <LoanRow/>
-            <LoanRow/>
-            <LoanRow/>
+        {error ? 
+          <div>Loading</div>
+          : 
+          (
+              apiData.map((loan) => (
+                  <LoanRow
+                    key={0}
+                    Name={loan.name}
+                  />
+              ))
+          )} 
         </div>
         <div className="mt-[72px]">
           {pageNav.current}
