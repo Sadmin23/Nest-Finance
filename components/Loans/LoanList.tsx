@@ -210,7 +210,15 @@ const LoanList = (): JSX.Element => {
               apiData.map((loan) => (
                   <LoanRow
                     key={0}
-                    Name={loan.name}
+                    min={loan.loan_min_limit}
+                    max={loan.loan_max_limit}
+                    interest={loan.interest_rate}
+                    grace_period={loan.grace_period}
+                    interest_type={loan.interest_type}
+                    duration={loan.duration}
+                    bank_id={loan.bank_id}
+                    name={loan.name}
+                    type={loan.type}
                   />
               ))
           )} 
