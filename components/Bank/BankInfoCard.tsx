@@ -43,7 +43,9 @@ const BankInfoCard = ({name, url, type, category, origin}:BankInfoCardProps): JS
             <section className='space-y-4 mb-6 mt-4'>
                 <div className='flex space-x-4'>
                     <OptionButton text='Deposits'/>
-                    <OptionButton text='Loans'/>
+                    <Link href={`/loans/${slug}`}>
+                      <OptionButton text='Loans'/>
+                    </Link>
                     <OptionButton text='Cards'/>
                 </div>
                 <div className='flex space-x-4'>

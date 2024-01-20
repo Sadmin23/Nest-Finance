@@ -5,7 +5,7 @@ const LoanDropdown = (): JSX.Element => {
   return (
     <div className="absolute -left-4 top-20 rounded-md w-80 py-2 shadow-2xl bg-white z-10">
     <a
-      href="/banks/public-bank"
+      href="/loans/Home-Loan"
       className="block mx-2 py-4 hover:bg-[#F0EBFF] space-y-2"
     >
       <h2 className='ml-6 text-[#53389E]'>

@@ -65,7 +65,7 @@ const District = [
     "Satkhira"
 ]
 
-const Bank = [
+export const Bank = [
     "AB Bank Limited",
     "Agrani Bank Limited",   
     "Al-Arafah Islami Bank Limited",

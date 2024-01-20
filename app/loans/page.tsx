@@ -10,7 +10,7 @@ const Loans = () => {
     <div className='flex-col'>
         <Nav bgOption='white'/>
         <LoansHero/>
-        <LoanList/>
+        <LoanList searchedBank='' searchedLoan=''/>
     </div>
   );
 };

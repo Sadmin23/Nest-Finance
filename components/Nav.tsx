@@ -71,8 +71,8 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Link href="/loans">
             Loans
             {underline}
-            {isLoanOpen && <LoanDropdown/>}
           </Link>
+            {isLoanOpen && <LoanDropdown/>}
           <NavDropdown/>
         </section>
         <section className='flex space-x-2 my-auto items-center inline-block relative group'>

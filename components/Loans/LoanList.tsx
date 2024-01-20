@@ -9,7 +9,7 @@ import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
 import { Filter, NumOption, calculatePageRange, findIdByName } from "@/app/data";
 
-const LoanList = (): JSX.Element => {
+const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, searchedLoan: string}): JSX.Element => {
 
   const loanArray = ["Home Loan", 
                     "Car Loan", 
@@ -33,8 +33,8 @@ const LoanList = (): JSX.Element => {
   const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [banks, setBanks] = useState<string[]>([]);
-  const [loans, setLoans] = useState<string[]>([]);
+  const [banks, setBanks] = useState<string[]>([searchedBank]);
+  const [loans, setLoans] = useState<string[]>([searchedLoan]);
   const [durations, setDurations] = useState<string[]>([]);
   const [apiData, setApiData] = useState<any[]>([])
   const [entryCount, setEntryCount] = useState(0);
