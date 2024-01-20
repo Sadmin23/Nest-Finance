@@ -43,6 +43,15 @@ const PieChart3D: React.FC<PieChart3DProps> = ({ principal, interest }) => {
 
     series.slices.template.isActive = (slice) => slice.dataItem?.dataContext.type === 'Total Interest';
 
+// This creates initial animation
+    series.hiddenState.properties.opacity = 1;
+    series.hiddenState.properties.endAngle = -90;
+    series.hiddenState.properties.startAngle = -90;
+
+    var slice = series.slices.template;
+    slice.states.getKey("hover").properties.scale = 1;
+    slice.states.getKey("active").properties.shiftRadius = 0;
+
     return () => {
       chart.dispose();
     };

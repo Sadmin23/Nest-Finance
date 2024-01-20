@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter, NumOption, calculatePageRange, findIdByName, findNameById } from "@/app/data";
+import { Filter, NumOption, calculatePageRange, findIdByName } from "@/app/data";
 
 const LoanList = (): JSX.Element => {
 
@@ -43,6 +43,9 @@ const LoanList = (): JSX.Element => {
   useEffect(() => {
     let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}&bank_id=${findIdByName(banks[0])}`;
       
+    if (loans[0]!=null)
+      apiUrl += `&type=${loans[0]}`
+
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -52,7 +55,7 @@ const LoanList = (): JSX.Element => {
         setError(false);
       })
       .catch(() => setError(true));
-  }, [rowsnum, currentPage, banks]);
+  }, [rowsnum, currentPage, banks, loans]);
 
 
   const handleChange = (option: string, category: number) => {
@@ -184,7 +187,8 @@ const LoanList = (): JSX.Element => {
                 ...baseStyles,
                 borderColor: '#53389E', borderRadius: 12, borderWidth: 1,
                 color: '#B3B3B3', marginLeft: 16, marginRight: 16,
-                width: 84, height: 28, textAlign: 'center', borderTopRightRadius : 2
+                width: 72, height: 28, textAlign: 'center', fontSize: 14,
+                borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6
               }),
             }}
             defaultValue={Filter[0]}
