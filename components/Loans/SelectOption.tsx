@@ -11,10 +11,11 @@ interface SelectOptionProps {
   types: string[];
   title: string;
   handleChange: (option: string, category: number) => void;
-  checkBox: (bank: string, category: number) => boolean
+  checkBox: (bank: string, category: number) => boolean;
+  bank: string;
 }
 
-const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProps): JSX.Element => {
+const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOptionProps): JSX.Element => {
 
   let isBank = false
   let group = 0;
@@ -32,7 +33,7 @@ const SelectOption = ({ types, title, handleChange, checkBox }: SelectOptionProp
   const [filteredData, setFilteredData] = useState<string[]>(types);
   const [searchValue, setSearchValue] = useState('');
   const [error, setError] = useState(true)
-  const [selectedBanks, setSelectedBanks] = useState<string[]>([])
+  const [selectedBanks, setSelectedBanks] = useState<string[]>([bank])
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/bankapi/bank/')

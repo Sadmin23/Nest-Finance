@@ -152,8 +152,8 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   return (
     <div className="mx-40 my-20 flex">
       <div className="w-96 flex-col space-y-6">
-        <SelectOption title="Select your bank" types={bankArray} handleChange={handleChange} checkBox={checkBox}/>
-        <SelectOption title="Select Loan type" types={loanArray} handleChange={handleChange} checkBox={checkBox}/>
+        <SelectOption title="Select your bank" types={bankArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
+        <SelectOption title="Select Loan type" types={loanArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
         <SliderComponent
           title="Loan Amount"
           min={0}
@@ -161,7 +161,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           value={sliderValues}
           onChange={handleSliderChange}
         />
-        <SelectOption title="Loan Duration" types={durationArray} handleChange={handleChange} checkBox={checkBox}/>
+        <SelectOption title="Loan Duration" types={durationArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
         <SliderComponent
           title="Rate of interest (ROI)"
           min={0}
