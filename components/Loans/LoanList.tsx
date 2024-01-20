@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter, NumOption, calculatePageRange } from "@/app/data";
+import { Filter, NumOption, calculatePageRange, findIdByName, findNameById } from "@/app/data";
 
 const LoanList = (): JSX.Element => {
 
@@ -41,7 +41,7 @@ const LoanList = (): JSX.Element => {
   const [error, setError] = useState(true)
 
   useEffect(() => {
-    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}`;
+    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}&bank_id=${findIdByName(banks[0])}`;
       
 
     fetch(apiUrl)
@@ -52,7 +52,7 @@ const LoanList = (): JSX.Element => {
         setError(false);
       })
       .catch(() => setError(true));
-  }, [rowsnum, currentPage]);
+  }, [rowsnum, currentPage, banks]);
 
 
   const handleChange = (option: string, category: number) => {
@@ -182,20 +182,15 @@ const LoanList = (): JSX.Element => {
             styles={{
               control: (baseStyles) => ({
                 ...baseStyles,
-                borderColor: '#53389E',
-                borderRadius: 12,
-                borderWidth: 1,
-                color: '#B3B3B3',
-                marginLeft: 16,
-                marginRight: 16,
-                width: 84,
-                height: 28,
-                textAlign: 'center',
+                borderColor: '#53389E', borderRadius: 12, borderWidth: 1,
+                color: '#B3B3B3', marginLeft: 16, marginRight: 16,
+                width: 84, height: 28, textAlign: 'center', borderTopRightRadius : 2
               }),
             }}
             defaultValue={Filter[0]}
-            // isDisabled={error ? true : false}
+            isDisabled={error ? true : false}
             onChange={handleRowsNumChange}
+            isSearchable={false}
             options={Filter}
           />
           <div contentEditable={true} className="flex border-[0.5px] text-center text-sm leading-5 border-[#B3B3B3] rounded-md  text-[#B3B3B3] px-4 py-2 items-center">

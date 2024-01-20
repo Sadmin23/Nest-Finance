@@ -35,7 +35,7 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
       .then((data) => {
         setImageUrl(data.image_url);
       });
-  }, []);
+  }, [bank_id]);
 
   const handleButtonClick = () => {
     setIsExpanded(!isExpanded);
@@ -47,7 +47,7 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
   return (
     <div className='w-[764px] rounded-md border-2 border-[#D4D4D4]'>
       <div className="bg-white rounded-md h-[200px] flex py-5">
-          <div className='w-[192px] border-r-2 mt-1 items-end'>
+          <div className='w-[192px] border-r-2 flex flex-col'>
             <Image
               src={imageUrl}
               width={160}
@@ -55,7 +55,7 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
               alt="brac"
               className='mx-auto'
             />
-            <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center mx-3 mt-2'>{name}</h2>
+            <h2 className='text-[#1A1A1A] text-[18px] font-semibold text-center mx-3 mt-auto mb-2'>{name}</h2>
           </div>
           <div className='w-[142px] pl-6 border-r-2'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>

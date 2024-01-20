@@ -62,7 +62,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
 
     pages = [...leftRange, -1, size];
   }
-  if (shouldShowLeftDots && !shouldShowRightDots) {
+  else if (shouldShowLeftDots && !shouldShowRightDots) {
     let rightItemCount = 2 + 2 * siblingCount;
     let rightRange = range(
       size - rightItemCount + 1,
@@ -70,7 +70,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
     );
     pages = [firstPageIndex, -1, ...rightRange];
   }
-  if (shouldShowLeftDots && shouldShowRightDots) {
+  else if (shouldShowLeftDots && shouldShowRightDots) {
     let middleRange = range(leftSiblingIndex, rightSiblingIndex);
     pages = [firstPageIndex, -1, ...middleRange, -1, lastPageIndex];
   }     
