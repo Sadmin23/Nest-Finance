@@ -41,10 +41,15 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [error, setError] = useState(true)
 
   useEffect(() => {
-    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}&bank_id=${findIdByName(banks[0])}`;
+
+    const lastBank : string = findIdByName(banks[banks.length - 1]);
+
+    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}&bank_id=${lastBank}`;
       
-    if (loans[0]!=null)
-      apiUrl += `&type=${loans[0]}`
+    if (loans[0]!=null){
+      const lastLoan : string = loans[loans.length - 1];
+      apiUrl += `&type=${lastLoan}`;
+    }
 
 
     fetch(apiUrl)
@@ -157,7 +162,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         <SliderComponent
           title="Loan Amount"
           min={0}
-          max={20000}
+          max={25000}
           value={sliderValues}
           onChange={handleSliderChange}
         />

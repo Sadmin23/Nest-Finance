@@ -36,6 +36,8 @@ const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOpti
   const [selectedBanks, setSelectedBanks] = useState<string[]>([bank])
 
   useEffect(() => {
+    const filteredBanks = selectedBanks.filter(bank => bank !== '');
+    setSelectedBanks(filteredBanks)
     fetch('http://127.0.0.1:8000/bankapi/bank/')
       .then((response) => response.json())
       .then((data: Array<{ name: string }>) => {
@@ -71,11 +73,7 @@ const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOpti
     } else {
       setSelectedBanks([...selectedBanks, option]);
     }
-  };  
-
-  // useEffect(() => {
-  //   console.log(selectedBanks);  
-  // }, [selectedBanks]);
+  };
 
   let num = selectedBanks.length - 2
 
