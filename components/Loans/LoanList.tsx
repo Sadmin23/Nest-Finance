@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter, NumOption, calculatePageRange, findIdByName } from "@/app/data";
+import { Filter, NumOption, calculatePageRange, findIdByName, findNameById } from "@/app/data";
 
 const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, searchedLoan: string}): JSX.Element => {
 
@@ -34,27 +34,33 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [banks, setBanks] = useState<string[]>([searchedBank]);
-  const [loans, setLoans] = useState<string[]>([searchedLoan]);
+  const [banks, setBanks] = useState<string[]>([]);
+  const [loans, setLoans] = useState<string[]>([]);
   const [durations, setDurations] = useState<string[]>([]);
   const [apiData, setApiData] = useState<any[]>([])
   const [entryCount, setEntryCount] = useState(0);
   const [error, setError] = useState(true)
 
   useEffect(() => {
-
-    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/`;
-      
+    let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/';
+    
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setApiData(data);
-        setEntryCount(323)
+        let filteredData = data;
+
+        if (loans.length !== 0)
+          filteredData = filteredData.filter(item => loans.includes(item.type))
+
+        if (banks.length !== 0)
+          filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))
+
+        setApiData(filteredData);
+        setEntryCount(filteredData.length); // Update entry count based on filtered data
         setError(false);
       })
       .catch(() => setError(true));
-  }, []);
-
+  }, [loans, banks]);  
 
   const handleChange = (option: string, category: number) => {
     if (category === 1) {
