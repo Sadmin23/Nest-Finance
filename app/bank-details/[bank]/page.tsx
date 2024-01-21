@@ -36,7 +36,7 @@ const BankDetails = (props: any) => {
   return (
     <div className='flex-col'>
       <Nav bgOption='white' />
-      <div className=" mx-40 p-10  my-16">
+      <div className="w-7/12 mr-auto ml-40 p-10 bg-white rounded-md my-16">
         <div className="flex items-start">
           <Image
             src={apiData.image_url}

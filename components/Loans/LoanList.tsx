@@ -17,11 +17,12 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
                     "Education Loan",
                     "Other Loan"
                     ];
-  const durationArray = ["1.5 Years - 18 Month", 
-                    "3 Years - 36 Month", 
-                    "5 Years - 60 Month",
-                    "8 Years - 96 Month",
-                    "10 Years - 120 Month"
+  const durationArray = [ 
+                    "<5 Years", 
+                    "<10 Years",
+                    "<15 Years",
+                    "<20 Years",
+                    "20> Years",
                     ];
 
   const bankArray = [""];
@@ -42,25 +43,17 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
 
   useEffect(() => {
 
-    const lastBank : string = findIdByName(banks[banks.length - 1]);
-
-    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?pagesize=${rowsnum}&pagenumber=${currentPage}&bank_id=${lastBank}`;
+    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/`;
       
-    if (loans[0]!=null){
-      const lastLoan : string = loans[loans.length - 1];
-      apiUrl += `&type=${lastLoan}`;
-    }
-
-
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setApiData(data.results);
-        setEntryCount(data.count)
+        setApiData(data);
+        setEntryCount(323)
         setError(false);
       })
       .catch(() => setError(true));
-  }, [rowsnum, currentPage, banks, loans]);
+  }, []);
 
 
   const handleChange = (option: string, category: number) => {
@@ -95,7 +88,8 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   };
 
   const lastIndex = lf[1];
-  const firstIndex = lf[0];  
+  const firstIndex = lf[0];
+  const currentItems = apiData.slice(firstIndex, lastIndex);
   const pageNav = useRef(null)
 
   useEffect(() => {
@@ -211,7 +205,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           <div>Loading</div>
           : 
           (
-              apiData.map((loan) => (
+              currentItems.map((loan) => (
                   <LoanRow
                     key={0}
                     min={loan.loan_min_limit}
