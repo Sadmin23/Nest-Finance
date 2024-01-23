@@ -41,8 +41,9 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
     setIsExpanded(!isExpanded);
   };
 
-  const rate = (interest!=null) ? `${interest} %` : 'No interest'
-  const Duration = (duration!=null) ? `${duration/12} Years` : 'No Duration'
+  const rate = (interest!=null) ? `${interest} %` : 'N/A'
+  const Duration = (duration!=null) ? `${duration/12} Years` : 'N/A'
+  const Grace = (grace_period!=null) ? `${grace_period} Years` : 'N/A'
 
   return (
     <div className='w-[764px] rounded-md border-2 border-[#D4D4D4]'>
@@ -59,9 +60,14 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
           </div>
           <div className='w-[142px] pl-6 border-r-2'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
-            <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>500,000 BDT</h1>
-            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[76px]'>Minimum: BDT {min}</h1>            
-            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[93px]'>Minimum: BDT {max}</h1>            
+            <div className="flex flex-col text-[#7B7B7B]">
+              <h1 className="text-xs leading-[14px] mt-4">Minimum:</h1>
+              <h1 className="text-xs leading-[14px] mt-1">৳ {min}</h1>
+            </div>
+            <div className="flex flex-col text-[#7B7B7B]">
+              <h1 className="text-xs leading-[14px] mt-6">Maximum:</h1>
+              <h1 className="text-xs leading-[14px] mt-1">৳ {max}</h1>
+            </div>
           </div>
           <div className='w-[134px] px-4 border-r-2 space-y-4'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A]'>Interest Type</h1>
@@ -70,10 +76,10 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
             <h1 className='text-xs font-medium leading-[14px] text-[#53389E]'>{rate}</h1>
           </div>
           <div className='w-[144px] px-4 border-r-2'>
-            <h1 className='etxt-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Loan Duration</h1>
+            <h1 className='font-medium leading-4 text-[#1A1A1A] w-[65px]'>Loan Duration</h1>
             <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>{Duration}</h1>
-            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-7 w-[63px]'>Minimum: 3 Years</h1>            
-            <h1 className='text-xs leading-[14px] text-[#7B7B7B] mt-4 w-[66px]'>Minimum: 20 Years</h1>            
+            <h1 className='font-medium leading-4 text-[#1A1A1A] w-[65px] mt-4'>Grace Period</h1>
+            <h1 className='text-xs font-medium leading-[14px] text-[#53389E] mt-4'>{Grace}</h1>  
           </div>
           <div className='w-[156px] space-y-12 my-auto'>
             <button className='rounded-md border-2 border-[#53389E] text-[#53389E] bg-white text-xs flex px-2 py-[6px] font-medium mx-auto' onClick={handleButtonClick}>

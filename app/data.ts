@@ -148,6 +148,20 @@ export interface NumOption {
     label: number;
 }
 
+const SortData = [
+    "Amount (Low > High)",
+    "Amount (High > Low)",
+    "Duration (Low > High)",
+    "Duration (High > Low)",
+    "Interest (Low > High)",
+    "Interest (High > Low)",
+]
+
+export const SortBy = SortData.map((val) => ({
+    value: val,
+    label: val,
+}));
+
 const BankInfo = [
     {id: '86d03fe0-9560-4fd0-a9da-94a08f5c79aa', name: 'AB Bank Limited'},
     {id: '594d3a08-8ebe-461e-9be5-d2e0a083576a', name: 'Agrani Bank Limited'},
@@ -246,24 +260,24 @@ export const Filter = [
     },
   ];
 
-  export const Filter2 = [
-    {
-      value: 5,
-      label: 5,
-    },
-    {
-      value: 10,
-      label: 10,
-    },
-    {
-        value: 20,
-        label: 20,
-    },
-    {
-        value: 50,
-        label: 50,
-    }
-  ];  
+export const Filter2 = [
+  {
+    value: 5,
+    label: 5,
+  },
+  {
+    value: 10,
+    label: 10,
+  },
+  {
+      value: 20,
+      label: 20,
+  },
+  {
+      value: 50,
+      label: 50,
+  }
+];  
 
 
   const ShortName = [

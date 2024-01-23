@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter2, NumOption, calculatePageRange, findIdByName, findNameById } from "@/app/data";
+import { Filter2, NumOption, SortBy, calculatePageRange, findIdByName, findNameById } from "@/app/data";
 
 const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, searchedLoan: string}): JSX.Element => {
 
@@ -219,9 +219,40 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             isSearchable={false}
             options={Filter2}
           />
-          <div contentEditable={true} className="flex border-[0.5px] text-center text-sm leading-5 border-[#B3B3B3] rounded-md  text-[#B3B3B3] px-4 py-2 items-center">
-              Sort By
-          </div>
+          <Select
+            styles={{
+              control: (baseStyles) => ({
+                ...baseStyles,
+                borderColor: '#B3B3B3', borderRadius: 12, borderWidth: 1,
+                color: '#B3B3B3', marginLeft: 16, marginRight: 16,
+                width: 112, height: 28, textAlign: 'center', fontSize: 14, paddingLeft: 12,
+                borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6
+              }),
+              indicatorSeparator: (baseStyles) => ({
+                ...baseStyles,
+                display: 'none'
+              }),
+              dropdownIndicator: (baseStyles) => ({
+                ...baseStyles,
+                paddingRight: 6,
+              }),
+              valueContainer: (baseStyles) => ({
+                ...baseStyles,
+                margin: '0 -16px',
+              }),
+              menu: (baseStyles) => ({
+                ...baseStyles,
+                width: 154,
+                marginLeft: 16,
+                fontSize: 12
+              }),
+            }}
+            isDisabled={error ? true : false}
+            placeholder="Sort By"
+            isSearchable={false}
+            isClearable={true}
+            options={SortBy}
+          />
         </div>
         <div className="space-y-9">
         {error ? 
