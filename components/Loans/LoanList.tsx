@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter, NumOption, calculatePageRange, findIdByName, findNameById } from "@/app/data";
+import { Filter2, NumOption, calculatePageRange, findIdByName, findNameById } from "@/app/data";
 
 const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, searchedLoan: string}): JSX.Element => {
 
@@ -42,7 +42,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [error, setError] = useState(true)
 
   useEffect(() => {
-    let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/';
+    let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/?';
     
     fetch(apiUrl)
       .then((response) => response.json())
@@ -190,17 +190,34 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             styles={{
               control: (baseStyles) => ({
                 ...baseStyles,
-                borderColor: '#53389E', borderRadius: 12, borderWidth: 1,
+                borderColor: '#B3B3B3', borderRadius: 12, borderWidth: 1,
                 color: '#B3B3B3', marginLeft: 16, marginRight: 16,
-                width: 72, height: 28, textAlign: 'center', fontSize: 14,
+                width: 54, height: 28, textAlign: 'center', fontSize: 14, paddingLeft: 12,
                 borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6
               }),
+              indicatorSeparator: (baseStyles) => ({
+                ...baseStyles,
+                display: 'none'
+              }),
+              dropdownIndicator: (baseStyles) => ({
+                ...baseStyles,
+                paddingRight: 6,
+              }),
+              valueContainer: (baseStyles) => ({
+                ...baseStyles,
+                margin: '0 -16px',
+              }),
+              menu: (baseStyles) => ({
+                ...baseStyles,
+                width: 54,
+                marginLeft: 16
+              }),
             }}
-            defaultValue={Filter[0]}
+            defaultValue={Filter2[0]}
             isDisabled={error ? true : false}
             onChange={handleRowsNumChange}
             isSearchable={false}
-            options={Filter}
+            options={Filter2}
           />
           <div contentEditable={true} className="flex border-[0.5px] text-center text-sm leading-5 border-[#B3B3B3] rounded-md  text-[#B3B3B3] px-4 py-2 items-center">
               Sort By

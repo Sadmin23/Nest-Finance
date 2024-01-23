@@ -246,6 +246,25 @@ export const Filter = [
     },
   ];
 
+  export const Filter2 = [
+    {
+      value: 5,
+      label: 5,
+    },
+    {
+      value: 10,
+      label: 10,
+    },
+    {
+        value: 20,
+        label: 20,
+    },
+    {
+        value: 50,
+        label: 50,
+    }
+  ];  
+
 
   const ShortName = [
     {id: 'AB Bank', name: 'AB Bank Limited'},
