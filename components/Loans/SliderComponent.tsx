@@ -11,11 +11,12 @@ interface SliderComponentProps {
   title: string;
   min: number;
   max: number;
+  step: number;
   onChange: (values: [number, number]) => void;
   value: number[];
 }
 
-const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, onChange, value }) => {
+const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, step, onChange, value }) => {
 
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -38,6 +39,7 @@ const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, onCh
             <Slider
               min={min}
               max={max}
+              step={step}
               onChange={(values) => onChange(values as [number, number])}
               value={value}
               range

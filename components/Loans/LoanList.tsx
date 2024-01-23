@@ -18,16 +18,16 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
                     "Other Loan"
                     ];
   const durationArray = [ 
-                    "<5 Years", 
-                    "<10 Years",
-                    "<15 Years",
-                    "<20 Years",
-                    "20> Years",
+                    "< 5 Years", 
+                    "< 10 Years",
+                    "< 15 Years",
+                    "< 20 Years",
+                    "20 > Years",
                     ];
 
   const bankArray = [""];
 
-  const [sliderValues, setSliderValues] = useState([0, 15000]);
+  const [sliderValues, setSliderValues] = useState([0, 5000000]);
   const [sliderValues2, setSliderValues2] = useState([0, 20]);
 
   const [lf, setLF] = useState([0,0]);
@@ -40,6 +40,23 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [apiData, setApiData] = useState<any[]>([])
   const [entryCount, setEntryCount] = useState(0);
   const [error, setError] = useState(true)
+
+  const filterLoansByDuration = (loanData : any, selectedDuration : string) => {
+    switch (selectedDuration) {
+      case "< 5 Years":
+        return loanData.filter((loan : any) => loan.duration < 60);
+      case "< 10 Years":
+        return loanData.filter((loan : any) => loan.duration < 120);
+      case "< 15 Years":
+        return loanData.filter((loan : any) => loan.duration < 180);
+      case "< 20 Years":
+        return loanData.filter((loan : any) => loan.duration < 240);
+      case "20 > Years":
+        return loanData.filter((loan : any) => loan.duration >= 240);
+      default:
+        return loanData;
+    }
+  };
 
   useEffect(() => {
     let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/?';
@@ -55,12 +72,13 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         if (banks.length !== 0)
           filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))
 
+        filteredData = filterLoansByDuration(filteredData, durations[0])
         setApiData(filteredData);
-        setEntryCount(filteredData.length); // Update entry count based on filtered data
+        setEntryCount(filteredData.length);
         setError(false);
       })
       .catch(() => setError(true));
-  }, [loans, banks]);  
+  }, [loans, banks, durations]);  
 
   const handleChange = (option: string, category: number) => {
     if (category === 1) {
@@ -82,6 +100,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         setDurations([...durations, option]);
       }
     }
+    setCurrentPage(1)
   };
   
   const checkBox = (option: string, category: number): boolean => {
@@ -95,7 +114,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
 
   const lastIndex = lf[1];
   const firstIndex = lf[0];
-  const currentItems = apiData.slice(firstIndex, lastIndex);
+  const currentItems = apiData.slice(firstIndex-1, lastIndex);
   const pageNav = useRef(null)
 
   useEffect(() => {
@@ -160,9 +179,10 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         <SelectOption title="Select your bank" types={bankArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
         <SelectOption title="Select Loan type" types={loanArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
         <SliderComponent
-          title="Loan Amount"
+          title="Minimum Loan Amount"
           min={0}
-          max={25000}
+          max={5000000}
+          step={100000}
           value={sliderValues}
           onChange={handleSliderChange}
         />
@@ -170,7 +190,8 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         <SliderComponent
           title="Rate of interest (ROI)"
           min={0}
-          max={100}
+          max={20}
+          step={1}
           value={sliderValues2}
           onChange={handleSliderChange2}
         />
@@ -259,7 +280,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           <div>Loading</div>
           : 
           (
-              currentItems.map((loan) => (
+              apiData.map((loan) => (
                   <LoanRow
                     key={0}
                     min={loan.loan_min_limit}
@@ -273,6 +294,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
                     type={loan.type}
                   />
               ))
+              // <div>{lf[0]} {lf[1]}</div>
           )} 
         </div>
         <div className="mt-[72px]">
