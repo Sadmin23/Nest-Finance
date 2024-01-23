@@ -149,18 +149,27 @@ export interface NumOption {
 }
 
 const SortData = [
-    "Amount (Low > High)",
-    "Amount (High > Low)",
-    "Duration (Low > High)",
-    "Duration (High > Low)",
-    "Interest (Low > High)",
-    "Interest (High > Low)",
+    "Amount ( Low > High )",
+    "Amount ( High > Low )",
+    "Duration ( Low > High )",
+    "Duration ( High > Low )",
+    "Interest ( Low > High )",
+    "Interest ( High > Low )",
 ]
 
-export const SortBy = SortData.map((val) => ({
-    value: val,
-    label: val,
-}));
+export const SortBy = [
+    {value: 'loan_min_limit', label: "Amount (Low > High)"},
+    {value: '-loan_min_limit', label: "Amount (High > Low)"},
+    {value: 'duration', label: "Duration (Low > High)"},
+    {value: '-duration', label: "Duration (High > Low)"},
+    {value: '', label: "Interest (Low > High)"},
+    {value: '', label: "Interest (High > Low)"},
+]
+
+// export const SortBy = SortData.map((val) => ({
+//     value: val,
+//     label: val,
+// }));
 
 const BankInfo = [
     {id: '86d03fe0-9560-4fd0-a9da-94a08f5c79aa', name: 'AB Bank Limited'},

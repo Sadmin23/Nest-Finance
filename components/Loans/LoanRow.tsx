@@ -44,6 +44,8 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
   const rate = (interest!=null) ? `${interest} %` : 'N/A'
   const Duration = (duration!=null) ? `${duration/12} Years` : 'N/A'
   const Grace = (grace_period!=null) ? `${grace_period} Years` : 'N/A'
+  const Max = (max!=null) ? `৳ ${max}` : 'N/A'
+  const Min = (min!=null) ? `৳ ${min}` : 'N/A'
 
   return (
     <div className='w-[764px] rounded-md border-2 border-[#D4D4D4]'>
@@ -62,11 +64,11 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
             <div className="flex flex-col text-[#7B7B7B]">
               <h1 className="text-xs leading-[14px] mt-4">Minimum:</h1>
-              <h1 className="text-xs leading-[14px] mt-1">৳ {min}</h1>
+              <h1 className="text-xs leading-[14px] mt-1">{Min}</h1>
             </div>
             <div className="flex flex-col text-[#7B7B7B]">
               <h1 className="text-xs leading-[14px] mt-6">Maximum:</h1>
-              <h1 className="text-xs leading-[14px] mt-1">৳ {max}</h1>
+              <h1 className="text-xs leading-[14px] mt-1">{Max}</h1>
             </div>
           </div>
           <div className='w-[134px] px-4 border-r-2 space-y-4'>

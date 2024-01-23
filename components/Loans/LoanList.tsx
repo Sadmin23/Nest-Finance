@@ -7,7 +7,7 @@ import SelectOption from "./SelectOption";
 import SmallSearchIcon from "../Icons/SmallSearchIcon";
 import PageNavigation from "../PageNavigation";
 import Select from 'react-select'
-import { Filter2, NumOption, SortBy, calculatePageRange, findIdByName, findNameById } from "@/app/data";
+import { Filter2, NumOption, Option, SortBy, calculatePageRange, findIdByName, findNameById } from "@/app/data";
 
 const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, searchedLoan: string}): JSX.Element => {
 
@@ -19,9 +19,9 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
                     ];
   const durationArray = [ 
                     "< 5 Years", 
-                    "< 10 Years",
-                    "< 15 Years",
-                    "< 20 Years",
+                    "5 Years > and < 10 Years",
+                    "10 Years > and < 15 Years",
+                    "15 Years > and < 20 Years",
                     "20 > Years",
                     ];
 
@@ -40,26 +40,44 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [apiData, setApiData] = useState<any[]>([])
   const [entryCount, setEntryCount] = useState(0);
   const [error, setError] = useState(true)
+  const [ordering, setOrdering] = useState("name")
 
-  const filterLoansByDuration = (loanData : any, selectedDuration : string) => {
-    switch (selectedDuration) {
-      case "< 5 Years":
-        return loanData.filter((loan : any) => loan.duration < 60);
-      case "< 10 Years":
-        return loanData.filter((loan : any) => loan.duration < 120);
-      case "< 15 Years":
-        return loanData.filter((loan : any) => loan.duration < 180);
-      case "< 20 Years":
-        return loanData.filter((loan : any) => loan.duration < 240);
-      case "20 > Years":
-        return loanData.filter((loan : any) => loan.duration >= 240);
-      default:
-        return loanData;
+  const filterLoansByDuration = (loanData: any, selectedDurations: string[]) => {
+    // If no durations are selected, return the original data
+    if (selectedDurations.length === 0) {
+      return loanData;
     }
+  
+    // Filter data based on selected durations
+    return loanData.filter((loan: any) => {
+      // Check if the loan duration is not null
+      if (loan.duration !== null) {
+        // Check if the loan duration matches any selected duration
+        return selectedDurations.some((selectedDuration) => {
+          switch (selectedDuration) {
+            case "< 5 Years":
+              return loan.duration < 60;
+            case "5 Years > and < 10 Years":
+              return loan.duration >= 60 && loan.duration < 120;
+            case "10 Years > and < 15 Years":
+              return loan.duration >= 120 && loan.duration < 180;
+            case "15 Years > and < 20 Years":
+              return loan.duration >= 180 && loan.duration < 240;
+            case "20 > Years":
+              return loan.duration >= 240;
+            default:
+              return false;
+          }
+        });
+      }
+  
+      // If loan duration is null, exclude it from the result
+      return false;
+    });
   };
 
   useEffect(() => {
-    let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/?';
+    let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/?ordering=name';
     
     fetch(apiUrl)
       .then((response) => response.json())
@@ -72,7 +90,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         if (banks.length !== 0)
           filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))
 
-        filteredData = filterLoansByDuration(filteredData, durations[0])
+        filteredData = filterLoansByDuration(filteredData, durations)
         setApiData(filteredData);
         setEntryCount(filteredData.length);
         setError(false);
@@ -150,6 +168,11 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
     const handleRowsNumChange = (selectedOption:NumOption | null) => {
       selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
       setCurrentPage(1);
+    };
+
+    const handleOrderChange = (selectedOption: Option | null) => {
+      // selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
+      // setCurrentPage(1);
     };
 
     const changePage = (n: number) => {
@@ -280,7 +303,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           <div>Loading</div>
           : 
           (
-              apiData.map((loan) => (
+              currentItems.map((loan) => (
                   <LoanRow
                     key={0}
                     min={loan.loan_min_limit}
@@ -294,7 +317,6 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
                     type={loan.type}
                   />
               ))
-              // <div>{lf[0]} {lf[1]}</div>
           )} 
         </div>
         <div className="mt-[72px]">
