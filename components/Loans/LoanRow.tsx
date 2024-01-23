@@ -25,10 +25,7 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
   const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
-    let apiUrl = `http://127.0.0.1:8000/bankapi/bank/${bank_id}/`;
-
-    console.log(apiUrl);
-    
+    let apiUrl = `http://127.0.0.1:8000/bankapi/bank/${bank_id}/`;    
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -42,7 +39,7 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
   };
 
   const rate = (interest!=null) ? `${interest} %` : 'N/A'
-  const Duration = (duration!=null) ? `${duration/12} Years` : 'N/A'
+  const Duration = (duration==null) ? 'N/A': (duration < 12) ? `${duration} Months` : `${duration/12} Years`
   const Grace = (grace_period!=null) ? `${grace_period} Years` : 'N/A'
   const Max = (max!=null) ? `৳ ${max}` : 'N/A'
   const Min = (min!=null) ? `৳ ${min}` : 'N/A'

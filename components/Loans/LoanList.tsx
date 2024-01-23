@@ -29,7 +29,6 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
 
   const [sliderValues, setSliderValues] = useState([0, 5000000]);
   const [sliderValues2, setSliderValues2] = useState([0, 20]);
-
   const [lf, setLF] = useState([0,0]);
   const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,16 +42,13 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [ordering, setOrdering] = useState("name")
 
   const filterLoansByDuration = (loanData: any, selectedDurations: string[]) => {
-    // If no durations are selected, return the original data
     if (selectedDurations.length === 0) {
       return loanData;
     }
   
-    // Filter data based on selected durations
     return loanData.filter((loan: any) => {
-      // Check if the loan duration is not null
+
       if (loan.duration !== null) {
-        // Check if the loan duration matches any selected duration
         return selectedDurations.some((selectedDuration) => {
           switch (selectedDuration) {
             case "< 5 Years":
@@ -70,14 +66,12 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           }
         });
       }
-  
-      // If loan duration is null, exclude it from the result
       return false;
     });
   };
 
   useEffect(() => {
-    let apiUrl = 'http://127.0.0.1:8000/bankapi/loan/?ordering=name';
+    let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?ordering=${ordering}`
     
     fetch(apiUrl)
       .then((response) => response.json())
@@ -90,13 +84,36 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         if (banks.length !== 0)
           filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))
 
+        if (ordering === '-duration') {
+          filteredData = filteredData.sort((a, b) => {
+            if (a.duration === null && b.duration !== null) return 1;
+            if (a.duration !== null && b.duration === null) return -1;
+            return 0;
+          });
+        } else if (ordering === '-loan_min_limit') {
+          filteredData = filteredData.sort((a, b) => {
+            if (a.loan_min_limit === null && b.loan_min_limit !== null) return 1;
+            if (a.loan_min_limit !== null && b.loan_min_limit === null) return -1;
+            return 0;
+          });
+        }
+
         filteredData = filterLoansByDuration(filteredData, durations)
+
+        filteredData = filteredData.filter(item => 
+          item.loan_min_limit >= sliderValues[0] && item.loan_min_limit <= sliderValues[1]
+        );
+
+        // console.log(sliderValues[0]);
+        // console.log(sliderValues[1]);
+
+        // filteredData = filteredData.loan_min_limit >= sliderValues[0] && filteredData.loan_min_limit < sliderValues[1]
         setApiData(filteredData);
         setEntryCount(filteredData.length);
         setError(false);
       })
       .catch(() => setError(true));
-  }, [loans, banks, durations]);  
+  }, [loans, banks, durations, ordering, sliderValues]);
 
   const handleChange = (option: string, category: number) => {
     if (category === 1) {
@@ -171,8 +188,8 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
     };
 
     const handleOrderChange = (selectedOption: Option | null) => {
-      // selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
-      // setCurrentPage(1);
+      selectedOption ? setOrdering(selectedOption.value) : setOrdering('name')
+      setCurrentPage(1);
     };
 
     const changePage = (n: number) => {
@@ -189,12 +206,12 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
     setCurrentPage(1);
   };
 
-  useEffect(() => {
-    console.log(banks);
-    console.log(loans);
-    console.log(durations);
+  // useEffect(() => {
+  //   console.log(banks);
+  //   console.log(loans);
+  //   console.log(durations);
     
-  }, [banks, loans, durations]);  
+  // }, [banks, loans, durations]);  
 
   return (
     <div className="mx-40 my-20 flex">
@@ -293,6 +310,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             }}
             isDisabled={error ? true : false}
             placeholder="Sort By"
+            onChange={handleOrderChange}
             isSearchable={false}
             isClearable={true}
             options={SortBy}
