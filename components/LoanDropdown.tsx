@@ -16,7 +16,7 @@ const LoanDropdown = (): JSX.Element => {
       </h2>
     </a>
     <a
-      href="/banks/private-bank"
+      href="/loans/Car-Loan"
       className="block mx-2 py-4 hover:bg-[#F0EBFF] space-y-2"
     >
       <h2 className='ml-6 text-[#53389E]'>
@@ -27,7 +27,7 @@ const LoanDropdown = (): JSX.Element => {
       </h2>
     </a>
     <a
-      href="/banks/private-bank"
+      href="/loans/Personal-Loan"
       className="block mx-2 py-4 hover:bg-[#F0EBFF] space-y-2"
     >
       <h2 className='ml-6 text-[#53389E]'>
@@ -38,7 +38,7 @@ const LoanDropdown = (): JSX.Element => {
       </h2>
     </a>
     <a
-      href="/banks/private-bank"
+      href="/loans/Education-Loan"
       className="block mx-2 py-4 hover:bg-[#F0EBFF] space-y-2"
     >
       <h2 className='ml-6 text-[#53389E]'>
@@ -49,7 +49,7 @@ const LoanDropdown = (): JSX.Element => {
       </h2>
     </a> 
     <a
-      href="/banks"
+      href="/loans/Other-Loan"
       className="block mx-2 pt-4 pb-6 hover:bg-[#F0EBFF] space-y-2"
     >
       <h2 className='ml-6 text-[#53389E]'>

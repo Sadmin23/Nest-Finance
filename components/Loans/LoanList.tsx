@@ -33,8 +33,8 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [banks, setBanks] = useState<string[]>([]);
-  const [loans, setLoans] = useState<string[]>([]);
+  const [banks, setBanks] = useState<string[]>([searchedBank]);
+  const [loans, setLoans] = useState<string[]>([searchedLoan]);
   const [durations, setDurations] = useState<string[]>([]);
   const [apiData, setApiData] = useState<any[]>([])
   const [entryCount, setEntryCount] = useState(0);
@@ -84,6 +84,12 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         if (banks.length !== 0)
           filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))
 
+        if (searchedBank.length === 0)
+          setBanks([])
+
+        if (searchedLoan.length === 0)
+          setLoans([])          
+
         if (ordering === '-duration') {
           filteredData = filteredData.sort((a, b) => {
             if (a.duration === null && b.duration !== null) return 1;
@@ -104,10 +110,6 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           item.loan_min_limit >= sliderValues[0] && item.loan_min_limit <= sliderValues[1]
         );
 
-        // console.log(sliderValues[0]);
-        // console.log(sliderValues[1]);
-
-        // filteredData = filteredData.loan_min_limit >= sliderValues[0] && filteredData.loan_min_limit < sliderValues[1]
         setApiData(filteredData);
         setEntryCount(filteredData.length);
         setError(false);
