@@ -162,8 +162,8 @@ export const SortBy = [
     {value: '-loan_min_limit', label: "Amount (High > Low)"},
     {value: 'duration', label: "Duration (Low > High)"},
     {value: '-duration', label: "Duration (High > Low)"},
-    {value: '', label: "Interest (Low > High)"},
-    {value: '', label: "Interest (High > Low)"},
+    {value: 'interest', label: "Interest (Low > High)"},
+    {value: '-interest', label: "Interest (High > Low)"},
 ]
 
 // export const SortBy = SortData.map((val) => ({

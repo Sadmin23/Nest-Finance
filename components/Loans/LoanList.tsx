@@ -41,6 +41,19 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [error, setError] = useState(true)
   const [ordering, setOrdering] = useState("name")
 
+  function extractInterestRate(interestRate : string | null) {
+    if (interestRate && typeof interestRate === 'string') {
+      const rangeMatch = interestRate.match(/(\d+(\.\d+)?)\s*-\s*(\d+(\.\d+)?)/);
+      
+      if (rangeMatch) {
+        return parseFloat(rangeMatch[1]);
+      } else {
+        return parseFloat(interestRate);
+      }
+    }
+    return null
+  }
+
   const filterLoansByDuration = (loanData: any, selectedDurations: string[]) => {
     if (selectedDurations.length === 0) {
       return loanData;
@@ -102,6 +115,30 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             if (a.loan_min_limit !== null && b.loan_min_limit === null) return -1;
             return 0;
           });
+        } else if (ordering === 'interest') {
+          filteredData = filteredData.sort((a, b) => {
+            const interestRateA = extractInterestRate(a.interest_rate);
+            const interestRateB = extractInterestRate(b.interest_rate);
+        
+            // Handle null values
+            if (interestRateA === null && interestRateB !== null) return 1;
+            if (interestRateA !== null && interestRateB === null) return -1;
+        
+            // Sort by interest rate in ascending order
+            return interestRateA - interestRateB;
+          });
+        } else if (ordering === '-interest') {
+          filteredData = filteredData.sort((a, b) => {
+            const interestRateA = extractInterestRate(a.interest_rate);
+            const interestRateB = extractInterestRate(b.interest_rate);
+        
+            // Handle null values
+            if (interestRateA === null && interestRateB !== null) return 1;
+            if (interestRateA !== null && interestRateB === null) return -1;
+        
+            // Sort by interest rate in descending order
+            return interestRateB - interestRateA;
+          });
         }
 
         filteredData = filterLoansByDuration(filteredData, durations)
@@ -110,12 +147,19 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           item.loan_min_limit >= sliderValues[0] && item.loan_min_limit <= sliderValues[1]
         );
 
+        filteredData = filteredData.filter(item => {
+          const itemInterestRate = extractInterestRate(item.interest_rate);
+          
+          // Check if interest rate is within the specified range or is null
+          return (itemInterestRate !== null && itemInterestRate >= sliderValues2[0] && itemInterestRate <= sliderValues2[1]) || item.interest_rate === null;
+        });
+
         setApiData(filteredData);
         setEntryCount(filteredData.length);
         setError(false);
       })
       .catch(() => setError(true));
-  }, [loans, banks, durations, ordering, sliderValues]);
+  }, [loans, banks, durations, ordering, sliderValues, sliderValues2]);
 
   const handleChange = (option: string, category: number) => {
     if (category === 1) {
@@ -233,7 +277,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           title="Rate of interest (ROI)"
           min={0}
           max={20}
-          step={1}
+          step={0.5}
           value={sliderValues2}
           onChange={handleSliderChange2}
         />
