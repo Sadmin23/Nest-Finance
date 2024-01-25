@@ -41,6 +41,7 @@ const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, step
               max={max}
               step={step}
               onChange={(values) => onChange(values as [number, number])}
+              allowCross = {false}
               value={value}
               range
               trackStyle={{ 

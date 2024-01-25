@@ -18,11 +18,11 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
                     "Other Loan"
                     ];
   const durationArray = [ 
-                    "< 5 Years", 
-                    "5 Years > and < 10 Years",
-                    "10 Years > and < 15 Years",
-                    "15 Years > and < 20 Years",
-                    "20 > Years",
+                    "less than 5 years", 
+                    "from 5 to 10 years",
+                    "from 10 to 15 years",
+                    "from 15 to 20 years",
+                    "more than 20 years",
                     ];
 
   const bankArray = [""];
@@ -64,15 +64,15 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
       if (loan.duration !== null) {
         return selectedDurations.some((selectedDuration) => {
           switch (selectedDuration) {
-            case "< 5 Years":
+            case "less than 5 years":
               return loan.duration < 60;
-            case "5 Years > and < 10 Years":
+            case "from 5 to 10 years":
               return loan.duration >= 60 && loan.duration < 120;
-            case "10 Years > and < 15 Years":
+            case "from 10 to 15 years":
               return loan.duration >= 120 && loan.duration < 180;
-            case "15 Years > and < 20 Years":
+            case "from 15 to 20 years":
               return loan.duration >= 180 && loan.duration < 240;
-            case "20 > Years":
+            case "more than 20 years":
               return loan.duration >= 240;
             default:
               return false;
@@ -83,25 +83,28 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
     });
   };
 
+  useEffect(()=>{
+    if (searchedBank.length === 0)
+    setBanks([])
+
+  if (searchedLoan.length === 0)
+    setLoans([])
+  }, [])
+
   useEffect(() => {
     let apiUrl = `http://127.0.0.1:8000/bankapi/loan/?ordering=${ordering}`
     
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
+
         let filteredData = data;
 
         if (loans.length !== 0)
           filteredData = filteredData.filter(item => loans.includes(item.type))
 
         if (banks.length !== 0)
-          filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))
-
-        if (searchedBank.length === 0)
-          setBanks([])
-
-        if (searchedLoan.length === 0)
-          setLoans([])          
+          filteredData = filteredData.filter(item => banks.includes(findNameById(item.bank_id)))         
 
         if (ordering === '-duration') {
           filteredData = filteredData.sort((a, b) => {
