@@ -32,7 +32,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   const [lf, setLF] = useState([0,0]);
   const [rowsnum, setRowsnum] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [searchValue, setSearchValue] = useState('');
   const [banks, setBanks] = useState<string[]>([searchedBank]);
   const [loans, setLoans] = useState<string[]>([searchedLoan]);
   const [durations, setDurations] = useState<string[]>([]);
@@ -123,11 +123,9 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             const interestRateA = extractInterestRate(a.interest_rate);
             const interestRateB = extractInterestRate(b.interest_rate);
         
-            // Handle null values
             if (interestRateA === null && interestRateB !== null) return 1;
             if (interestRateA !== null && interestRateB === null) return -1;
         
-            // Sort by interest rate in ascending order
             return interestRateA - interestRateB;
           });
         } else if (ordering === '-interest') {
@@ -135,11 +133,9 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             const interestRateA = extractInterestRate(a.interest_rate);
             const interestRateB = extractInterestRate(b.interest_rate);
         
-            // Handle null values
             if (interestRateA === null && interestRateB !== null) return 1;
             if (interestRateA !== null && interestRateB === null) return -1;
         
-            // Sort by interest rate in descending order
             return interestRateB - interestRateA;
           });
         }
@@ -152,17 +148,19 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
 
         filteredData = filteredData.filter(item => {
           const itemInterestRate = extractInterestRate(item.interest_rate);
-          
-          // Check if interest rate is within the specified range or is null
           return (itemInterestRate !== null && itemInterestRate >= sliderValues2[0] && itemInterestRate <= sliderValues2[1]) || item.interest_rate === null;
         });
+
+        filteredData = filteredData.filter(item =>
+          item.name.toLowerCase().includes(searchValue.toLowerCase())
+        );
 
         setApiData(filteredData);
         setEntryCount(filteredData.length);
         setError(false);
       })
       .catch(() => setError(true));
-  }, [loans, banks, durations, ordering, sliderValues, sliderValues2]);
+  }, [loans, banks, durations, ordering, sliderValues, sliderValues2, searchValue]);
 
   const handleChange = (option: string, category: number) => {
     if (category === 1) {
@@ -187,6 +185,10 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
     setCurrentPage(1)
   };
   
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+
   const checkBox = (option: string, category: number): boolean => {
     if (category === 1)
       return banks.includes(option);
@@ -292,6 +294,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             <input
               className="h-11 w-full border-[0.5px] border-[#D4D4D4] rounded-md pl-12 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
               placeholder="Search your desired bank loans"
+              onChange={handleInputChange}
             />
             <SmallSearchIcon/>
           </div>

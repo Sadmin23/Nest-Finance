@@ -13,11 +13,11 @@ const InputSlider: React.FC<InputSliderProps> = ({ type, value, onChange }) => {
   let max, step
 
   if (type === 1){
-    max = 1000000
-    step = 50000
+    max = 750000000
+    step = 100000
 
   } else if (type === 2){
-    max = 50
+    max = 20
     step = 2.5
 
   } else if (type === 3){
@@ -25,7 +25,7 @@ const InputSlider: React.FC<InputSliderProps> = ({ type, value, onChange }) => {
     step = 6
 
   } else if (type === 4){
-    max = 10
+    max = 25
     step = 1
 
   }

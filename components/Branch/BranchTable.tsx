@@ -82,7 +82,6 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
     const handleRowsNumChange = (selectedOption:NumOption | null) => {
       selectedOption ? setRowsnum(selectedOption.value) : setRowsnum(5)
       setCurrentPage(1)
-      // selectedOption ? setCurrentPage(Math.ceil(lastIndex/selectedOption.value)) : ''
     };
 
     const changePage = (n: number) => {

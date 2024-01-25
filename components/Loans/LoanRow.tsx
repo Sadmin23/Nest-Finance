@@ -59,11 +59,11 @@ const LoanRow = ({ min, max, interest, grace_period, interest_type, duration, ba
           </div>
           <div className='w-[142px] pl-6 border-r-2'>
             <h1 className='text-base font-medium leading-4 text-[#1A1A1A] w-[65px]'>Total Amount</h1>
-            <div className="flex flex-col text-[#7B7B7B]">
+            <div className="flex flex-col text-[#53389E] font-medium">
               <h1 className="text-xs leading-[14px] mt-4">Minimum:</h1>
               <h1 className="text-xs leading-[14px] mt-1">{Min}</h1>
             </div>
-            <div className="flex flex-col text-[#7B7B7B]">
+            <div className="flex flex-col text-[#53389E] font-medium">
               <h1 className="text-xs leading-[14px] mt-6">Maximum:</h1>
               <h1 className="text-xs leading-[14px] mt-1">{Max}</h1>
             </div>
