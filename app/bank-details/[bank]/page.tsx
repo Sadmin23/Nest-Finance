@@ -2,6 +2,7 @@
 
 import NavButton from "@/components/Buttons/NavButton";
 import Nav from "@/components/Nav";
+import PopularBanksList from "@/components/PopularBanksList";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -33,7 +34,7 @@ const BankDetails = (props: any) => {
   return (
     <div className='flex-col'>
       <Nav bgOption='white' />
-      <div className="flex mx-40 bg-slate-100 my-16">
+      <div className="flex mx-40 my-16">
         <div className="w-8/12 p-10 border-2 bg-white rounded-md">
           <div className="flex items-start">
             <Image
@@ -109,7 +110,19 @@ const BankDetails = (props: any) => {
             </section>
           </footer>
         </div>
-        <div className="bg-slate-600 w-4/12 ml-10"></div>
+        <div className="w-1/3 ml-10 space-y-10">
+          <h1 className="font-bold text-xl">Popular Banks List</h1>
+          <section className="space-y-12">
+            <PopularBanksList/>
+            <PopularBanksList/>
+            <PopularBanksList/>
+            <PopularBanksList/>
+            <PopularBanksList/>
+            <PopularBanksList/>
+            <PopularBanksList/>
+            <PopularBanksList/>
+          </section>
+        </div>
       </div>
     </div>
   );
