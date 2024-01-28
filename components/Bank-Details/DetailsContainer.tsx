@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MainInfo from './main-info';
+import MainInfo from './MainInfo';
 import Details from './Details';
 import NavButton from '../Buttons/NavButton';
 

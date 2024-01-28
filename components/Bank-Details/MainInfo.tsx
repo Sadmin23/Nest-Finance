@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import Link from 'next/link';
 
 interface Props {
     image_url: string;
@@ -24,6 +25,9 @@ const MainInfo: React.FC<Props> = ({
     website,
     email,
     }) => {
+
+    let link = "https://" + website;
+
     return (
         <div className="flex items-start">
         <Image
@@ -54,9 +58,9 @@ const MainInfo: React.FC<Props> = ({
             </span>
             <span className="flex space-x-2">
               <h2 className="font-semibold">Website:</h2>
-              <a href={website} target="_blank" rel="noopener noreferrer">
+              <Link href={link}>
                 {website}
-              </a>
+              </Link>
             </span>
             {
               (email!==null) ?(

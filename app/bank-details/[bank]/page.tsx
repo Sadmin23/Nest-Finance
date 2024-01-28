@@ -1,6 +1,5 @@
 'use client'
 
-import NavButton from "@/components/Buttons/NavButton";
 import Nav from "@/components/Nav";
 import DetailsContainer from "@/components/Bank-Details/DetailsContainer";
 import PopularBanks from "@/components/Bank-Details/PopularBanks";
