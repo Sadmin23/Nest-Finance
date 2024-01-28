@@ -47,7 +47,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <NFLogoSmall/>
         </Link>
       </div>
-      <div className={`h-full text-[#F0EBFF] font-medium space-x-12 flex`}>
+      <div className={`h-full text-white font-medium space-x-12 flex`}>
         <Link href="/" className='ml-4 my-auto relative inline-block group'>
           Home
           {underline}  
@@ -56,7 +56,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Link href="/banks">Banks
           {underline}
           </Link>
-          <NavDropdown/>
+          <NavDropdown type={1}/>
           {isBankOpen && <BankDropdown/>}
         </section>
         <Link href="/branch-list" className='my-auto inline-block relative group'>
@@ -73,28 +73,24 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
             {underline}
           </Link>
             {isLoanOpen && <LoanDropdown/>}
-          <NavDropdown/>
+          <NavDropdown type={1}/>
         </section>
-        <section className='flex space-x-2 my-auto items-center inline-block relative group'>
+        <section className='flex space-x-2 text-[#ac99d9] my-auto items-center inline-block relative group'>
           <Link href="/loans">
             Account
-            {underline}
           </Link>
-          <NavDropdown/>
+          <NavDropdown type={0}/>
         </section>
-        <section className='flex space-x-2 my-auto items-center relative inline-block group'>
+        <section className='flex space-x-2 my-auto text-[#ac99d9] items-center relative inline-block group'>
           <Link href="/loans">
             Card
-            {underline}
           </Link>
-          <NavDropdown/>
+          <NavDropdown type={0}/>
         </section>
-        <Link href="/atm" className='my-auto relative inline-block group'>
+        <Link href="/atm" className='my-auto relative text-[#ac99d9] inline-block group'>
           Compare
-          {underline}
         </Link>
       </div>
-
     </div>
   );
 };

@@ -3,9 +3,9 @@
 const LeftArrow = (): JSX.Element => {
 
   return (
-    <svg className="my-auto mr-16" xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
-      <path d="M24.5 16L16.5 24M16.5 24L24.5 32M16.5 24L32.5 24M44.5 24C44.5 35.0457 35.5457 44 24.5 44C13.4543 44 4.5 35.0457 4.5 24C4.5 12.9543 13.4543 4 24.5 4C35.5457 4 44.5 12.9543 44.5 24Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
+        <path d="M26.5 30L20.5 24L26.5 18M42.5 24C42.5 14.0589 34.4411 6 24.5 6C14.5589 6 6.5 14.0589 6.5 24C6.5 33.9411 14.5589 42 24.5 42C34.4411 42 42.5 33.9411 42.5 24Z" stroke="#CC8C4D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
   );
 };
 export default LeftArrow;
