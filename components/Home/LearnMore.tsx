@@ -5,12 +5,12 @@ import PlaySvg from '../Icons/PlayIcon';
 
 const LearnMore = (): JSX.Element => {
   return (
-    <section className='bg-[#FFEEDD] flex'>
-        <div className='ml-40 mt-16'>
-            <h1 className='text-[28px] font-semibold leading-normal w-[565px] text-[#1D2939]'>
+    <section className='bg-[#FFEEDD] xl:flex py-14 px-14 lg:px-20 xl:px-40'>
+        <div className='w-full xl:w-1/2'>
+            <h1 className='text-[28px] font-semibold leading-normal text-[#1D2939]'>
                 Get even more financial clarity with Nest Finance.
             </h1>
-            <h2 className='mt-6 w-[662px]'>
+            <h2 className='mt-6'>
             See all your savings, credit cards, and investments together in one place. 
             With everything connected, you'll get timely nerdy insights so you can be sure you're making
              the right financial decisions for you. Best of all, it's free.
@@ -23,14 +23,13 @@ const LearnMore = (): JSX.Element => {
                 </button>
             </div>
         </div>
-        <div className='my-[50px] ml-auto mr-40'>
-            <Image
-              src="/brand_assets/manIllustr.png"
-              width={300}
-              height={40}
-              alt="Picture"
-            />
-        </div>
+        <Image
+          src="/brand_assets/manIllustr.png"
+          width={300}
+          height={40}
+          alt="Picture"
+          className='mx-auto xl:ml-auto mt-10 xl:mt-0'
+        />
     </section>
   );
 };

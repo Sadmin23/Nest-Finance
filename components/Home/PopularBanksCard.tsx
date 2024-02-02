@@ -74,12 +74,12 @@ const PopularBanksCard = ({ x }: { x: number }): JSX.Element => {
           width={111}
           height={600}
           alt="bg"
-          className='mt-8'
+          className='w-72'
         />
   }
 
   return (
-    <section className='w-[165px] h-[207px] rounded-2xl border-2 border-[#53389E] flex flex-col justify-center items-center'>
+    <section className='w-72 xl:w-44 h-[207px] rounded-2xl border-2 border-[#53389E] flex flex-col justify-center items-center'>
       {content}
       <h2 className='font-medium leading-normal text-[#53389E] mt-auto mb-7'>Bank details</h2>
     </section>

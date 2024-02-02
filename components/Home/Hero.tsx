@@ -8,7 +8,7 @@ const Hero = (): JSX.Element => {
         <div className='font-inter font-normal text-base'>
           <h3 className='text-[#E9D7FE] font-semibold tracking-wide'>Fast. Simple. Banking</h3>
         </div>
-        <div className="mx-auto tracking-wide font-semibold text-[40px] text-gray-50 w-[600px] my-[26px]">
+        <div className="mx-auto tracking-wide font-semibold text-[40px] text-gray-50 w-[90vw] my-[26px] lg:w-[600px]">
           <h1>Keep spending with the best cards.</h1>
         </div>
         <div className='text-center font-inter text-[18px]  text-gray-800 font-semibold leading-normal'>
@@ -21,7 +21,7 @@ const Hero = (): JSX.Element => {
           alt="blob"
           className='mx-auto pt-20'
         />
-        <section className=''>
+       <section className=''>
           <div className='flex absolute mx-auto left-0 right-0 top-[324px] w-[762px] space-x-[444px] justify-center'>
             <FloatingButtons x={1}/>
             <FloatingButtons x={4}/>
