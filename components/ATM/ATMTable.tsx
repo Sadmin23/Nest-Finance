@@ -106,7 +106,7 @@ const ATMTable = ({ searchedBank }: { searchedBank: string }): JSX.Element => {
 
   return (
         <div className="flex-col">
-          <section className='mx-40'>
+          <section className='mx-20 xl:mx-40'>
             <ATMHero/>
             <div className='flex items-center my-8'>
               <div className="flex items-center relative">
