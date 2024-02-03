@@ -60,10 +60,10 @@ const LoansHero = (): JSX.Element => {
   }, [loanAmount, loanDuration, rateOfInterest]);
 
   return (
-    <div className='bg-white mx-40 mt-12 mb-[70px] rounded-md'>
+    <div className='bg-white mx-10 md:mx-20 xl:mx-40 mt-12 mb-[70px] rounded-md'>
       <h1 className='text-xl font-semibold text-[#53389E] ml-12 py-6'>Calculate your monthly installment (EMI)</h1>
-      <div className='border-t-2 flex'>
-        <section className="pl-12 py-8 space-y-4">
+      <div className='border-t-2 xl:flex'>
+        <section className="pl-8 md:pl-12 py-8 space-y-4 border-2">
           <CalculatorInput type={1} value={loanAmount} output={monthlyEMI} onChange={changeDurationType} handleChange={handleLoanAmountChange}/>
           <CalculatorInput type={durationType} value={loanDuration} output={totalInterest} onChange={changeDurationType} handleChange={handleLoanDurationChange}/>
           <CalculatorInput type={2} value={rateOfInterest} output={totalPayable} onChange={changeDurationType} handleChange={handleRateOfInterestChange}/>

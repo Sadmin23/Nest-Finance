@@ -41,18 +41,18 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
     <div className='absolute h-[2px] w-full bg-[#F0EBFF] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
 
   return (
-    <div className={`flex items-end h-24 px-40 ${bg}`}>
+    <div className={`flex items-end h-24 px-10 md:px-20 lg:px-40 ${bg}`}>
       <div className='mr-auto my-auto'>
         <Link href="/" className='text-white'>
           <NFLogoSmall/>
         </Link>
       </div>
-      <div className={`h-full text-white font-medium space-x-12 flex`}>
+      <div className={`hidden xl:flex h-full text-white font-medium space-x-8 xl:space-x-12`}>
         <Link href="/" className='ml-4 my-auto relative inline-block group'>
           Home
           {underline}  
         </Link>
-        <section className='relative flex space-x-2 items-center inline-block group' onMouseEnter={toggleDropdownBank} onMouseLeave={closeDropdownBank}>
+        <section className='relative flex items-center inline-block group' onMouseEnter={toggleDropdownBank} onMouseLeave={closeDropdownBank}>
           <Link href="/banks">Banks
           {underline}
           </Link>
@@ -67,7 +67,7 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           ATMs
           {underline}
         </Link>
-        <section className='relative flex space-x-2 items-center inline-block group' onMouseEnter={toggleDropdownLoan} onMouseLeave={closeDropdownLoan}>
+        <section className='relative flex items-center inline-block group' onMouseEnter={toggleDropdownLoan} onMouseLeave={closeDropdownLoan}>
           <Link href="/loans">
             Loans
             {underline}
@@ -75,13 +75,13 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
             {isLoanOpen && <LoanDropdown/>}
           <NavDropdown type={1}/>
         </section>
-        <section className='flex space-x-2 text-[#ac99d9] my-auto items-center inline-block relative group'>
+        <section className='flex text-[#ac99d9] my-auto items-center inline-block relative group'>
           <Link href="/loans">
             Account
           </Link>
           <NavDropdown type={0}/>
         </section>
-        <section className='flex space-x-2 my-auto text-[#ac99d9] items-center relative inline-block group'>
+        <section className='flex my-auto text-[#ac99d9] items-center relative inline-block group'>
           <Link href="/loans">
             Card
           </Link>

@@ -38,19 +38,18 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, output, 
   }
 
   return (
-    <div className={`flex ${alignment}`}>
-      <div className="flex">
-        <div className='w-64 pl-2 pt-2'>
-          <h2>{heading}</h2>
-          {type === 1 && <InputSlider type={type} value={value} onChange={handleChange} />}
-          {(type === 3 || type === 4) && <InputSlider type={type} value={value} onChange={handleChange} />}
-          {type === 2 && <InputSlider type={type} value={value} onChange={handleChange} />}
-          </div>
-          <Input 
-            type={type} 
-            onChange={onChange} 
-            value={value} />
-        </div>
+    <div className={`md:flex space-x-[6vw] lg:space-x-[12vw] xl:space-x-[3vw] ${alignment}`}>
+      <div className='w-64 pl-2 pt-2'>
+        <h2>{heading}</h2>
+        {type === 1 && <InputSlider type={type} value={value} onChange={handleChange} />}
+        {(type === 3 || type === 4) && <InputSlider type={type} value={value} onChange={handleChange} />}
+        {type === 2 && <InputSlider type={type} value={value} onChange={handleChange} />}
+      </div>
+      <Input 
+          type={type} 
+          onChange={onChange} 
+          value={value}
+      />
       <Output label={label} value={output}/>
   </div>
   );

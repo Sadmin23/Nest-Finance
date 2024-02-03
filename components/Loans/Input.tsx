@@ -55,7 +55,7 @@ const Input: React.FC<InputProps> = ({ type, value, onChange}) => {
   }
 
   return (
-    <div className="ml-6 h-11 flex">
+    <div className="h-11 flex">
     <div className={`${length} text-[#53389E] font-medium flex bg-white border-[#D3D3D3] border-y border-l rounded-l-md py-2 pl-2`}>
         {value}
     </div>

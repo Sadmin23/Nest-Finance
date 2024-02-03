@@ -50,6 +50,7 @@ const InputSlider: React.FC<InputSliderProps> = ({ type, value, onChange }) => {
       width: 16,
       backgroundColor: "#CAC1E1"
     }}
+    className=''
     />
   );
 };
