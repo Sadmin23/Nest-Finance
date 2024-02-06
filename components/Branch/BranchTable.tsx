@@ -108,7 +108,7 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
             <div className='flex items-center my-8'>
               <div className="flex items-center relative">
                   <input
-                      className="border w-72 border-[#53389E] h-10 rounded-xl py-4 pl-14"
+                      className="border w-72 border-[#B3B3B3] h-10 rounded-md py-4 pl-14 hover:border-[#53389E] focus:outline-0"
                       placeholder="Search branch"
                       onChange={handleInputChange}            
                   />
@@ -124,8 +124,12 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                     styles={{
                       control: (baseStyles) => ({
                         ...baseStyles,
-                        borderColor: '#53389E',
-                        borderRadius: 12,
+                        borderColor: '#B3B3B3',
+                        boxShadow: 'none',
+                        '&:hover': {
+                          border: '1px solid #53389E',
+                        },
+                        borderRadius: 6,
                         borderWidth: 1,
                         color: '#B3B3B3',
                         marginLeft: 16,
@@ -133,6 +137,11 @@ const BranchTable = ({ searchedBank }: { searchedBank: string }): JSX.Element =>
                         width: 84,
                         height: 28,
                         textAlign: 'center',
+                      }),
+                      menu: (baseStyles) => ({
+                        ...baseStyles,
+                        width: 84,
+                        marginLeft: 16
                       }),
                     }}
                     defaultValue={Filter[0]}

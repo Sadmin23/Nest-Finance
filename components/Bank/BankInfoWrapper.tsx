@@ -65,7 +65,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
           <div className='flex'>
             <div className="flex items-center relative">
                 <input
-                    className="border-2 border-[#B3B3B3] h-10 rounded-xl w-[376px] py-4 pl-[72px]"
+                    className="border border-[#B3B3B3] h-10 rounded-md w-[376px] py-4 pl-[72px] hover:border-[#53389E] focus:outline-0"
                     placeholder="Search your desire bank"
                     onChange={handleInputChange}            
                 />

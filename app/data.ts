@@ -149,6 +149,7 @@ export interface NumOption {
 }
 
 const SortData = [
+    "Default",
     "Amount ( Low > High )",
     "Amount ( High > Low )",
     "Duration ( Low > High )",
@@ -158,6 +159,7 @@ const SortData = [
 ]
 
 export const SortBy = [
+    {value: 'name', label: "Default"},
     {value: 'loan_min_limit', label: "Amount (Low > High)"},
     {value: '-loan_min_limit', label: "Amount (High > Low)"},
     {value: 'duration', label: "Duration (Low > High)"},

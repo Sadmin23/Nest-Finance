@@ -5,7 +5,7 @@ import PlaySvg from '../Icons/PlayIcon';
 
 const LearnMore = (): JSX.Element => {
   return (
-    <section className='bg-[#FFEEDD] xl:flex py-14 px-14 lg:px-20 xl:px-40'>
+    <section className='bg-[#FFEEDD] md:flex py-14 px-14 lg:px-20 xl:px-40'>
         <div className='w-full xl:w-1/2'>
             <h1 className='text-[28px] font-semibold leading-normal text-[#1D2939]'>
                 Get even more financial clarity with Nest Finance.

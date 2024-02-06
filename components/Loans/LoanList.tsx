@@ -267,8 +267,8 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
   return (
     <div className="mx-40 my-20 flex">
       <div className="w-96 flex-col space-y-6">
-        <SelectOption title="Select your bank" types={bankArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
-        <SelectOption title="Select Loan type" types={loanArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
+        <SelectOption title="Select your bank" types={bankArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank} count={banks.length}/>
+        <SelectOption title="Select Loan type" types={loanArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank} count={loans.length}/>
         <SliderComponent
           title="Minimum Loan Amount"
           min={0}
@@ -277,7 +277,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
           value={sliderValues}
           onChange={handleSliderChange}
         />
-        <SelectOption title="Loan Duration" types={durationArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank}/>
+        <SelectOption title="Loan Duration" types={durationArray} handleChange={handleChange} checkBox={checkBox} bank={searchedBank} count={durations.length}/>
         <SliderComponent
           title="Rate of interest (ROI)"
           min={0}
@@ -292,7 +292,7 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
         <div className="flex mt-8 mb-12 items-center">
           <div className="relative w-[286px] flex items-center">
             <input
-              className="h-11 w-full border-[0.5px] border-[#D4D4D4] rounded-md pl-12 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
+              className="h-11 w-full border border-[#B3B3B3] rounded-md pl-12 pr-4 py-2 font-normal text-sm hover:border-[#53389E] focus:outline-0"
               placeholder="Search your desired bank loans"
               onChange={handleInputChange}
             />
@@ -303,10 +303,11 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             styles={{
               control: (baseStyles) => ({
                 ...baseStyles,
-                borderColor: '#B3B3B3', borderRadius: 12, borderWidth: 1,
+                borderColor: '#B3B3B3', borderRadius: 6, borderWidth: 1,
                 color: '#B3B3B3', marginLeft: 16, marginRight: 16,
                 width: 54, height: 28, textAlign: 'center', fontSize: 14, paddingLeft: 12,
-                borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6
+                borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6,
+                boxShadow: 'none', '&:hover': { border: '1px solid #53389E'}
               }),
               indicatorSeparator: (baseStyles) => ({
                 ...baseStyles,
@@ -332,14 +333,16 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
             isSearchable={false}
             options={Filter2}
           />
+          <h1 className="leading-10 font-normal">Sort By</h1>
           <Select
             styles={{
               control: (baseStyles) => ({
                 ...baseStyles,
-                borderColor: '#B3B3B3', borderRadius: 12, borderWidth: 1,
+                borderColor: '#B3B3B3', borderRadius: 6, borderWidth: 1,
                 color: '#B3B3B3', marginLeft: 16, marginRight: 16,
-                width: 112, height: 28, textAlign: 'center', fontSize: 14, paddingLeft: 12,
-                borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6
+                width: 154, height: 28, textAlign: 'left', fontSize: 14, paddingLeft: 16,
+                borderTopRightRadius : 6, borderTopLeftRadius : 6, borderBottomRightRadius : 6, borderBottomLeftRadius : 6,
+                boxShadow: 'none', '&:hover': { border: '1px solid #53389E'}
               }),
               indicatorSeparator: (baseStyles) => ({
                 ...baseStyles,
@@ -361,10 +364,9 @@ const LoanList = ({ searchedBank, searchedLoan }: { searchedBank: string, search
               }),
             }}
             isDisabled={error ? true : false}
-            placeholder="Sort By"
+            placeholder="Default"
             onChange={handleOrderChange}
             isSearchable={false}
-            isClearable={true}
             options={SortBy}
           />
         </div>

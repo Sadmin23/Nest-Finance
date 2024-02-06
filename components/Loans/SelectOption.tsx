@@ -13,9 +13,10 @@ interface SelectOptionProps {
   handleChange: (option: string, category: number) => void;
   checkBox: (bank: string, category: number) => boolean;
   bank: string;
+  count: number;
 }
 
-const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOptionProps): JSX.Element => {
+const SelectOption = ({ types, title, handleChange, checkBox, bank, count }: SelectOptionProps): JSX.Element => {
 
   let isBank = false
   let group = 0;
@@ -29,6 +30,7 @@ const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOpti
   else if (title === "Loan Duration")
     group = 3
 
+  const [heading, setHeading] = useState(title);    
   const [data, setData] = useState<string[]>(types);
   const [filteredData, setFilteredData] = useState<string[]>(types);
   const [searchValue, setSearchValue] = useState('');
@@ -77,10 +79,16 @@ const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOpti
 
   let num = selectedBanks.length - 2
 
+  let TopHeading = title
+
+  useEffect(() => {
+    count === 0 ? setHeading(TopHeading) : setHeading(`${TopHeading} (${count})`)
+  }, [count])
+
   return (
     <div className='bg-white rounded-md border border-[#d4d4d4]'>
         <div className="flex items-center mx-9 ">
-          <h1 className="text-lg py-4 font-medium mr-auto">{title}</h1>
+          <h1 className="text-lg py-4 font-medium mr-auto">{heading}</h1>
           <button onClick={handleButtonClick}>
             {isExpanded ? <Dropdown/> : <Dropup/>}
           </button>
@@ -90,7 +98,7 @@ const SelectOption = ({ types, title, handleChange, checkBox, bank }: SelectOpti
             <div className="border-t border-[#DFDFDF]"></div>
             <div className="relative w-[300px] my-4 flex items-center mx-auto">
               <input
-                className="h-9 w-full border-[0.5px] border-[#53389E] rounded-md pl-11 pr-4 py-2 font-normal text-sm text-[#B3B3B3] placeholder-[#B3B3B3] placeholder-opacity-50"
+                className="h-9 w-full border border-[#B3B3B3] rounded-md pl-11 pr-4 py-2 font-normal text-sm hover:border-[#53389E] focus:outline-0"
                 placeholder="Search bank"
                 onChange={handleInputChange}            
               />

@@ -33,8 +33,12 @@ type SearchDropdownProps = {
         styles={{
           control: (baseStyles) => ({
             ...baseStyles,
-            borderColor: '#53389E',
-            borderRadius: 12,
+            borderColor: '#B3B3B3',
+            boxShadow: 'none',
+            '&:hover': {
+                border: '1px solid #53389E',
+            },
+            borderRadius: 6,
             borderWidth: 1,
             color: '#B3B3B3',
             paddingRight: 16,

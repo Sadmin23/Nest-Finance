@@ -16,14 +16,14 @@ const Input: React.FC<InputProps> = ({ type, value, onChange}) => {
   if (type===1){
     length = 'w-28'
     children = 
-      <div className="w-7 bg-[#53389E] py-3 rounded-r-md border-[#D3D3D3] border-r border-y">
+      <div className="w-7 bg-[#53389E] py-3 rounded-r-md border-[#53389E] border-r border-y">
         <TakaWhite/>
       </div>
   }
   else if (type===2){
     length = 'w-28'
     children =
-    <div className="w-7 bg-[#53389E] py-2 px-[7px] text-white font-medium rounded-r-md border-[#D3D3D3] border-r border-y">
+    <div className="w-7 bg-[#53389E] py-2 px-[7px] text-white font-medium rounded-r-md border-[#53389E] border-r border-y">
         %
     </div>
   }
@@ -40,18 +40,18 @@ const Input: React.FC<InputProps> = ({ type, value, onChange}) => {
 
     length = 'w-[84px]'
 
-    let selected = 'text-white bg-[#53389E]'
-    let unselected = 'text-[#B8B8B8] bg-[#EAEAEA]'
+    let selected = 'text-white bg-[#53389E] border-[#53389E]'
+    let unselected = 'text-[#B8B8B8] bg-[#EAEAEA] border-[#EAEAEA]'
 
     children =
     <div className="flex h-11">
-        <div onClick={handleClickMonth} className={`w-7 text-xs font-medium px-[3px] py-3 border-[#D3D3D3] border-y  ${type===3 ? selected : unselected}`}>
+        <button onClick={handleClickMonth} className={`w-7 text-xs font-medium px-[3px] py-3 border-y  ${type===3 ? selected : unselected}`}>
           MO
-        </div>
-        <div onClick={handleClickYear} className={`w-7 text-xs font-medium px-[6px] py-3 rounded-r-md border-[#D3D3D3] border-r border-y ${type===4 ? selected : unselected}`}>
+        </button>
+        <button onClick={handleClickYear} className={`w-7 text-xs font-medium px-[6px] py-3 rounded-r-md border-r border-y ${type===4 ? selected : unselected}`}>
           YR
-        </div>
-      </div>
+        </button>
+    </div>
   }
 
   return (
