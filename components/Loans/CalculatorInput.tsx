@@ -38,7 +38,7 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, output, 
   }
 
   return (
-    <div className={`md:flex space-x-[6vw] lg:space-x-[12vw] xl:space-x-[3vw] ${alignment}`}>
+    <div className={`md:flex space-x-[6vw] lg:space-x-[12vw] xl:space-x-[2vw] ${alignment}`}>
       <div className='w-64 pl-2 pt-2'>
         <h2>{heading}</h2>
         {type === 1 && <InputSlider type={type} value={value} onChange={handleChange} />}

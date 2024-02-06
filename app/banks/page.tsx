@@ -8,7 +8,6 @@ const Banks = () => {
   return (
     <div className='flex-col'>
         <Nav bgOption='white'/>
-        <BankListHero/>
         <BankInfoWrapper selectedType=''/>
     </div>
   );

@@ -5,6 +5,7 @@ import BankInfoCard from "./BankInfoCard";
 import SearchIcon from "../Icons/SearchIcon";
 import { Option } from "@/app/data";
 import SearchDropdown from "../SearchDropdown";
+import BankListHero from "./BankListHero";
 
 
 const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Element => {
@@ -61,7 +62,8 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     
     return (
       <main className="flex-col">
-        <div className='mx-40 mb-12'>
+        <section className='mx-20 xl:mx-40 mb-12'>
+          <BankListHero/>
           <div className='flex'>
             <div className="flex items-center relative">
                 <input
@@ -75,7 +77,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
               <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
             </div>
           </div>
-        </div>
+        </section>
         <div className="flex-col space-y-9 mb-12">
                 {Array.from({ length: displayedRows }, (_, rowIndex) => (
                     <div key={rowIndex} className="flex mx-40 space-x-9">
