@@ -6,6 +6,7 @@ import LearnMore from '@/components/Home/LearnMore';
 import PopularBanks from '@/components/Home/PopularBanks';
 import Testemonial from '@/components/Home/Testemonial';
 import Subscription from '@/components/Home/Subscription';
+import CarouselTestemonial from '@/components/Home/CarouselTestemonial';
 
 const Home = () => {
 

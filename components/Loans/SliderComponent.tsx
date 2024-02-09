@@ -64,8 +64,8 @@ const SliderComponent: React.FC<SliderComponentProps> = ({ title, min, max, step
               }}
               />
             <div className='mt-10 -ml-2 flex space-x-32'>
-              <span className='w-[100px] h-[50px] rounded-md border-2 border-[#D3D3D3] text-center text-[#1A1A1A] font-medium py-3'>{value[0]}</span>
-              <span className='w-[100px] h-[50px] rounded-md border-2 border-[#D3D3D3] text-center text-[#1A1A1A] font-medium py-3'>{value[1]}</span>        
+              <span className='w-[100px] h-9 px-3 rounded-md border-2 border-[#D3D3D3] text-center text-[#1A1A1A] font-medium pt-1'>{value[0]}</span>
+              <span className='w-[100px] h-9 px-3 rounded-md border-2 border-[#D3D3D3] text-center text-[#1A1A1A] font-medium pt-1'>{value[1]}</span>        
             </div>
           </div>
         </main>

@@ -1,6 +1,5 @@
 'use client';
 import BankInfoWrapper from '@/components/Bank/BankInfoWrapper';
-import BankListHero from '@/components/Bank/BankListHero';
 import Nav from '@/components/Nav';
 
 const Banks = () => {

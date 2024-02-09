@@ -7,6 +7,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/react-tailwindcss-datepicker/dist/index.esm.js',
+    'node_modules/flowbite-react/lib/esm/**/*.js',
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -78,5 +79,7 @@ module.exports = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    require('flowbite/plugin'),
+  ]
 };
