@@ -67,7 +67,7 @@ export default async function RootLayout({
               <main>{children}</main>
             </ReactQueryProvider>
         </Suspense>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

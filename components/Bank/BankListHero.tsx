@@ -15,7 +15,7 @@ const BankListHero = (): JSX.Element => {
           </div>
           <Image
             src="/brand_assets/bankimage.png"
-            width={396}
+            width={300}
             height={272}
             alt="bg"
             className='mx-auto md:ml-auto'

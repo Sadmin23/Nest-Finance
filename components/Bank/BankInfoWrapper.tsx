@@ -14,7 +14,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState('');
     const [bankType, setBankType] = useState<string | null>(selectedType)
-    const [displayedRows, setDisplayedRows] = useState(3);
+    const [displayedItems, setDisplayedRows] = useState(9);
 
     const options = [
       { value: 'Public Bank', label: 'Public Bank' },
@@ -24,7 +24,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     let selectedOption = {value: selectedType, label: selectedType}
 
     const handleLoadMore = () => {
-      setDisplayedRows(displayedRows + 3);
+      setDisplayedRows(displayedItems + 9);
   };
 
     useEffect(() => {
@@ -41,9 +41,6 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
         })
         .catch(() => '');
     }, [bankType]);
-    
-    const itemsPerRow = 3;
-    const numberOfRows = Math.ceil(filteredData.length / itemsPerRow);
 
     useEffect(() => {
         const filtered = data.filter((item) =>
@@ -61,10 +58,10 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     }
     
     return (
-      <main className="flex-col">
-        <section className='mx-20 xl:mx-40 mb-12'>
+      <main className="px-10">
+        <section className="max-w-7xl mx-auto">
           <BankListHero/>
-          <div className='flex'>
+          <div className='flex flex-wrap mb-9 gap-y-6 justify-between'>
             <div className="flex items-center relative">
                 <input
                     className="border border-[#B3B3B3] h-10 rounded-md w-[376px] py-4 pl-[72px] hover:border-[#53389E] focus:outline-0"
@@ -73,37 +70,35 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
                 />
                 <SearchIcon/>
             </div>
-            <div className="ml-auto">
-              <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
-            </div>
+            <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
+
           </div>
-        </section>
-        <div className="flex-col space-y-9 mb-12">
-                {Array.from({ length: displayedRows }, (_, rowIndex) => (
-                    <div key={rowIndex} className="flex mx-40 space-x-9">
-                        {filteredData
-                            .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
+          <div className="container my-12 mx-auto px-4 md:px-12">
+                  <div className="flex flex-wrap -mx-1 lg:-mx-16">
+                          {filteredData
+                            .slice(0, displayedItems)
                             .map((bank, index) => (
-                                <BankInfoCard
-                                    key={index}
-                                    name={bank.name}
-                                    url={bank.image_url}
-                                    type={bank.type}
-                                    category={bank.category}
-                                    origin={bank.origin}
-                                />
-                            ))}
-                    </div>
-                ))}
-            </div>
-            {filteredData.length > displayedRows *3 && (
+                                  <BankInfoCard
+                                      key={index}
+                                      name={bank.name}
+                                      url={bank.image_url}
+                                      type={bank.type}
+                                      category={bank.category}
+                                      origin={bank.origin}
+                                  />
+                              ))}
+                      </div>
+                  
+              {filteredData.length > displayedItems && (
                 <div className="flex justify-center mb-12">
-                    <button className="bg-[#53389E] text-white py-4 px-7 rounded" onClick={handleLoadMore}>
-                        Show more bank details
-                    </button>
-                </div>
-            )}
-      </main>  
+                      <button className="bg-[#53389E] text-white py-4 px-7 rounded" onClick={handleLoadMore}>
+                          Show more bank details
+                      </button>
+                  </div>
+              )}
+            </div>
+        </section>
+      </main>
     );
 };
 
