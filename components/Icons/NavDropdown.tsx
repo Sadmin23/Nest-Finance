@@ -1,5 +1,7 @@
 'use client';
 
+import Image from "next/image";
+
 const NavDropdown = ({type} : {type : number}): JSX.Element => {
 
   let colour = "";
@@ -8,9 +10,7 @@ const NavDropdown = ({type} : {type : number}): JSX.Element => {
 
   return (
     <button>
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-          <path d="M6.5 9L12.5 15L18.5 9" stroke={colour} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+      <Image src='/brand_assets/dropdown.png' width={16} height={10160} alt='dropdown' className="ml-1"/>
     </button>
   );
 };

@@ -69,7 +69,7 @@ const PieChart3D: React.FC<PieChart3DProps> = ({ principal, interest }) => {
   }, [interest, principal]);
 
   return (
-    <div id="chartdiv" className='border-2 w-full mt-4 h-96 xl:h-72'/>
+    <div id="chartdiv" className='w-full mt-4 h-96 xl:h-72'/>
   );
 };
 

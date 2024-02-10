@@ -14,7 +14,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState('');
     const [bankType, setBankType] = useState<string | null>(selectedType)
-    const [displayedItems, setDisplayedRows] = useState(9);
+    const [displayedItems, setDisplayedRows] = useState(12);
 
     const options = [
       { value: 'Public Bank', label: 'Public Bank' },
@@ -24,7 +24,7 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     let selectedOption = {value: selectedType, label: selectedType}
 
     const handleLoadMore = () => {
-      setDisplayedRows(displayedItems + 9);
+      setDisplayedRows(displayedItems + 12);
   };
 
     useEffect(() => {
@@ -58,23 +58,34 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
     }
     
     return (
-      <main className="px-10">
-        <section className="max-w-7xl mx-auto">
-          <BankListHero/>
-          <div className='flex flex-wrap mb-9 gap-y-6 justify-between'>
-            <div className="flex items-center relative">
-                <input
-                    className="border border-[#B3B3B3] h-10 rounded-md w-[376px] py-4 pl-[72px] hover:border-[#53389E] focus:outline-0"
-                    placeholder="Search your desire bank"
-                    onChange={handleInputChange}            
-                />
-                <SearchIcon/>
-            </div>
-            <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
-
-          </div>
-          <div className="container my-12 mx-auto px-4 md:px-12">
-                  <div className="flex flex-wrap -mx-1 lg:-mx-16">
+      // <main className="px-10">
+      //   <section className="max-w-7xl mx-auto">
+      //     <BankListHero/>
+      //     <div className='flex flex-wrap mb-9 gap-y-6 justify-between'>
+      //       <div className="flex items-center relative">
+      //           <input
+      //               className="border border-[#B3B3B3] h-10 rounded-md w-[376px] py-4 pl-[72px] hover:border-[#53389E] focus:outline-0"
+      //               placeholder="Search your desire bank"
+      //               onChange={handleInputChange}            
+      //           />
+      //           <SearchIcon/>
+      //       </div>
+      //       <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
+      //     </div>
+          <div className="my-12 mx-auto sm:px-10 xl:max-w-7xl">
+            <BankListHero/>
+           <div className='flex flex-wrap mb-9 gap-y-6 justify-between'>
+             <div className="flex items-center relative">
+                 <input
+                     className="border border-[#B3B3B3] h-10 rounded-md w-[376px] py-4 pl-[72px] hover:border-[#53389E] focus:outline-0"
+                     placeholder="Search your desire bank"
+                     onChange={handleInputChange}            
+                 />
+                 <SearchIcon/>
+             </div>
+             <SearchDropdown option={options} width='64' name='Bank type' searchable={false} defaultOption={selectedOption} onChange={handleTypeChange} />
+           </div>
+                  <div className="flex flex-wrap -mx-1 lg:-mx-4">
                           {filteredData
                             .slice(0, displayedItems)
                             .map((bank, index) => (
@@ -97,8 +108,8 @@ const BankInfoWrapper = ({ selectedType }: { selectedType: string }): JSX.Elemen
                   </div>
               )}
             </div>
-        </section>
-      </main>
+      //   </section>
+      // </main>
     );
 };
 

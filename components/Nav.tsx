@@ -79,13 +79,11 @@ const Nav = ({ bgOption }: { bgOption: string }): JSX.Element => {
           <Link href="/loans">
             Account
           </Link>
-          <NavDropdown type={0}/>
         </section>
         <section className='flex my-auto text-[#ac99d9] items-center relative inline-block group'>
           <Link href="/loans">
             Card
           </Link>
-          <NavDropdown type={0}/>
         </section>
         <Link href="/atm" className='my-auto relative text-[#ac99d9] inline-block group'>
           Compare

@@ -21,20 +21,23 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, output, 
     }
   }, [type]);
 
-  let label="", heading, alignment
+  let label="", heading, alignment, formattedValue
 
   if (type === 1){
       heading = "Loan Amount"
       label = "Monthly EMI"
+      formattedValue = Intl.NumberFormat("en-US").format(value);
       alignment='items-start'
   } else if (type === 3 || type === 4){
       heading = "Loan Duration"
       label = "Total Interest"
+      formattedValue = value
       alignment='items-center'
   } else if (type === 2){
       heading = "Rate of Interest (ROI)"
       label = "Total Payable"
       alignment='items-end'
+      formattedValue = value
   }
 
   return (
@@ -48,7 +51,7 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ type, value, output, 
       <Input 
           type={type} 
           onChange={onChange} 
-          value={value}
+          value={formattedValue}
       />
       <Output label={label} value={output}/>
   </div>
