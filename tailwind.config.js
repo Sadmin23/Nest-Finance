@@ -1,15 +1,20 @@
 /** @type {import('tailwindcss').Config} */
+const {nextui} = require("@nextui-org/react");
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/react-tailwindcss-datepicker/dist/index.esm.js',
+    'node_modules/flowbite-react/lib/esm/**/*.js',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       screens: {
         sm: '480px',
+        xm: '720px',
         md: '768px',
         lg: '976px',
         xl: '1240px',
@@ -74,4 +79,8 @@ module.exports = {
       },
     },
   },
+  darkMode: "class",
+  plugins: [
+    require('flowbite/plugin'),
+  ]
 };

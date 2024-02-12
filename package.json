@@ -10,9 +10,16 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.38",
+    "@amcharts/amcharts4-fonts": "^4.0.1",
+    "@amcharts/amcharts4-geodata": "^4.1.28",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^1.0.6",
     "@iconify/react": "^4.1.0",
+    "@nextui-org/react": "^2.2.9",
+    "@nextui-org/slider": "^2.2.5",
+    "@nextui-org/system": "^2.0.15",
+    "@nextui-org/theme": "^2.1.17",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
@@ -23,14 +30,22 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "formik": "^2.4.2",
+    "framer-motion": "^10.17.5",
     "next": "13.4.5",
     "next-auth": "^4.22.1",
+    "next-range-slider": "^1.0.5",
     "postcss": "8.4.24",
+    "primereact": "^10.2.1",
+    "rc-slider": "^10.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-query": "^3.39.3",
+    "react-router-dom": "^6.15.0",
+    "react-select": "^5.8.0",
+    "reactjs-popup": "^2.0.6",
     "tailwind-datepicker-react": "^1.3.0",
     "tailwindcss": "3.3.2",
+    "typeface-poppins": "^1.1.13",
     "typescript": "5.1.3",
     "yup": "^1.2.0",
     "zod": "^3.21.4"
@@ -38,6 +53,7 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
+    "@types/react-slider": "^1.3.6",
     "prettier": "^2.8.8"
   }
 }

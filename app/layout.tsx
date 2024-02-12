@@ -1,7 +1,8 @@
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
-import Nav from '../components/Nav';
+import { NextUIProvider } from "@nextui-org/react";
 import { ReactQueryProvider } from '@/components/React-query-provider';
+import Footer from '../components/Footer';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
@@ -39,7 +40,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>{metadata.title.default}</title>
+        <title>Nest Finance</title>
         <link
           rel="icon"
           href="\favicon.ico"
@@ -60,14 +61,13 @@ export default async function RootLayout({
         />
         {roboto}
       </head>
-      {/* <body className="bg-white text-black selection:bg-teal-300 dark:bg-black dark:text-white dark:selection:bg-fuchsia-600 dark:selection:text-white"> */}
-      <body className="bg-white text-black selection:bg-teal-300">
-        <Nav />
+      <body className="bg-[#FAFAFA] text-black selection:bg-teal-300">
         <Suspense>
-          <ReactQueryProvider>
-            <main>{children}</main>
-          </ReactQueryProvider>
+            <ReactQueryProvider>
+              <main>{children}</main>
+            </ReactQueryProvider>
         </Suspense>
+        {/* <Footer /> */}
       </body>
     </html>
   );
