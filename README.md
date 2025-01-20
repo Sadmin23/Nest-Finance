@@ -9,9 +9,6 @@
 
 **Nest Finance** is a web application designed to provide comprehensive information about all banks in Bangladesh. It includes details on ATMs, branch locations, and available loan options. The project focuses on delivering a user-friendly frontend interface for easy navigation and information retrieval.
 
-## Screenshots
-
-
 ## Tech/Framework used
 
 This project incorporates a range of technologies and frameworks, including:
@@ -25,3 +22,14 @@ This project incorporates a range of technologies and frameworks, including:
 - Axios: A promise-based HTTP client for making API requests in JavaScript applications
 - Redux-Thunk: A middleware for Redux that enables asynchronous logic to be handled in actions
 - React Router: A library for managing client-side routing in React applications
+
+## Screenshots
+
+### Home Page
+![Home Page](https://github.com/user-attachments/assets/404bba31-da1a-4ba3-9d09-08fd150506b9)
+### Bank List
+![Bank list](https://github.com/user-attachments/assets/892e4db4-0367-42a1-a045-c709aa60fa19)
+### Branch List
+![Branch list](https://github.com/user-attachments/assets/39f50bf5-d447-4fc9-824a-d720ab52e9aa)
+### Loan
+![Loan](https://github.com/user-attachments/assets/3501d794-5160-4d55-a42d-db9ab31d376a)
